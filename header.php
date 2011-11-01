@@ -37,13 +37,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+    <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_url' ); ?>/bootstrap.css" />
+
+
     <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
@@ -61,12 +59,8 @@
     <div class="topbar">
       <div class="fill">
         <div class="container">
-          <a class="brand" href="#">Project name</a>
-          <ul class="nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+          <a class="brand" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+          <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
         </div>
       </div>
     </div>

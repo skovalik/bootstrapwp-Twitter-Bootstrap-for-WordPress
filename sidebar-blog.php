@@ -9,7 +9,7 @@
 ?>
 <div class="span4">
             <?
-    if ( function_exists('dynamic_sidebar')) dynamic_sidebar("sidebar-page");
+    if ( function_exists('dynamic_sidebar')) dynamic_sidebar("sidebar-posts");
 ?>
 
           </div><!-- /.span4 -->
