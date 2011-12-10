@@ -12,7 +12,6 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
   <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <title><?php
   /*
    * Print the <title> tag based on what is being viewed.
@@ -34,12 +33,15 @@
     echo ' | ' . sprintf( __( 'Page %s', 'toolbox' ), max( $paged, $page ) );
 
   ?></title>
+    <meta charset="<?php bloginfo( 'charset' ); ?>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <link rel="profile" href="http://gmpg.org/xfn/11" />
-    <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+   
     <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_url' ); ?>/bootstrap.css" />
+     <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 
 
     <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
@@ -56,11 +58,11 @@
   <body <?php body_class(); ?>>
 
 
-    <div class="topbar">
-      <div class="fill">
+    <div class="navbar navbar-fixed" data-scrollspy="scrollspy">
+      <div class="navbar-inner">
         <div class="container">
           <a class="brand" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-          <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+          <?php wp_nav_menu( array( 'menu' => 'main-menu', 'container' => false, 'menu_class' => 'nav', 'menu_id' => 'main-menu' ) ); ?>
         </div>
       </div>
     </div>

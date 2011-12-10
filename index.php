@@ -16,29 +16,68 @@
 get_header(); ?>
 <div class="container">
 
-      <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="hero-unit">
-        <h1>Hello, world!</h1>
-        <p>Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-        <p><a class="btn primary large">Learn more &raquo;</a></p>
-      </div>
+      <header class="jumbotron masthead">
+          <div class="inner">
+            <h1>Bootstrap,<br> for WordPress</h1>
+         <p class="lead">Bootstrap is a responsive frontend toolkit from Twitter designed to kickstart web development, complete with core HTML, CSS, and JS for grids, type, forms, navigation, and many more components. Now you can use it to with <strong>WordPress</strong> to build custom themes quickly and easily.</p>
+         <p class="download-info">
+              <a href="https://github.com/rachelbaker/bootstrap-theme-for-WordPress" class="btn primary btn-large">Download on GitHub</a>
+            <a href="./scaffolding.html" class="btn btn-large">Get started</a>
+              Currently v2.0.0</p>
+             <div class="benefits">
+              <h4>Feature highlights</h4>
+              <ul>
+                <li><span>&times;</span> Built on LESS</li>
+                <li><span>&times;</span> Complete styleguide docs</li>
+                <li><span>&times;</span> Fully responsive design</li>
+                <li><span>&times;</span> Small footprint (7kb gzipped)</li>
+                <li><span>&times;</span> Support for IE7 and up</li>
+                <li><span>&times;</span> Custom jQuery plugins</li>
+                <li><span>&times;</span> Dozens of components</li>
+              </ul>
+            </div>
+          </div>
+        </header>
+       
+<ul class="quick-links">
+          <li><a href="https://github.com/rachelbaker/bootstrap-theme-for-WordPress">GitHub</a></li>
+          <li><a href="https://github.com/twitter/bootstrap/issues?state=open">Issues</a></li>
+          <li><a href="http://www.rachelbaker.me">RachelBaker.me</a></li>
+          <li><a href="http://www.wordpress.org">WordPress</a></li>
+          <li class="divider">&middot;</li>
+          <li>
+            <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=rachelbaker&repo=bootstrap-theme-for-WordPress&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+          </li>
+          <li>
+            <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=rachelbaker&repo=bootstrap-theme-for-WordPress&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="94px" height="20px"></iframe>
+          </li>
+
+
+          <li class="divider">&middot;</li>
+          <li class="follow-btn">
+            <a href="https://twitter.com/rachelbaker" class="twitter-follow-button" data-width="145px" data-link-color="#0069D6" data-show-count="false">Follow @rachelbaker</a><script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+          </li>
+          <!--<li class="tweet-btn">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://twitter.github.com/bootstrap/" data-count="horizontal" data-via="twbootstrap" data-related="mdo:Creator of Twitter Bootstrap">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+          </li> -->
+        </ul>
 
       <!-- Example row of columns -->
       <div class="row">
-        <div class="span-one-third">
-          <h2>Heading</h2>
-          <p>Etiam porta sem malesuada magna mollis euismod. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+        <div class="span4">
+          <?php
+    if ( function_exists('dynamic_sidebar')) dynamic_sidebar("home-left");
+?>
         </div>
-        <div class="span-one-third">
-          <h2>Heading</h2>
-           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+        <div class="span4">
+          <?php
+    if ( function_exists('dynamic_sidebar')) dynamic_sidebar("home-middle");
+?>
        </div>
-        <div class="span-one-third">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+        <div class="span4">
+          <?php
+    if ( function_exists('dynamic_sidebar')) dynamic_sidebar("home-right");
+?>
         </div>
       </div>
       <?php get_footer();?>

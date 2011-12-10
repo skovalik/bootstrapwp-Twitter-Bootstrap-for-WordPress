@@ -1,6 +1,6 @@
 <?php
 /**
- * bootstrap functions and definitions
+ * Bootstrap functions and definitions
  *
  * Sets up the theme and provides some helper functions. Some helper functions
  * are used in the theme as custom template tags. Others are attached to action and
@@ -22,19 +22,22 @@
  * @subpackage WP-Bootstrap
  * @since WP-Bootstrap 0.1
  */
+/**
+ * 
+ * 
+* This theme uses wp_nav_menu() in one location.
+	 */
+if ( function_exists( 'register_nav_menu' ) ) {
+register_nav_menu( 'main-menu', 'Main Menu' );
+}
 
-function bootstrap_theme_setup() {
+function bootstrapwp_theme_setup() {
 	/**
 	 * Add default posts and comments RSS feed links to head
 	 */
 	add_theme_support( 'automatic-feed-links' );
 
-	/**
-	 * This theme uses wp_nav_menu() in one location.
-	 */
-	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'bootstrap' ),
-	) );
+	
 
 	/**
 	 * Add support for the Aside and Gallery Post Formats
@@ -42,21 +45,35 @@ function bootstrap_theme_setup() {
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'gallery' ) );
 }
 
-
+/**
+ * Load Javascript in footer for some of the more common Twitter Bootstrap JS Features
+ */
+  function bootstrapwp_js_loader() {
+    if (!is_admin() ) {
+      wp_enqueue_script('dropdown.js', get_template_directory_uri().'/js/bootstrap-dropdown.js', array('jquery'),'1.0', true );
+      wp_enqueue_script('scrollspy.js', get_template_directory_uri().'/js/bootstrap-scrollspy.js', array('jquery'),'1.0', true );
+      wp_enqueue_script('tab.js', get_template_directory_uri().'/js/bootstrap-tab.js', array('jquery'),'1.0', true );
+      wp_enqueue_script('popover.js', get_template_directory_uri().'/js/bootstrap-popover.js', array('jquery'),'1.0', true );
+      wp_enqueue_script('alert.js', get_template_directory_uri().'/js/bootstrap-alert.js', array('jquery'),'1.0', true );
+      wp_enqueue_script('button.js', get_template_directory_uri().'/js/bootstrap-button.js', array('jquery'),'1.0', true );
+      }
+      }
+      add_action('wp_print_scripts', 'bootstrapwp_js_loader');
 
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
  */
-function bootstrap_page_menu_args( $args ) {
+function bootstrapwp_page_menu_args( $args ) {
 	$args['show_home'] = true;
 	return $args;
 }
-add_filter( 'wp_page_menu_args', 'bootstrap_page_menu_args' );
+add_filter( 'wp_page_menu_args', 'bootstrapwp_page_menu_args' );
+
 
 /**
  * Register widgetized area and update sidebar with default widgets
  */
-function bootstrap_widgets_init() {
+function bootstrapwp_widgets_init() {
 	register_sidebar( array(
 		'name' => 'Page Sidebar',
 		'id' => 'sidebar-page',
@@ -74,33 +91,64 @@ function bootstrap_widgets_init() {
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	) );
-}
-add_action( 'init', 'bootstrap_widgets_init' );
 
-if ( ! function_exists( 'bootstrap_content_nav' ) ):
+  register_sidebar(array(
+    'name' => 'Home Left',
+    'id'   => 'home-left',
+    'description'   => 'Left textbox on homepage',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h2>',
+    'after_title'   => '</h2>'
+  ));
+
+    register_sidebar(array(
+    'name' => 'Home Middle',
+    'id'   => 'home-middle',
+    'description'   => 'Middle textbox on homepage',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h2>',
+    'after_title'   => '</h2>'
+  ));
+
+    register_sidebar(array(
+    'name' => 'Home Right',
+    'id'   => 'home-right',
+    'description'   => 'Right textbox on homepage',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h2>',
+    'after_title'   => '</h2>'
+  ));
+
+}
+add_action( 'init', 'bootstrapwp_widgets_init' );
+
+if ( ! function_exists( 'bootstrapwp_content_nav' ) ):
 /**
  * Display navigation to next/previous pages when applicable
  */
-function bootstrap_content_nav( $nav_id ) {
+function bootstrapwp_content_nav( $nav_id ) {
 	global $wp_query;
 
 	?>
 	<nav id="<?php echo $nav_id; ?>">
-		<h1 class="assistive-text section-heading"><?php _e( 'Post navigation', 'bootstrap' ); ?></h1>
+		<h1 class="assistive-text section-heading"><?php _e( 'Post navigation', 'bootstrapwp' ); ?></h1>
 
 	<?php if ( is_single() ) : // navigation links for single posts ?>
 
-		<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'bootstrap' ) . '</span> %title' ); ?>
-		<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'bootstrap' ) . '</span>' ); ?>
+		<?php previous_post_link( '<div class="pagination">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'bootstrapwp' ) . '</span> %title' ); ?>
+		<?php next_post_link( '<div class="pagination">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'bootstrapwp' ) . '</span>' ); ?>
 
 	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
 
 		<?php if ( get_next_posts_link() ) : ?>
-		<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'bootstrap' ) ); ?></div>
+		<div class="pagination"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'bootstrapwp' ) ); ?></div>
 		<?php endif; ?>
 
 		<?php if ( get_previous_posts_link() ) : ?>
-		<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'bootstrap' ) ); ?></div>
+		<div class="pagination"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'bootstrapwp' ) ); ?></div>
 		<?php endif; ?>
 
 	<?php endif; ?>
@@ -108,10 +156,10 @@ function bootstrap_content_nav( $nav_id ) {
 	</nav><!-- #<?php echo $nav_id; ?> -->
 	<?php
 }
-endif; // bootstrap_content_nav
+endif; // bootstrapwp_content_nav
 
 
-if ( ! function_exists( 'bootstrap_comment' ) ) :
+if ( ! function_exists( 'bootstrapwp_comment' ) ) :
 /**
  * Template for comments and pingbacks.
  *
@@ -122,7 +170,7 @@ if ( ! function_exists( 'bootstrap_comment' ) ) :
  *
  * @since bootstrap 0.4
  */
-function bootstrap_comment( $comment, $args, $depth ) {
+function bootstrapwp_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
 	switch ( $comment->comment_type ) :
 		case 'pingback' :
@@ -168,16 +216,16 @@ function bootstrap_comment( $comment, $args, $depth ) {
 			break;
 	endswitch;
 }
-endif; // ends check for bootstrap_comment()
+endif; // ends check for bootstrapwp_comment()
 
-if ( ! function_exists( 'bootstrap_posted_on' ) ) :
+if ( ! function_exists( 'bootstrapwp_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  * Create your own bootstrap_posted_on to override in a child theme
  *
  * @since bootstrap 1.2
  */
-function bootstrap_posted_on() {
+function bootstrapwp_posted_on() {
 	printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="byline"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'bootstrap' ),
 		esc_url( get_permalink() ),
 		esc_attr( get_the_time() ),
@@ -195,7 +243,7 @@ endif;
  *
  * @since bootstrap 1.2
  */
-function bootstrap_body_classes( $classes ) {
+function bootstrapwp_body_classes( $classes ) {
 	// Adds a class of single-author to blogs with only 1 published author
 	if ( ! is_multi_author() ) {
 		$classes[] = 'single-author';
@@ -203,14 +251,14 @@ function bootstrap_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'bootstrap_body_classes' );
+add_filter( 'body_class', 'bootstrapwp_body_classes' );
 
 /**
  * Returns true if a blog has more than 1 category
  *
  * @since bootstrap 1.2
  */
-function bootstrap_categorized_blog() {
+function bootstrapwp_categorized_blog() {
 	if ( false === ( $all_the_cool_cats = get_transient( 'all_the_cool_cats' ) ) ) {
 		// Create an array of all the categories that are attached to posts
 		$all_the_cool_cats = get_categories( array(
@@ -233,11 +281,11 @@ function bootstrap_categorized_blog() {
 }
 
 /**
- * Flush out the transients used in bootstrap_categorized_blog
+ * Flush out the transients used in bootstrapwp_categorized_blog
  *
  * @since bootstrap 1.2
  */
-function bootstrap_category_transient_flusher() {
+function bootstrapwp_category_transient_flusher() {
 	// Like, beat it. Dig?
 	delete_transient( 'all_the_cool_cats' );
 }
@@ -247,7 +295,7 @@ add_action( 'save_post', 'bootstrap_category_transient_flusher' );
 /**
  * Filter in a link to a content ID attribute for the next/previous image links on image attachment pages
  */
-function bootstrap_enhanced_image_navigation( $url ) {
+function bootstrapwp_enhanced_image_navigation( $url ) {
 	global $post;
 
 	if ( wp_attachment_is_image( $post->ID ) )
@@ -255,13 +303,13 @@ function bootstrap_enhanced_image_navigation( $url ) {
 
 	return $url;
 }
-add_filter( 'attachment_link', 'bootstrap_enhanced_image_navigation' );
+add_filter( 'attachment_link', 'bootstrapwp_enhanced_image_navigation' );
 
 /**
  * Adding Breadcrumbs
  */
 
- function bootstrap_breadcrumbs() {
+ function bootstrapwp_breadcrumbs() {
 
   $delimiter = '<span class="divider">/</span>';
   $home = 'Home'; // text for the 'Home' link
@@ -359,7 +407,7 @@ add_filter( 'attachment_link', 'bootstrap_enhanced_image_navigation' );
     echo '</ul>';
 
   }
-} // end bootstrap_breadcrumbs()
+} // end bootstrapwp_breadcrumbs()
 /**
  * This theme was built with PHP, Semantic HTML, CSS, love, and a bootstrap.
  */

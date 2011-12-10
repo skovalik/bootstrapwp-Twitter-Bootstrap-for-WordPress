@@ -15,18 +15,26 @@ get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
    <div class="container">
 
-      <div class="content">
-
-        <div class="page-header">
-          <h1><?php the_title();?></h1>
-        </div><!-- /.page-header -->
+      
+ <!-- Masthead
+      ================================================== -->
+      <header class="jumbotron subhead" id="overview">
+        <h1><?php the_title();?></h1>
+      </header>
+        
         <div class="row">
-        <?php if (function_exists('bootstrap_breadcrumbs')) bootstrap_breadcrumbs(); ?>
-          <div class="span10">
+          <div class="span12">
+        <?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
+          </div><!--/.span12 -->
+        </div><!--/.row -->
+        <div class="content">
+        <div class="row">
+<div class="span8">
 
             <?php the_content();?>
 <?php endwhile; // end of the loop. ?>
-          </div><!-- /.span10 -->
+          </div><!-- /.span8 -->
+          
           <?php get_sidebar(); ?>
 
 

@@ -11,6 +11,8 @@
 
 
       <footer>
+
+      <p class="pull-right"><a href="#">Back to top</a></p>
         <p>&copy; Company 2011</p>
       </footer>
 

@@ -8,7 +8,7 @@
  */
 ?>
 <div class="span4">
-            <?
+            <?php
     if ( function_exists('dynamic_sidebar')) dynamic_sidebar("sidebar-page");
 ?>
 

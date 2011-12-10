@@ -9,19 +9,20 @@
  */
 
 get_header(); ?>
+	<?php while ( have_posts() ) : the_post(); ?>
+		<div class="container">
+		<header class="jumbotron subhead" id="overview">
+        <h1><?php the_title();?></h1>
+      </header>
 
-		<div id="primary" class="full-width">
-			<div id="content" role="main">
-
-				<?php while ( have_posts() ) : the_post(); ?>
-
-				<?php get_template_part( 'content', 'page' ); ?>
-
-				<?php comments_template( '', true ); ?>
-
+			
+			
+				<div id="content" class="full-width" role="main">
+				  <?php the_content();?>
 				<?php endwhile; // end of the loop. ?>
-
-			</div><!-- #content -->
-		</div><!-- #primary -->
+		
+				</div><!-- #content -->
+		
+		</div><!-- /.container -->
 
 <?php get_footer(); ?>
