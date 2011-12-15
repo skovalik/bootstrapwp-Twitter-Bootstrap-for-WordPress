@@ -18,10 +18,10 @@ get_header(); ?>
 
       <header class="jumbotron masthead">
           <div class="inner">
-            <h1>Bootstrap,<br> for WordPress</h1>
-         <p class="lead">Bootstrap is a responsive frontend toolkit from Twitter designed to kickstart web development, complete with core HTML, CSS, and JS for grids, type, forms, navigation, and many more components. Now you can use it to with <strong>WordPress</strong> to build custom themes quickly and easily.</p>
+            <h1>Bootstrapwp,<br> Bootstrap for WordPress</h1>
+         <p class="lead">Bootstrap is a responsive frontend toolkit from Twitter designed to kickstart web development, complete with core HTML, CSS, and JS for grids, type, forms, navigation, and many more components. Now you can use it with <strong>WordPress</strong> as a solid base to build custom themes quickly and easily.</p>
          <p class="download-info">
-              <a href="https://github.com/rachelbaker/bootstrap-theme-for-WordPress" class="btn primary btn-large">Download on GitHub</a>
+              <a href="https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress" class="btn primary btn-large">Download on GitHub</a>
             <a href="./scaffolding.html" class="btn btn-large">Get started</a>
               Currently v2.0.0</p>
              <div class="benefits">
@@ -30,10 +30,10 @@ get_header(); ?>
                 <li><span>&times;</span> Built on LESS</li>
                 <li><span>&times;</span> Complete styleguide docs</li>
                 <li><span>&times;</span> Fully responsive design</li>
-                <li><span>&times;</span> Small footprint (7kb gzipped)</li>
+                <li><span>&times;</span> Full-width and right sidebar layouts</li>
                 <li><span>&times;</span> Support for IE7 and up</li>
                 <li><span>&times;</span> Custom jQuery plugins</li>
-                <li><span>&times;</span> Dozens of components</li>
+                <li><span>&times;</span> Homepage and sidebar widgets</li>
               </ul>
             </div>
           </div>

@@ -2756,7 +2756,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 html {
   background-color: #eee;
 }
-body.page, body.single {
+body {
   position: relative;
   padding-top: 40px;
   background-color: #fff;
