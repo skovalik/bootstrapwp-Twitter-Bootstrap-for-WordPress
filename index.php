@@ -40,16 +40,16 @@ get_header(); ?>
         </header>
        
 <ul class="quick-links">
-          <li><a href="https://github.com/rachelbaker/bootstrap-theme-for-WordPress">GitHub</a></li>
-          <li><a href="https://github.com/twitter/bootstrap/issues?state=open">Issues</a></li>
+          <li><a href="https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress">GitHub</a></li>
+          <li><a href="https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/issues?state=open">Issues</a></li>
           <li><a href="http://www.rachelbaker.me">RachelBaker.me</a></li>
-          <li><a href="http://www.wordpress.org">WordPress</a></li>
+          <li><a href="http://www.wordpress.org">WordPress.org</a></li>
           <li class="divider">&middot;</li>
           <li>
-            <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=rachelbaker&repo=bootstrap-theme-for-WordPress&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+            <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=rachelbaker&repo=bootstrapwp-Twitter-Bootstrap-for-WordPress&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
           </li>
           <li>
-            <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=rachelbaker&repo=bootstrap-theme-for-WordPress&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="94px" height="20px"></iframe>
+            <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=rachelbaker&repo=bootstrapwp-Twitter-Bootstrap-for-WordPress&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="94px" height="20px"></iframe>
           </li>
 
 
