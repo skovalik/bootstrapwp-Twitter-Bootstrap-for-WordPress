@@ -46,10 +46,16 @@ function bootstrapwp_theme_setup() {
 }
 
 /**
+ * Load compiled LESS files as bootstrap.css 
+ */
+  function bootstrapwp_css_loader() {
+      wp_enqueue_style('bootstrap.css', get_template_directory_uri().'/lib/bootstrap.css', false ,'1.0', 'all' );
+      }
+      add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
+/**
  * Load Javascript in footer for some of the more common Twitter Bootstrap JS Features
  */
   function bootstrapwp_js_loader() {
-    if (!is_admin() ) {
       wp_enqueue_script('dropdown.js', get_template_directory_uri().'/js/bootstrap-dropdown.js', array('jquery'),'1.0', true );
       wp_enqueue_script('scrollspy.js', get_template_directory_uri().'/js/bootstrap-scrollspy.js', array('jquery'),'1.0', true );
       wp_enqueue_script('tab.js', get_template_directory_uri().'/js/bootstrap-tab.js', array('jquery'),'1.0', true );
@@ -57,8 +63,7 @@ function bootstrapwp_theme_setup() {
       wp_enqueue_script('alert.js', get_template_directory_uri().'/js/bootstrap-alert.js', array('jquery'),'1.0', true );
       wp_enqueue_script('button.js', get_template_directory_uri().'/js/bootstrap-button.js', array('jquery'),'1.0', true );
       }
-      }
-      add_action('wp_print_scripts', 'bootstrapwp_js_loader');
+      add_action('wp_enqueue_scripts', 'bootstrapwp_js_loader');
 
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.

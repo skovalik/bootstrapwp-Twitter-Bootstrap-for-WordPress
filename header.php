@@ -40,7 +40,7 @@
 
     <link rel="profile" href="http://gmpg.org/xfn/11" />
    
-    <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_url' ); ?>/bootstrap.css" />
+
      <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 
 
