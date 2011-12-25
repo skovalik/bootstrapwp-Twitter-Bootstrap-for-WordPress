@@ -25,7 +25,7 @@ body > .navbar-fixed .brand {
   float: right;
   font-weight: bold;
   color: #000;
-  text-shadow: 0 1px 0 rgba(255,255,255,.1);
+  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
 }
 body > .navbar-fixed .brand:hover {
   text-decoration: none;
@@ -315,13 +315,29 @@ h2 + table {
 
 /* Example sites showcase */
 .example-sites img {
-  width: 290px;
+  max-width: 290px;
+}
+.built-with {
+  margin: -18px 0 27px;
+  color: #999;
+  text-align: center;
+}
+
+.scrollspy-example {
+  height: 200px;
+  overflow: auto;
+  position: relative;
 }
 
 
 /* Responsive Docs
 -------------------------------------------------- */
 @media (max-width: 480px) {
+
+  /* Reduce padding above jumbotron */
+  body {
+    padding-top: 70px;
+  }
 
   /* Change up some type stuff */
   h1 small {
@@ -362,7 +378,30 @@ h2 + table {
   .quick-links {
     margin: 40px 0 0;
   }
+  /* hide the bullets on mobile since our horizontal space is limited */
+  .quick-links .divider {
+    display: none;
+  }
 
+  /* center example sites */
+  .example-sites {
+    margin-left: 0;
+  }
+  .example-sites > li {
+    float: none;
+    display: block;
+    max-width: 300px;
+    margin: 0 auto 18px;
+  }
+  .example-sites img {
+    max-width: 270px;
+  }
+
+  table code {
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
 }
 
 
@@ -424,7 +463,7 @@ h2 + table {
   /* Provide enough space on right-hand side for benefits list */
   .jumbotron h1,
   .jumbotron p {
-    margin-right: 20%;
+    margin-right: 40%;
   }
 }
 

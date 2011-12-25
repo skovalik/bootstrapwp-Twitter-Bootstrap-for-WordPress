@@ -3,12 +3,31 @@ Bootstrapwp - TWITTER BOOTSTRAP for WordPress
 
 Bootstrap is a responsive front-end toolkit from Twitter designed to kickstart web development, complete with core HTML, CSS, and JS for grids, type, forms, navigation, and many more components. Now you can use it with **WordPress** as a solid base to build custom themes quickly and easily.
 
+**Latest version release: .6 (12/24/2011)**
+
+Version .6 Change Log
+----
+
+* Corrected callback function name in comments template
+* Added comments template to single.php
+* Modified top nav bar to have relative positioning to allow better viewing along with the WordPress Admin bar
+* Moved breadcrumbs above page titles
+* Fixed formatting on archive pages
+* Fixed subnav drop-downs with customWalkerclass and css
+* Moved bootstrap.css to the lib directory
+* Created new LESS file wordpress.css for all Bootstrap style modificiations and WordPress specific styles
+* Updated all Bootstrap LESS style files and JS script files for improved responsiveness and style tweaks
+* Added pagination to bottom of single.php
+* Created function to customize link for the_excerpt
+* Removed extra /div from full-width template
+* Bug fix: replaced get_bloginfo(url) in functions.php with home_url() function call
+
 
 Demo
 ----
-You can view a demo of this theme running on WordPress at:  [http://bootstrapwp.phpfogapp.com/](http://bootstrapwp.phpfogapp.com/)
+You can view a demo of this theme running on WordPress at:  [http://rachelbaker.me/bootstrapwp/](http://rachelbaker.me/bootstrapwp/)
 
-View the theme style guide at: [http://bootstrapwp.phpfogapp.com/style-guide/](http://bootstrapwp.phpfogapp.com/style-guide/)
+View the theme style guide at: [http://rachelbaker.me/bootstrapwp/style-guide/](http://rachelbaker.me/bootstrapwp/style-guide/)
 
 
 
@@ -25,8 +44,13 @@ This is meant to be a base theme for WordPress custom theme development.
 
 Bug tracker
 -----------
+**Report additional bugs** [https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/issues](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/issues)
+
+
 **Known theme bugs:**
 
+* 404.php needs formatting fix
+* Search.php needs formatting fix
 * REQUIRED: This theme doesn't seem to display tags. Modify it to display tags in appropriate locations.
 * REQUIRED: No content width has been defined. Example:
 if ( ! isset( $content_width ) ) $content_width = 900;
@@ -46,20 +70,15 @@ Line 408: echo __('Page') . ' ' . get_query_var('paged');
 * RECOMMENDED: No reference to add_editor_style() was found in the theme. It is recommended that the theme implement editor styling, so as to make the editor content match the resulting post output in the theme, for a better user experience.
 * RECOMMENDED: No reference to add_custom_image_header was found in the theme. It is recommended that the theme implement this functionality if using an image for the header.
 * RECOMMENDED: No reference to add_custom_background() was found in the theme. If the theme uses background images or solid colors for the background, then it is recommended that the theme implement this functionality.
-* RECOMMENDED: get_bloginfo(url) was found in the file functions.php. Use home_url() instead.
 * RECOMMENDED: Tags: is either empty or missing in style.css header.
-Have a bug? Please create an issue here on GitHub!
 
-**Report additional bugs** [https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/issues](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/issues)
-
-
-
+**Have a bug? Please create an issue here on GitHub!**
 
 
 
 
 Thanks to the Original Twitter Bootstrap Authors
--------
+-----------------------
 
 **Mark Otto**
 

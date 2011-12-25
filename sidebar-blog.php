@@ -12,7 +12,6 @@
     if ( function_exists('dynamic_sidebar')) dynamic_sidebar("sidebar-posts");
 ?>
 
-          </div><!-- /.span4 -->
-          </div><!-- /.row -->
-      </div><!-- /.container -->
+         </div><!-- /.span4 -->
+          </div><!-- /.row .content -->
 

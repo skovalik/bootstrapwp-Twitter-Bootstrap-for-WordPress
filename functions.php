@@ -31,6 +31,22 @@ if ( function_exists( 'register_nav_menu' ) ) {
 register_nav_menu( 'main-menu', 'Main Menu' );
 }
 
+class bootstrapwp_Walker_Nav_Menu extends Walker_Nav_Menu {
+	function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ){
+	    $GLOBALS['dd_children'] = ( isset($children_elements[$element->ID]) )? 1:0;
+        $GLOBALS['dd_depth'] = (int) $depth;
+        parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+    }
+}
+/*add_filter('nav_menu_css_class','add_parent_css',10,2);
+function  add_parent_css($classes, $item){
+     global  $dd_depth, $dd_children;
+     $classes[] = 'depth'.$dd_depth;
+     if($dd_children)
+         $classes[] = 'dropdown-toggle';
+    return $classes;
+} */
+
 function bootstrapwp_theme_setup() {
 	/**
 	 * Add default posts and comments RSS feed links to head
@@ -50,7 +66,8 @@ function bootstrapwp_theme_setup() {
  */
   function bootstrapwp_css_loader() {
       wp_enqueue_style('bootstrap.css', get_template_directory_uri().'/lib/bootstrap.css', false ,'1.0', 'all' );
-      }
+     wp_enqueue_style('wordpress.css', get_template_directory_uri().'/lib/wordpress.css', false ,'1.0', 'all' );
+      }    
       add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
 /**
  * Load Javascript in footer for some of the more common Twitter Bootstrap JS Features
@@ -130,6 +147,18 @@ function bootstrapwp_widgets_init() {
 }
 add_action( 'init', 'bootstrapwp_widgets_init' );
 
+
+/**
+ * Customize the excerpt with a filter to change the end to contain ...Continue Reading link
+ */
+function bootstrapwp_excerpt($more) {
+       global $post;
+  return '&nbsp; &nbsp;<a href="'. get_permalink($post->ID) . '">...Continue Reading</a>';
+}
+add_filter('excerpt_more', 'bootstrapwp_excerpt');
+
+
+
 if ( ! function_exists( 'bootstrapwp_content_nav' ) ):
 /**
  * Display navigation to next/previous pages when applicable
@@ -138,27 +167,24 @@ function bootstrapwp_content_nav( $nav_id ) {
 	global $wp_query;
 
 	?>
-	<nav id="<?php echo $nav_id; ?>">
-		<h1 class="assistive-text section-heading"><?php _e( 'Post navigation', 'bootstrapwp' ); ?></h1>
 
 	<?php if ( is_single() ) : // navigation links for single posts ?>
-
-		<?php previous_post_link( '<div class="pagination">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'bootstrapwp' ) . '</span> %title' ); ?>
-		<?php next_post_link( '<div class="pagination">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'bootstrapwp' ) . '</span>' ); ?>
-
+<div class="pagination"><ul>
+		<?php previous_post_link( '<li>%link</li>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'bootstrapwp' ) . '</span> %title' ); ?>
+		<?php next_post_link( '<li>%link</li>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'bootstrapwp' ) . '</span>' ); ?>
+</ul></div><!--/.pagination -->
 	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
-
+<div class="pagination"><ul>
 		<?php if ( get_next_posts_link() ) : ?>
-		<div class="pagination"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'bootstrapwp' ) ); ?></div>
+		<li><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'bootstrapwp' ) ); ?></li>
 		<?php endif; ?>
 
 		<?php if ( get_previous_posts_link() ) : ?>
-		<div class="pagination"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'bootstrapwp' ) ); ?></div>
+		<li><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'bootstrapwp' ) ); ?></li>
 		<?php endif; ?>
-
+</ul></div><!--/.pagination -->
 	<?php endif; ?>
 
-	</nav><!-- #<?php echo $nav_id; ?> -->
 	<?php
 }
 endif; // bootstrapwp_content_nav
@@ -326,7 +352,7 @@ add_filter( 'attachment_link', 'bootstrapwp_enhanced_image_navigation' );
     echo '<ul class="breadcrumb">';
 
     global $post;
-    $homeLink = get_bloginfo('url');
+    $homeLink = home_url();
     echo '<li><a href="' . $homeLink . '">' . $home . '</a></li> ' . $delimiter . ' ';
 
     if ( is_category() ) {

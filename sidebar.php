@@ -13,6 +13,5 @@
 ?>
 
           </div><!-- /.span4 -->
-          </div><!-- /.row -->
-      </div><!-- /.container -->
+          </div><!-- /.row .content -->
 

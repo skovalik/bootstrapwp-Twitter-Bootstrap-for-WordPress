@@ -22,54 +22,34 @@
 
   "use strict"
 
- /* DROPDOWN CLASS DEFINITION
-  * ========================= */
-
-  var toggle = '[data-toggle="dropdown"]'
-    , Dropdown = function ( element ) {
-        $(element).bind('click', this.toggle)
-      }
-
-  Dropdown.prototype = {
-
-    constructor: Dropdown
-
-  , toggle: function ( e ) {
-      var li = $(this).parent('li')
-        , isActive = li.hasClass('open')
-
-      clearMenus()
-      !isActive && li.toggleClass('open')
-
-      return false
-    }
-
-  }
-
-  function clearMenus() {
-    $(toggle).parent('li').removeClass('open')
-  }
-
-
   /* DROPDOWN PLUGIN DEFINITION
    * ========================== */
 
-  $.fn.dropdown = function ( option ) {
+  $.fn.dropdown = function ( selector ) {
     return this.each(function () {
-      var $this = $(this)
-        , data = $this.data('dropdown')
-      if (!data) $this.data('dropdown', (data = new Dropdown(this)))
-      if (typeof option == 'string') data[option].call($this)
+      $(this).delegate(selector || d, 'click', function (e) {
+        var li = $(this).parent('li')
+          , isActive = li.hasClass('open')
+
+        clearMenus()
+        !isActive && li.toggleClass('open')
+        return false
+      })
     })
   }
-
 
   /* APPLY TO STANDARD DROPDOWN ELEMENTS
    * =================================== */
 
+  var d = 'a.menu, .dropdown-toggle'
+
+  function clearMenus() {
+    $(d).parent('li').removeClass('open')
+  }
+
   $(function () {
-    $('html').bind('click.dropdown.data-api', clearMenus)
-    $('body').delegate(toggle, 'click.dropdown.data-api', Dropdown.prototype.toggle)
+    $('html').bind("click", clearMenus)
+    $('body').dropdown( '[data-dropdown] a.nav, [data-dropdown] .dropdown-toggle' )
   })
 
-}( window.jQuery || window.ender )
+}( window.jQuery || window.ender );

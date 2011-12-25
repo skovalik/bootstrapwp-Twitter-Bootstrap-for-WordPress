@@ -1,12 +1,16 @@
 == Changelog ==
 
-= 1.3 - Oct 5 2011 =
-* Make the comment markup in our callback switch the default markup for any new comment types following Twenty Eleven's example
-* Add in a content id attribute to the image navigation links for a better user experience
-* the_post should always be called in the loop
-* Set svn:eol-style on JS and TXT files
-* Fix get_the_author() escaping
-* Add in the older section-heading class for backwards compatibility
-* Trim whitespace
-* TEMPLATEPATH to get_template_directory()
-* Add POT file
+= .6 - December 24 2011 =
+* Corrected callback function name in comments template
+* Added comments template to single.php
+* Modified top nav bar to have relative positioning to allow better viewing along with the WordPress Admin bar
+* Moved breadcrumbs above page titles
+* Fixed formatting on archive pages
+* Fixed subnav drop-downs with customWalkerclass and css
+* Moved bootstrap.css to the lib directory
+* Created new LESS file wordpress.css for all Bootstrap style modificiations and WordPress specific styles
+* Updated all Bootstrap LESS style files and JS script files for improved responsiveness and style tweaks
+* Added pagination to bottom of single.php
+* Created function to customize link for the_excerpt
+* Removed extra /div from full-width template
+* Bug fix: replaced get_bloginfo(url) in functions.php with home_url() function call

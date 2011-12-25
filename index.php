@@ -57,9 +57,7 @@ get_header(); ?>
           <li class="follow-btn">
             <a href="https://twitter.com/rachelbaker" class="twitter-follow-button" data-width="145px" data-link-color="#0069D6" data-show-count="false">Follow @rachelbaker</a><script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
           </li>
-          <!--<li class="tweet-btn">
-            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://twitter.github.com/bootstrap/" data-count="horizontal" data-via="twbootstrap" data-related="mdo:Creator of Twitter Bootstrap">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-          </li> -->
+
         </ul>
 
       <!-- Example row of columns -->

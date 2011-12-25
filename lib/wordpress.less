@@ -7,7 +7,7 @@
 
       body {
         position: relative;
-        padding-top: 40px;
+        padding-top: 0;
         background-color: #fff;
       }
 
@@ -18,9 +18,52 @@
         line-height: 36px;
       }
 
+     .navbar-relative {
+       position: relative;
+       width: 100%;
+       right: 0;
+       left: 0;
+       z-index: 10000;
+       }
+
+        li.dropdown-toggle .sub-menu {
+        display: none;
+      }
+
+      li.dropdown-toggle:hover .sub-menu{
+        box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+        -moz-box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+        -webkit-box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+        display: block;
+        float: left;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        z-index: 99999;
+      }
       .nav ul li {
         display: inline;
       }
+
+/* Container for Breadcrumbs
+-------------------------------------------------- */
+      .breadnav {
+        width: 100%;
+      }
+
+      .breadnav .breadcrumb {
+        margin-left: 40px;
+      }
+
+/* Comments Styling
+-------------------------------------------------- */
+      #comments {
+        width: 90%;
+      }
+      #commentform {
+        width: 75%;
+      }
+            
 /* Space out sub-sections more
 -------------------------------------------------- */
 .page-header {
@@ -41,6 +84,59 @@ body > .navbar-fixed .brand:hover {
   text-decoration: none;
 }
 
+.sub-menu {
+position: absolute;
+top: 40px;
+z-index: 900;
+float: left;
+display: none;
+min-width: 160px;
+max-width: 220px;
+_width: 160px;
+padding: 6px 0;
+margin-left: 0;
+margin-right: 0;
+background-color: white;
+border-color: #999;
+border-color: rgba(0, 0, 0, 0.2);
+border-style: solid;
+border-width: 0 1px 1px;
+-webkit-border-radius: 0 0 6px 6px;
+-moz-border-radius: 0 0 6px 6px;
+border-radius: 0 0 6px 6px;
+-webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+-moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+-webkit-background-clip: padding-box;
+-moz-background-clip: padding-box;
+background-clip: padding-box;
+zoom: 1;
+}
+.dropdown.open .sub-menu {
+display: block;
+}
+
+.nav .sub-menu {
+background-color: #333;
+}
+.nav .sub-menu li a {
+color: #999;
+text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.nav .sub-menu li a:hover {
+    color: #FFFFFF;
+}    
+
+.topbar .sub-menu a, .submenu a {
+display: block;
+padding: 4px 15px;
+clear: both;
+font-weight: normal;
+line-height: 18px;
+color: gray;
+text-shadow: 0 1px 0 white;
+}
 
 /* Space out sub-sections more
 -------------------------------------------------- */
@@ -325,13 +421,29 @@ h2 + table {
 
 /* Example sites showcase */
 .example-sites img {
-  width: 290px;
+  max-width: 290px;
+}
+.built-with {
+  margin: -18px 0 27px;
+  color: #999;
+  text-align: center;
+}
+
+.scrollspy-example {
+  height: 200px;
+  overflow: auto;
+  position: relative;
 }
 
 
 /* Responsive Docs
 -------------------------------------------------- */
 @media (max-width: 480px) {
+
+  /* Reduce padding above jumbotron */
+  body {
+    padding-top: 70px;
+  }
 
   /* Change up some type stuff */
   h1 small {
@@ -372,7 +484,30 @@ h2 + table {
   .quick-links {
     margin: 40px 0 0;
   }
+  /* hide the bullets on mobile since our horizontal space is limited */
+  .quick-links .divider {
+    display: none;
+  }
 
+  /* center example sites */
+  .example-sites {
+    margin-left: 0;
+  }
+  .example-sites > li {
+    float: none;
+    display: block;
+    max-width: 300px;
+    margin: 0 auto 18px;
+  }
+  .example-sites img {
+    max-width: 270px;
+  }
+
+  table code {
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
 }
 
 
@@ -434,7 +569,6 @@ h2 + table {
   /* Provide enough space on right-hand side for benefits list */
   .jumbotron h1,
   .jumbotron p {
-    margin-right: 20%;
+    margin-right: 40%;
   }
 }
-

@@ -8,28 +8,29 @@
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
  * @package WordPress
- * @subpackage Toolbox
- * @since Toolbox 0.1
+ * @subpackage WP-Bootstrap
+ * @since WP-Bootstrap 0.6
  */
 
 get_header(); ?>
-
-		<section id="primary">
-			<div id="content" role="main">
-
-			<?php if ( have_posts() ) : ?>
-
-				<header class="page-header">
-					<h1 class="page-title">
-						<?php
+<?php query_posts( array( 'posts_per_page' => 5, 'paged' => get_query_var('paged') ) );
+if (have_posts() ) ;?>
+  <div class="row">
+  <div class="container">
+   <?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
+   </div><!--/.container -->
+   </div><!--/.row -->
+   <div class="container">
+<header class="jumbotron subhead" id="overview">
+						<h1><?php
 							if ( is_day() ) :
-								printf( __( 'Daily Archives: %s', 'toolbox' ), '<span>' . get_the_date() . '</span>' );
+								printf( __( 'Daily Archives: %s', 'bootstrapwp' ), '<span>' . get_the_date() . '</span>' );
 							elseif ( is_month() ) :
-								printf( __( 'Monthly Archives: %s', 'toolbox' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
+								printf( __( 'Monthly Archives: %s', 'bootstrapwp' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
 							elseif ( is_year() ) :
-								printf( __( 'Yearly Archives: %s', 'toolbox' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
+								printf( __( 'Yearly Archives: %s', 'bootstrapwp' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
 							else :
-								_e( 'Archives', 'toolbox' );
+								_e( 'Archives', 'bootstrapwp' );
 							endif;
 						?>
 					</h1>
@@ -37,40 +38,18 @@ get_header(); ?>
 
 				<?php rewind_posts(); ?>
 
-				<?php toolbox_content_nav( 'nav-above' ); ?>
-
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<?php
-						/* Include the Post-Format-specific template for the content.
-						 * If you want to overload this in a child theme then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'content', get_post_format() );
-					?>
+				
+      <div class="row content">
+<div class="span8">
+	<?php while ( have_posts() ) : the_post(); ?>
+	<a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h3><?php the_title();?></h3></a>	
+	<?php the_excerpt();?>
+	<div class="divider"></div>		
 
 				<?php endwhile; ?>
+ <?php bootstrapwp_content_nav('nav-below');?>
+			
+ </div><!-- /.span8 -->
+<?php get_sidebar('blog'); ?>
 
-				<?php toolbox_content_nav( 'nav-below' ); ?>
-
-			<?php else : ?>
-
-				<article id="post-0" class="post no-results not-found">
-					<header class="entry-header">
-						<h1 class="entry-title"><?php _e( 'Nothing Found', 'toolbox' ); ?></h1>
-					</header><!-- .entry-header -->
-
-					<div class="entry-content">
-						<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'toolbox' ); ?></p>
-						<?php get_search_form(); ?>
-					</div><!-- .entry-content -->
-				</article><!-- #post-0 -->
-
-			<?php endif; ?>
-
-			</div><!-- #content -->
-		</section><!-- #primary -->
-
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

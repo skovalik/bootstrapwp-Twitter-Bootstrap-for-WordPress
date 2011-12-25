@@ -53,16 +53,18 @@
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
     <?php wp_head(); ?>
+    
+
   </head>
 
   <body <?php body_class(); ?>>
 
 
-    <div class="navbar navbar-fixed" data-scrollspy="scrollspy">
+    <div class="navbar navbar-relative" data-scrollspy="scrollspy">
       <div class="navbar-inner">
         <div class="container">
           <a class="brand" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-          <?php wp_nav_menu( array( 'menu' => 'main-menu', 'container' => false, 'menu_class' => 'nav', 'menu_id' => 'main-menu' ) ); ?>
+          <?php wp_nav_menu( array( 'menu' => 'main-menu', 'container' => false, 'menu_class' => 'nav', 'menu_id' => 'main-menu', 'walker' => new bootstrapwp_Walker_Nav_Menu) ); ?>
         </div>
       </div>
     </div>
