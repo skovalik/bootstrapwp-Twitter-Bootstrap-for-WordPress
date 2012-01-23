@@ -63,9 +63,3 @@ get_header(); ?>
         </div>
       </div>
     </div>
-
-'container' => false, 'menu_class' => 'nav', 'menu_id' => 'main-menu', 'walker' => new bootstrapwp_Walker_Nav_Menu) ); ?>
-        </div>
-      </div>
-    </div>
-
