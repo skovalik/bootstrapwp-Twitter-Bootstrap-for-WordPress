@@ -1,14 +1,15 @@
 <?php
 /**
- * The Header for our theme.
  *
- * Displays all of the <head> section and everything up till <div id="main">
+ * Template Name: Default Page Header
  *
- * @package WordPress
- * @subpackage WP-Bootstrap
+ * @package WP-Bootstrap
+ * @subpackage Default_Theme
  * @since WP-Bootstrap 0.1
+ *
+ * Last Revised: January 20, 2012
  */
-?><!DOCTYPE html>
+get_header(); ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
   <head>
@@ -30,7 +31,7 @@
 
   // Add a page number if necessary:
   if ( $paged >= 2 || $page >= 2 )
-    echo ' | ' . sprintf( __( 'Page %s', 'toolbox' ), max( $paged, $page ) );
+    echo ' | ' . sprintf( __( 'Page %s', 'bootstrapwp' ), max( $paged, $page ) );
 
   ?></title>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
@@ -39,9 +40,6 @@
     <meta name="author" content="">
 
     <link rel="profile" href="http://gmpg.org/xfn/11" />
-   
-
-     <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 
 
     <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
@@ -53,18 +51,20 @@
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
     <?php wp_head(); ?>
-    
-
   </head>
-
-  <body <?php body_class(); ?>>
+  <body <?php body_class(); ?>  onload="prettyPrint()">
 
 
     <div class="navbar navbar-relative" data-scrollspy="scrollspy">
       <div class="navbar-inner">
         <div class="container">
           <a class="brand" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-          <?php wp_nav_menu( array( 'menu' => 'main-menu', 'container' => false, 'menu_class' => 'nav', 'menu_id' => 'main-menu', 'walker' => new bootstrapwp_Walker_Nav_Menu) ); ?>
+          <?php wp_nav_menu( array( 'menu' => 'main-menu', 'container' => false, 'menu_class' => 'nav', 'menu_id' => 'main-menu') ); ?>
+        </div>
+      </div>
+    </div>
+
+'container' => false, 'menu_class' => 'nav', 'menu_id' => 'main-menu', 'walker' => new bootstrapwp_Walker_Nav_Menu) ); ?>
         </div>
       </div>
     </div>

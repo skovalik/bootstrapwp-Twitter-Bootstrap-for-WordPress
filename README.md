@@ -3,24 +3,32 @@ Bootstrapwp - TWITTER BOOTSTRAP for WordPress
 
 Bootstrap is a responsive front-end toolkit from Twitter designed to kickstart web development, complete with core HTML, CSS, and JS for grids, type, forms, navigation, and many more components. Now you can use it with **WordPress** as a solid base to build custom themes quickly and easily.
 
-**Latest version release: .6 (12/24/2011)**
 
-Version .6 Change Log
+
+**Latest version release: .7 (01/22/2012)**
+
+Version .7 Change Log
 ----
 
-* Corrected callback function name in comments template
-* Added comments template to single.php
-* Modified top nav bar to have relative positioning to allow better viewing along with the WordPress Admin bar
-* Moved breadcrumbs above page titles
-* Fixed formatting on archive pages
-* Fixed subnav drop-downs with customWalkerclass and css
-* Moved bootstrap.css to the lib directory
-* Created new LESS file wordpress.css for all Bootstrap style modificiations and WordPress specific styles
-* Updated all Bootstrap LESS style files and JS script files for improved responsiveness and style tweaks
-* Added pagination to bottom of single.php
-* Created function to customize link for the_excerpt
-* Removed extra /div from full-width template
-* Bug fix: replaced get_bloginfo(url) in functions.php with home_url() function call
+* Updated JS and CSS/LESS files from Twitter Bootstrap 2.0 WIP files (up to date as of January 20, 2012)
+* Moved all CSS and JS files to their respective /css and /js folders
+* The LESS files still exist in the /lib folder, but the bootstrap.css file is in the /css folder
+* Replaced bootstrap-twipsy.js file with NEW bootstrap-tooltip.js file
+* Modified enqueue_style order, and added style.css to the function to ensure it would be loaded last.
+* Moved all Bootstrap documentation styles to their own docs.css file, and reserved styles.css for WordPress related modifications
+* Created template for Javascript Demo page, needed onload scripts for Demo page were added in footer.php
+* Moved Style Guide to it's own template file
+* Moved Assets folder to root of theme folder with images folder
+* Any added custom styles can now be found in style.css file
+* Added custom jQuery to footer.php to allow the WordPress custom menus to work with the Bootstrap dropdown styles/js files.  
+* Removed Custom Walker Class from navigation menu.  It is not needed, with jQuery adding the needed class changes instead.
+* Added image alignments (.alignleft, .alignright, .aligncenter) styles to styles.css
+* Added styles to 404.php template file
+* Added styles to search.php template file
+* Added search form styles to style.css file
+* Added $content_width declaration to functions.php
+
+
 
 
 Demo
@@ -28,6 +36,8 @@ Demo
 You can view a demo of this theme running on WordPress at:  [http://rachelbaker.me/bootstrapwp/](http://rachelbaker.me/bootstrapwp/)
 
 View the theme style guide at: [http://rachelbaker.me/bootstrapwp/style-guide/](http://rachelbaker.me/bootstrapwp/style-guide/)
+
+View the javascript guide at: [http://rachelbaker.me/bootstrapwp/javascript-for-bootstrap/](http://rachelbaker.me/bootstrapwp/javascript-for-bootstrap/)
 
 
 
@@ -39,6 +49,8 @@ Download the Bootstrapwp theme, and install to your WordPress site.
 
 This is meant to be a base theme for WordPress custom theme development.  
 
+You can override any of the styles using style.css file.  All .css and .js files are loaded in functions.php.  Don't forget to disable any of the .js files you do not need.  
+
 
 
 
@@ -49,22 +61,12 @@ Bug tracker
 
 **Known theme bugs:**
 
-* 404.php needs formatting fix
-* Search.php needs formatting fix
 * REQUIRED: This theme doesn't seem to display tags. Modify it to display tags in appropriate locations.
-* REQUIRED: No content width has been defined. Example:
-if ( ! isset( $content_width ) ) $content_width = 900;
 * REQUIRED: .wp-caption css class is needed in your theme css.
 * REQUIRED: .wp-caption-text css class is needed in your theme css.
-* REQUIRED: .sticky css class is needed in your theme css.
-* REQUIRED: .gallery-caption css class is needed in your theme css.
 * REQUIRED: .bypostauthor css class is needed in your theme css.
-* REQUIRED: .alignright css class is needed in your theme css.
-* REQUIRED: .alignleft css class is needed in your theme css.
-* REQUIRED: .aligncenter css class is needed in your theme css.
 * RECOMMENDED: Text domain problems in functions.php. You have not included a text domain!
 Line 408: echo __('Page') . ' ' . get_query_var('paged');
-* RECOMMENDED: Screenshot is wrong size! Detected: 1072x647px. Maximum allowed size is 320x240px.
 * RECOMMENDED: No reference to post-thumbnails was found in the theme. If the theme has a thumbnail like functionality, it should be implemented with add_theme_support( 'post-thumbnails' )in the functions.php file.
 * RECOMMENDED: No reference to the_post_thumbnail() was found in the theme. It is recommended that the theme implement this functionality instead of using custom fields for thumbnails.
 * RECOMMENDED: No reference to add_editor_style() was found in the theme. It is recommended that the theme implement editor styling, so as to make the editor content match the resulting post output in the theme, for a better user experience.

@@ -1,5 +1,20 @@
 == Changelog ==
 
+= .7 = January 22, 2012
+* Updated JS and CSS/LESS files from Twitter Bootstrap 2.0 WIP files (up to date as of January 20, 2012)
+* Moved all CSS and JS files to their respective /css and /js folders
+* The LESS files still exist in the /lib folder, but the bootstrap.css file is in the /css folder
+* Replaced bootstrap-twipsy.js file with NEW bootstrap-tooltip.js file
+* Modified enqueue_style order, and added style.css to the function to ensure it would be loaded last.
+* Moved all Bootstrap documentation styles to their own docs.css file, and reserved styles.css for WordPress related modifications
+* Created template for Javascript Demo page, needed onload scripts for page to work were added in footer.php
+* Moved Style Guide to it's own template file
+* Moved Assets folder to root of theme folder with images folder
+* Any added custom styles can now be found in style.css file
+* Added custom jQuery to footer.php to allow the WordPress custom menus to work with the Bootstrap dropdown styles/js files.  
+
+
+
 = .6 - December 24 2011 =
 * Corrected callback function name in comments template
 * Added comments template to single.php

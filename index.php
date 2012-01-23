@@ -1,18 +1,15 @@
 <?php
 /**
- * The main template file.
  *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ * Template Name: Default Index Template
  *
- * @package WordPress
- * @subpackage Bootstrap for WP
- * @since Bootstrap for WP .5
+ *
+ * @package WP-Bootstrap
+ * @subpackage Default_Theme
+ * @since WP-Bootstrap 0.5
+ *
+ * Last Revised: January 22, 2012
  */
-
 get_header(); ?>
 <div class="container">
 
@@ -22,8 +19,8 @@ get_header(); ?>
          <p class="lead">Bootstrap is a responsive frontend toolkit from Twitter designed to kickstart web development, complete with core HTML, CSS, and JS for grids, type, forms, navigation, and many more components. Now you can use it with <strong>WordPress</strong> as a solid base to build custom themes quickly and easily.</p>
          <p class="download-info">
               <a href="https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress" class="btn primary btn-large">Download on GitHub</a>
-            <a href="./scaffolding.html" class="btn btn-large">Get started</a>
-              Currently v2.0.0</p>
+            <a href="http://rachelbaker.me/bootstrapwp/style-guide/" class="btn btn-large">Get started</a>
+              Currently v.7</p>
              <div class="benefits">
               <h4>Feature highlights</h4>
               <ul>
@@ -32,7 +29,7 @@ get_header(); ?>
                 <li><span>&times;</span> Fully responsive design</li>
                 <li><span>&times;</span> Full-width and right sidebar layouts</li>
                 <li><span>&times;</span> Support for IE7 and up</li>
-                <li><span>&times;</span> Custom jQuery plugins</li>
+                <li><span>&times;</span> jQuery custom plugins</li>
                 <li><span>&times;</span> Homepage and sidebar widgets</li>
               </ul>
             </div>
@@ -59,8 +56,6 @@ get_header(); ?>
           </li>
 
         </ul>
-
-      <!-- Example row of columns -->
       <div class="row">
         <div class="span4">
           <?php
@@ -68,6 +63,18 @@ get_header(); ?>
 ?>
         </div>
         <div class="span4">
+          <?php
+    if ( function_exists('dynamic_sidebar')) dynamic_sidebar("home-middle");
+?>
+       </div>
+        <div class="span4">
+          <?php
+    if ( function_exists('dynamic_sidebar')) dynamic_sidebar("home-right");
+?>
+        </div>
+      </div>
+      <?php get_footer();?>
+   <div class="span4">
           <?php
     if ( function_exists('dynamic_sidebar')) dynamic_sidebar("home-middle");
 ?>

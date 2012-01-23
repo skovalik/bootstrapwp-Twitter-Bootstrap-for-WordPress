@@ -6,22 +6,52 @@
  * are used in the theme as custom template tags. Others are attached to action and
  * filter hooks in WordPress to change core functionality.
  *
- * When using a child theme (see http://codex.wordpress.org/Theme_Development and
- * http://codex.wordpress.org/Child_Themes), you can override certain functions
- * (those wrapped in a function_exists() call) by defining them first in your child theme's
- * functions.php file. The child theme's functions.php file is included before the parent
- * theme's file, so the child theme functions would be used.
- *
- * Functions that are not pluggable (not wrapped in function_exists()) are instead attached
- * to a filter or action hook. The hook can be removed by using remove_action() or
- * remove_filter() and you can attach your own function to the hook.
- *
- * For more information on hooks, actions, and filters, see http://codex.wordpress.org/Plugin_API.
  *
  * @package WordPress
  * @subpackage WP-Bootstrap
  * @since WP-Bootstrap 0.1
  */
+
+ /**
+ * Set the content width based on the theme's design and stylesheet.
+ */
+if ( ! isset( $content_width ) )
+  $content_width = 620; /* pixels */
+
+/**
+ * Load all CSS files in the currect order!
+ */
+  function bootstrapwp_css_loader() {
+    wp_enqueue_style('bootstrap.css', get_template_directory_uri().'/css/bootstrap.css', false ,'1.0', 'all' );
+    wp_enqueue_style('docs.css', get_template_directory_uri().'/css/docs.css', false ,'1.0', 'all' );
+    wp_enqueue_style('prettify.css', get_template_directory_uri().'/css/prettify.css', false ,'1.0', 'all' );
+  wp_enqueue_style('style.css', get_template_directory_uri().'/style.css', false ,'1.0', 'all' );
+      }     
+      add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
+/**
+ * Load Javascript for the Twitter Bootstrap JS Features - YOU SHOULD DISABLE ANY JS FILES YOU ARE NOT USING
+ */
+  function bootstrapwp_js_loader() {
+       wp_enqueue_script('prettify.js', get_template_directory_uri().'/js/prettify.js', array('jquery'),'1.0', true );
+         
+       wp_enqueue_script('transition.js', get_template_directory_uri().'/js/bootstrap-transition.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('alert.js', get_template_directory_uri().'/js/bootstrap-alert.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('modal.js', get_template_directory_uri().'/js/bootstrap-modal.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('dropdown.js', get_template_directory_uri().'/js/bootstrap-dropdown.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('scrollspy.js', get_template_directory_uri().'/js/bootstrap-scrollspy.js', array('jquery'),'1.0', true );
+      wp_enqueue_script('tab.js', get_template_directory_uri().'/js/bootstrap-tab.js', array('jquery'),'1.0', true );
+      wp_enqueue_script('tooltip.js', get_template_directory_uri().'/js/bootstrap-tooltip.js', array('jquery'),'1.0', true );
+             wp_enqueue_script('popover.js', get_template_directory_uri().'/js/bootstrap-popover.js', array('tooltip.js'),'1.0', true );
+       wp_enqueue_script('button.js', get_template_directory_uri().'/js/bootstrap-button.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('collapse.js', get_template_directory_uri().'/js/bootstrap-collapse.js', array('jquery'),'1.0', true );        
+       wp_enqueue_script('carousel.js', get_template_directory_uri().'/js/bootstrap-carousel.js', array('jquery'),'1.0', true );    
+      wp_enqueue_script('typeahead.js', get_template_directory_uri().'/js/bootstrap-typeahead.js', array('jquery'),'1.0', true );
+          wp_enqueue_script('tablesorter.js', get_template_directory_uri().'/js/jquery.tablesorter.js', array('jquery'),'1.0', true );
+      }
+      add_action('wp_enqueue_scripts', 'bootstrapwp_js_loader');
+
+
+
 /**
  * 
  * 
@@ -30,22 +60,6 @@
 if ( function_exists( 'register_nav_menu' ) ) {
 register_nav_menu( 'main-menu', 'Main Menu' );
 }
-
-class bootstrapwp_Walker_Nav_Menu extends Walker_Nav_Menu {
-	function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ){
-	    $GLOBALS['dd_children'] = ( isset($children_elements[$element->ID]) )? 1:0;
-        $GLOBALS['dd_depth'] = (int) $depth;
-        parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
-    }
-}
-/*add_filter('nav_menu_css_class','add_parent_css',10,2);
-function  add_parent_css($classes, $item){
-     global  $dd_depth, $dd_children;
-     $classes[] = 'depth'.$dd_depth;
-     if($dd_children)
-         $classes[] = 'dropdown-toggle';
-    return $classes;
-} */
 
 function bootstrapwp_theme_setup() {
 	/**
@@ -61,26 +75,6 @@ function bootstrapwp_theme_setup() {
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'gallery' ) );
 }
 
-/**
- * Load compiled LESS files as bootstrap.css 
- */
-  function bootstrapwp_css_loader() {
-      wp_enqueue_style('bootstrap.css', get_template_directory_uri().'/lib/bootstrap.css', false ,'1.0', 'all' );
-     wp_enqueue_style('wordpress.css', get_template_directory_uri().'/lib/wordpress.css', false ,'1.0', 'all' );
-      }    
-      add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
-/**
- * Load Javascript in footer for some of the more common Twitter Bootstrap JS Features
- */
-  function bootstrapwp_js_loader() {
-      wp_enqueue_script('dropdown.js', get_template_directory_uri().'/js/bootstrap-dropdown.js', array('jquery'),'1.0', true );
-      wp_enqueue_script('scrollspy.js', get_template_directory_uri().'/js/bootstrap-scrollspy.js', array('jquery'),'1.0', true );
-      wp_enqueue_script('tab.js', get_template_directory_uri().'/js/bootstrap-tab.js', array('jquery'),'1.0', true );
-      wp_enqueue_script('popover.js', get_template_directory_uri().'/js/bootstrap-popover.js', array('jquery'),'1.0', true );
-      wp_enqueue_script('alert.js', get_template_directory_uri().'/js/bootstrap-alert.js', array('jquery'),'1.0', true );
-      wp_enqueue_script('button.js', get_template_directory_uri().'/js/bootstrap-button.js', array('jquery'),'1.0', true );
-      }
-      add_action('wp_enqueue_scripts', 'bootstrapwp_js_loader');
 
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
@@ -199,7 +193,7 @@ if ( ! function_exists( 'bootstrapwp_comment' ) ) :
  *
  * Used as a callback by wp_list_comments() for displaying the comments.
  *
- * @since bootstrap 0.4
+ * @since WP-Bootstrap .5
  */
 function bootstrapwp_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
@@ -253,8 +247,8 @@ if ( ! function_exists( 'bootstrapwp_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  * Create your own bootstrap_posted_on to override in a child theme
- *
- * @since bootstrap 1.2
+ * 
+ * @since WP-Bootstrap .5
  */
 function bootstrapwp_posted_on() {
 	printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="byline"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'bootstrap' ),
@@ -272,7 +266,7 @@ endif;
 /**
  * Adds custom classes to the array of body classes.
  *
- * @since bootstrap 1.2
+ * @since WP-Bootstrap .5
  */
 function bootstrapwp_body_classes( $classes ) {
 	// Adds a class of single-author to blogs with only 1 published author
@@ -287,7 +281,7 @@ add_filter( 'body_class', 'bootstrapwp_body_classes' );
 /**
  * Returns true if a blog has more than 1 category
  *
- * @since bootstrap 1.2
+ * @since WP-Bootstrap .5
  */
 function bootstrapwp_categorized_blog() {
 	if ( false === ( $all_the_cool_cats = get_transient( 'all_the_cool_cats' ) ) ) {

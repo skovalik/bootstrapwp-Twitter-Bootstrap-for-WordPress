@@ -1,51 +1,54 @@
 <?php
 /**
- * The template for displaying Search Results pages.
  *
- * @package WordPress
- * @subpackage Toolbox
- * @since Toolbox 0.1
+ * Template Name: Search Template
+ *
+ *
+ * @package WP-Bootstrap
+ * @subpackage Default_Theme
+ * @since WP-Bootstrap 0.7
+ *
+ * Last Revised: January 22, 2012
  */
-
 get_header(); ?>
-
-		<section id="primary">
-			<div id="content" role="main">
-
-			<?php if ( have_posts() ) : ?>
-
-				<header class="page-header">
-					<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'toolbox' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-				</header>
-
-				<?php toolbox_content_nav( 'nav-above' ); ?>
-
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<?php get_template_part( 'content', 'search' ); ?>
-
+ <div class="container">
+<?php if ( have_posts() ) : ?>
+  
+    <!-- Masthead
+      ================================================== -->
+      <header class="jumbotron subhead" id="overview">
+        <h1><?php printf( __( 'Search Results for: %s', 'bootstrapwp' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+       
+      </header>
+			 <div class="row content">
+<div class="span8">
+					<?php while ( have_posts() ) : the_post(); ?>
+<div class="entry">
+<h2><?php the_title();?></h2>
+<p><?php the_excerpt();?></p>
+</div><!--/.entry-->
 				<?php endwhile; ?>
-
-				<?php toolbox_content_nav( 'nav-below' ); ?>
-
 			<?php else : ?>
+ <!-- Masthead
+      ================================================== -->
+      <header class="jumbotron subhead" id="overview">
+        <h1><?php _e( 'No Results Found', 'bootstrapwp' ); ?></h1>
+      <p class="lead"><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps you should try again with a different search term.', 'bootstrapwp' ); ?></p>
+      </header>
+			 <div class="row content">
+<div class="span8">
+					
 
-				<article id="post-0" class="post no-results not-found">
-					<header class="entry-header">
-						<h1 class="entry-title"><?php _e( 'Nothing Found', 'toolbox' ); ?></h1>
-					</header><!-- .entry-header -->
+<div class="well">
+					<?php get_search_form(); ?>
 
-					<div class="entry-content">
-						<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'toolbox' ); ?></p>
-						<?php get_search_form(); ?>
-					</div><!-- .entry-content -->
-				</article><!-- #post-0 -->
+</div><!--/.well -->
+<?php endif ;?>
+				<?php bootstrapwp_content_nav( 'nav-below' ); ?>
 
-			<?php endif; ?>
+			
 
-			</div><!-- #content -->
-		</section><!-- #primary -->
+		</div><!--/.span8 -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
