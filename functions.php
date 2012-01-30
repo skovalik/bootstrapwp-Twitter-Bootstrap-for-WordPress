@@ -311,11 +311,11 @@ function bootstrapwp_categorized_blog() {
  * @since bootstrap 1.2
  */
 function bootstrapwp_category_transient_flusher() {
-	// Like, beat it. Dig?
-	delete_transient( 'all_the_cool_cats' );
+  // Like, beat it. Dig?
+  delete_transient( 'all_the_cool_cats' );
 }
-add_action( 'edit_category', 'bootstrap_category_transient_flusher' );
-add_action( 'save_post', 'bootstrap_category_transient_flusher' );
+add_action( 'edit_category', 'bootstrapwp_category_transient_flusher' );
+add_action( 'save_post', 'bootstrapwp_category_transient_flusher' );
 
 /**
  * Filter in a link to a content ID attribute for the next/previous image links on image attachment pages
