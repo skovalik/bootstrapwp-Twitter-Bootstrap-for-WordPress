@@ -3,12 +3,16 @@ Bootstrapwp - TWITTER BOOTSTRAP for WordPress
 
 Bootstrap is a responsive front-end toolkit from Twitter designed to kickstart web development, complete with core HTML, CSS, and JS for grids, type, forms, navigation, and many more components. Now you can use it with **WordPress** as a solid base to build custom themes quickly and easily.
 
+**Full integration with final 2.0 release from Twitter Bootstrap is currently in development**
+Follow the in-process branch at: https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/tree/2.0-update
 
 
-**Latest version release: .7 (01/22/2012)**
+
+
 
 Version .7 Change Log
 ----
+**Latest full version release: .7 (01/22/2012)**
 
 * Updated JS and CSS/LESS files from Twitter Bootstrap 2.0 WIP files (up to date as of January 20, 2012)
 * Moved all CSS and JS files to their respective /css and /js folders
