@@ -10,6 +10,8 @@
  * @package WordPress
  * @subpackage WP-Bootstrap
  * @since WP-Bootstrap 0.1
+ * 
+ * Last Updated: February 12, 2012
  */
 
  /**
@@ -18,61 +20,46 @@
 if ( ! isset( $content_width ) )
   $content_width = 620; /* pixels */
 
-/**
- * Load all CSS files in the currect order!
- */
+################################################################################
+// Loading All CSS Stylesheets
+################################################################################
   function bootstrapwp_css_loader() {
     wp_enqueue_style('bootstrap.css', get_template_directory_uri().'/css/bootstrap.css', false ,'1.0', 'all' );
+    wp_enqueue_style('responsive.css', get_template_directory_uri().'/css/bootstrap-responsive.css', false, '1.0', 'all' );
     wp_enqueue_style('docs.css', get_template_directory_uri().'/css/docs.css', false ,'1.0', 'all' );
     wp_enqueue_style('prettify.css', get_template_directory_uri().'/css/prettify.css', false ,'1.0', 'all' );
-  wp_enqueue_style('style.css', get_template_directory_uri().'/style.css', false ,'1.0', 'all' );
-      }     
-      add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
-/**
- * Load Javascript for the Twitter Bootstrap JS Features - YOU SHOULD DISABLE ANY JS FILES YOU ARE NOT USING
- */
+    wp_enqueue_style('style.css', get_template_directory_uri().'/style.css', false ,'1.0', 'all' );
+  }     
+add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
+
+
+################################################################################
+// Loading all JS Script Files.  Remove any files you are not using!
+################################################################################
   function bootstrapwp_js_loader() {
        wp_enqueue_script('prettify.js', get_template_directory_uri().'/js/prettify.js', array('jquery'),'1.0', true );
-         
        wp_enqueue_script('transition.js', get_template_directory_uri().'/js/bootstrap-transition.js', array('jquery'),'1.0', true );
        wp_enqueue_script('alert.js', get_template_directory_uri().'/js/bootstrap-alert.js', array('jquery'),'1.0', true );
        wp_enqueue_script('modal.js', get_template_directory_uri().'/js/bootstrap-modal.js', array('jquery'),'1.0', true );
        wp_enqueue_script('dropdown.js', get_template_directory_uri().'/js/bootstrap-dropdown.js', array('jquery'),'1.0', true );
        wp_enqueue_script('scrollspy.js', get_template_directory_uri().'/js/bootstrap-scrollspy.js', array('jquery'),'1.0', true );
-      wp_enqueue_script('tab.js', get_template_directory_uri().'/js/bootstrap-tab.js', array('jquery'),'1.0', true );
-      wp_enqueue_script('tooltip.js', get_template_directory_uri().'/js/bootstrap-tooltip.js', array('jquery'),'1.0', true );
-             wp_enqueue_script('popover.js', get_template_directory_uri().'/js/bootstrap-popover.js', array('tooltip.js'),'1.0', true );
+       wp_enqueue_script('tab.js', get_template_directory_uri().'/js/bootstrap-tab.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('tooltip.js', get_template_directory_uri().'/js/bootstrap-tooltip.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('popover.js', get_template_directory_uri().'/js/bootstrap-popover.js', array('tooltip.js'),'1.0', true );
        wp_enqueue_script('button.js', get_template_directory_uri().'/js/bootstrap-button.js', array('jquery'),'1.0', true );
        wp_enqueue_script('collapse.js', get_template_directory_uri().'/js/bootstrap-collapse.js', array('jquery'),'1.0', true );        
        wp_enqueue_script('carousel.js', get_template_directory_uri().'/js/bootstrap-carousel.js', array('jquery'),'1.0', true );    
       wp_enqueue_script('typeahead.js', get_template_directory_uri().'/js/bootstrap-typeahead.js', array('jquery'),'1.0', true );
-          wp_enqueue_script('tablesorter.js', get_template_directory_uri().'/js/jquery.tablesorter.js', array('jquery'),'1.0', true );
-      }
-      add_action('wp_enqueue_scripts', 'bootstrapwp_js_loader');
+      wp_enqueue_script('application.js', get_template_directory_uri().'/js/application.js', array('tooltip.js'),'1.0', true );
+  }
+add_action('wp_enqueue_scripts', 'bootstrapwp_js_loader');
 
 
-
-/**
- * 
- * 
-* This theme uses wp_nav_menu() in one location.
-	 */
+################################################################################
+// Registering Top Navigation Bar
+################################################################################
 if ( function_exists( 'register_nav_menu' ) ) {
 register_nav_menu( 'main-menu', 'Main Menu' );
-}
-
-function bootstrapwp_theme_setup() {
-	/**
-	 * Add default posts and comments RSS feed links to head
-	 */
-	add_theme_support( 'automatic-feed-links' );
-
-	
-
-	/**
-	 * Add support for the Aside and Gallery Post Formats
-	 */
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'gallery' ) );
 }
 
 
@@ -80,33 +67,34 @@ function bootstrapwp_theme_setup() {
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
  */
 function bootstrapwp_page_menu_args( $args ) {
-	$args['show_home'] = true;
-	return $args;
+  $args['show_home'] = true;
+  return $args;
 }
 add_filter( 'wp_page_menu_args', 'bootstrapwp_page_menu_args' );
 
 
-/**
- * Register widgetized area and update sidebar with default widgets
- */
-function bootstrapwp_widgets_init() {
-	register_sidebar( array(
-		'name' => 'Page Sidebar',
-		'id' => 'sidebar-page',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => "</aside>",
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
+################################################################################
+// Registering Widget Sections
+################################################################################
 
-	register_sidebar( array(
-		'name' => 'Posts Sidebar',
-		'id' => 'sidebar-posts',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => "</aside>",
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
+function bootstrapwp_widgets_init() {
+  register_sidebar( array(
+    'name' => 'Page Sidebar',
+    'id' => 'sidebar-page',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => "</div>",
+    'before_title' => '<h4 class="widget-title">',
+    'after_title' => '</h4>',
+  ) );
+
+  register_sidebar( array(
+    'name' => 'Posts Sidebar',
+    'id' => 'sidebar-posts',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => "</div>",
+    'before_title' => '<h4 class="widget-title">',
+    'after_title' => '</h4>',
+  ) );
 
   register_sidebar(array(
     'name' => 'Home Left',
@@ -142,6 +130,33 @@ function bootstrapwp_widgets_init() {
 add_action( 'init', 'bootstrapwp_widgets_init' );
 
 
+
+function bootstrapwp_theme_setup() {
+	/**
+	 * Add default posts and comments RSS feed links to head
+	 */
+	add_theme_support( 'automatic-feed-links' );
+
+	/**
+	 * Add support for the Aside and Gallery Post Formats
+	 */
+	add_theme_support( 'post-formats', array( 'aside', 'image', 'gallery' ) );
+}
+
+
+################################################################################
+// Setting Image Sizes
+################################################################################
+if ( function_exists( 'add_theme_support' ) ) {
+  add_theme_support( 'post-thumbnails' );
+  set_post_thumbnail_size( 160, 120 ); // 160 pixels wide by 120 pixels high   
+}
+
+if ( function_exists( 'add_image_size' ) ) { 
+  add_image_size( 'bootstrap-small', 260, 180 ); // 260 pixels wide by 180 pixels high
+  add_image_size( 'bootstrap-medium', 360, 268 ); // 360 pixels wide by 268 pixels high
+}
+
 /**
  * Customize the excerpt with a filter to change the end to contain ...Continue Reading link
  */
@@ -163,20 +178,20 @@ function bootstrapwp_content_nav( $nav_id ) {
 	?>
 
 	<?php if ( is_single() ) : // navigation links for single posts ?>
-<div class="pagination"><ul>
-		<?php previous_post_link( '<li>%link</li>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'bootstrapwp' ) . '</span> %title' ); ?>
-		<?php next_post_link( '<li>%link</li>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'bootstrapwp' ) . '</span>' ); ?>
-</ul></div><!--/.pagination -->
+<ul class="pager">
+		<?php previous_post_link( '<li class="previous">%link</li>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'bootstrapwp' ) . '</span> %title' ); ?>
+		<?php next_post_link( '<li class="next">%link</li>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'bootstrapwp' ) . '</span>' ); ?>
+</ul>
 	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
-<div class="pagination"><ul>
+<ul class="pager">
 		<?php if ( get_next_posts_link() ) : ?>
-		<li><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'bootstrapwp' ) ); ?></li>
+		<li class="next"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'bootstrapwp' ) ); ?></li>
 		<?php endif; ?>
 
 		<?php if ( get_previous_posts_link() ) : ?>
-		<li><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'bootstrapwp' ) ); ?></li>
+		<li class="previous"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'bootstrapwp' ) ); ?></li>
 		<?php endif; ?>
-</ul></div><!--/.pagination -->
+</ul>
 	<?php endif; ?>
 
 	<?php
@@ -329,6 +344,31 @@ function bootstrapwp_enhanced_image_navigation( $url ) {
 	return $url;
 }
 add_filter( 'attachment_link', 'bootstrapwp_enhanced_image_navigation' );
+
+################################################################################
+// Grabbing the First Image in Posts
+################################################################################
+
+function catch_that_image() {
+  global $post, $posts;
+  $first_img = '';
+  $new_img_tag = "";
+
+  ob_start();
+  ob_end_clean();
+  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+  $first_img = $matches [1] [0];
+
+  if(empty($first_img)){ //Defines a default image with 0 width
+  $new_img_tag = "<img src='/images/noimage.jpg' width='0px' class='alignright' />";
+  }
+
+  else{
+  $new_img_tag = "<img src='" .  $first_img . "' width='160px' height='120px' class='thumbnail' />";
+  }
+
+  return $new_img_tag;
+  }
 
 /**
  * Adding Breadcrumbs

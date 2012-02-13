@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * Template Name: Search Template
+ * Search Template
  *
  *
  * @package WP-Bootstrap
@@ -23,10 +23,10 @@ get_header(); ?>
 			 <div class="row content">
 <div class="span8">
 					<?php while ( have_posts() ) : the_post(); ?>
-<div class="entry">
 <h2><?php the_title();?></h2>
 <p><?php the_excerpt();?></p>
-</div><!--/.entry-->
+<hr />
+
 				<?php endwhile; ?>
 			<?php else : ?>
  <!-- Masthead
