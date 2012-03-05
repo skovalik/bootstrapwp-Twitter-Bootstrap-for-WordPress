@@ -11,24 +11,29 @@
  * @subpackage WP-Bootstrap
  * @since WP-Bootstrap 0.1
  * 
- * Last Updated: February 12, 2012
+ * Last Updated: March 4, 2012
  */
 
  /**
- * Set the content width based on the theme's design and stylesheet.
+ * Declaring the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) )
-  $content_width = 620; /* pixels */
+  $content_width = 770; /* pixels */
+
+/**
+ * Declaring the theme language domain
+ */
+load_theme_textdomain('bootstrapwp'); 
 
 ################################################################################
 // Loading All CSS Stylesheets
 ################################################################################
   function bootstrapwp_css_loader() {
-    wp_enqueue_style('bootstrap.css', get_template_directory_uri().'/css/bootstrap.css', false ,'1.0', 'all' );
-    wp_enqueue_style('responsive.css', get_template_directory_uri().'/css/bootstrap-responsive.css', false, '1.0', 'all' );
-    wp_enqueue_style('docs.css', get_template_directory_uri().'/css/docs.css', false ,'1.0', 'all' );
-    wp_enqueue_style('prettify.css', get_template_directory_uri().'/css/prettify.css', false ,'1.0', 'all' );
-    wp_enqueue_style('style.css', get_template_directory_uri().'/style.css', false ,'1.0', 'all' );
+    wp_enqueue_style('bootstrap', get_template_directory_uri().'/css/bootstrap.css', false ,'1.0', 'all' );
+    wp_enqueue_style('responsive', get_template_directory_uri().'/css/bootstrap-responsive.css', false, '1.0', 'all' );
+    wp_enqueue_style('docs', get_template_directory_uri().'/css/docs.css', false ,'1.0', 'all' );
+    wp_enqueue_style('prettify', get_template_directory_uri().'/css/prettify.css', false ,'1.0', 'all' );
+    wp_enqueue_style('style', get_template_directory_uri().'/style.css', false ,'1.0', 'all' );
   }     
 add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
 
@@ -37,20 +42,20 @@ add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
 // Loading all JS Script Files.  Remove any files you are not using!
 ################################################################################
   function bootstrapwp_js_loader() {
-       wp_enqueue_script('prettify.js', get_template_directory_uri().'/js/prettify.js', array('jquery'),'1.0', true );
-       wp_enqueue_script('transition.js', get_template_directory_uri().'/js/bootstrap-transition.js', array('jquery'),'1.0', true );
-       wp_enqueue_script('alert.js', get_template_directory_uri().'/js/bootstrap-alert.js', array('jquery'),'1.0', true );
-       wp_enqueue_script('modal.js', get_template_directory_uri().'/js/bootstrap-modal.js', array('jquery'),'1.0', true );
-       wp_enqueue_script('dropdown.js', get_template_directory_uri().'/js/bootstrap-dropdown.js', array('jquery'),'1.0', true );
-       wp_enqueue_script('scrollspy.js', get_template_directory_uri().'/js/bootstrap-scrollspy.js', array('jquery'),'1.0', true );
-       wp_enqueue_script('tab.js', get_template_directory_uri().'/js/bootstrap-tab.js', array('jquery'),'1.0', true );
-       wp_enqueue_script('tooltip.js', get_template_directory_uri().'/js/bootstrap-tooltip.js', array('jquery'),'1.0', true );
-       wp_enqueue_script('popover.js', get_template_directory_uri().'/js/bootstrap-popover.js', array('tooltip.js'),'1.0', true );
-       wp_enqueue_script('button.js', get_template_directory_uri().'/js/bootstrap-button.js', array('jquery'),'1.0', true );
-       wp_enqueue_script('collapse.js', get_template_directory_uri().'/js/bootstrap-collapse.js', array('jquery'),'1.0', true );        
-       wp_enqueue_script('carousel.js', get_template_directory_uri().'/js/bootstrap-carousel.js', array('jquery'),'1.0', true );    
-      wp_enqueue_script('typeahead.js', get_template_directory_uri().'/js/bootstrap-typeahead.js', array('jquery'),'1.0', true );
-      wp_enqueue_script('application.js', get_template_directory_uri().'/js/application.js', array('tooltip.js'),'1.0', true );
+       wp_enqueue_script('prettify', get_template_directory_uri().'/js/prettify.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('transition', get_template_directory_uri().'/js/bootstrap-transition.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('alert', get_template_directory_uri().'/js/bootstrap-alert.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('modal', get_template_directory_uri().'/js/bootstrap-modal.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('dropdown', get_template_directory_uri().'/js/bootstrap-dropdown.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('scrollspy', get_template_directory_uri().'/js/bootstrap-scrollspy.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('tab', get_template_directory_uri().'/js/bootstrap-tab.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('tooltip', get_template_directory_uri().'/js/bootstrap-tooltip.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('popover', get_template_directory_uri().'/js/bootstrap-popover.js', array('tooltip'),'1.0', true );
+       wp_enqueue_script('button', get_template_directory_uri().'/js/bootstrap-button.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('collapse', get_template_directory_uri().'/js/bootstrap-collapse.js', array('jquery'),'1.0', true );        
+       wp_enqueue_script('carousel', get_template_directory_uri().'/js/bootstrap-carousel.js', array('jquery'),'1.0', true );    
+      wp_enqueue_script('typeahead', get_template_directory_uri().'/js/bootstrap-typeahead.js', array('jquery'),'1.0', true );
+      wp_enqueue_script('application', get_template_directory_uri().'/js/application.js', array('tooltip'),'1.0', true );
   }
 add_action('wp_enqueue_scripts', 'bootstrapwp_js_loader');
 
@@ -126,6 +131,15 @@ function bootstrapwp_widgets_init() {
     'after_title'   => '</h2>'
   ));
 
+    register_sidebar(array(
+    'name' => 'Footer Content',
+    'id'   => 'footer-content',
+    'description'   => 'Footer text or acknowledgements',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h4>',
+    'after_title'   => '</h4>'
+  ));
 }
 add_action( 'init', 'bootstrapwp_widgets_init' );
 
@@ -142,7 +156,7 @@ function bootstrapwp_theme_setup() {
 	 */
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'gallery' ) );
 }
-
+add_action( 'after_setup_theme', 'bootstrapwp_theme_setup' );
 
 ################################################################################
 // Setting Image Sizes
@@ -473,6 +487,8 @@ function catch_that_image() {
 
   }
 } // end bootstrapwp_breadcrumbs()
+
+
 /**
  * This theme was built with PHP, Semantic HTML, CSS, love, and a bootstrap.
  */

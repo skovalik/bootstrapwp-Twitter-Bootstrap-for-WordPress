@@ -4,7 +4,8 @@ Theme URI: http://www.rachelbaker.me
 Author: Rachel Baker
 Author URI: http://www.rachelbaker.me
 Description: A semantic HTML base theme for WordPress ported from Twitter Bootstrap
-Version: .8
+Version: .85
+=======
 License: GNU General Public License
 License URI: license.txt
 
@@ -299,6 +300,11 @@ transition: 0.1s linear all;
 
 /* Comment Styles
 ----------------------------------------------------------------------------------------*/
+li.bypostauthor { 
+  border: 1px solid;
+  border-color: #08C;
+  display: block;
+}
 #respond {
   margin-top: 20px;
 }
@@ -444,3 +450,38 @@ filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   background-color: #0044cc;
 }
 .button:active, #submit:active, .widget_search #searchsubmit:active, .button.green:active {position: relative; top:1px;}
+
+/* Caption Styling
+----------------------------------------------------------------------------------------*/
+.wp-caption {
+  padding: 9px;
+}
+.wp-caption-text {
+  font-size: 10px;
+  line-height: 14px;
+}
+.gallery-caption {
+  padding: 9px;
+}
+/* Sticky Post Styles
+----------------------------------------------------------------------------------------*/
+.sticky {
+  padding: 4px;
+  border: 1px solid #DDD;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+/* Custom Elements Added
+----------------------------------------------------------------------------------------*/
+.masthead h2 {
+  margin-bottom: 0;
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: -1px;
+  text-align: center;
+  margin-bottom: 9px;
+}

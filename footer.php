@@ -15,6 +15,9 @@
 
       <p class="pull-right"><a href="#">Back to top</a></p>
         <p>&copy; <?php bloginfo('name'); ?> <?php the_time('Y') ?></p>
+          <?php
+    if ( function_exists('dynamic_sidebar')) dynamic_sidebar("footer-content");
+?>
       </footer>
 
     </div> <!-- /container -->
@@ -25,7 +28,7 @@ jQuery(document).ready(function(){
 jQuery("ul.sub-menu").parent().addClass("dropdown");
 jQuery("ul#main-menu li.dropdown a").addClass("dropdown-toggle");
 jQuery("ul.sub-menu li a").removeClass("dropdown-toggle"); 
-jQuery('.dropdown-toggle').append('<b class="caret"></b>');
+jQuery('.navbar-fixed-top .dropdown-toggle').append('<b class="caret"></b>');
   });
 </script>
 <script type="text/javascript">
@@ -34,17 +37,6 @@ jQuery(document).ready(function(){
 jQuery('a.dropdown-toggle')
 .attr('data-toggle', 'dropdown');
   });
-</script>
-  <script type="text/javascript">
-jQuery(document).ready(function(){
- // Loaded for javascript Demo page - I prefer it when demos actually work, don't you?  //	
- // Don't FORGET: replace all $ with jQuery to prevent conflicts //
-jQuery(function () {
-      jQuery(function () {
-        jQuery('.dropdown-toggle').dropdown();
-      })
-  });
-});
 </script>
   </body>
 </html>
