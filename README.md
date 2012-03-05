@@ -5,7 +5,7 @@ Bootstrap is a responsive front-end toolkit from Twitter designed to kickstart w
 
 For the most up-to-date version, follow the in-process development branch: [https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/tree/2.0-update](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/tree/2.0-update)
 
-Version .85 (Released 03/01/2012)
+Version .85 (Released 03/04/2012)
 -------------
 
 __Bootstrap Styles and Scripts__
