@@ -5,6 +5,26 @@ Bootstrap is a responsive front-end toolkit from Twitter designed to kickstart w
 
 For the most up-to-date version, follow the in-process development branch: [https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/tree/1-WIP](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/tree/1-WIP)
 
+Version .86 (still baking)
+-------------
+
+__Bootstrap Styles and Scripts__
+
+*	Updated JS files from Bootstrap 2.0.2 branch as of March 11, 2012
+*	Updated CSS files from Bootstrap 2.0.2 branch as of March 11, 2012
+*	Updated LESS files from Bootstrap 2.0.2 branch as of March 11, 2012
+
+__Style.css__
+
+*	Updated `.submenu` style to match `.dropdown-menu` from the Twitter Bootstrap styles to fix max-width restriction on navigation dropdown items
+
+
+__Misc.__
+
+*	Fixed JavaScript guide link in Readme (props to fsimmons)
+
+
+
 Version .85 (Released 03/04/2012)
 -------------
 
@@ -73,7 +93,7 @@ You can view a demo of this theme running on WordPress at:  [http://rachelbaker.
 
 View the theme style guide at: [http://rachelbaker.me/bootstrapwp/style-guide/](http://rachelbaker.me/bootstrapwp/style-guide/)
 
-View the javascript guide at: [http://rachelbaker.me/bootstrapwp/javascript-for-bootstrap/](http://rachelbaker.me/bootstrapwp/javascript-for-bootstrap/)
+View the javascript guide at: [http://rachelbaker.me/bootstrapwp/javascript-guide/](http://rachelbaker.me/bootstrapwp/javascript-guide/)
 
 
 
