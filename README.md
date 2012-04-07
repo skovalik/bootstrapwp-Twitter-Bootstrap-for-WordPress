@@ -10,9 +10,29 @@ Version .86 (still baking)
 
 __Bootstrap Styles and Scripts__
 
-*	Updated JS files from Bootstrap 2.0.2 branch as of March 11, 2012
-*	Updated CSS files from Bootstrap 2.0.2 branch as of March 11, 2012
-*	Updated LESS files from Bootstrap 2.0.2 branch as of March 11, 2012
+*	Updated JS files from Bootstrap 2.0.3 branch as of April 7, 2012
+*	Updated CSS files from Bootstrap 2.0.3 branch as of April 7, 2012
+*	Updated LESS files from Bootstrap 2.0.3 branch as of April 7, 2012
+
+__Functions.php__
+
+*    Added `bootstrapwp_autoset_featured_image()` function to replace previous `catch_that_image()` function that was causing issues for some theme users.  The post thumbnail will now automatically be set to the first image added to a post if a featured image was not manually declared.  
+
+__Page-blog.php__
+
+*    Replaced `catch_that_image()` function with `the_post_thumbnail()`
+
+__Author.php__
+
+*    Replaced `catch_that_image()` function with `the_post_thumbnail()`
+
+__Archive.php__
+
+*    Replaced `catch_that_image()` function with `the_post_thumbnail()`
+
+__Header.php__
+
+*	Added `<?php bloginfo( 'template_url' );?>` to favicon link
 
 __Style.css__
 
@@ -22,6 +42,7 @@ __Style.css__
 __Misc.__
 
 *	Fixed JavaScript guide link in Readme (props to fsimmons)
+*	Updated favicons and moved them to /ico/ folder
 
 
 
@@ -39,7 +60,7 @@ __Functions.php__
 *	Added widget area for footer-content
 *	Fixed content_width size, now 770px
 *	Added theme language text domain
-*	Added after_theme_setup hook to enable post formats 
+*	Added after_theme_setup hook to enable post formats
 *	Removed .css and .js from string names of enqueuing script and style functions
 
 __Style.css__
@@ -103,9 +124,9 @@ Usage
 
 Download the BootstrapWP theme, and install to your WordPress site.
 
-This is meant to be a base theme for WordPress custom theme development.  
+This is meant to be a base theme for WordPress custom theme development.
 
-You can override any of the styles using style.css file.  All .css and .js files are loaded in functions.php.  Don't forget to disable any of the .js files you do not need.  
+You can override any of the styles using style.css file.  All .css and .js files are loaded in functions.php.  Don't forget to disable any of the .js files you do not need.
 
 
 
