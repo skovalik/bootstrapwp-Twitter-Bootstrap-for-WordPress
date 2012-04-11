@@ -7,7 +7,7 @@ For the most up-to-date version, follow the in-process development branch: [http
 
 ##Version .86 of BootstrapWP – Released April 11, 2012
 
-**This release resolves a few major bugs and keep the theme moving forward along with the progress of Twitter Bootstrap.**
+**This release resolves a few major bugs and keeps the theme moving forward along with the progress of Twitter Bootstrap.**
 
 The major changes are:
 
