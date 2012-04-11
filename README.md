@@ -52,71 +52,9 @@ __Page-Styleguide.php__
 
 __Misc.__
 
-*	Fixed JavaScript guide link in Readme (props to fsimmons)
+*	Fixed JavaScript guide link in Readme thanks to @fsimmons
 *	Updated favicons and moved them to /ico/ folder
 *	Adding new screenshot image thanks to @yourdesigncoza
-
-
-
-Version .85 (Released 03/04/2012)
--------------
-
-__Bootstrap Styles and Scripts__
-
-*	Updated JS files from Bootstrap 2.0.2 branch as of March 4, 2012
-*	Updated CSS files from Bootstrap 2.0.2 branch as of March 4, 2012
-*	Updated LESS files from Bootstrap 2.0.2 branch as of March 4, 2012
-
-__Functions.php__
-
-*	Added widget area for footer-content
-*	Fixed content_width size, now 770px
-*	Added theme language text domain
-*	Added after_theme_setup hook to enable post formats
-*	Removed .css and .js from string names of enqueuing script and style functions
-
-__Style.css__
-
-*	Added .wp-caption and .wp-caption-text style for image captions
-*	Added .gallery-caption style for image gallery captions
-*	Added .bypostauthor style for comments
-*	Added .sticky style for sticky posts
-
-__Archive.php__
-
-*	Added `<div <?php post_class(); ?>>` to enable sticky posts
-*  Fixed Archive titles and filtering
-
-__Author.php__
-
-*	Added `<div <?php post_class(); ?>>` to enable sticky posts
-
-__Footer.php__
-
-*	Added widget code for footer content widget
-*	Fixed jQuery dropdown caret function to only apply the top navigation bar
-
-__Index.php__
-
-*	Added WordPress loop to template so page editor can be used to easily update/add content to top section of index.php
-
-__Page-Blog.php__
-
-*	Added `<div <?php post_class(); ?>>` to enable sticky posts
-
-__Page-JSGuide.php__
-
-*	Added content from Bootstrap 2.0.2 files
-*	Removed duplicated jQuery function
-
-__Page-Styleguide.php__
-
-*	Added content from Bootstrap 2.0.2 files
-
-__Misc.__
-
-*	Added /lang folder with language files
-*  Removed image.php template file
 
 
 
