@@ -10,8 +10,8 @@
  * @package WordPress
  * @subpackage WP-Bootstrap
  * @since WP-Bootstrap 0.1
- * 
- * Last Updated: March 4, 2012
+ *
+ * Last Updated: April 11, 2012
  */
 
  /**
@@ -23,18 +23,18 @@ if ( ! isset( $content_width ) )
 /**
  * Declaring the theme language domain
  */
-load_theme_textdomain('bootstrapwp'); 
+load_theme_textdomain('bootstrapwp');
 
 ################################################################################
 // Loading All CSS Stylesheets
 ################################################################################
   function bootstrapwp_css_loader() {
     wp_enqueue_style('bootstrap', get_template_directory_uri().'/css/bootstrap.css', false ,'1.0', 'all' );
-    wp_enqueue_style('responsive', get_template_directory_uri().'/css/bootstrap-responsive.css', false, '1.0', 'all' );
     wp_enqueue_style('docs', get_template_directory_uri().'/css/docs.css', false ,'1.0', 'all' );
     wp_enqueue_style('prettify', get_template_directory_uri().'/css/prettify.css', false ,'1.0', 'all' );
-    wp_enqueue_style('style', get_template_directory_uri().'/style.css', false ,'1.0', 'all' );
-  }     
+    wp_enqueue_style('responsive', get_template_directory_uri().'/css/bootstrap-responsive.css', false, '1.0', 'all' );
+    wp_enqueue_style('style', get_template_directory_uri().'/style.css', false ,'1.1', 'all' );
+  }
 add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
 
 
@@ -52,17 +52,20 @@ add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
        wp_enqueue_script('tooltip', get_template_directory_uri().'/js/bootstrap-tooltip.js', array('jquery'),'1.0', true );
        wp_enqueue_script('popover', get_template_directory_uri().'/js/bootstrap-popover.js', array('tooltip'),'1.0', true );
        wp_enqueue_script('button', get_template_directory_uri().'/js/bootstrap-button.js', array('jquery'),'1.0', true );
-       wp_enqueue_script('collapse', get_template_directory_uri().'/js/bootstrap-collapse.js', array('jquery'),'1.0', true );        
-       wp_enqueue_script('carousel', get_template_directory_uri().'/js/bootstrap-carousel.js', array('jquery'),'1.0', true );    
+       wp_enqueue_script('collapse', get_template_directory_uri().'/js/bootstrap-collapse.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('carousel', get_template_directory_uri().'/js/bootstrap-carousel.js', array('jquery'),'1.0', true );
       wp_enqueue_script('typeahead', get_template_directory_uri().'/js/bootstrap-typeahead.js', array('jquery'),'1.0', true );
       wp_enqueue_script('application', get_template_directory_uri().'/js/application.js', array('tooltip'),'1.0', true );
   }
 add_action('wp_enqueue_scripts', 'bootstrapwp_js_loader');
 
 
-################################################################################
-// Registering Top Navigation Bar
-################################################################################
+/*
+| -------------------------------------------------------------------
+| Registering Top Navigation Bar
+| -------------------------------------------------------------------
+| Adds custom menu with wp_page_menu fallback
+| */
 if ( function_exists( 'register_nav_menu' ) ) {
 register_nav_menu( 'main-menu', 'Main Menu' );
 }
@@ -78,10 +81,11 @@ function bootstrapwp_page_menu_args( $args ) {
 add_filter( 'wp_page_menu_args', 'bootstrapwp_page_menu_args' );
 
 
-################################################################################
-// Registering Widget Sections
-################################################################################
-
+/*
+| -------------------------------------------------------------------
+| Registering Widget Sections
+| -------------------------------------------------------------------
+| */
 function bootstrapwp_widgets_init() {
   register_sidebar( array(
     'name' => 'Page Sidebar',
@@ -158,22 +162,26 @@ function bootstrapwp_theme_setup() {
 }
 add_action( 'after_setup_theme', 'bootstrapwp_theme_setup' );
 
-################################################################################
-// Setting Image Sizes
-################################################################################
+/*
+| -------------------------------------------------------------------
+| Adding Post Thumbnails and Image Sizes
+| -------------------------------------------------------------------
+| */
 if ( function_exists( 'add_theme_support' ) ) {
   add_theme_support( 'post-thumbnails' );
-  set_post_thumbnail_size( 160, 120 ); // 160 pixels wide by 120 pixels high   
+  set_post_thumbnail_size( 160, 120 ); // 160 pixels wide by 120 pixels high
 }
 
-if ( function_exists( 'add_image_size' ) ) { 
+if ( function_exists( 'add_image_size' ) ) {
   add_image_size( 'bootstrap-small', 260, 180 ); // 260 pixels wide by 180 pixels high
   add_image_size( 'bootstrap-medium', 360, 268 ); // 360 pixels wide by 268 pixels high
 }
-
-/**
- * Customize the excerpt with a filter to change the end to contain ...Continue Reading link
- */
+/*
+| -------------------------------------------------------------------
+| Revising Default Excerpt
+| -------------------------------------------------------------------
+| Adding filter to post excerpts to contain ...Continue Reading link
+| */
 function bootstrapwp_excerpt($more) {
        global $post;
   return '&nbsp; &nbsp;<a href="'. get_permalink($post->ID) . '">...Continue Reading</a>';
@@ -276,7 +284,7 @@ if ( ! function_exists( 'bootstrapwp_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  * Create your own bootstrap_posted_on to override in a child theme
- * 
+ *
  * @since WP-Bootstrap .5
  */
 function bootstrapwp_posted_on() {
@@ -359,35 +367,37 @@ function bootstrapwp_enhanced_image_navigation( $url ) {
 }
 add_filter( 'attachment_link', 'bootstrapwp_enhanced_image_navigation' );
 
-################################################################################
-// Grabbing the First Image in Posts
-################################################################################
+/*
+| -------------------------------------------------------------------
+| Setting Featured Image (Post Thumbnail)
+| -------------------------------------------------------------------
+| Will automatically add the first image attached to a post as the Featured Image if post does not have a featured image previously set.
+| */
+function bootstrapwp_autoset_featured_img() {
+          global $post;
+          $already_has_thumb = has_post_thumbnail($post->ID);
+              if (!$already_has_thumb)  {
+              $attached_image = get_children( "post_parent=$post->ID&post_type=attachment&post_mime_type=image&numberposts=1" );
+                          if ($attached_image) {
+                                foreach ($attached_image as $attachment_id => $attachment) {
+                                set_post_thumbnail($post->ID, $attachment_id);
+                                }
+                           }
+                        }
+      }  //end function
+add_action('the_post', 'bootstrapwp_autoset_featured_img');
+add_action('save_post', 'bootstrapwp_autoset_featured_img');
+add_action('draft_to_publish', 'bootstrapwp_autoset_featured_img');
+add_action('new_to_publish', 'bootstrapwp_autoset_featured_img');
+add_action('pending_to_publish', 'bootstrapwp_autoset_featured_img');
+add_action('future_to_publish', 'bootstrapwp_autoset_featured_img');
 
-function catch_that_image() {
-  global $post, $posts;
-  $first_img = '';
-  $new_img_tag = "";
-
-  ob_start();
-  ob_end_clean();
-  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-  $first_img = $matches [1] [0];
-
-  if(empty($first_img)){ //Defines a default image with 0 width
-  $new_img_tag = "<img src='/images/noimage.jpg' width='0px' class='alignright' />";
-  }
-
-  else{
-  $new_img_tag = "<img src='" .  $first_img . "' width='160px' height='120px' class='thumbnail' />";
-  }
-
-  return $new_img_tag;
-  }
-
-/**
- * Adding Breadcrumbs
- */
-
+/*
+| -------------------------------------------------------------------
+| Adding Breadcrumbs
+| -------------------------------------------------------------------
+|
+| */
  function bootstrapwp_breadcrumbs() {
 
   $delimiter = '<span class="divider">/</span>';

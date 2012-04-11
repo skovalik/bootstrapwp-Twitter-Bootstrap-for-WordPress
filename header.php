@@ -7,9 +7,8 @@
  * @subpackage Default_Theme
  * @since WP-Bootstrap 0.1
  *
- * Last Revised: January 20, 2012
- */
-get_header(); ?>
+ * Last Revised: April 11, 2012
+ */ ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
   <head>
@@ -45,7 +44,9 @@ get_header(); ?>
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-          <?php wp_nav_menu( array( 'menu' => 'main-menu', 'container_class' => 'nav-collapse', 'menu_class' => 'nav', 'menu_id' => 'main-menu') ); ?>
+          <?php
+           /** Loading WordPress Custom Menu with Fallback to wp_list_pages **/
+      wp_nav_menu( array( 'menu' => 'main-menu', 'container_class' => 'nav-collapse', 'menu_class' => 'nav', 'menu_id' => 'main-menu') ); ?>
         </div>
       </div>
     </div>

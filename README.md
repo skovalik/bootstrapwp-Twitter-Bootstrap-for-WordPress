@@ -5,18 +5,19 @@ Bootstrap is a responsive front-end toolkit from Twitter designed to kickstart w
 
 For the most up-to-date version, follow the in-process development branch: [https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/tree/1-WIP](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/tree/1-WIP)
 
-Version .86 (still baking)
+Version .86 (Released April 11, 2012)
 -------------
 
 __Bootstrap Styles and Scripts__
 
 *	Updated JS files from Bootstrap 2.0.3 branch as of April 7, 2012
-*	Updated CSS files from Bootstrap 2.0.3 branch as of April 7, 2012
+*	Updated CSS files from Bootstrap 2.0.3 branch as of April 11, 2012
 *	Updated LESS files from Bootstrap 2.0.3 branch as of April 7, 2012
 
 __Functions.php__
 
-*    Added `bootstrapwp_autoset_featured_image()` function to replace previous `catch_that_image()` function that was causing issues for some theme users.  The post thumbnail will now automatically be set to the first image added to a post if a featured image was not manually declared.  
+*    Added `bootstrapwp_autoset_featured_image()` function to replace previous `catch_that_image()` function that was causing issues for some theme users.  The post thumbnail will now automatically be set to the first image added to a post if a featured image was not manually declared.
+*	Edited `bootstrapwp_css_loader()` to move `/css/bootstrap-responsive.css` down in the loading order
 
 __Page-blog.php__
 
@@ -33,16 +34,27 @@ __Archive.php__
 __Header.php__
 
 *	Added `<?php bloginfo( 'template_url' );?>` to favicon link
+*	Removed `get_header()` call at top of file
 
 __Style.css__
 
-*	Updated `.submenu` style to match `.dropdown-menu` from the Twitter Bootstrap styles to fix max-width restriction on navigation dropdown items
+*	Added `@media (max-width: 979px) { body { padding-top: 0; }` to correct navbar on mobile devices
+*	Updated `.sub-menu` style to match `.dropdown-menu` from the Twitter Bootstrap styles to fix max-width restriction on navigation dropdown items
 
+__Page-JSGuide.php__
+
+*	Added content from Bootstrap 2.0.3 files
+*	Added note about using the JS files within a WordPress theme
+
+__Page-Styleguide.php__
+
+*	Added content from Bootstrap 2.0.3 files
 
 __Misc.__
 
 *	Fixed JavaScript guide link in Readme (props to fsimmons)
 *	Updated favicons and moved them to /ico/ folder
+*	Adding new screenshot image thanks to @yourdesigncoza
 
 
 
