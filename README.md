@@ -5,8 +5,22 @@ Bootstrap is a responsive front-end toolkit from Twitter designed to kickstart w
 
 For the most up-to-date version, follow the in-process development branch: [https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/tree/1-WIP](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/tree/1-WIP)
 
-Version .86 (Released April 11, 2012)
--------------
+##Version .86 of BootstrapWP – Released April 11, 2012
+
+**This release resolves a few major bugs and keep the theme moving forward along with the progress of Twitter Bootstrap.**
+
+The major changes are:
+
+1. Removed the buggy catch_that_image function that was displaying thumbnails for posts, and replacing it with the new bootstrapwp_autoset_featured_image()` function that will automatically set the post thumbnail.
+2. Fixed navbar on mobile devices where body padding was causing the navbar to drop below the the top of the window.
+3. Revised order of stylesheets loading
+4. Corrected the broken favicon links
+
+**[Download BootstrapWP .86 theme](https://github.com/downloads/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/bootstrapwp.zip)**
+
+
+###Full Change Log
+
 
 __Bootstrap Styles and Scripts__
 
