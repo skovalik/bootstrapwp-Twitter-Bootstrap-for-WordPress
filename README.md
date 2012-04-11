@@ -5,65 +5,56 @@ Bootstrap is a responsive front-end toolkit from Twitter designed to kickstart w
 
 For the most up-to-date version, follow the in-process development branch: [https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/tree/1-WIP](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/tree/1-WIP)
 
-Version .85 (Released 03/04/2012)
+Version .86 (Released April 11, 2012)
 -------------
 
 __Bootstrap Styles and Scripts__
 
-*	Updated JS files from Bootstrap 2.0.2 branch as of March 4, 2012
-*	Updated CSS files from Bootstrap 2.0.2 branch as of March 4, 2012
-*	Updated LESS files from Bootstrap 2.0.2 branch as of March 4, 2012
+*	Updated JS files from Bootstrap 2.0.3 branch as of April 7, 2012
+*	Updated CSS files from Bootstrap 2.0.3 branch as of April 11, 2012
+*	Updated LESS files from Bootstrap 2.0.3 branch as of April 7, 2012
 
 __Functions.php__
 
-*	Added widget area for footer-content
-*	Fixed content_width size, now 770px
-*	Added theme language text domain
-*	Added after_theme_setup hook to enable post formats 
-*	Removed .css and .js from string names of enqueuing script and style functions
+*    Added `bootstrapwp_autoset_featured_image()` function to replace previous `catch_that_image()` function that was causing issues for some theme users.  The post thumbnail will now automatically be set to the first image added to a post if a featured image was not manually declared.
+*	Edited `bootstrapwp_css_loader()` to move `/css/bootstrap-responsive.css` down in the loading order
 
-__Style.css__
+__Page-blog.php__
 
-*	Added .wp-caption and .wp-caption-text style for image captions
-*	Added .gallery-caption style for image gallery captions
-*	Added .bypostauthor style for comments
-*	Added .sticky style for sticky posts
-
-__Archive.php__
-
-*	Added `<div <?php post_class(); ?>>` to enable sticky posts
-*  Fixed Archive titles and filtering
+*    Replaced `catch_that_image()` function with `the_post_thumbnail()`
 
 __Author.php__
 
-*	Added `<div <?php post_class(); ?>>` to enable sticky posts
+*    Replaced `catch_that_image()` function with `the_post_thumbnail()`
 
-__Footer.php__
+__Archive.php__
 
-*	Added widget code for footer content widget
-*	Fixed jQuery dropdown caret function to only apply the top navigation bar
+*    Replaced `catch_that_image()` function with `the_post_thumbnail()`
 
-__Index.php__
+__Header.php__
 
-*	Added WordPress loop to template so page editor can be used to easily update/add content to top section of index.php
+*	Added `<?php bloginfo( 'template_url' );?>` to favicon link
+*	Removed `get_header()` call at top of file
 
-__Page-Blog.php__
+__Style.css__
 
-*	Added `<div <?php post_class(); ?>>` to enable sticky posts
+*	Added `@media (max-width: 979px) { body { padding-top: 0; }` to correct navbar on mobile devices
+*	Updated `.sub-menu` style to match `.dropdown-menu` from the Twitter Bootstrap styles to fix max-width restriction on navigation dropdown items
 
 __Page-JSGuide.php__
 
-*	Added content from Bootstrap 2.0.2 files
-*	Removed duplicated jQuery function
+*	Added content from Bootstrap 2.0.3 files
+*	Added note about using the JS files within a WordPress theme
 
 __Page-Styleguide.php__
 
-*	Added content from Bootstrap 2.0.2 files
+*	Added content from Bootstrap 2.0.3 files
 
 __Misc.__
 
-*	Added /lang folder with language files
-*  Removed image.php template file
+*	Fixed JavaScript guide link in Readme thanks to @fsimmons
+*	Updated favicons and moved them to /ico/ folder
+*	Adding new screenshot image thanks to @yourdesigncoza
 
 
 
@@ -73,7 +64,7 @@ You can view a demo of this theme running on WordPress at:  [http://rachelbaker.
 
 View the theme style guide at: [http://rachelbaker.me/bootstrapwp/style-guide/](http://rachelbaker.me/bootstrapwp/style-guide/)
 
-View the javascript guide at: [http://rachelbaker.me/bootstrapwp/javascript-for-bootstrap/](http://rachelbaker.me/bootstrapwp/javascript-for-bootstrap/)
+View the javascript guide at: [http://rachelbaker.me/bootstrapwp/javascript-guide/](http://rachelbaker.me/bootstrapwp/javascript-guide/)
 
 
 
@@ -83,9 +74,9 @@ Usage
 
 Download the BootstrapWP theme, and install to your WordPress site.
 
-This is meant to be a base theme for WordPress custom theme development.  
+This is meant to be a base theme for WordPress custom theme development.
 
-You can override any of the styles using style.css file.  All .css and .js files are loaded in functions.php.  Don't forget to disable any of the .js files you do not need.  
+You can override any of the styles using style.css file.  All .css and .js files are loaded in functions.php.  Don't forget to disable any of the .js files you do not need.
 
 
 

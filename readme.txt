@@ -1,5 +1,117 @@
 == Changelog ==
 
+= .86 = 04/11/2012
+
+__Bootstrap Styles and Scripts__
+
+*	Updated JS files from Bootstrap 2.0.3 branch as of April 7, 2012
+*	Updated CSS files from Bootstrap 2.0.3 branch as of April 11, 2012
+*	Updated LESS files from Bootstrap 2.0.3 branch as of April 7, 2012
+
+__Functions.php__
+
+*    Added `bootstrapwp_autoset_featured_image()` function to replace previous `catch_that_image()` function that was causing issues for some theme users.  The post thumbnail will now automatically be set to the first image added to a post if a featured image was not manually declared.
+*	Edited `bootstrapwp_css_loader()` to move `/css/bootstrap-responsive.css` down in the loading order
+
+__Page-blog.php__
+
+*    Replaced `catch_that_image()` function with `the_post_thumbnail()`
+
+__Author.php__
+
+*    Replaced `catch_that_image()` function with `the_post_thumbnail()`
+
+__Archive.php__
+
+*    Replaced `catch_that_image()` function with `the_post_thumbnail()`
+
+__Header.php__
+
+*	Added `<?php bloginfo( 'template_url' );?>` to favicon link
+*	Removed `get_header()` call at top of file
+
+__Style.css__
+
+*	Added `@media (max-width: 979px) { body { padding-top: 0; }` to correct navbar on mobile devices
+*	Updated `.sub-menu` style to match `.dropdown-menu` from the Twitter Bootstrap styles to fix max-width restriction on navigation dropdown items
+
+__Page-JSGuide.php__
+
+*	Added content from Bootstrap 2.0.3 files
+*	Added note about using the JS files within a WordPress theme
+
+__Page-Styleguide.php__
+
+*	Added content from Bootstrap 2.0.3 files
+
+__Misc.__
+
+*	Fixed JavaScript guide link in Readme thanks to @fsimmons
+*	Updated favicons and moved them to /ico/ folder
+*	Adding new screenshot image thanks to @yourdesigncoza
+
+
+= .85 = 03/04/2012
+
+__Bootstrap Styles and Scripts__
+
+*	Updated JS files from Bootstrap 2.0.2 branch as of March 4, 2012
+*	Updated CSS files from Bootstrap 2.0.2 branch as of March 4, 2012
+*	Updated LESS files from Bootstrap 2.0.2 branch as of March 4, 2012
+
+__Functions.php__
+
+*	Added widget area for footer-content
+*	Fixed content_width size, now 770px
+*	Added theme language text domain
+*	Added after_theme_setup hook to enable post formats
+*	Removed .css and .js from string names of enqueuing script and style functions
+
+__Style.css__
+
+*	Added .wp-caption and .wp-caption-text style for image captions
+*	Added .gallery-caption style for image gallery captions
+*	Added .bypostauthor style for comments
+*	Added .sticky style for sticky posts
+
+__Archive.php__
+
+*	Added `<div <?php post_class(); ?>>` to enable sticky posts
+*  Fixed Archive titles and filtering
+
+__Author.php__
+
+*	Added `<div <?php post_class(); ?>>` to enable sticky posts
+
+__Footer.php__
+
+*	Added widget code for footer content widget
+*	Fixed jQuery dropdown caret function to only apply the top navigation bar
+
+__Index.php__
+
+*	Added WordPress loop to template so page editor can be used to easily update/add content to top section of index.php
+
+__Page-Blog.php__
+
+*	Added `<div <?php post_class(); ?>>` to enable sticky posts
+
+__Page-JSGuide.php__
+
+*	Added content from Bootstrap 2.0.2 files
+*	Removed duplicated jQuery function
+
+__Page-Styleguide.php__
+
+*	Added content from Bootstrap 2.0.2 files
+
+__Misc.__
+
+*	Added /lang folder with language files
+*  Removed image.php template file
+
+
+
 = .8 = 2/12/2012
 ----
 __Header.php__
@@ -86,7 +198,7 @@ __Author.php__
 
 *	Fixed formatting on this template file to match archive.php
 
-*	Added hr element to seperate posts 
+*	Added hr element to seperate posts
 
 *	Displayed first image attached to blog posts using catch_that_image function
 
@@ -100,7 +212,7 @@ __Archive.php__
 
 __Other/Misc.__
 
-*	Updated CSS and JS files to Bootstrap 2 Final Release files 
+*	Updated CSS and JS files to Bootstrap 2 Final Release files
 
 *	Removed "lib" folder and replaced with Bootstrap "less" folder
 

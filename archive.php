@@ -12,7 +12,7 @@
  * @since WP-Bootstrap 0.6
  */
 
-get_header(); 
+get_header();
 if (have_posts() ) ;?>
 <div class="row">
 	<div class="container">
@@ -53,21 +53,22 @@ if (have_posts() ) ;?>
 		<div <?php post_class(); ?>>
 			<a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h3><?php the_title();?></h3></a>
 			<p class="meta"><?php echo bootstrapwp_posted_on();?></p>
-			<div class="row">              
-				<div class="span2">
-					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-						<?php echo catch_that_image();?></a>
-					</div><!-- /.span2 -->
-					<div class="span6">
-						<?php the_excerpt();?>
-					</div><!-- /.span6 -->
-				</div><!-- /.row -->   
-				<hr />  
-			</div><!-- /.post_class -->
-		<?php endwhile; ?>
-		<?php bootstrapwp_content_nav('nav-below');?>
+			<div class="row">
+				        <div class="span2"><?php // Checking for a post thumbnail
+				        if ( has_post_thumbnail() ) ?>
+				        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
+				        	<?php the_post_thumbnail();?></a>
+				        </div><!-- /.span2 -->
+				        <div class="span6">
+				        	<?php the_excerpt();?>
+				        </div><!-- /.span6 -->
+				    </div><!-- /.row -->
+				    <hr />
+				</div><!-- /.post_class -->
+			<?php endwhile; ?>
+			<?php bootstrapwp_content_nav('nav-below');?>
 
-	</div><!-- /.span8 -->
-	<?php get_sidebar('blog'); ?>
+		</div><!-- /.span8 -->
+		<?php get_sidebar('blog'); ?>
 
-	<?php get_footer(); ?>
+		<?php get_footer(); ?>
