@@ -44,7 +44,6 @@ if (have_posts() ) ;?>
 			_e( 'Blog Archives', 'bootstrapwp' );
 		}
 		?></h1>
-	</h1>
 </header>
 
 <div class="row content">
