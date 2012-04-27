@@ -69,5 +69,6 @@ if (have_posts() ) ;?>
 
 		</div><!-- /.span8 -->
 		<?php get_sidebar('blog'); ?>
+</div><!-- /.row .content -->
 
 		<?php get_footer(); ?>

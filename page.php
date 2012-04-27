@@ -34,6 +34,6 @@ get_header(); ?>
           </div><!-- /.span8 -->
           
           <?php get_sidebar(); ?>
-
+		</div><!-- /.row .content -->
 
 <?php get_footer(); ?>

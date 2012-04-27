@@ -50,5 +50,6 @@ get_header(); ?>
 </div><!--/.row -->
 					</div><!--/.span8 -->
  <?php get_sidebar(); ?>
+</div><!-- /.row .content -->
 
 <?php get_footer(); ?>
