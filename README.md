@@ -5,6 +5,27 @@ Bootstrap is a responsive front-end toolkit from Twitter designed to kickstart w
 
 For the most up-to-date version, follow the in-process development branch: [https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/tree/1-WIP](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/tree/1-WIP)
 
+##Version .87 of BootstrapWP - still baking....
+
+**The goals of this release are:**
+
+1. ~~Switch to using the Less files instead of CSS~~
+
+2. Add styling for wp_page_menu to navbar
+
+2. Improve navigation dropdown implementation
+
+3. Update styles and scripts to Bootstrap 2.03 release
+
+
+__Functions.php__
+
+*	Edited bootstrapwp_css_loader() function to use new `/less/bootstrapwp.css` generated from Less file compilation
+*	Edited bootstrapwp_js_loader() to remove prettify.js script
+*	Added new Bootstrap_Walker_Nav_Menu class to assign "dropdown-menu" class to navigation sub-menus
+
+
+
 ##Version .86 of BootstrapWP – Released April 11, 2012
 
 **This release resolves a few major bugs and keeps the theme moving forward along with the progress of Twitter Bootstrap.**

@@ -29,11 +29,10 @@ load_theme_textdomain('bootstrapwp');
 // Loading All CSS Stylesheets
 ################################################################################
   function bootstrapwp_css_loader() {
-    wp_enqueue_style('bootstrap', get_template_directory_uri().'/css/bootstrap.css', false ,'1.0', 'all' );
-    wp_enqueue_style('docs', get_template_directory_uri().'/css/docs.css', false ,'1.0', 'all' );
-    wp_enqueue_style('prettify', get_template_directory_uri().'/css/prettify.css', false ,'1.0', 'all' );
-    wp_enqueue_style('responsive', get_template_directory_uri().'/css/bootstrap-responsive.css', false, '1.0', 'all' );
-    wp_enqueue_style('style', get_template_directory_uri().'/style.css', false ,'1.1', 'all' );
+    wp_enqueue_style('bootstrap', get_template_directory_uri().'/less/bootstrapwp.css', false ,'1.0', 'all' );
+    //wp_enqueue_style('docs', get_template_directory_uri().'/css/docs.css', false ,'1.0', 'all' );
+    //wp_enqueue_style('responsive', get_template_directory_uri().'/css/bootstrap-responsive.css', false, '1.0', 'all' );
+    //wp_enqueue_style('style', get_template_directory_uri().'/style.css', false ,'1.1', 'all' );
   }
 add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
 
@@ -42,7 +41,6 @@ add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
 // Loading all JS Script Files.  Remove any files you are not using!
 ################################################################################
   function bootstrapwp_js_loader() {
-       wp_enqueue_script('prettify', get_template_directory_uri().'/js/prettify.js', array('jquery'),'1.0', true );
        wp_enqueue_script('transition', get_template_directory_uri().'/js/bootstrap-transition.js', array('jquery'),'1.0', true );
        wp_enqueue_script('alert', get_template_directory_uri().'/js/bootstrap-alert.js', array('jquery'),'1.0', true );
        wp_enqueue_script('modal', get_template_directory_uri().'/js/bootstrap-modal.js', array('jquery'),'1.0', true );
@@ -80,6 +78,15 @@ function bootstrapwp_page_menu_args( $args ) {
 }
 add_filter( 'wp_page_menu_args', 'bootstrapwp_page_menu_args' );
 
+/**
+ * Custom Walker to change submenu class items from default "sub-menu" to ""
+ */
+class Bootstrapwp_Walker_Nav_Menu extends Walker_Nav_Menu {
+  function start_lvl(&$output, $depth) {
+    $indent = str_repeat("\t", $depth);
+    $output .= "\n$indent<ul class=\"dropdown-menu\">\n";
+  }
+}
 
 /*
 | -------------------------------------------------------------------
