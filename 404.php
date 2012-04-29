@@ -8,7 +8,6 @@
  *
  * Last Revised: January 22, 2012
  */
-$options = get_option( 'bootstrapwp_theme_options' );
 get_header(); ?>
   <div class="row">
   <div class="container">
@@ -26,7 +25,6 @@ get_header(); ?>
       </header>
 	  
         <div class="row content">
-        	<?php if($options['sidebar_pos'] == 'left') get_sidebar();  ?>
 <div class="span8">
 					
 
@@ -51,7 +49,6 @@ get_header(); ?>
 </div><!--/.span4 -->
 </div><!--/.row -->
 					</div><!--/.span8 -->
-				<?php if($options['sidebar_pos'] != 'left') get_sidebar();  ?>
-</div><!-- /.row .content -->
+ <?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

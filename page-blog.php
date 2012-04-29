@@ -7,7 +7,7 @@
  * @subpackage WP-Bootstrap
  * @since WP-Bootstrap 0.1
  */
-$options = get_option( 'bootstrapwp_theme_options' );
+
 get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
   <div class="row">
@@ -23,7 +23,6 @@ get_header(); ?>
 </header>
 
 <div class="row content">
-	<?php if($options['sidebar_pos'] == 'left') get_sidebar('blog');  ?>
   <div class="span8">
     <?php the_content();
     endwhile;
@@ -59,6 +58,5 @@ get_header(); ?>
  <?php bootstrapwp_content_nav('nav-below');?>
 
 </div><!-- /.span8 -->
-<?php if($options['sidebar_pos'] != 'left') get_sidebar('blog');  ?>
-</div><!-- /.row .content -->
+<?php get_sidebar('blog'); ?>
 <?php get_footer(); ?>
