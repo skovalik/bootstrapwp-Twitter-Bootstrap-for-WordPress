@@ -17,6 +17,9 @@ For the most up-to-date version, follow the in-process development branch: [http
 
 3. Update styles and scripts to Bootstrap 2.03 release
 
+4. Switch to using bootstrap.js file instead of the separate .js files
+
+
 
 __Functions.php__
 
