@@ -23,9 +23,19 @@ For the most up-to-date version, follow the in-process development branch: [http
 
 __Functions.php__
 
-*	Edited bootstrapwp_css_loader() function to use new `/less/bootstrapwp.css` generated from Less file compilation
+*	Edited bootstrapwp_css_loader() function to use new `/less/bootstrapwp.css` generated from Less file compilation and removed references to previously used css files
 *	Edited bootstrapwp_js_loader() to remove prettify.js script
 *	Added new Bootstrap_Walker_Nav_Menu class to assign "dropdown-menu" class to navigation sub-menus
+
+__JS Folder__
+
+*	Removed the individual .js files and replaced with single compiled `boostrap.js` file
+
+__CSS Folder__
+
+*	Removed folder entirely because main style file is compiled less file located at `less/bootstrapwp.css`
+
+
 
 
 
