@@ -27,6 +27,13 @@ __Functions.php__
 *	Edited bootstrapwp_js_loader() to remove prettify.js script
 *	Added new Bootstrap_Walker_Nav_Menu class to assign "dropdown-menu" class to navigation sub-menus
 
+__Style.css__
+
+*	Removed content because it this file is not loaded via bootstrapwp_css_loader() 
+*	Added note to add custom updates to the less/bswp-custom.less file to safely retain the ability to update the less files with future versions of Bootstrap or BootstrapWP
+*	Bumped version to .87
+
+
 __JS Folder__
 
 *	Removed the individual .js files and replaced with single compiled `boostrap.js` file
@@ -35,6 +42,11 @@ __CSS Folder__
 
 *	Removed folder entirely because main style file is compiled less file located at `less/bootstrapwp.css`
 
+__LESS Folder__
+
+*	Updated LESS files from Twitter Bootstrap 2.04 branch
+*	Added bswp-docs.less file to pull in styles to allow doc pages to format correctly
+*	Added note to use bswp-custom.less file for any custom additions to allow for easy updating of styles.
 
 
 
