@@ -3,7 +3,8 @@ Bootstrapwp - TWITTER BOOTSTRAP for WordPress
 
 Bootstrap is a responsive front-end toolkit from Twitter designed to kickstart web development, complete with core HTML, CSS, and JS for grids, type, forms, navigation, and many more components. Now you can use it with **WordPress** as a solid base to build custom themes quickly and easily.
 
-For the most up-to-date version, follow the in-process development branch: [https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/tree/1-WIP](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/tree/1-WIP)
+Download the most-up-to-date theme files: [Download .zip file](https://github.com/downloads/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/bootstrapwp-87.zip)
+Follow the development: [WIP Branch on Github](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/tree/1-WIP)
 
 ##Version .87 of BootstrapWP - still baking....
 
@@ -24,15 +25,32 @@ For the most up-to-date version, follow the in-process development branch: [http
 __Functions.php__
 
 *	Edited `bootstrapwp_css_loader()` function to use new `/less/bootstrapwp.css` generated from Less file compilation and removed references to previously used css files
-*   Edited `bootstrapwp_js_loader()` function to include minified and minified bootstrap.min.js file
-*   Edited `bootstrapwp_js_loader()` function to include `/js/bootstrapwp.demo.js` file containing all the extra JavaScript needed to enable the functionality of demos
-*	Added new `Bootstrap_Walker_Nav_Menu` class to assign "dropdown-menu" class to navigation sub-menus
+*	Edited `bootstrapwp_js_loader()` function to include minified and minified bootstrap.min.js file
+*	Edited `bootstrapwp_js_loader()` function to include `/js/bootstrapwp.demo.js` file containing all the extra JavaScript needed to enable the functionality of demos
+*	Added new walker `Bootstrap_Walker_Nav_Menu` class to assign "dropdown-menu" class to navigation sub-menus
 
 __Style.css__
 
 *	Removed content because it this file is not loaded via `bootstrapwp_css_loader()` 
 *	Added note to add custom updates to the less/bswp-custom.less file to safely retain the ability to update the less files with future versions of Bootstrap or BootstrapWP
 *	Bumped version to .87
+
+__Header.php__
+
+*	Edited `wp_nav_menu()` call array to add `walker => new bootstrapwp_walker_nav_menu()` parameter
+*	Removed extraneous commented line from `wp_nav_menu()` function call
+
+__Footer.php__
+
+*	Removed all Javascript and moved to new `js/bootstrapwp.demo.js` file
+
+__Page-home.php__
+
+*	Created file to be static homepage template that loads 3 widget areas (previously was index.php)
+
+__Index.php__
+
+*	Edited file to be standard blog homepage - and moved previous template content to new `page-home.php` file
 
 __JS Folder__
 
@@ -50,7 +68,7 @@ __LESS Folder__
 *	Updated LESS files from Twitter Bootstrap 2.04 branch
 * 	Added `bswp-docs.less` file to pull in styles to allow doc pages to format correctly
 *	Added note to use `bswp-custom.less` file for any custom additions to allow for easy updating of styles.
-*	Added style fix for top positioning of scrollspy submenu
+*	Added style fix for top positioning of scrollspy submenu to `less/bswp-overrides.less`
 
 __IMG Folder__
 
