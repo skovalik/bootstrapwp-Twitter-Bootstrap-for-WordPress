@@ -23,21 +23,6 @@
     </div> <!-- /container -->
        </footer>
 <?php wp_footer(); ?>
-<script type="text/javascript">
-// Adding the class "dropdown" to li elements with submenus  //
-jQuery(document).ready(function(){
-jQuery("ul.dropdown-menu").parent().addClass("dropdown");
-jQuery("ul.nav li.dropdown a").addClass("dropdown-toggle");
-jQuery("ul.dropdown-menu li a").removeClass("dropdown-toggle");
-jQuery('.navbar .dropdown-toggle').append('<b class="caret"></b>');
-  });
-</script>
-<script type="text/javascript">
-jQuery(document).ready(function(){
- // Don't FORGET: replace all $ with jQuery to prevent conflicts //
-jQuery('a.dropdown-toggle')
-.attr('data-toggle', 'dropdown');
-  });
-</script>
+
   </body>
 </html>
