@@ -1,10 +1,40 @@
-// NOTICE!! DO NOT USE ANY OF THIS JAVASCRIPT
-// IT'S ALL JUST JUNK FOR OUR DOCS!
+/* ===================================================
+ * bootstrapwp.demo.js v2.0.4
+ * ===================================================
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ========================================================== */
+
+// NOTICE!! This JS file is included for reference.
+// This code is used to power all the JavaScript
+// demos and examples for BootstrapWP
 // ++++++++++++++++++++++++++++++++++++++++++
 
 !function ($) {
 
   $(function(){
+
+    // Adding the needed html to WordPress navigation menus //
+    $("ul.dropdown-menu").parent().addClass("dropdown");
+    $("ul.nav li.dropdown a").addClass("dropdown-toggle");
+    $("ul.dropdown-menu li a").removeClass("dropdown-toggle");
+    $('a.dropdown-toggle').attr('data-toggle', 'dropdown');
+
+    // Adding dropdown caret for dropdown menus, if it does not already exist
+    $('.dropdown-toggle:not(:has(b.caret))').append('<b class="caret"></b>');
+
+
 
     // Disable certain links in docs
     $('section [href^=#]').click(function (e) {
@@ -50,6 +80,11 @@
       , isFixed = 0
 
     processScroll()
+
+    // hack sad times - holdover until rewrite for 2.1
+    $nav.on('click', function () {
+      if (!isFixed) setTimeout(function () {  $win.scrollTop($win.scrollTop() - 47) }, 10)
+    })
 
     $win.on('scroll', processScroll)
 
@@ -113,68 +148,7 @@
       inputsVariables.val('')
     })
 
-    // request built javascript
-    $('.download-btn').on('click', function () {
-
-      var css = $("#components.download input:checked")
-            .map(function () { return this.value })
-            .toArray()
-        , js = $("#plugins.download input:checked")
-            .map(function () { return this.value })
-            .toArray()
-        , vars = {}
-        , img = ['glyphicons-halflings.png', 'glyphicons-halflings-white.png']
-
-    $("#variables.download input")
-      .each(function () {
-        $(this).val() && (vars[ $(this).prev().text() ] = $(this).val())
-      })
-
-      $.ajax({
-        type: 'POST'
-      , url: 'http://bootstrap.herokuapp.com'
-      , dataType: 'jsonpi'
-      , params: {
-          js: js
-        , css: css
-        , vars: vars
-        , img: img
-      }
-      })
-    })
 
   })
-
-// Modified from the original jsonpi https://github.com/benvinegar/jquery-jsonpi
-$.ajaxTransport('jsonpi', function(opts, originalOptions, jqXHR) {
-  var url = opts.url;
-
-  return {
-    send: function(_, completeCallback) {
-      var name = 'jQuery_iframe_' + jQuery.now()
-        , iframe, form
-
-      iframe = $('<iframe>')
-        .attr('name', name)
-        .appendTo('head')
-
-      form = $('<form>')
-        .attr('method', opts.type) // GET or POST
-        .attr('action', url)
-        .attr('target', name)
-
-      $.each(opts.params, function(k, v) {
-
-        $('<input>')
-          .attr('type', 'hidden')
-          .attr('name', k)
-          .attr('value', typeof v == 'string' ? v : JSON.stringify(v))
-          .appendTo(form)
-      })
-
-      form.appendTo('body').submit()
-    }
-  }
-})
 
 }(window.jQuery)

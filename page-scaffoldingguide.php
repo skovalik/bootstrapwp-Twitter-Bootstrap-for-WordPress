@@ -1,96 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Scaffolding · Twitter Bootstrap</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- Le styles -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="assets/css/docs.css" rel="stylesheet">
-    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-  </head>
-
-  <body data-spy="scroll" data-target=".subnav" data-offset="50">
-
-
-  <!-- Navbar
-    ================================================== -->
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="./index.html">Bootstrap</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="">
-                <a href="./index.html">Overview</a>
-              </li>
-              <li class="active">
-                <a href="./scaffolding.html">Scaffolding</a>
-              </li>
-              <li class="">
-                <a href="./base-css.html">Base CSS</a>
-              </li>
-              <li class="">
-                <a href="./components.html">Components</a>
-              </li>
-              <li class="">
-                <a href="./javascript.html">Javascript plugins</a>
-              </li>
-              <li class="">
-                <a href="./less.html">Using LESS</a>
-              </li>
-              <li class="divider-vertical"></li>
-              <li class="">
-                <a href="./download.html">Customize</a>
-              </li>
-              <li class="">
-                <a href="./examples.html">Examples</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+<?php
+/**
+ * Template Name: Scaffolding Guide, no sidebar
+ *
+ * @package WP-Bootstrap
+ * @subpackage Default_Theme
+ * @since WP-Bootstrap 0.87
+ *
+ * Last Revised: June 3, 2012
+ *
+ */
+get_header(); ?>
+<?php while ( have_posts() ) : the_post(); ?>
 
     <div class="container">
 
-      <!-- Masthead
-      ================================================== -->
-      <header class="jumbotron subhead" id="overview">
-        <h1>Scaffolding</h1>
-        <p class="lead">Bootstrap is built on a responsive 12-column grid. We've also included fixed- and fluid-width layouts based on that system.</p>
-        <div class="subnav">
-          <ul class="nav nav-pills">
-            <li><a href="#global">Global styles</a></li>
-            <li><a href="#gridSystem">Grid system</a></li>
-            <li><a href="#fluidGridSystem">Fluid grid system</a></li>
-            <li><a href="#gridCustomization">Customizing</a></li>
-            <li><a href="#layouts">Layouts</a></li>
-            <li><a href="#responsive">Responsive design</a></li>
-          </ul>
-        </div>
-      </header>
+<!-- Masthead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+  <h1><?php the_title(); ?></h1>
+  <p class="lead">Bootstrap is built on a responsive 12-column grid. We've also included fixed- and fluid-width layouts based on that system.</p>
+  <div class="subnav">
+    <ul class="nav nav-pills">
+      <li><a href="#global">Global styles</a></li>
+      <li><a href="#gridSystem">Grid system</a></li>
+      <li><a href="#fluidGridSystem">Fluid grid system</a></li>
+      <li><a href="#gridCustomization">Customizing</a></li>
+      <li><a href="#layouts">Layouts</a></li>
+      <li><a href="#responsive">Responsive design</a></li>
+    </ul>
+  </div>
+</header>
 
 
 
@@ -172,8 +111,7 @@
   </div>
   <div class="row">
     <div class="span4">
-      <p>The default grid system provided as part of Bootstrap is a <strong>940px-wide, 12-column grid</strong>.</p>
-      <p>It also has four responsive variations for various devices and resolutions: phone, tablet portrait, tablet landscape and small desktops, and large widescreen desktops.</p>
+      <p>The default grid system provided in Bootstrap utilizes <strong>12 columns</strong> that render out at widths of 724px, 940px (default without responsive CSS included), and 1170px. Below 767px viewports, the columns become fluid and stack vertically. </p>
     </div><!-- /.span -->
     <div class="span4">
 <pre class="prettyprint linenums">
@@ -234,11 +172,11 @@
     <div class="span6">
 <pre class="prettyprint linenums">
 &lt;div class="row"&gt;
-  &lt;div class="span12"&gt;
-    Level 1 of column
+  &lt;div class="span6"&gt;
+    Level 1 column
     &lt;div class="row"&gt;
-      &lt;div class="span6"&gt;Level 2&lt;/div&gt;
-      &lt;div class="span6"&gt;Level 2&lt;/div&gt;
+      &lt;div class="span3"&gt;Level 2&lt;/div&gt;
+      &lt;div class="span3"&gt;Level 2&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -631,41 +569,5 @@
     </div><!-- /.span -->
   </div><!-- /.row -->
 </section>
-
-
-     <!-- Footer
-      ================================================== -->
-      <footer class="footer">
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>Designed and built with all the love in the world <a href="http://twitter.com/twitter" target="_blank">@twitter</a> by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
-        <p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-        <p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-      </footer>
-
-    </div><!-- /container -->
-
-
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/google-code-prettify/prettify.js"></script>
-    <script src="assets/js/bootstrap-transition.js"></script>
-    <script src="assets/js/bootstrap-alert.js"></script>
-    <script src="assets/js/bootstrap-modal.js"></script>
-    <script src="assets/js/bootstrap-dropdown.js"></script>
-    <script src="assets/js/bootstrap-scrollspy.js"></script>
-    <script src="assets/js/bootstrap-tab.js"></script>
-    <script src="assets/js/bootstrap-tooltip.js"></script>
-    <script src="assets/js/bootstrap-popover.js"></script>
-    <script src="assets/js/bootstrap-button.js"></script>
-    <script src="assets/js/bootstrap-collapse.js"></script>
-    <script src="assets/js/bootstrap-carousel.js"></script>
-    <script src="assets/js/bootstrap-typeahead.js"></script>
-    <script src="assets/js/application.js"></script>
-
-
-  </body>
-</html>
+<?php endwhile; ?>
+<?php get_footer(); ?>

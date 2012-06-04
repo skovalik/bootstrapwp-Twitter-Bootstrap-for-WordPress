@@ -6,7 +6,7 @@
  * @subpackage WP-Bootstrap
  * @since WP-Bootstrap 0.7
  *
- * Last Updated: April 11, 2012
+ * Last Updated: June 3, 2012
  */
 get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
@@ -48,8 +48,10 @@ get_header(); ?>
     </div>
     <div class="span4">
       <h3>Example body text</h3>
-      <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-      <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec sed odio dui.</p>
+      <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+      <h3>Lead body copy</h3>
+      <p>Make a paragraph stand out by adding <code>.lead</code>.</p>
+      <p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
     </div>
     <div class="span4">
       <div class="well">
@@ -1209,7 +1211,7 @@ For example, &lt;code&gt;section&lt;/code&gt; should be wrapped as inline.
               </label>
               <label class="radio">
                 <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                Option two can is something else and selecting it will deselect option one
+                Option two can be something else and selecting it will deselect option one
               </label>
             </div>
           </div>
@@ -1253,7 +1255,7 @@ For example, &lt;code&gt;section&lt;/code&gt; should be wrapped as inline.
       <tr>
         <td><button class="btn btn-info" href="#">Info</button></td>
         <td><code>btn btn-info</code></td>
-        <td>Used as an alternate to the default styles</td>
+        <td>Used as an alternative to the default styles</td>
       </tr>
       <tr>
         <td><button class="btn btn-success" href="#">Success</button></td>
@@ -1382,15 +1384,15 @@ For example, &lt;code&gt;section&lt;/code&gt; should be wrapped as inline.
         <li><i class="icon-inbox"></i> icon-inbox</li>
         <li><i class="icon-play-circle"></i> icon-play-circle</li>
         <li><i class="icon-repeat"></i> icon-repeat</li>
-      </ul>
-    </div>
-    <div class="span3">
-      <ul class="the-icons">
         <li><i class="icon-refresh"></i> icon-refresh</li>
         <li><i class="icon-list-alt"></i> icon-list-alt</li>
         <li><i class="icon-lock"></i> icon-lock</li>
         <li><i class="icon-flag"></i> icon-flag</li>
         <li><i class="icon-headphones"></i> icon-headphones</li>
+      </ul>
+    </div>
+    <div class="span3">
+      <ul class="the-icons">
         <li><i class="icon-volume-off"></i> icon-volume-off</li>
         <li><i class="icon-volume-down"></i> icon-volume-down</li>
         <li><i class="icon-volume-up"></i> icon-volume-up</li>
@@ -1416,10 +1418,6 @@ For example, &lt;code&gt;section&lt;/code&gt; should be wrapped as inline.
         <li><i class="icon-indent-right"></i> icon-indent-right</li>
         <li><i class="icon-facetime-video"></i> icon-facetime-video</li>
         <li><i class="icon-picture"></i> icon-picture</li>
-      </ul>
-    </div>
-    <div class="span3">
-      <ul class="the-icons">
         <li><i class="icon-pencil"></i> icon-pencil</li>
         <li><i class="icon-map-marker"></i> icon-map-marker</li>
         <li><i class="icon-adjust"></i> icon-adjust</li>
@@ -1430,6 +1428,10 @@ For example, &lt;code&gt;section&lt;/code&gt; should be wrapped as inline.
         <li><i class="icon-move"></i> icon-move</li>
         <li><i class="icon-step-backward"></i> icon-step-backward</li>
         <li><i class="icon-fast-backward"></i> icon-fast-backward</li>
+      </ul>
+    </div>
+    <div class="span3">
+      <ul class="the-icons">
         <li><i class="icon-backward"></i> icon-backward</li>
         <li><i class="icon-play"></i> icon-play</li>
         <li><i class="icon-pause"></i> icon-pause</li>
@@ -1450,10 +1452,6 @@ For example, &lt;code&gt;section&lt;/code&gt; should be wrapped as inline.
         <li><i class="icon-remove-circle"></i> icon-remove-circle</li>
         <li><i class="icon-ok-circle"></i> icon-ok-circle</li>
         <li><i class="icon-ban-circle"></i> icon-ban-circle</li>
-      </ul>
-    </div>
-    <div class="span3">
-      <ul class="the-icons">
         <li><i class="icon-arrow-left"></i> icon-arrow-left</li>
         <li><i class="icon-arrow-right"></i> icon-arrow-right</li>
         <li><i class="icon-arrow-up"></i> icon-arrow-up</li>
@@ -1469,6 +1467,10 @@ For example, &lt;code&gt;section&lt;/code&gt; should be wrapped as inline.
         <li><i class="icon-leaf"></i> icon-leaf</li>
         <li><i class="icon-fire"></i> icon-fire</li>
         <li><i class="icon-eye-open"></i> icon-eye-open</li>
+      </ul>
+    </div>
+    <div class="span3">
+      <ul class="the-icons">
         <li><i class="icon-eye-close"></i> icon-eye-close</li>
         <li><i class="icon-warning-sign"></i> icon-warning-sign</li>
         <li><i class="icon-plane"></i> icon-plane</li>
@@ -1484,6 +1486,26 @@ For example, &lt;code&gt;section&lt;/code&gt; should be wrapped as inline.
         <li><i class="icon-folder-open"></i> icon-folder-open</li>
         <li><i class="icon-resize-vertical"></i> icon-resize-vertical</li>
         <li><i class="icon-resize-horizontal"></i> icon-resize-horizontal</li>
+        <li><i class="icon-hdd"></i> icon-hdd</li>
+        <li><i class="icon-bullhorn"></i> icon-bullhorn</li>
+        <li><i class="icon-bell"></i> icon-bell</li>
+        <li><i class="icon-certificate"></i> icon-certificate</li>
+        <li><i class="icon-thumbs-up"></i> icon-thumbs-up</li>
+        <li><i class="icon-thumbs-down"></i> icon-thumbs-down</li>
+        <li><i class="icon-hand-right"></i> icon-hand-right</li>
+        <li><i class="icon-hand-left"></i> icon-hand-left</li>
+        <li><i class="icon-hand-up"></i> icon-hand-up</li>
+        <li><i class="icon-hand-down"></i> icon-hand-down</li>
+        <li><i class="icon-circle-arrow-right"></i> icon-circle-arrow-right</li>
+        <li><i class="icon-circle-arrow-left"></i> icon-circle-arrow-left</li>
+        <li><i class="icon-circle-arrow-up"></i> icon-circle-arrow-up</li>
+        <li><i class="icon-circle-arrow-down"></i> icon-circle-arrow-down</li>
+        <li><i class="icon-globe"></i> icon-globe</li>
+        <li><i class="icon-wrench"></i> icon-wrench</li>
+        <li><i class="icon-tasks"></i> icon-tasks</li>
+        <li><i class="icon-filter"></i> icon-filter</li>
+        <li><i class="icon-briefcase"></i> icon-briefcase</li>
+        <li><i class="icon-fullscreen"></i> icon-fullscreen</li>
       </ul>
     </div>
   </div>
@@ -1507,7 +1529,7 @@ For example, &lt;code&gt;section&lt;/code&gt; should be wrapped as inline.
 <pre class="prettyprint linenums">
 &lt;i class="icon-search icon-white"&gt;&lt;/i&gt;
 </pre>
-      <p>There are 120 classes to choose from for your icons. Just add an <code>&lt;i&gt;</code> tag with the right classes and you're set. You can find the full list in <strong>sprites.less</strong> or right here in this document.</p>
+      <p>There are 140 classes to choose from for your icons. Just add an <code>&lt;i&gt;</code> tag with the right classes and you're set. You can find the full list in <strong>sprites.less</strong> or right here in this document.</p>
       <p>
         <span class="label label-info">Heads up!</span>
         When using beside strings of text, as in buttons or nav links, be sure to leave a space after the <code>&lt;i&gt;</code> tag for proper spacing.
