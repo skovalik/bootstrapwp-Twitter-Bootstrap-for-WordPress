@@ -13,30 +13,33 @@ For the most up-to-date version, follow the in-process development branch: [http
 
 2. Add styling for wp_page_menu to navbar
 
-2. Improve navigation dropdown implementation
+2. ~~Improve navigation dropdown implementation~~
 
-3. Update styles and scripts to Bootstrap 2.03 release
+3. ~~Update styles and scripts to Bootstrap 2.04 release~~
 
-4. Switch to using bootstrap.js file instead of the separate .js files
+4. ~~Switch to using bootstrap.js file instead of the separate .js files~~
 
 
 
 __Functions.php__
 
-*	Edited bootstrapwp_css_loader() function to use new `/less/bootstrapwp.css` generated from Less file compilation and removed references to previously used css files
-*	Edited bootstrapwp_js_loader() to remove prettify.js script
-*	Added new Bootstrap_Walker_Nav_Menu class to assign "dropdown-menu" class to navigation sub-menus
+*	Edited `bootstrapwp_css_loader()` function to use new `/less/bootstrapwp.css` generated from Less file compilation and removed references to previously used css files
+*   Edited `bootstrapwp_js_loader()` function to include minified and minified bootstrap.min.js file
+*   Edited `bootstrapwp_js_loader()` function to include `/js/bootstrapwp.demo.js` file containing all the extra JavaScript needed to enable the functionality of demos
+*	Added new `Bootstrap_Walker_Nav_Menu` class to assign "dropdown-menu" class to navigation sub-menus
 
 __Style.css__
 
-*	Removed content because it this file is not loaded via bootstrapwp_css_loader() 
+*	Removed content because it this file is not loaded via `bootstrapwp_css_loader()` 
 *	Added note to add custom updates to the less/bswp-custom.less file to safely retain the ability to update the less files with future versions of Bootstrap or BootstrapWP
 *	Bumped version to .87
 
-
 __JS Folder__
 
-*	Removed the individual .js files and replaced with single compiled `boostrap.js` file
+*	Removed the individual .js files and replaced with single compiled `bootstrap.min.js` file
+*   Added `bootstrap.js` (pre-minified version of bootstrap.min.js) file for reference
+*   Added `bootstrapwp.demo.js` file which houses code is used to power all the JavaScript demos and examples for BootstrapWP
+*   Added folder for google-code-prettify js and css files to style reference and documentation template files.
 
 __CSS Folder__
 
@@ -45,10 +48,13 @@ __CSS Folder__
 __LESS Folder__
 
 *	Updated LESS files from Twitter Bootstrap 2.04 branch
-*	Added bswp-docs.less file to pull in styles to allow doc pages to format correctly
-*	Added note to use bswp-custom.less file for any custom additions to allow for easy updating of styles.
+* 	Added `bswp-docs.less` file to pull in styles to allow doc pages to format correctly
+*	Added note to use `bswp-custom.less` file for any custom additions to allow for easy updating of styles.
+*	Added style fix for top positioning of scrollspy submenu
 
+__IMG Folder__
 
+*   Updated glyph icons with new set included in Bootstrap 2.04  
 
 
 ##Version .86 of BootstrapWP – Released April 11, 2012
@@ -57,7 +63,7 @@ __LESS Folder__
 
 The major changes are:
 
-1. Removed the buggy catch_that_image function that was displaying thumbnails for posts, and replacing it with the new bootstrapwp_autoset_featured_image()` function that will automatically set the post thumbnail.
+1. Removed the buggy catch_that_image function that was displaying thumbnails for posts, and replacing it with the new `bootstrapwp_autoset_featured_image()` function that will automatically set the post thumbnail.
 2. Fixed navbar on mobile devices where body padding was causing the navbar to drop below the the top of the window.
 3. Revised order of stylesheets loading
 4. Corrected the broken favicon links
