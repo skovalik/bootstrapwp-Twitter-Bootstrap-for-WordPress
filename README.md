@@ -6,6 +6,40 @@ Bootstrap is a responsive front-end toolkit from Twitter designed to kickstart w
 Download the most-up-to-date theme files: [Download .zip file](https://github.com/downloads/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/bootstrapwp-87.zip)
 Follow the development: [WIP Branch on Github](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/tree/1-WIP)
 
+Demo
+----
+You can view a demo of this WordPress theme running the latest development branch code at: [http://bootstrapwp.rachelbaker.me/](http://bootstrapwp.rachelbaker.me/)
+
+View the theme style guide at: [http://bootstrapwp.rachelbaker.me/style-guide/](http://bootstrapwp.rachelbaker.me/style-guide/)
+
+View the javascript guide at: [http://bootstrapwp.rachelbaker.me/javascript-guide/](http://bootstrapwp.rachelbaker.me/javascript-guide/)
+
+
+Usage
+-----
+
+Download the BootstrapWP theme, and install to your WordPress site.
+
+This is meant to be a base theme for WordPress custom theme development.  A knowledge of WordPress theme development practices as well as understanding of HTML, CSS/LESS, jQuery and PHP are required.
+
+**Important!** To safely retain the ability to update the less files with future versions of Bootstrap or BootstrapWP, add all custom edits/changes inside the `less/bswp-custom.less` file.
+  
+
+Getting Started
+-------
+
+Create a page that uses the template `Hero Homepage Template`, then under `Settings->Reading`  set your site to use a static front page selecting your new page.  Add content to the three "Home" widget areas under `Appearances->Widgets`.
+
+Create a menu under `Appearances->Menus` and assign it be your site's Main Menu.
+
+
+
+Bug tracker
+-----------
+
+**Report theme bugs** [https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/issues](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/issues)
+
+
 ##Version .87 of BootstrapWP - still baking....
 
 **The goals of this release are:**
@@ -142,36 +176,6 @@ __Misc.__
 
 
 
-Demo
-----
-You can view a demo of this theme running on WordPress at:  [http://rachelbaker.me/bootstrapwp/](http://rachelbaker.me/bootstrapwp/)
-
-View the theme style guide at: [http://rachelbaker.me/bootstrapwp/style-guide/](http://rachelbaker.me/bootstrapwp/style-guide/)
-
-View the javascript guide at: [http://rachelbaker.me/bootstrapwp/javascript-guide/](http://rachelbaker.me/bootstrapwp/javascript-guide/)
-
-
-
-
-Usage
------
-
-Download the BootstrapWP theme, and install to your WordPress site.
-
-This is meant to be a base theme for WordPress custom theme development.
-
-You can override any of the styles using style.css file.  All .css and .js files are loaded in functions.php.  Don't forget to disable any of the .js files you do not need.
-
-
-
-
-Bug tracker
------------
-**Known theme bugs:**
-
-Listed on the [Bug Tracker](http://rachelbaker.me/bootstrapwp/bug-tracker/) page
-
-**Report additional bugs** [https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/issues](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/issues)
 
 
 
