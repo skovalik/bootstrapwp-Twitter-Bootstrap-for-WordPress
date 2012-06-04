@@ -5,9 +5,9 @@
  * @package WP-Bootstrap
  * @subpackage Default_Theme
  * @since WP-Bootstrap 0.7
- * 
- * Last Revised: March 4, 2012
- * 
+ *
+ * Last Revised: June 3, 2012
+ *
  */
 get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
@@ -17,7 +17,7 @@ get_header(); ?>
       <header class="jumbotron subhead" id="overview">
         <h1>Javascript for Bootstrap</h1>
         <p class="lead">Bring Bootstrap's components to life&mdash;now with 12 custom <a href="http://jquery.com/" target="_blank">jQuery</a> plugins.
-         <div class="subnav">
+          <div class="subnav">
           <ul class="nav nav-pills">
             <li><a href="#javascript">All plugins</a></li>
             <li><a href="#modals">Modal</a></li>
@@ -41,90 +41,68 @@ get_header(); ?>
       <section id="javascript">
         <div class="page-header">
           <h1>jQuery plugins <small>A dozen Bootstrap plugins to get you started</small></h1>
-          <h2>NOTE: This page is a DEMO ONLY! All the JS files are loaded in functions.php - you should DISABLE any that you are not going to use in your theme.</h2>
+          <h2>NOTE: This page is a DEMO ONLY! All the JS files are loaded via a minified compiled file named bootstrap.min.js in functions.php.</h2>
         </div>
-        <div class="row">
-          <div class="span3">
-            <label>
-              <h3><a href="./javascript.html#modals">Modals</a></h3>
-              <p>A streamlined, but flexible, take on the traditional javascript modal plugin with only the minimum required functionality and smart defaults.</p>
-            </label>
-          </div>
-          <div class="span3">
-            <label>
-              <h3><a href="./javascript.html#dropdowns">Dropdowns</a></h3>
-              <p>Add dropdown menus to nearly anything in Bootstrap with this simple plugin. Bootstrap features full dropdown menu support on in the navbar, tabs, and pills.</p>
-            </label>
-          </div>
-          <div class="span3">
-            <label>
-              <h3><a href="./javascript.html#scrollspy">Scrollspy</a></h3>
-              <p>Use scrollspy to automatically update the links in your navbar to show the current active link based on scroll position.</p>
-            </label>
-          </div>
-          <div class="span3">
-            <label>
-              <h3><a href="./javascript.html#tabs">Togglable tabs</a></h3>
-              <p>Use this plugin to make tabs and pills more useful by allowing them to toggle through tabbable panes of local content.</p>
-            </label>
-          </div>
-        </div> <!-- /row -->
-        <div class="row">
-          <div class="span3">
-            <label>
-              <h3><a href="./javascript.html#tooltips">Tooltips</a></h3>
-              <p>A new take on the jQuery Tipsy plugin, Tooltips don't rely on images&mdash;they use CSS3 for animations and data-attributes for local title storage.</p>
-            </label>
-          </div>
-          <div class="span3">
-            <label>
-              <h3><a href="./javascript.html#popovers">Popovers</a> <small class="muted">*</small></h3>
-              <p>Add small overlays of content, like those on the iPad, to any element for housing secondary information.</p>
-              <p class="muted"><strong>*</strong> Requires <a href="#tooltips">Tooltips</a> to be included</p>
-            </label>
-          </div>
-          <div class="span3">
-            <label>
-              <h3><a href="./javascript.html#alerts">Alert messages</a></h3>
-              <p>The alert plugin is a tiny class for adding close functionality to alerts.</p>
-            </label>
-          </div>
-          <div class="span3">
-            <label>
-              <h3><a href="./javascript.html#buttons">Buttons</a></h3>
-              <p>Do more with buttons. Control button states or create groups of buttons for more components like toolbars.</p>
-            </label>
-          </div>
-        </div> <!-- /row -->
-        <div class="row" style="margin-bottom: 9px;">
-          <div class="span3">
-            <label>
-              <h3><a href="./javascript.html#collapse">Collapse</a></h3>
-              <p>Get base styles and flexible support for collapsible components like accordions and navigation.</p>
-            </label>
-          </div>
-          <div class="span3">
-            <label>
-              <h3><a href="./javascript.html#carousel">Carousel</a></h3>
-              <p>Create a merry-go-round of any content you wish to provide an interactive slideshow of content.</p>
-            </label>
-          </div>
-          <div class="span3">
-            <label>
-              <h3><a href="./javascript.html#typeahead">Typeahead</a></h3>
-              <p>A basic, easily extended plugin for quickly creating elegant typeaheads with any form text input.</p>
-            </label>
-          </div>
-          <div class="span3">
-            <label>
-              <h3>Transitions <small class="muted">*</small></h3>
-              <p>For simple transition effects, include bootstrap-transition.js once to slide in modals or fade out alerts.</p>
-              <p class="muted"><strong>*</strong> Required for animation in plugins</p>
-            </label>
-          </div>
-        </div> <!-- /row -->
-        <div class="alert alert-info"><strong>Heads up!</strong> All javascript plugins require the latest version of jQuery.</div>
-      </section>
+
+
+      <div class="row">
+        <div class="span3">
+          <h3><a href="./javascript.html#modals">Modals</a></h3>
+          <p>A streamlined, but flexible, take on the traditional javascript modal plugin with only the minimum required functionality and smart defaults.</p>
+        </div>
+        <div class="span3">
+          <h3><a href="./javascript.html#dropdowns">Dropdowns</a></h3>
+          <p>Add dropdown menus to nearly anything in Bootstrap with this simple plugin. Bootstrap features full dropdown menu support on in the navbar, tabs, and pills.</p>
+        </div>
+        <div class="span3">
+          <h3><a href="./javascript.html#scrollspy">Scrollspy</a></h3>
+          <p>Use scrollspy to automatically update the links in your navbar to show the current active link based on scroll position.</p>
+        </div>
+        <div class="span3">
+          <h3><a href="./javascript.html#tabs">Togglable tabs</a></h3>
+          <p>Use this plugin to make tabs and pills more useful by allowing them to toggle through tabbable panes of local content.</p>
+        </div>
+      </div> <!-- /row -->
+      <div class="row">
+        <div class="span3">
+          <h3><a href="./javascript.html#tooltips">Tooltips</a></h3>
+          <p>A new take on the jQuery Tipsy plugin, Tooltips don't rely on images&mdash;they use CSS3 for animations and data-attributes for local title storage.</p>
+        </div>
+        <div class="span3">
+          <h3><a href="./javascript.html#popovers">Popovers</a> <small class="muted">*</small></h3>
+          <p>Add small overlays of content, like those on the iPad, to any element for housing secondary information.</p>
+          <p class="muted"><strong>*</strong> Requires <a href="#tooltips">Tooltips</a> to be included</p>
+        </div>
+        <div class="span3">
+          <h3><a href="./javascript.html#alerts">Alert messages</a></h3>
+          <p>The alert plugin is a tiny class for adding close functionality to alerts.</p>
+        </div>
+        <div class="span3">
+          <h3><a href="./javascript.html#buttons">Buttons</a></h3>
+          <p>Do more with buttons. Control button states or create groups of buttons for more components like toolbars.</p>
+        </div>
+      </div> <!-- /row -->
+      <div class="row" style="margin-bottom: 9px;">
+        <div class="span3">
+          <h3><a href="./javascript.html#collapse">Collapse</a></h3>
+          <p>Get base styles and flexible support for collapsible components like accordions and navigation.</p>
+        </div>
+        <div class="span3">
+          <h3><a href="./javascript.html#carousel">Carousel</a></h3>
+          <p>Create a merry-go-round of any content you wish to provide an interactive slideshow of content.</p>
+        </div>
+        <div class="span3">
+          <h3><a href="./javascript.html#typeahead">Typeahead</a></h3>
+          <p>A basic, easily extended plugin for quickly creating elegant typeaheads with any form text input.</p>
+        </div>
+        <div class="span3">
+          <h3>Transitions <small class="muted">*</small></h3>
+          <p>For simple transition effects, include bootstrap-transition.js once to slide in modals or fade out alerts.</p>
+          <p class="muted"><strong>*</strong> Required for animation in plugins</p>
+        </div>
+      </div> <!-- /row -->
+      <div class="alert alert-info"><strong>Heads up!</strong> All javascript plugins require the latest version of jQuery.</div>
+    </section>
 
 
 
@@ -138,15 +116,15 @@ get_header(); ?>
         <div class="span3 columns">
           <h3>About modals</h3>
           <p>A streamlined, but flexible, take on the traditional javascript modal plugin with only the minimum required functionality and smart defaults.</p>
-          <a href="assets/js/bootstrap-modal.js" target="_blank" class="btn">Download file</a>
+
         </div>
         <div class="span9 columns">
           <h2>Static example</h2>
           <p>Below is a statically rendered modal.</p>
           <div class="well modal-example" style="background-color: #888; border: none;">
-            <div class="modal" style="position: relative; top: auto; left: auto; margin: 0 auto; z-index: 1">
+            <div class="modal" style="position: relative; top: auto; left: auto; margin: 0 auto; z-index: 1; max-width: 100%;">
               <div class="modal-header">
-                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h3>Modal header</h3>
               </div>
               <div class="modal-body">
@@ -164,7 +142,7 @@ get_header(); ?>
           <!-- sample modal content -->
           <div id="myModal" class="modal hide fade">
             <div class="modal-header">
-              <a class="close" data-dismiss="modal" >&times;</a>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
               <h3>Modal Heading</h3>
             </div>
             <div class="modal-body">
@@ -209,8 +187,8 @@ get_header(); ?>
                <th style="width: 50px;">default</th>
                <th>description</th>
              </tr>
-           </thead>
-           <tbody>
+            </thead>
+            <tbody>
              <tr>
                <td>backdrop</td>
                <td>boolean</td>
@@ -229,85 +207,85 @@ get_header(); ?>
                <td>true</td>
                <td>Shows the modal when initialized.</td>
              </tr>
-           </tbody>
-         </table>
-         <h3>Markup</h3>
-         <p>You can activate modals on your page easily without having to write a single line of javascript. Just set <code>data-toggle="modal"</code> on a controller element with a <code>data-target="#foo"</code> or <code>href="#foo"</code> which corresponds to a modal element id, and when clicked, it will launch your modal.</p>
-         <p>Also, to add options to your modal instance, just include them as additional data attributes on either the control element or the modal markup itself.</p>
-         <pre class="prettyprint linenums">
-          &lt;a class="btn" data-toggle="modal" href="#myModal" &gt;Launch Modal&lt;/a&gt;
-        </pre>
+            </tbody>
+          </table>
+          <h3>Markup</h3>
+          <p>You can activate modals on your page easily without having to write a single line of javascript. Just set <code>data-toggle="modal"</code> on a controller element with a <code>data-target="#foo"</code> or <code>href="#foo"</code> which corresponds to a modal element id, and when clicked, it will launch your modal.</p>
+          <p>Also, to add options to your modal instance, just include them as additional data attributes on either the control element or the modal markup itself.</p>
+<pre class="prettyprint linenums">
+&lt;a class="btn" data-toggle="modal" href="#myModal" &gt;Launch Modal&lt;/a&gt;
+</pre>
 
-        <pre class="prettyprint linenums">
-          &lt;div class="modal" id="myModal"&gt;
-          &lt;div class="modal-header"&gt;
-          &lt;a class="close" data-dismiss="modal"&gt;&times;&lt;/a&gt;
-          &lt;h3&gt;Modal header&lt;/h3&gt;
-          &lt;/div&gt;
-          &lt;div class="modal-body"&gt;
-          &lt;p&gt;One fine body…&lt;/p&gt;
-          &lt;/div&gt;
-          &lt;div class="modal-footer"&gt;
-          &lt;a href="#" class="btn"&gt;Close&lt;/a&gt;
-          &lt;a href="#" class="btn btn-primary"&gt;Save changes&lt;/a&gt;
-          &lt;/div&gt;
-          &lt;/div&gt;
-        </pre>
-        <div class="alert alert-info">
-          <strong>Heads up!</strong> If you want your modal to animate in and out, just add a <code>.fade</code> class to the <code>.modal</code> element (refer to the demo to see this in action) and include bootstrap-transition.js.
+<pre class="prettyprint linenums">
+&lt;div class="modal hide" id="myModal"&gt;
+  &lt;div class="modal-header"&gt;
+    &lt;button type="button" class="close" data-dismiss="modal"&gt;&times;&lt;/button&gt;
+    &lt;h3&gt;Modal header&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;div class="modal-body"&gt;
+    &lt;p&gt;One fine body…&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="modal-footer"&gt;
+    &lt;a href="#" class="btn" data-dismiss="modal"&gt;Close&lt;/a&gt;
+    &lt;a href="#" class="btn btn-primary"&gt;Save changes&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+          <div class="alert alert-info">
+            <strong>Heads up!</strong> If you want your modal to animate in and out, just add a <code>.fade</code> class to the <code>.modal</code> element (refer to the demo to see this in action) and include bootstrap-transition.js.
+          </div>
+          <h3>Methods</h3>
+          <h4>.modal(options)</h4>
+          <p>Activates your content as a modal. Accepts an optional options <code>object</code>.</p>
+<pre class="prettyprint linenums">
+$('#myModal').modal({
+  keyboard: false
+})</pre>
+          <h4>.modal('toggle')</h4>
+          <p>Manually toggles a modal.</p>
+          <pre class="prettyprint linenums">$('#myModal').modal('toggle')</pre>
+          <h4>.modal('show')</h4>
+          <p>Manually opens a modal.</p>
+          <pre class="prettyprint linenums">$('#myModal').modal('show')</pre>
+          <h4>.modal('hide')</h4>
+          <p>Manually hides a modal.</p>
+          <pre class="prettyprint linenums">$('#myModal').modal('hide')</pre>
+          <h3>Events</h3>
+          <p>Bootstrap's modal class exposes a few events for hooking into modal functionality.</p>
+          <table class="table table-bordered table-striped">
+            <thead>
+             <tr>
+               <th style="width: 150px;">Event</th>
+               <th>Description</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+               <td>show</td>
+               <td>This event fires immediately when the <code>show</code> instance method is called.</td>
+             </tr>
+             <tr>
+               <td>shown</td>
+               <td>This event is fired when the modal has been made visible to the user (will wait for css transitions to complete).</td>
+             </tr>
+             <tr>
+               <td>hide</td>
+               <td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
+             </tr>
+             <tr>
+               <td>hidden</td>
+               <td>This event is fired when the modal has finished being hidden from the user (will wait for css transitions to complete).</td>
+             </tr>
+            </tbody>
+          </table>
+
+<pre class="prettyprint linenums">
+$('#myModal').on('hidden', function () {
+  // do something…
+})</pre>
         </div>
-        <h3>Methods</h3>
-        <h4>.modal(options)</h4>
-        <p>Activates your content as a modal. Accepts an optional options <code>object</code>.</p>
-        <pre class="prettyprint linenums">
-          $('#myModal').modal({
-          keyboard: false
-        })</pre>
-        <h4>.modal('toggle')</h4>
-        <p>Manually toggles a modal.</p>
-        <pre class="prettyprint linenums">$('#myModal').modal('toggle')</pre>
-        <h4>.modal('show')</h4>
-        <p>Manually opens a modal.</p>
-        <pre class="prettyprint linenums">$('#myModal').modal('show')</pre>
-        <h4>.modal('hide')</h4>
-        <p>Manually hides a modal.</p>
-        <pre class="prettyprint linenums">$('#myModal').modal('hide')</pre>
-        <h3>Events</h3>
-        <p>Bootstrap's modal class exposes a few events for hooking into modal functionality.</p>
-        <table class="table table-bordered table-striped">
-          <thead>
-           <tr>
-             <th style="width: 150px;">Event</th>
-             <th>Description</th>
-           </tr>
-         </thead>
-         <tbody>
-           <tr>
-             <td>show</td>
-             <td>This event fires immediately when the <code>show</code> instance method is called.</td>
-           </tr>
-           <tr>
-             <td>shown</td>
-             <td>This event is fired when the modal has been made visible to the user (will wait for css transitions to complete).</td>
-           </tr>
-           <tr>
-             <td>hide</td>
-             <td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
-           </tr>
-           <tr>
-             <td>hidden</td>
-             <td>This event is fired when the modal has finished being hidden from the user (will wait for css transitions to complete).</td>
-           </tr>
-         </tbody>
-       </table>
-
-       <pre class="prettyprint linenums">
-        $('#myModal').on('hidden', function () {
-        // do something…
-      })</pre>
-    </div>
-  </div>
-</section>
+      </div>
+    </section>
 
 
 
@@ -321,7 +299,7 @@ get_header(); ?>
         <div class="span3 columns">
           <h3>About dropdowns</h3>
           <p>Add dropdown menus to nearly anything in Bootstrap with this simple plugin. Bootstrap features full dropdown menu support on in the navbar, tabs, and pills.</p>
-          <a href="assets/js/bootstrap-dropdown.js" target="_blank" class="btn">Download file</a>
+
         </div>
         <div class="span9 columns">
           <h2>Examples</h2>
@@ -413,124 +391,161 @@ get_header(); ?>
             <strong>Heads up!</strong> You may optionally target a specific dropdown by using <code>data-target="#fat"</code> or <code>href="#fat"</code>.
           </div>
 
-          <pre class="prettyprint linenums">
-            &lt;ul class="nav nav-pills"&gt;
-            &lt;li class="active"&gt;&lt;a href="#"&gt;Regular link&lt;/a&gt;&lt;/li&gt;
-            &lt;li class="dropdown" id="menu1"&gt;
-            &lt;a class="dropdown-toggle" data-toggle="dropdown" href="#menu1"&gt;
-            Dropdown
-            &lt;b class="caret"&gt;&lt;/b&gt;
-            &lt;/a&gt;
-            &lt;ul class="dropdown-menu"&gt;
-            &lt;li&gt;&lt;a href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
-            &lt;li class="divider"&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-            &lt;/li&gt;
-            ...
-            &lt;/ul&gt;</pre>
-            <h3>Methods</h3>
-            <h4>$().dropdown()</h4>
-            <p>A programatic api for activating menus for a given navbar or tabbed navigation.</p>
-          </div>
+<pre class="prettyprint linenums">
+&lt;ul class="nav nav-pills"&gt;
+  &lt;li class="active"&gt;&lt;a href="#"&gt;Regular link&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="dropdown" id="menu1"&gt;
+    &lt;a class="dropdown-toggle" data-toggle="dropdown" href="#menu1"&gt;
+      Dropdown
+      &lt;b class="caret"&gt;&lt;/b&gt;
+    &lt;/a&gt;
+    &lt;ul class="dropdown-menu"&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+      &lt;li class="divider"&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  ...
+&lt;/ul&gt;</pre>
+          <p>To keep URLs intact, use the <code>data-target</code> attribute instead of <code>href="#"</code>.</p>
+<pre class="prettyprint linenums">
+&lt;ul class="nav nav-pills"&gt;
+  &lt;li class="dropdown"&gt;
+    &lt;a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="path/to/page.html"&gt;
+      Dropdown
+      &lt;b class="caret"&gt;&lt;/b&gt;
+    &lt;/a&gt;
+    &lt;ul class="dropdown-menu"&gt;
+      ...
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+          <h3>Methods</h3>
+          <h4>$().dropdown()</h4>
+          <p>A programatic api for activating menus for a given navbar or tabbed navigation.</p>
         </div>
-      </section>
+      </div>
+    </section>
 
 
 
    <!-- ScrollSpy
-   ================================================== -->
-   <section id="scrollspy">
-    <div class="page-header">
-      <h1>ScrollSpy <small>bootstrap-scrollspy.js</small></h1>
-    </div>
-    <div class="row">
-      <div class="span3 columns">
-        <p>The ScrollSpy plugin is for automatically updating nav targets based on scroll position.</p>
-        <a href="assets/js/bootstrap-scrollspy.js" target="_blank" class="btn">Download file</a>
+    ================================================== -->
+    <section id="scrollspy">
+      <div class="page-header">
+        <h1>ScrollSpy <small>bootstrap-scrollspy.js</small></h1>
       </div>
-      <div class="span9 columns">
-        <h2>Example navbar with scrollspy</h2>
-        <p>Scroll the area below and watch the navigation update. The dropdown sub items will be highlighted as well. Try it!</p>
-        <div id="navbarExample" class="navbar navbar-static">
-          <div class="navbar-inner">
-            <div class="container" style="width: auto;">
-              <a class="brand" href="#">Project Name</a>
-              <ul class="nav">
-                <li><a href="#fat">@fat</a></li>
-                <li><a href="#mdo">@mdo</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#one">one</a></li>
-                    <li><a href="#two">two</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#three">three</a></li>
-                  </ul>
-                </li>
-              </ul>
+      <div class="row">
+        <div class="span3 columns">
+          <p>The ScrollSpy plugin is for automatically updating nav targets based on scroll position.</p>
+
+        </div>
+        <div class="span9 columns">
+          <h2>Example navbar with scrollspy</h2>
+          <p>Scroll the area below and watch the navigation update. The dropdown sub items will be highlighted as well. Try it!</p>
+          <div id="navbarExample" class="navbar navbar-static">
+            <div class="navbar-inner">
+              <div class="container" style="width: auto;">
+                <a class="brand" href="#">Project Name</a>
+                <ul class="nav">
+                  <li><a href="#fat">@fat</a></li>
+                  <li><a href="#mdo">@mdo</a></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#one">one</a></li>
+                      <li><a href="#two">two</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#three">three</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div data-spy="scroll" data-target="#navbarExample" data-offset="0" class="scrollspy-example">
-          <h4 id="fat">@fat</h4>
-          <p>
+          <div data-spy="scroll" data-target="#navbarExample" data-offset="0" class="scrollspy-example">
+            <h4 id="fat">@fat</h4>
+            <p>
             Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.
-          </p>
-          <h4 id="mdo">@mdo</h4>
-          <p>
+            </p>
+            <h4 id="mdo">@mdo</h4>
+            <p>
             Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard. Freegan beard aliqua cupidatat mcsweeney's vero. Cupidatat four loko nisi, ea helvetica nulla carles. Tattooed cosby sweater food truck, mcsweeney's quis non freegan vinyl. Lo-fi wes anderson +1 sartorial. Carles non aesthetic exercitation quis gentrify. Brooklyn adipisicing craft beer vice keytar deserunt.
-          </p>
-          <h4 id="one">one</h4>
-          <p>
+            </p>
+            <h4 id="one">one</h4>
+            <p>
             Occaecat commodo aliqua delectus. Fap craft beer deserunt skateboard ea. Lomo bicycle rights adipisicing banh mi, velit ea sunt next level locavore single-origin coffee in magna veniam. High life id vinyl, echo park consequat quis aliquip banh mi pitchfork. Vero VHS est adipisicing. Consectetur nisi DIY minim messenger bag. Cred ex in, sustainable delectus consectetur fanny pack iphone.
-          </p>
-          <h4 id="two">two</h4>
-          <p>
+            </p>
+            <h4 id="two">two</h4>
+            <p>
             In incididunt echo park, officia deserunt mcsweeney's proident master cleanse thundercats sapiente veniam. Excepteur VHS elit, proident shoreditch +1 biodiesel laborum craft beer. Single-origin coffee wayfarers irure four loko, cupidatat terry richardson master cleanse. Assumenda you probably haven't heard of them art party fanny pack, tattooed nulla cardigan tempor ad. Proident wolf nesciunt sartorial keffiyeh eu banh mi sustainable. Elit wolf voluptate, lo-fi ea portland before they sold out four loko. Locavore enim nostrud mlkshk brooklyn nesciunt.
-          </p>
-          <h4 id="three">three</h4>
-          <p>
+            </p>
+            <h4 id="three">three</h4>
+            <p>
             Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.
-          </p>
-          <p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats.
-          </p>
+            </p>
+            <p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats.
+            </p>
+          </div>
+          <hr>
+          <h2>Using bootstrap-scrollspy.js</h2>
+          <p>Call the scrollspy via javascript:</p>
+          <pre class="prettyprint linenums">$('#navbar').scrollspy()</pre>
+          <h3>Markup</h3>
+          <p>To easily add scrollspy behavior to your topbar navigation, just add <code>data-spy="scroll"</code> to the element you want to spy on (most typically this would be the body).</p>
+          <pre class="prettyprint linenums">&lt;body data-spy="scroll" &gt;...&lt;/body&gt;</pre>
+          <div class="alert alert-info">
+            <strong>Heads up!</strong>
+            Navbar links must have resolvable id targets. For example, a <code>&lt;a href="#home"&gt;home&lt;/a&gt;</code> must correspond to something in the dom like <code>&lt;div id="home"&gt;&lt;/div&gt;</code>.
+          </div>
+          <h3>Methods</h3>
+          <h4>.scrollspy('refresh')</h4>
+          <p>When using scrollspy in conjunction with adding or removing of elements from the DOM, you'll need to call the refresh method like so:</p>
+<pre class="prettyprint linenums">
+$('[data-spy="scroll"]').each(function () {
+  var $spy = $(this).scrollspy('refresh')
+});
+</pre>
+          <h3>Options</h3>
+          <table class="table table-bordered table-striped">
+            <thead>
+             <tr>
+               <th style="width: 100px;">Name</th>
+               <th style="width: 100px;">type</th>
+               <th style="width: 50px;">default</th>
+               <th>description</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+               <td>offset</td>
+               <td>number</td>
+               <td>10</td>
+               <td>Pixels to offset from top when calculating position of scroll.</td>
+             </tr>
+            </tbody>
+          </table>
+           <h3>Events</h3>
+          <table class="table table-bordered table-striped">
+            <thead>
+             <tr>
+               <th style="width: 150px;">Event</th>
+               <th>Description</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+               <td>activate</td>
+               <td>This event fires whenever a new item becomes activated by the scrollspy.</td>
+            </tr>
+            </tbody>
+          </table>
         </div>
-        <hr>
-        <h2>Using bootstrap-scrollspy.js</h2>
-        <p>Call the scrollspy via javascript:</p>
-        <pre class="prettyprint linenums">$('#navbar').scrollspy()</pre>
-        <h3>Markup</h3>
-        <p>To easily add scrollspy behavior to your topbar navigation, just add <code>data-spy="scroll"</code> to the element you want to spy on (most typically this would be the body).</p>
-        <pre class="prettyprint linenums">&lt;body data-spy="scroll" &gt;...&lt;/body&gt;</pre>
-        <div class="alert alert-info">
-          <strong>Heads up!</strong>
-          Navbar links must have resolvable id targets. For example, a <code>&lt;a href="#home"&gt;home&lt;/a&gt;</code> must correspond to something in the dom like <code>&lt;div id="home"&gt;&lt;/div&gt;</code>.
-        </div>
-        <h3>Options</h3>
-        <table class="table table-bordered table-striped">
-          <thead>
-           <tr>
-             <th style="width: 100px;">Name</th>
-             <th style="width: 100px;">type</th>
-             <th style="width: 50px;">default</th>
-             <th>description</th>
-           </tr>
-         </thead>
-         <tbody>
-           <tr>
-             <td>offset</td>
-             <td>number</td>
-             <td>10</td>
-             <td>Pixels to offset from top when calculating position of scroll.</td>
-           </tr>
-         </tbody>
-       </table>
-     </div>
-   </div>
- </section>
+      </div>
+    </section>
 
 
 
@@ -543,12 +558,12 @@ get_header(); ?>
       <div class="row">
         <div class="span3 columns">
           <p>This plugin adds quick, dynamic tab and pill functionality for transitioning through local content.</p>
-          <a href="assets/js/bootstrap-tab.js" target="_blank" class="btn">Download file</a>
+
         </div>
         <div class="span9 columns">
           <h2>Example tabs</h2>
           <p>Click the tabs below to toggle between hidden panes, even via dropdown menus.</p>
-          <ul id="tab" class="nav nav-tabs">
+          <ul id="myTab" class="nav nav-tabs">
             <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
             <li><a href="#profile" data-toggle="tab">Profile</a></li>
             <li class="dropdown">
@@ -575,68 +590,79 @@ get_header(); ?>
           </div>
           <hr>
           <h2>Using bootstrap-tab.js</h2>
-          <p>Enable tabbable tabs via javascript:</p>
-          <pre class="prettyprint linenums">$('#myTab').tab('show')</pre>
-          <h3>Markup</h3>
-          <p>You can activate a tab or pill navigation without writing any javascript by simply specifying <code>data-toggle="tab"</code> or <code>data-toggle="pill"</code> on an element.</p>
+          <p>Enable tabbable tabs via javascript (each tab needs to be activated individually):</p>
           <pre class="prettyprint linenums">
-            &lt;ul class="nav nav-tabs"&gt;
-            &lt;li&gt;&lt;a href="#home" data-toggle="tab"&gt;Home&lt;/a&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href="#profile" data-toggle="tab"&gt;Profile&lt;/a&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href="#messages" data-toggle="tab"&gt;Messages&lt;/a&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href="#settings" data-toggle="tab"&gt;Settings&lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;</pre>
-            <h3>Methods</h3>
-            <h4>$().tab</h4>
-            <p>
-              Activates a tab element and content container. Tab should have either a `data-target` or an `href` targeting a container node in the dom.
-            </p>
-            <pre class="prettyprint linenums">
-              &lt;ul class="nav nav-tabs"&gt;
-              &lt;li class="active"&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href="#profile"&gt;Profile&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href="#messages"&gt;Messages&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href="#settings"&gt;Settings&lt;/a&gt;&lt;/li&gt;
-              &lt;/ul&gt;
+$('#myTab a').click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+})</pre>
+          <p>You can activate individual tabs in several ways:</p>
+<pre class="prettyprint linenums">
+$('#myTab a[href="#profile"]').tab('show'); // Select tab by name
+$('#myTab a:first').tab('show'); // Select first tab
+$('#myTab a:last').tab('show'); // Select last tab
+$('#myTab li:eq(2) a').tab('show'); // Select third tab (0-indexed)
+</pre>
+          <h3>Markup</h3>
+          <p>You can activate a tab or pill navigation without writing any javascript by simply specifying <code>data-toggle="tab"</code> or <code>data-toggle="pill"</code> on an element. Adding the <code>nav</code> and <code>nav-tabs</code> classes to the tab <code>ul</code> will apply the bootstrap tab styling.</p>
+<pre class="prettyprint linenums">
+&lt;ul class="nav nav-tabs"&gt;
+  &lt;li&gt;&lt;a href="#home" data-toggle="tab"&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#profile" data-toggle="tab"&gt;Profile&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#messages" data-toggle="tab"&gt;Messages&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#settings" data-toggle="tab"&gt;Settings&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+          <h3>Methods</h3>
+          <h4>$().tab</h4>
+          <p>
+            Activates a tab element and content container. Tab should have either a <code>data-target</code> or an <code>href</code> targeting a container node in the DOM.
+          </p>
+<pre class="prettyprint linenums">
+&lt;ul class="nav nav-tabs" id="myTab"&gt;
+  &lt;li class="active"&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#profile"&gt;Profile&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#messages"&gt;Messages&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#settings"&gt;Settings&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-              &lt;div class="tab-content"&gt;
-              &lt;div class="tab-pane active" id="home"&gt;...&lt;/div&gt;
-              &lt;div class="tab-pane" id="profile"&gt;...&lt;/div&gt;
-              &lt;div class="tab-pane" id="messages"&gt;...&lt;/div&gt;
-              &lt;div class="tab-pane" id="settings"&gt;...&lt;/div&gt;
-              &lt;/div&gt;
+&lt;div class="tab-content"&gt;
+  &lt;div class="tab-pane active" id="home"&gt;...&lt;/div&gt;
+  &lt;div class="tab-pane" id="profile"&gt;...&lt;/div&gt;
+  &lt;div class="tab-pane" id="messages"&gt;...&lt;/div&gt;
+  &lt;div class="tab-pane" id="settings"&gt;...&lt;/div&gt;
+&lt;/div&gt;
 
-              &lt;script&gt;
-              $(function () {
-              $('.tabs a:last').tab('show')
-            })
-            &lt;/script&gt;</pre>
-            <h3>Events</h3>
-            <table class="table table-bordered table-striped">
-              <thead>
-               <tr>
-                 <th style="width: 150px;">Event</th>
-                 <th>Description</th>
-               </tr>
-             </thead>
-             <tbody>
-               <tr>
-                 <td>show</td>
-                 <td>This event fires on tab show, but before the new tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the previous active tab (if available) respectively.</td>
-               </tr>
-               <tr>
-                 <td>shown</td>
-                 <td>This event fires on tab show after a tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the previous active tab (if available) respectively.</td>
-               </tr>
-             </tbody>
-           </table>
+&lt;script&gt;
+  $(function () {
+    $('#myTab a:last').tab('show');
+  })
+&lt;/script&gt;</pre>
+          <h3>Events</h3>
+          <table class="table table-bordered table-striped">
+            <thead>
+             <tr>
+               <th style="width: 150px;">Event</th>
+               <th>Description</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+               <td>show</td>
+               <td>This event fires on tab show, but before the new tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the previous active tab (if available) respectively.</td>
+            </tr>
+            <tr>
+               <td>shown</td>
+               <td>This event fires on tab show after a tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the previous active tab (if available) respectively.</td>
+             </tr>
+            </tbody>
+          </table>
 
-           <pre class="prettyprint linenums">
-            $('a[data-toggle="tab"]').on('shown', function (e) {
-            e.target // activated tab
-            e.relatedTarget // previous tab
-          })</pre>
-        </div>
+          <pre class="prettyprint linenums">
+$('a[data-toggle="tab"]').on('shown', function (e) {
+  e.target // activated tab
+  e.relatedTarget // previous tab
+})</pre>
+       </div>
       </div>
     </section>
 
@@ -651,13 +677,13 @@ get_header(); ?>
         <div class="span3 columns">
           <h3>About Tooltips</h3>
           <p>Inspired by the excellent jQuery.tipsy plugin written by Jason Frame; Tooltips are an updated version, which don't rely on images, use css3 for animations, and data-attributes for local title storage.</p>
-          <a href="assets/js/bootstrap-tooltip.js" target="_blank" class="btn">Download file</a>
+
         </div>
         <div class="span9 columns">
           <h2>Example use of Tooltips</h2>
           <p>Hover over the links below to see tooltips:</p>
           <div class="tooltip-demo well">
-            <p class="muted" style="margin-bottom: 0;">Tight pants next level keffiyeh <a href="#" rel="tooltip" title="first tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a href="#" rel="tooltip" title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A <a href="#" rel="tooltip" title="Another one here too">really ironic</a> artisan whatever keytar, scenester farm-to-table banksy Austin <a href="#" rel="tooltip" title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
+            <p class="muted" style="margin-bottom: 0;">Tight pants next level keffiyeh <a href="#" rel="tooltip" title="first tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a href="#" rel="tooltip" title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A really ironic artisan <a href="#" rel="tooltip" title="Another one here too">whatever keytar</a>, scenester farm-to-table banksy Austin <a href="#" rel="tooltip" title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
             </p>
           </div>
           <hr>
@@ -673,8 +699,8 @@ get_header(); ?>
                <th style="width: 50px;">default</th>
                <th>description</th>
              </tr>
-           </thead>
-           <tbody>
+            </thead>
+            <tbody>
              <tr>
                <td>animation</td>
                <td>boolean</td>
@@ -710,37 +736,37 @@ get_header(); ?>
                <td>number | object</td>
                <td>0</td>
                <td>
-                <p>delay showing and hiding the tooltip (ms)</p>
+                <p>delay showing and hiding the tooltip (ms) - does not apply to manual trigger type</p>
                 <p>If a number is supplied, delay is applied to both hide/show</p>
                 <p>Object structure is: <code>delay: { show: 500, hide: 100 }</code></p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="alert alert-info">
-          <strong>Heads up!</strong>
-          Options for individual tooltips can alternatively be specified through the use of data attributes.
+               </td>
+             </tr>
+            </tbody>
+          </table>
+          <div class="alert alert-info">
+            <strong>Heads up!</strong>
+            Options for individual tooltips can alternatively be specified through the use of data attributes.
+          </div>
+          <h3>Markup</h3>
+          <p>For performance reasons, the Tooltip and Popover data-apis are opt in. If you would like to use them just specify a selector option.</p>
+<pre class="prettyprint linenums">
+&lt;a href="#" rel="tooltip" title="first tooltip"&gt;hover over me&lt;/a&gt;
+</pre>
+          <h3>Methods</h3>
+          <h4>$().tooltip(options)</h4>
+          <p>Attaches a tooltip handler to an element collection.</p>
+          <h4>.tooltip('show')</h4>
+          <p>Reveals an element's tooltip.</p>
+          <pre class="prettyprint linenums">$('#element').tooltip('show')</pre>
+          <h4>.tooltip('hide')</h4>
+          <p>Hides an element's tooltip.</p>
+          <pre class="prettyprint linenums">$('#element').tooltip('hide')</pre>
+          <h4>.tooltip('toggle')</h4>
+          <p>Toggles an element's tooltip.</p>
+          <pre class="prettyprint linenums">$('#element').tooltip('toggle')</pre>
         </div>
-        <h3>Markup</h3>
-        <p>For performance reasons, the Tooltip and Popover data-apis are opt in. If you would like to use them just specify a selector option.</p>
-        <pre class="prettyprint linenums">
-          &lt;a href="#" rel="tooltip" title="first tooltip"&gt;hover over me&lt;/a&gt;
-        </pre>
-        <h3>Methods</h3>
-        <h4>$().tooltip(options)</h4>
-        <p>Attaches a tooltip handler to an element collection.</p>
-        <h4>.tooltip('show')</h4>
-        <p>Reveals an elements tooltip.</p>
-        <pre class="prettyprint linenums">$('#element').tooltip('show')</pre>
-        <h4>.tooltip('hide')</h4>
-        <p>Hides an elements tooltip.</p>
-        <pre class="prettyprint linenums">$('#element').tooltip('hide')</pre>
-        <h4>.tooltip('toggle')</h4>
-        <p>Toggles an elements tooltip.</p>
-        <pre class="prettyprint linenums">$('#element').tooltip('toggle')</pre>
       </div>
-    </div>
-  </section>
+    </section>
 
 
 
@@ -755,7 +781,7 @@ get_header(); ?>
           <h3>About popovers</h3>
           <p>Add small overlays of content, like those on the iPad, to any element for housing secondary information.</p>
           <p class="muted"><strong>*</strong> Requires <a href="#tooltips">Tooltip</a> to be included</p>
-          <a href="assets/js/bootstrap-popover.js" target="_blank" class="btn">Download file</a>
+
         </div>
         <div class="span9 columns">
           <h2>Example hover popover</h2>
@@ -776,8 +802,8 @@ get_header(); ?>
                <th style="width: 50px;">default</th>
                <th>description</th>
              </tr>
-           </thead>
-           <tbody>
+            </thead>
+            <tbody>
              <tr>
                <td>animation</td>
                <td>boolean</td>
@@ -819,36 +845,36 @@ get_header(); ?>
                <td>number | object</td>
                <td>0</td>
                <td>
-                <p>delay showing and hiding the popover (ms)</p>
+                <p>delay showing and hiding the popover (ms) - does not apply to manual trigger type</p>
                 <p>If a number is supplied, delay is applied to both hide/show</p>
                 <p>Object structure is: <code>delay: { show: 500, hide: 100 }</code></p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="alert alert-info">
-          <strong>Heads up!</strong>
-          Options for individual popovers can alternatively be specified through the use of data attributes.
+               </td>
+             </tr>
+            </tbody>
+          </table>
+          <div class="alert alert-info">
+            <strong>Heads up!</strong>
+            Options for individual popovers can alternatively be specified through the use of data attributes.
+          </div>
+          <h3>Markup</h3>
+          <p>
+          For performance reasons, the Tooltip and Popover data-apis are opt in. If you would like to use them just specify a selector option.
+          </p>
+          <h3>Methods</h3>
+          <h4>$().popover(options)</h4>
+          <p>Initializes popovers for an element collection.</p>
+          <h4>.popover('show')</h4>
+          <p>Reveals an elements popover.</p>
+          <pre class="prettyprint linenums">$('#element').popover('show')</pre>
+          <h4>.popover('hide')</h4>
+          <p>Hides an elements popover.</p>
+          <pre class="prettyprint linenums">$('#element').popover('hide')</pre>
+          <h4>.popover('toggle')</h4>
+          <p>Toggles an elements popover.</p>
+          <pre class="prettyprint linenums">$('#element').popover('toggle')</pre>
         </div>
-        <h3>Markup</h3>
-        <p>
-          For performance reasons, the Tooltip and Popover data-apis are opt in. If you would like to use them just specify a the selector option.
-        </p>
-        <h3>Methods</h3>
-        <h4>$().popover(options)</h4>
-        <p>Initializes popovers for an element collection.</p>
-        <h4>.popover('show')</h4>
-        <p>Reveals an elements popover.</p>
-        <pre class="prettyprint linenums">$('#element').popover('show')</pre>
-        <h4>.popover('hide')</h4>
-        <p>Hides an elements popover.</p>
-        <pre class="prettyprint linenums">$('#element').popover('hide')</pre>
-        <h4>.popover('toggle')</h4>
-        <p>Toggles an elements popover.</p>
-        <pre class="prettyprint linenums">$('#element').popover('toggle')</pre>
       </div>
-    </div>
-  </section>
+    </section>
 
 
 
@@ -862,17 +888,17 @@ get_header(); ?>
         <div class="span3 columns">
           <h3>About alerts</h3>
           <p>The alert plugin is a tiny class for adding close functionality to alerts.</p>
-          <a href="assets/js/bootstrap-alert.js" target="_blank" class="btn">Download</a>
+
         </div>
         <div class="span9 columns">
           <h2>Example alerts</h2>
           <p>The alerts plugin works on regular alert messages, and block messages.</p>
           <div class="alert fade in">
-            <a class="close" data-dismiss="alert" href="#">&times;</a>
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
             <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
           </div>
           <div class="alert alert-block alert-error fade in">
-            <a class="close" data-dismiss="alert" href="#">&times;</a>
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
             <h4 class="alert-heading">Oh snap! You got an error!</h4>
             <p>Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
             <p>
@@ -900,8 +926,8 @@ get_header(); ?>
                <th style="width: 150px;">Event</th>
                <th>Description</th>
              </tr>
-           </thead>
-           <tbody>
+            </thead>
+            <tbody>
              <tr>
                <td>close</td>
                <td>This event fires immediately when the <code>close</code> instance method is called.</td>
@@ -910,15 +936,15 @@ get_header(); ?>
                <td>closed</td>
                <td>This event is fired when the alert has been closed (will wait for css transitions to complete).</td>
              </tr>
-           </tbody>
-         </table>
-         <pre class="prettyprint linenums">
-          $('#my-alert').bind('closed', function () {
-          // do something…
-        })</pre>
+            </tbody>
+          </table>
+<pre class="prettyprint linenums">
+$('#my-alert').bind('closed', function () {
+  // do something…
+})</pre>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
 
 
@@ -932,7 +958,7 @@ get_header(); ?>
         <div class="span3 columns">
           <h3>About</h3>
           <p>Do more with buttons. Control button states or create groups of buttons for more components like toolbars.</p>
-          <a href="assets/js/bootstrap-button.js" target="_blank" class="btn">Download file</a>
+
         </div>
         <div class="span9 columns">
           <h2>Example uses</h2>
@@ -942,90 +968,90 @@ get_header(); ?>
              <tr>
                <td>Stateful</td>
                <td>
-                <button id="fat-btn" data-loading-text="loading..." class="btn btn-primary">
-                  Loading State
-                </button>
-              </td>
-            </tr>
-            <tr>
-             <td>Single toggle</td>
-             <td>
-              <button class="btn btn-primary" data-toggle="button">Single Toggle</button>
-            </td>
-          </tr>
-          <tr>
-           <td>Checkbox</td>
-           <td>
-            <div class="btn-group" data-toggle="buttons-checkbox">
-              <button class="btn btn-primary">Left</button>
-              <button class="btn btn-primary">Middle</button>
-              <button class="btn btn-primary">Right</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-         <td>Radio</td>
-         <td>
-          <div class="btn-group" data-toggle="buttons-radio">
-            <button class="btn btn-primary">Left</button>
-            <button class="btn btn-primary">Middle</button>
-            <button class="btn btn-primary">Right</button>
+                  <button id="fat-btn" data-loading-text="loading..." class="btn btn-primary">
+                    Loading State
+                  </button>
+                </td>
+             </tr>
+             <tr>
+               <td>Single toggle</td>
+               <td>
+                  <button class="btn btn-primary" data-toggle="button">Single Toggle</button>
+                </td>
+             </tr>
+             <tr>
+               <td>Checkbox</td>
+               <td>
+                  <div class="btn-group" data-toggle="buttons-checkbox">
+                    <button class="btn btn-primary">Left</button>
+                    <button class="btn btn-primary">Middle</button>
+                    <button class="btn btn-primary">Right</button>
+                  </div>
+               </td>
+             </tr>
+             <tr>
+               <td>Radio</td>
+               <td>
+                  <div class="btn-group" data-toggle="buttons-radio">
+                    <button class="btn btn-primary">Left</button>
+                    <button class="btn btn-primary">Middle</button>
+                    <button class="btn btn-primary">Right</button>
+                  </div>
+               </td>
+             </tr>
+            </tbody>
+          </table>
+          <hr>
+          <h2>Using bootstrap-button.js</h2>
+          <p>Enable buttons via javascript:</p>
+          <pre class="prettyprint linenums">$('.nav-tabs').button()</pre>
+            <h3>Markup</h3>
+          <p>Data attributes are integral to the button plugin. Check out the example code below for the various markup types.</p>
+<pre class="prettyprint linenums">
+&lt;!-- Add data-toggle="button" to activate toggling on a single button --&gt;
+&lt;button class="btn" data-toggle="button"&gt;Single Toggle&lt;/button&gt;
+
+&lt;!-- Add data-toggle="buttons-checkbox" for checkbox style toggling on btn-group --&gt;
+&lt;div class="btn-group" data-toggle="buttons-checkbox"&gt;
+  &lt;button class="btn"&gt;Left&lt;/button&gt;
+  &lt;button class="btn"&gt;Middle&lt;/button&gt;
+  &lt;button class="btn"&gt;Right&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Add data-toggle="buttons-radio" for radio style toggling on btn-group --&gt;
+&lt;div class="btn-group" data-toggle="buttons-radio"&gt;
+  &lt;button class="btn"&gt;Left&lt;/button&gt;
+  &lt;button class="btn"&gt;Middle&lt;/button&gt;
+  &lt;button class="btn"&gt;Right&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+          <h3>Methods</h3>
+          <h4>$().button('toggle')</h4>
+          <p>Toggles push state. Gives the button the appearance that it has been activated.</p>
+          <div class="alert alert-info">
+            <strong>Heads up!</strong>
+            You can enable auto toggling of a button by using the <code>data-toggle</code> attribute.
           </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <hr>
-  <h2>Using bootstrap-button.js</h2>
-  <p>Enable buttons via javascript:</p>
-  <pre class="prettyprint linenums">$('.tabs').button()</pre>
-  <h3>Markup</h3>
-  <p>Data attributes are integral to the button plugin. Check out the example code below for the various markup types.</p>
-  <pre class="prettyprint linenums">
-    &lt;!-- Add data-toggle="button" to activate toggling on a single button --&gt;
-    &lt;button class="btn" data-toggle="button"&gt;Single Toggle&lt;/button&gt;
-
-    &lt;!-- Add data-toggle="buttons-checkbox" for checkbox style toggling on btn-group --&gt;
-    &lt;div class="btn-group" data-toggle="buttons-checkbox"&gt;
-    &lt;button class="btn"&gt;Left&lt;/button&gt;
-    &lt;button class="btn"&gt;Middle&lt;/button&gt;
-    &lt;button class="btn"&gt;Right&lt;/button&gt;
-    &lt;/div&gt;
-
-    &lt;!-- Add data-toggle="buttons-radio" for radio style toggling on btn-group --&gt;
-    &lt;div class="btn-group" data-toggle="buttons-radio"&gt;
-    &lt;button class="btn"&gt;Left&lt;/button&gt;
-    &lt;button class="btn"&gt;Middle&lt;/button&gt;
-    &lt;button class="btn"&gt;Right&lt;/button&gt;
-    &lt;/div&gt;
-  </pre>
-  <h3>Methods</h3>
-  <h4>$().button('toggle')</h4>
-  <p>Toggles push state. Gives btn the look that it hass been activated.</p>
-  <div class="alert alert-info">
-    <strong>Heads up!</strong>
-    You can enable auto toggling of a button by using the <code>data-toggle</code> attribute.
-  </div>
-  <pre class="prettyprint linenums">&lt;button class="btn" data-toggle="button" &gt;…&lt;/button&gt;</pre>
-  <h4>$().button('loading')</h4>
-  <p>Sets button state to loading - disables button and swaps text to loading text. Loading text should be defined on the button element using the data attribute <code>data-loading-text</code>.
-  </p>
-  <pre class="prettyprint linenums">&lt;button class="btn" data-loading-text="loading stuff..." &gt;...&lt;/button&gt;</pre>
-  <div class="alert alert-info">
-    <strong>Heads up!</strong>
-    <a href="https://github.com/twitter/bootstrap/issues/793">Firefox persists the disabled state across page loads</a>. A workaround for this is to use <code>autocomplete="off"</code>.
-  </div>
-  <h4>$().button('reset')</h4>
-  <p>Resets button state - swaps text to original text.</p>
-  <h4>$().button(string)</h4>
-  <p>Resets button state - swaps text to any data defined text state.</p>
-  <pre class="prettyprint linenums">&lt;button class="btn" data-complete-text="finished!" &gt;...&lt;/button&gt;
-    &lt;script&gt;
-    $('.btn').button('complete')
-    &lt;/script&gt;</pre>
-  </div>
-</div>
-</section>
+          <pre class="prettyprint linenums">&lt;button class="btn" data-toggle="button" &gt;…&lt;/button&gt;</pre>
+          <h4>$().button('loading')</h4>
+          <p>Sets button state to loading - disables button and swaps text to loading text. Loading text should be defined on the button element using the data attribute <code>data-loading-text</code>.
+          </p>
+          <pre class="prettyprint linenums">&lt;button class="btn" data-loading-text="loading stuff..." &gt;...&lt;/button&gt;</pre>
+          <div class="alert alert-info">
+            <strong>Heads up!</strong>
+            <a href="https://github.com/twitter/bootstrap/issues/793">Firefox persists the disabled state across page loads</a>. A workaround for this is to use <code>autocomplete="off"</code>.
+          </div>
+          <h4>$().button('reset')</h4>
+          <p>Resets button state - swaps text to original text.</p>
+          <h4>$().button(string)</h4>
+          <p>Resets button state - swaps text to any data defined text state.</p>
+<pre class="prettyprint linenums">&lt;button class="btn" data-complete-text="finished!" &gt;...&lt;/button&gt;
+&lt;script&gt;
+  $('.btn').button('complete')
+&lt;/script&gt;</pre>
+        </div>
+      </div>
+    </section>
 
 
 
@@ -1039,8 +1065,9 @@ get_header(); ?>
         <div class="span3 columns">
           <h3>About</h3>
           <p>Get base styles and flexible support for collapsible components like accordions and navigation.</p>
-          <a href="assets/js/bootstrap-collapse.js" target="_blank" class="btn">Download file</a>
-        </div>
+
+          <p class="muted"><strong>*</strong> Requires the Transitions plugin to be included.</p>
+       </div>
         <div class="span9 columns">
           <h2>Example accordion</h2>
           <p>Using the collapse plugin, we built a simple accordion style widget:</p>
@@ -1098,8 +1125,8 @@ get_header(); ?>
                <th style="width: 50px;">default</th>
                <th>description</th>
              </tr>
-           </thead>
-           <tbody>
+            </thead>
+            <tbody>
              <tr>
                <td>parent</td>
                <td>selector</td>
@@ -1112,16 +1139,16 @@ get_header(); ?>
                <td>true</td>
                <td>Toggles the collapsible element on invocation</td>
              </tr>
-           </tbody>
-         </table>
-         <h3>Markup</h3>
-         <p>Just add <code>data-toggle="collapse"</code> and a <code>data-target</code> to element to automatically assign control of a collapsible element. The <code>data-target</code> attribute accepts a css selector to apply the collapse to. Be sure to add the class <code>collapse</code> to the collapsible element. If you'd like it to default open, add the additional class <code>in</code>.</p>
-         <pre class="prettyprint linenums">
-          &lt;button class="btn btn-danger" data-toggle="collapse" data-target="#demo"&gt;
-          simple collapsible
-          &lt;/button&gt;
+            </tbody>
+          </table>
+          <h3>Markup</h3>
+          <p>Just add <code>data-toggle="collapse"</code> and a <code>data-target</code> to element to automatically assign control of a collapsible element. The <code>data-target</code> attribute accepts a css selector to apply the collapse to. Be sure to add the class <code>collapse</code> to the collapsible element. If you'd like it to default open, add the additional class <code>in</code>.</p>
+          <pre class="prettyprint linenums">
+&lt;button class="btn btn-danger" data-toggle="collapse" data-target="#demo"&gt;
+  simple collapsible
+&lt;/button&gt;
 
-          &lt;div id="demo" class="collapse in"&gt; … &lt;/div&gt;</pre>
+&lt;div id="demo" class="collapse in"&gt; … &lt;/div&gt;</pre>
           <div class="alert alert-info">
             <strong>Heads up!</strong>
             To add accordion-like group management to a collapsible control, add the data attribute <code>data-parent="#selector"</code>. Refer to the demo to see this in action.
@@ -1129,62 +1156,62 @@ get_header(); ?>
           <h3>Methods</h3>
           <h4>.collapse(options)</h4>
           <p>Activates your content as a collapsible element. Accepts an optional options <code>object</code>.
-            <pre class="prettyprint linenums">
-              $('#myCollapsible').collapse({
-              toggle: false
-            })</pre>
-            <h4>.collapse('toggle')</h4>
-            <p>Toggles a collapsible element to shown or hidden.</p>
-            <h4>.collapse('show')</h4>
-            <p>Shows a collapsible element.</p>
-            <h4>.collapse('hide')</h4>
-            <p>Hides a collapsible element.</p>
-            <h3>Events</h3>
-            <p>
-              Bootstrap's collapse class exposes a few events for hooking into collapse functionality.
-            </p>
-            <table class="table table-bordered table-striped">
-              <thead>
-               <tr>
-                 <th style="width: 150px;">Event</th>
-                 <th>Description</th>
-               </tr>
-             </thead>
-             <tbody>
-               <tr>
-                 <td>show</td>
-                 <td>This event fires immediately when the <code>show</code> instance method is called.</td>
-               </tr>
-               <tr>
-                 <td>shown</td>
-                 <td>This event is fired when a collapse element has been made visible to the user (will wait for css transitions to complete).</td>
-               </tr>
-               <tr>
-                 <td>hide</td>
-                 <td>
-                  This event is fired immediately when the <code>hide</code> method has been called.
-                </td>
-              </tr>
-              <tr>
+<pre class="prettyprint linenums">
+$('#myCollapsible').collapse({
+  toggle: false
+})</pre>
+          <h4>.collapse('toggle')</h4>
+          <p>Toggles a collapsible element to shown or hidden.</p>
+          <h4>.collapse('show')</h4>
+          <p>Shows a collapsible element.</p>
+          <h4>.collapse('hide')</h4>
+          <p>Hides a collapsible element.</p>
+          <h3>Events</h3>
+          <p>
+            Bootstrap's collapse class exposes a few events for hooking into collapse functionality.
+          </p>
+          <table class="table table-bordered table-striped">
+            <thead>
+             <tr>
+               <th style="width: 150px;">Event</th>
+               <th>Description</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+               <td>show</td>
+               <td>This event fires immediately when the <code>show</code> instance method is called.</td>
+             </tr>
+             <tr>
+               <td>shown</td>
+               <td>This event is fired when a collapse element has been made visible to the user (will wait for css transitions to complete).</td>
+             </tr>
+             <tr>
+               <td>hide</td>
+               <td>
+                This event is fired immediately when the <code>hide</code> method has been called.
+               </td>
+             </tr>
+             <tr>
                <td>hidden</td>
                <td>This event is fired when a collapse element has been hidden from the user (will wait for css transitions to complete).</td>
              </tr>
-           </tbody>
-         </table>
+            </tbody>
+          </table>
 
-         <pre class="prettyprint linenums">
-          $('#myCollapsible').on('hidden', function () {
-          // do something…
-        })</pre>
+<pre class="prettyprint linenums">
+$('#myCollapsible').on('hidden', function () {
+  // do something…
+})</pre>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
 
 
      <!-- Carousel
-     ================================================== -->
-     <section id="carousel">
+    ================================================== -->
+    <section id="carousel">
       <div class="page-header">
         <h1>Carousel <small>bootstrap-carousel.js</small></h1>
       </div>
@@ -1192,7 +1219,7 @@ get_header(); ?>
         <div class="span3 columns">
           <h3>About</h3>
           <p>A generic plugin for cycling through elements. A merry-go-round.</p>
-          <a href="/assets/js/bootstrap-carousel.js" target="_blank" class="btn">Download file</a>
+
         </div>
         <div class="span9 columns">
           <h2>Example carousel</h2>
@@ -1241,13 +1268,13 @@ get_header(); ?>
                <th style="width: 50px;">default</th>
                <th>description</th>
              </tr>
-           </thead>
-           <tbody>
+            </thead>
+            <tbody>
              <tr>
                <td>interval</td>
                <td>number</td>
                <td>5000</td>
-               <td>The amount of time to delay between automatically cycling an item.</td>
+               <td>The amount of time to delay between automatically cycling an item. If false, carousel will not automatically cycle.</td>
              </tr>
              <tr>
                <td>pause</td>
@@ -1255,64 +1282,64 @@ get_header(); ?>
                <td>"hover"</td>
                <td>Pauses the cycling of the carousel on mouseenter and resumes the cycling of the carousel on mouseleave.</td>
              </tr>
-           </tbody>
-         </table>
-         <h3>Markup</h3>
-         <p>Data attributes are used for the previous and next conrols. Check out the example markup below.</p>
-         <pre class="prettyprint linenums">
-          &lt;div id="myCarousel" class="carousel"&gt;
-          &lt;!-- Carousel items --&gt;
-          &lt;div class="carousel-inner"&gt;
-          &lt;div class="active item"&gt;…&lt;/div&gt;
-          &lt;div class="item"&gt;…&lt;/div&gt;
-          &lt;div class="item"&gt;…&lt;/div&gt;
-          &lt;/div&gt;
-          &lt;!-- Carousel nav --&gt;
-          &lt;a class="carousel-control left" href="#myCarousel" data-slide="prev"&gt;&amp;lsaquo;&lt;/a&gt;
-          &lt;a class="carousel-control right" href="#myCarousel" data-slide="next"&gt;&amp;rsaquo;&lt;/a&gt;
-          &lt;/div&gt;
-        </pre>
-        <h3>Methods</h3>
-        <h4>.carousel(options)</h4>
-        <p>Initializes the carousel with an optional options <code>object</code> and starts cycling through items.</p>
-        <pre class="prettyprint linenums">
-          $('.carousel').carousel({
-          interval: 2000
-        })
-      </pre>
-      <h4>.carousel('cycle')</h4>
-      <p>Cycles through the carousel items from left to right.</p>
-      <h4>.carousel('pause')</h4>
-      <p>Stops the carousel from cycling through items.</p>
-      <h4>.carousel(number)</h4>
-      <p>Cycles the carousel to a particular frame (0 based, similar to an array).</p>
-      <h4>.carousel('prev')</h4>
-      <p>Cycles to the previous item.</p>
-      <h4>.carousel('next')</h4>
-      <p>Cycles to the next item.</p>
-      <h3>Events</h3>
-      <p>Bootstrap's carousel class exposes two events for hooking into carousel functionality.</p>
-      <table class="table table-bordered table-striped">
-        <thead>
-         <tr>
-           <th style="width: 150px;">Event</th>
-           <th>Description</th>
-         </tr>
-       </thead>
-       <tbody>
-         <tr>
-           <td>slide</td>
-           <td>This event fires immediately when the <code>slide</code> instance method is invoked.</td>
-         </tr>
-         <tr>
-           <td>slid</td>
-           <td>This event is fired when the carousel has completed its slide transition.</td>
-         </tr>
-       </tbody>
-     </table>
-   </div>
- </div>
-</section>
+            </tbody>
+          </table>
+          <h3>Markup</h3>
+          <p>Data attributes are used for the previous and next conrols. Check out the example markup below.</p>
+<pre class="prettyprint linenums">
+&lt;div id="myCarousel" class="carousel slide"&gt;
+  &lt;!-- Carousel items --&gt;
+  &lt;div class="carousel-inner"&gt;
+    &lt;div class="active item"&gt;…&lt;/div&gt;
+    &lt;div class="item"&gt;…&lt;/div&gt;
+    &lt;div class="item"&gt;…&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- Carousel nav --&gt;
+  &lt;a class="carousel-control left" href="#myCarousel" data-slide="prev"&gt;&amp;lsaquo;&lt;/a&gt;
+  &lt;a class="carousel-control right" href="#myCarousel" data-slide="next"&gt;&amp;rsaquo;&lt;/a&gt;
+&lt;/div&gt;
+</pre>
+          <h3>Methods</h3>
+          <h4>.carousel(options)</h4>
+          <p>Initializes the carousel with an optional options <code>object</code> and starts cycling through items.</p>
+<pre class="prettyprint linenums">
+$('.carousel').carousel({
+  interval: 2000
+})
+</pre>
+          <h4>.carousel('cycle')</h4>
+          <p>Cycles through the carousel items from left to right.</p>
+          <h4>.carousel('pause')</h4>
+          <p>Stops the carousel from cycling through items.</p>
+          <h4>.carousel(number)</h4>
+          <p>Cycles the carousel to a particular frame (0 based, similar to an array).</p>
+          <h4>.carousel('prev')</h4>
+          <p>Cycles to the previous item.</p>
+          <h4>.carousel('next')</h4>
+          <p>Cycles to the next item.</p>
+          <h3>Events</h3>
+          <p>Bootstrap's carousel class exposes two events for hooking into carousel functionality.</p>
+          <table class="table table-bordered table-striped">
+            <thead>
+             <tr>
+               <th style="width: 150px;">Event</th>
+               <th>Description</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+               <td>slide</td>
+               <td>This event fires immediately when the <code>slide</code> instance method is invoked.</td>
+             </tr>
+             <tr>
+               <td>slid</td>
+               <td>This event is fired when the carousel has completed its slide transition.</td>
+             </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
 
 
@@ -1326,7 +1353,7 @@ get_header(); ?>
         <div class="span3 columns">
           <h3>About</h3>
           <p>A basic, easily extended plugin for quickly creating elegant typeaheads with any form text input.</p>
-          <a href="assets/js/bootstrap-typeahead.js" target="_blank" class="btn">Download file</a>
+
         </div>
         <div class="span9 columns">
           <h2>Example</h2>
@@ -1347,52 +1374,52 @@ get_header(); ?>
                <th style="width: 100px;">default</th>
                <th>description</th>
              </tr>
-           </thead>
-           <tbody>
-            <tr>
-             <td>source</td>
-             <td>array</td>
-             <td>[ ]</td>
-             <td>The data source to query against.</td>
-           </tr>
-           <tr>
-             <td>items</td>
-             <td>number</td>
-             <td>8</td>
-             <td>The max number of items to display in the dropdown.</td>
-           </tr>
-           <tr>
-             <td>matcher</td>
-             <td>function</td>
-             <td>case insensitive</td>
-             <td>The method used to determine if a query matches an item. Accepts a single argument, the <code>item</code> against which to test the query. Access the current query with <code>this.query</code>. Return a boolean <code>true</code> if query is a match.</td>
-           </tr>
-           <tr>
-             <td>sorter</td>
-             <td>function</td>
-             <td>exact match,<br> case sensitive,<br> case insensitive</td>
-             <td>Method used to sort autocomplete results. Accepts a single argument <code>items</code> and has the scope of the typeahead instance. Reference the current query with <code>this.query</code>.</td>
-           </tr>
-           <tr>
-             <td>highlighter</td>
-             <td>function</td>
-             <td>highlights all default matches</td>
-             <td>Method used to highlight autocomplete results. Accepts a single argument <code>item</code> and has the scope of the typeahead instance. Should return html.</td>
-           </tr>
-         </tbody>
-       </table>
+            </thead>
+            <tbody>
+              <tr>
+               <td>source</td>
+               <td>array</td>
+               <td>[ ]</td>
+               <td>The data source to query against.</td>
+             </tr>
+             <tr>
+               <td>items</td>
+               <td>number</td>
+               <td>8</td>
+               <td>The max number of items to display in the dropdown.</td>
+             </tr>
+             <tr>
+               <td>matcher</td>
+               <td>function</td>
+               <td>case insensitive</td>
+               <td>The method used to determine if a query matches an item. Accepts a single argument, the <code>item</code> against which to test the query. Access the current query with <code>this.query</code>. Return a boolean <code>true</code> if query is a match.</td>
+             </tr>
+             <tr>
+               <td>sorter</td>
+               <td>function</td>
+               <td>exact match,<br> case sensitive,<br> case insensitive</td>
+               <td>Method used to sort autocomplete results. Accepts a single argument <code>items</code> and has the scope of the typeahead instance. Reference the current query with <code>this.query</code>.</td>
+             </tr>
+             <tr>
+               <td>highlighter</td>
+               <td>function</td>
+               <td>highlights all default matches</td>
+               <td>Method used to highlight autocomplete results. Accepts a single argument <code>item</code> and has the scope of the typeahead instance. Should return html.</td>
+             </tr>
+            </tbody>
+          </table>
 
-       <h3>Markup</h3>
-       <p>Add data attributes to register an element with typeahead functionality.</p>
-       <pre class="prettyprint linenums">
-        &lt;input type="text" data-provide="typeahead"&gt;
-      </pre>
-      <h3>Methods</h3>
-      <h4>.typeahead(options)</h4>
-      <p>Initializes an input with a typeahead.</p>
-    </div>
-  </div>
-</section>
+          <h3>Markup</h3>
+          <p>Add data attributes to register an element with typeahead functionality.</p>
+<pre class="prettyprint linenums">
+&lt;input type="text" data-provide="typeahead"&gt;
+</pre>
+          <h3>Methods</h3>
+          <h4>.typeahead(options)</h4>
+          <p>Initializes an input with a typeahead.</p>
+        </div>
+      </div>
+    </section>
 
 <?php endwhile; ?>
 <?php get_footer(); ?>
