@@ -66,7 +66,6 @@
           <a class="brand" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
           <?php
            /** Loading WordPress Custom Menu with Fallback to wp_list_pages **/
-      //$navmenu = array('walker' => new bootstrapwp_walker_nav_menu()); wp_nav_menu($args);
       wp_nav_menu( array( 'walker' => new bootstrapwp_walker_nav_menu(), 'menu' => 'main-menu', 'container_class' => 'nav-collapse', 'menu_class' => 'nav', 'menu_id' => 'main-menu')); ?>
         </div>
       </div>
