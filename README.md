@@ -39,6 +39,16 @@ Bug tracker
 
 **Report theme bugs** [https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/issues](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/issues)
 
+##v.90 Changelog (in progress)
+
+__Functions.php__
+
+*   Fixed bootstrapwp_autoset_featured_img() function to return if there is no image set, clearing debug errors.
+*   Removed Custom Walker class from file and replaced with external include call for file 'includes/class-bootstrap_walker_nav_menu.php' 
+
+__Class-bootstrapwp-walker-nav_menu.php__
+
+*   Extending Walker_Nav_Menu to modify class assigned to submenu ul element
 
 ##v.87 of BootstrapWP - Released June 4, 2012
 

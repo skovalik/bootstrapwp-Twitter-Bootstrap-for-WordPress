@@ -14,6 +14,9 @@
  * Last Updated: June 3, 2012
  */
 
+if (!defined('BOOTSTRAPWP_VERSION'))
+define('BOOTSTRAPWP_VERSION', '.90');
+
  /**
  * Declaring the content width based on the theme's design and stylesheet.
  */
@@ -24,6 +27,35 @@ if ( ! isset( $content_width ) )
  * Declaring the theme language domain
  */
 load_theme_textdomain('bootstrapwp');
+
+/*
+| -------------------------------------------------------------------
+| Setup Theme
+| -------------------------------------------------------------------
+|
+| */
+add_action( 'after_setup_theme', 'bootstrapwp_theme_setup' );
+if ( ! function_exists( 'bootstrapwp_theme_setup' ) ):
+function bootstrapwp_theme_setup() {
+  /**
+   * Add default posts and comments RSS feed links to head
+   */
+  add_theme_support( 'automatic-feed-links' );
+
+  /**
+   * Adds custom menu with wp_page_menu fallback
+   */
+  register_nav_menus( array(
+    'main-menu' => __( 'Main Menu', 'bootstrapwp' ),
+  ) );
+
+  /**
+   * Add support for the Aside and Gallery Post Formats
+   */
+  add_theme_support( 'post-formats', array( 'aside', 'image', 'gallery' ) );
+}
+endif; // twentyeleven_header_style
+
 
 ################################################################################
 // Loading All CSS Stylesheets
@@ -48,14 +80,8 @@ add_action('wp_enqueue_scripts', 'bootstrapwp_js_loader');
 
 /*
 | -------------------------------------------------------------------
-| Registering Top Navigation Bar
+| Top Navigation Bar Customization
 | -------------------------------------------------------------------
-| Adds custom menu with wp_page_menu fallback
-| */
-if ( function_exists( 'register_nav_menu' ) ) {
-register_nav_menu( 'main-menu', 'Main Menu' );
-}
-
 
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
@@ -67,14 +93,10 @@ function bootstrapwp_page_menu_args( $args ) {
 add_filter( 'wp_page_menu_args', 'bootstrapwp_page_menu_args' );
 
 /**
- * Custom Walker to change submenu class items from default "sub-menu" to ""
- */
-class Bootstrapwp_Walker_Nav_Menu extends Walker_Nav_Menu {
-  function start_lvl(&$output, $depth) {
-    $indent = str_repeat("\t", $depth);
-    $output .= "\n$indent<ul class=\"dropdown-menu\">\n";
-  }
-}
+ * Get file 'includes/class-bootstrap_walker_nav_menu.php' with Custom Walker class methods
+ * */
+
+include 'includes/class-bootstrapwp_walker_nav_menu.php';
 
 /*
 | -------------------------------------------------------------------
@@ -144,18 +166,7 @@ add_action( 'init', 'bootstrapwp_widgets_init' );
 
 
 
-function bootstrapwp_theme_setup() {
-	/**
-	 * Add default posts and comments RSS feed links to head
-	 */
-	add_theme_support( 'automatic-feed-links' );
 
-	/**
-	 * Add support for the Aside and Gallery Post Formats
-	 */
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'gallery' ) );
-}
-add_action( 'after_setup_theme', 'bootstrapwp_theme_setup' );
 
 /*
 | -------------------------------------------------------------------
@@ -373,10 +384,13 @@ function bootstrapwp_autoset_featured_img() {
           $already_has_thumb = has_post_thumbnail($post->ID);
               if (!$already_has_thumb)  {
               $attached_image = get_children( "post_parent=$post->ID&post_type=attachment&post_mime_type=image&numberposts=1" );
+
                           if ($attached_image) {
                                 foreach ($attached_image as $attachment_id => $attachment) {
                                 set_post_thumbnail($post->ID, $attachment_id);
                                 }
+                           } elseif (!$attached_image) {
+                            return;
                            }
                         }
       }  //end function
