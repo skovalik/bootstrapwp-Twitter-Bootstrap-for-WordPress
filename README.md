@@ -44,15 +44,25 @@ Bug tracker
 __Functions.php__
 
 *   Fixed bootstrapwp_autoset_featured_img() function to return if there is no image set, clearing debug errors.
-*   Removed Custom Walker class from file and replaced with external include call for file 'includes/class-bootstrap_walker_nav_menu.php' 
+*   Removed Custom Walker class from file and replaced with external include call for file 'includes/class-bootstrap_walker_nav_menu.php'.
 
 __Class-bootstrapwp-walker-nav_menu.php__
 
-*   Extending Walker_Nav_Menu to modify class assigned to submenu ul element
+*   Extending Walker_Nav_Menu to modify class assigned to submenu ul element.
 
 __Index.php__
 
 *   Removed unnecessary double loop for page title.
+
+__Docs Folder__
+
+*   Removed entire 'docs' folder to clean up theme files.
+
+__IMG Folder__
+
+*   Removed sub-folder 'example-sites' to clean up theme files.
+*   Removed sub-folder 'examples' to clean up theme files.
+
 
 
 ##v.87 of BootstrapWP - Released June 4, 2012
