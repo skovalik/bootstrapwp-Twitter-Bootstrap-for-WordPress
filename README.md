@@ -50,6 +50,11 @@ __Class-bootstrapwp-walker-nav_menu.php__
 
 *   Extending Walker_Nav_Menu to modify class assigned to submenu ul element
 
+__Index.php__
+
+*   Removed unnecessary double loop for page title.
+
+
 ##v.87 of BootstrapWP - Released June 4, 2012
 
 **Release Highlights:**
@@ -62,6 +67,7 @@ __Class-bootstrapwp-walker-nav_menu.php__
 [Download](https://github.com/downloads/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/bootstrapwp-87.zip)
 
 ###Full Changelog
+
 __Functions.php__
 
 *	Edited `bootstrapwp_css_loader()` function to use new `/less/bootstrapwp.css` generated from Less file compilation and removed references to previously used css files
