@@ -39,20 +39,42 @@ Bug tracker
 
 **Report theme bugs** [https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/issues](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/issues)
 
-##v.90 Changelog (in progress)
+##v.90 Changelog (still baking)
 
-__Functions.php__
+__The goals of this release are:__
 
-*   Fixed bootstrapwp_autoset_featured_img() function to return if there is no image set, clearing debug errors.
-*   Removed Custom Walker class from file and replaced with external include call for file 'includes/class-bootstrap_walker_nav_menu.php'.
+1. Add Theme Options Screen
+2. Fix Custom Walker Menu PHP errors
+3.  Fix Automatic Thumbnail PHP errors
+4.  Remove any unnecessary theme files
+5. Update styles and scripts to Bootstrap 2.10 dev branch
+
+__Archive.php__
+
+* Replaced conditional for `the_post_thumbnail()` with `bootstrapwp_autoset_featured_img()`.
+
+__Author.php__
+
+* Replaced conditional for `the_post_thumbnail()` with `bootstrapwp_autoset_featured_img()`.
 
 __Class-bootstrapwp-walker-nav_menu.php__
 
 *   Extending Walker_Nav_Menu to modify class assigned to submenu ul element.
 
+__Functions.php__
+
+*   Fixed `bootstrapwp_autoset_featured_img()` function to return if there is no image set, clearing debug errors.  
+*   Removed the post hooks for `bootstrap_autoset_featured_img()` function to clear debug errors. 
+*   Added `bootstrapwp_post_thumbnail_check()` function to check if the post displayed in the loop has a post thumbnail already.
+*   Removed Custom Walker class from file and replaced with external include call for file 'includes/class-bootstrap_walker_nav_menu.php'.
+
 __Index.php__
 
 *   Removed unnecessary double loop for page title.
+
+__Page-blog.php__
+
+* Replaced conditional for `the_post_thumbnail()` with `bootstrapwp_autoset_featured_img()`.
 
 __Docs Folder__
 

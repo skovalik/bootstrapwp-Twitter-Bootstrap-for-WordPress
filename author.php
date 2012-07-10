@@ -44,10 +44,9 @@ get_header(); ?>
 								<a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h3><?php the_title();?></h3></a>
 								<p class="meta"><?php echo bootstrapwp_posted_on();?></p>
 								<div class="row">
-									        <div class="span2"><?php // Checking for a post thumbnail
-									        if ( has_post_thumbnail() ) ?>
-									        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-									        	<?php the_post_thumbnail();?></a>
+									        <div class="span2">
+									        	<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
+          										<?php echo bootstrapwp_autoset_featured_img(); ?></a>
 									        </div><!-- /.span2 -->
 									        <div class="span6">
 									        	<?php the_excerpt();?>

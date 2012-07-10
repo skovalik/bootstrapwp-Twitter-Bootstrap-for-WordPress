@@ -52,10 +52,9 @@ function bootstrapwp_theme_setup() {
   /**
    * Add support for the Aside and Gallery Post Formats
    */
-  add_theme_support( 'post-formats', array( 'aside', 'image', 'gallery' ) );
+  add_theme_support( 'post-formats', array( 'aside', 'image', 'gallery', 'link', 'quote', 'status', 'video', 'audio', 'chat' ) );
 }
-endif; // twentyeleven_header_style
-
+endif;
 
 ################################################################################
 // Loading All CSS Stylesheets
@@ -373,6 +372,20 @@ function bootstrapwp_enhanced_image_navigation( $url ) {
 }
 add_filter( 'attachment_link', 'bootstrapwp_enhanced_image_navigation' );
 
+
+/*
+| -------------------------------------------------------------------
+| Checking for Post Thumbnail
+| -------------------------------------------------------------------
+|
+| */
+function bootstrapwp_post_thumbnail_check() {
+    global $post;
+    if (get_the_post_thumbnail()) {
+          return true; }
+          else { return false; }
+}
+
 /*
 | -------------------------------------------------------------------
 | Setting Featured Image (Post Thumbnail)
@@ -380,26 +393,29 @@ add_filter( 'attachment_link', 'bootstrapwp_enhanced_image_navigation' );
 | Will automatically add the first image attached to a post as the Featured Image if post does not have a featured image previously set.
 | */
 function bootstrapwp_autoset_featured_img() {
-          global $post;
-          $already_has_thumb = has_post_thumbnail($post->ID);
-              if (!$already_has_thumb)  {
-              $attached_image = get_children( "post_parent=$post->ID&post_type=attachment&post_mime_type=image&numberposts=1" );
 
-                          if ($attached_image) {
+  $post_thumbnail = bootstrapwp_post_thumbnail_check();
+  if ($post_thumbnail == true ){
+    return the_post_thumbnail();
+  }
+    if ($post_thumbnail == false ){
+      $image_args = array(
+                'post_type' => 'attachment',
+                'numberposts' => 1,
+                'post_mime_type' => 'image',
+                'post_parent' => $post->ID,
+                'order' => 'desc'
+          );
+      $attached_image = get_children( $image_args );
+             if ($attached_image) {
                                 foreach ($attached_image as $attachment_id => $attachment) {
                                 set_post_thumbnail($post->ID, $attachment_id);
                                 }
-                           } elseif (!$attached_image) {
-                            return;
-                           }
-                        }
+            return the_post_thumbnail();
+          } else { return " ";}
+        }
       }  //end function
-add_action('the_post', 'bootstrapwp_autoset_featured_img');
-add_action('save_post', 'bootstrapwp_autoset_featured_img');
-add_action('draft_to_publish', 'bootstrapwp_autoset_featured_img');
-add_action('new_to_publish', 'bootstrapwp_autoset_featured_img');
-add_action('pending_to_publish', 'bootstrapwp_autoset_featured_img');
-add_action('future_to_publish', 'bootstrapwp_autoset_featured_img');
+
 
 /*
 | -------------------------------------------------------------------
