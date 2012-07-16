@@ -6,13 +6,10 @@
  * @subpackage Default_Theme
  * @since WP-Bootstrap 0.1
  *
- * Last Revised: February 4, 2012
+ * Last Revised: July 16, 2012
  */
 ?>
     <!-- End Template Content -->
-
-</div><!--/.container -->
-</div><!--/#content-wrapper -->
       <footer>
 <div class="container">
       <p class="pull-right"><a href="#">Back to top</a></p>
