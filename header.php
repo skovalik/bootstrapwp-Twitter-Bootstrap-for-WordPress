@@ -7,7 +7,7 @@
  * @subpackage Default_Theme
  * @since WP-Bootstrap 0.1
  *
- * Last Revised: April 11, 2012
+ * Last Revised: July 16, 2012
  */ ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -54,18 +54,18 @@
 <![endif]-->
     <?php wp_head(); ?>
   </head>
-  <body <?php body_class(); ?>  data-spy="scroll" data-target=".subnav" data-offset="50">
-    <div class="navbar">
+  <body <?php body_class(); ?>  data-spy="scroll" data-target=".bs-docs-sidebar" data-offset="10">
+    <div class="navbar navbar-relative-top">
       <div class="navbar-inner">
         <div class="container">
-           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </a>
+          </button>
           <a class="brand" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
           <?php
-           /** Loading WordPress Custom Menu with Fallback to wp_list_pages **/
+           /** Loading WordPress Custom Menu  **/
            wp_nav_menu( array(
               'menu'            => 'main-menu',
               'container_class' => 'nav-collapse',
@@ -78,6 +78,4 @@
       </div>
     </div>
     <!-- End Header -->
-      <div id="content-wrapper">
-        <div class="container">
               <!-- Begin Template Content -->
