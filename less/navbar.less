@@ -72,7 +72,7 @@
   // Buttons in navbar
   .btn,
   .btn-group {
-    .navbarVerticalAlign(30px); // Vertically center in navbar
+    .navbarVerticalAlign(28px); // Vertically center in navbar
   }
   .btn-group .btn {
     margin: 0; // then undo the margin here so we don't accidentally double it
@@ -87,10 +87,11 @@
   select,
   .radio,
   .checkbox {
-    .navbarVerticalAlign(30px); // Vertically center in navbar
+    .navbarVerticalAlign(28px); // Vertically center in navbar
   }
   input,
-  select {
+  select,
+  .btn {
     display: inline-block;
     margin-bottom: 0;
   }
@@ -116,6 +117,7 @@
   .navbarVerticalAlign(28px); // Vertically center in navbar
   margin-bottom: 0;
   .search-query {
+    margin-bottom: 0;
     padding: 4px 9px;
     #font > .sans-serif(13px, normal, 1);
     color: @white;
@@ -383,6 +385,8 @@
   #gradient > .vertical(#ffffff, #f1f1f1);
   .box-shadow(none);
   border: 1px solid #e5e5e5;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 // Lighten vertical dividers
@@ -437,6 +441,17 @@
 .navbar-subnav .nav .open > a {
   color: @linkColorHover;
 }
+
+// Collapse button
+.navbar-subnav .btn-navbar {
+  .buttonBackground(darken(#ffffff, 5%), darken(#f1f1f1, 5%));
+  .box-shadow(~"inset 0 1px 0 rgba(255,255,255,.25), 0 1px 0 rgba(255,255,255,.25)");
+}
+.navbar .btn-navbar .icon-bar {
+  background-color: #999;
+  .box-shadow(0 1px 0 rgba(0,0,0,.25));
+}
+
 
 // Fixed subnav on scroll, but only for 980px and up (sorry IE!)
 .navbar-subnav-fixed {
