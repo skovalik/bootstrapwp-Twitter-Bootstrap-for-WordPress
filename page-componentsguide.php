@@ -2114,6 +2114,10 @@ class="clearfix"
 </pre>
 
       </section>
+          </div>
+  </div>
+
+</div>
 
 <?php endwhile; ?>
 <?php get_footer(); ?>

@@ -1,25 +1,11 @@
 /* ===================================================
- * bootstrapwp.demo.js v2.0.4
+ * bootstrapwp.demo.js v.90
  * ===================================================
- *
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ========================================================== */
 
 // NOTICE!! This JS file is included for reference.
 // This code is used to power all the JavaScript
 // demos and examples for BootstrapWP
-// ++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++*/
 
 !function ($) {
 
@@ -33,10 +19,7 @@
 
     // Adding dropdown caret for dropdown menus, if it does not already exist
     $('.dropdown-toggle:not(:has(b.caret))').append('<b class="caret"></b>');
-
-
-
-    // Disable certain links in docs
+ // Disable certain links in docs
     $('section [href^=#]').click(function (e) {
       e.preventDefault()
     })
@@ -66,8 +49,8 @@
     }
 
     // add tipsies to grid for scaffolding
-    if ($('#grid-system').length) {
-      $('#grid-system').tooltip({
+    if ($('#gridSystem').length) {
+      $('#gridSystem').tooltip({
           selector: '.show-grid > div'
         , title: function () { return $(this).width() + 'px' }
       })
@@ -75,8 +58,8 @@
 
     // fix sub nav on scroll
     var $win = $(window)
-      , $nav = $('.subnav')
-      , navTop = $('.subnav').length && $('.subnav').offset().top - 40
+      , $nav = $('.subhead .navbar-subnav')
+      , navTop = $('.subhead .navbar-subnav').length && $('.subhead .navbar-subnav').offset().top - 40
       , isFixed = 0
 
     processScroll()
@@ -92,15 +75,15 @@
       var i, scrollTop = $win.scrollTop()
       if (scrollTop >= navTop && !isFixed) {
         isFixed = 1
-        $nav.addClass('subnav-fixed')
+        $nav.addClass('navbar-subnav-fixed')
       } else if (scrollTop <= navTop && isFixed) {
         isFixed = 0
-        $nav.removeClass('subnav-fixed')
+        $nav.removeClass('navbar-subnav-fixed')
       }
     }
 
     // tooltip demo
-    $('.tooltip-demo.well').tooltip({
+    $('.tooltip-demo').tooltip({
       selector: "a[rel=tooltip]"
     })
 
@@ -148,7 +131,67 @@
       inputsVariables.val('')
     })
 
+    // request built javascript
+    $('.download-btn').on('click', function () {
 
+      var css = $("#components.download input:checked")
+            .map(function () { return this.value })
+            .toArray()
+        , js = $("#plugins.download input:checked")
+            .map(function () { return this.value })
+            .toArray()
+        , vars = {}
+        , img = ['glyphicons-halflings.png', 'glyphicons-halflings-white.png']
+
+    $("#variables.download input")
+      .each(function () {
+        $(this).val() && (vars[ $(this).prev().text() ] = $(this).val())
+      })
+
+      $.ajax({
+        type: 'POST'
+      , url: /\?dev/.test(window.location) ? 'http://localhost:3000' : 'http://bootstrap.herokuapp.com'
+      , dataType: 'jsonpi'
+      , params: {
+          js: js
+        , css: css
+        , vars: vars
+        , img: img
+      }
+      })
+    })
   })
+
+// Modified from the original jsonpi https://github.com/benvinegar/jquery-jsonpi
+$.ajaxTransport('jsonpi', function(opts, originalOptions, jqXHR) {
+  var url = opts.url;
+
+  return {
+    send: function(_, completeCallback) {
+      var name = 'jQuery_iframe_' + jQuery.now()
+        , iframe, form
+
+      iframe = $('<iframe>')
+        .attr('name', name)
+        .appendTo('head')
+
+      form = $('<form>')
+        .attr('method', opts.type) // GET or POST
+        .attr('action', url)
+        .attr('target', name)
+
+      $.each(opts.params, function(k, v) {
+
+        $('<input>')
+          .attr('type', 'hidden')
+          .attr('name', k)
+          .attr('value', typeof v == 'string' ? v : JSON.stringify(v))
+          .appendTo(form)
+      })
+
+      form.appendTo('body').submit()
+    }
+  }
+})
 
 }(window.jQuery)
