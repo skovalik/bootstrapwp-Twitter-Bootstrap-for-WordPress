@@ -8,8 +8,14 @@ Overriding some defaults from the Bootstrap defaults to improve/fix integration 
 	padding: 40px 0 20px 0;
 }
 
+.widget h2 img { display: inline; }
 /* Navigation
 ----------------------------------------------------------------------------------------*/
+// Navbar Fix to remove 18px margin for static navbar
+.navbar-relative-top {
+  margin-bottom: 0;
+  position: relative;
+}
 // Navbar Fixes for wp_list_pages()
 .navbar div.nav {
 	position: relative;

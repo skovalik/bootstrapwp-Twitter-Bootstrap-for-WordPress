@@ -9222,8 +9222,15 @@ Overriding some defaults from the Bootstrap defaults to improve/fix integration 
 #content-wrapper {
   padding: 40px 0 20px 0;
 }
+.widget h2 img {
+  display: inline;
+}
 /* Navigation
 ----------------------------------------------------------------------------------------*/
+.navbar-relative-top {
+  margin-bottom: 0;
+  position: relative;
+}
 .navbar div.nav {
   position: relative;
   left: 0;
