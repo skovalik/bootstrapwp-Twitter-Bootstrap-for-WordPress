@@ -7,7 +7,7 @@
  * @subpackage Default_Theme
  * @since WP-Bootstrap 0.1
  *
- * Last Revised: July 16, 2012
+ * Last Revised: August 15, 2012
  */ ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -34,11 +34,7 @@
 
   ?></title>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, target-densitydpi=medium-dpi">
-
-    <link rel="profile" href="http://gmpg.org/xfn/11" />
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
@@ -55,9 +51,9 @@
     <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?>  data-spy="scroll" data-target=".bs-docs-sidebar" data-offset="10">
-    <div class="navbar navbar-relative-top">
-      <div class="navbar-inner">
-        <div class="container">
+    <div class="navbar navbar-inverse navbar-relative-top">
+           <div class="navbar-inner">
+             <div class="container">
            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
