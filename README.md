@@ -6,7 +6,7 @@ BootstrapWP - Bootstrap Theme for WordPress
 
 Bootstrap is a responsive front-end toolkit from Twitter designed to kickstart web development, complete with core HTML, CSS, and JS for grids, type, forms, navigation, and many more components. Now you can use it with **WordPress** as a solid base to build custom themes quickly and easily.
 
-Download the most-up-to-date theme files: [Download .zip file](https://github.com/downloads/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/bootstrapwp-87.zip)
+Download the most-up-to-date theme files: [Download .zip file](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/zipball/v.90)
 Follow the development: [WIP Branch on Github](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/tree/1-WIP)
 
 Demo
