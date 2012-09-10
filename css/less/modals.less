@@ -3,8 +3,9 @@
 // --------------------------------------------------
 
 
-// Recalculate z-index where appropriate
-.modal-open {
+// Recalculate z-index where appropriate,
+// but only apply to elements within modal
+.modal-open .modal {
   .dropdown-menu {  z-index: @zindexDropdown + @zindexModal; }
   .dropdown.open { *z-index: @zindexDropdown + @zindexModal; }
   .popover       {  z-index: @zindexPopover  + @zindexModal; }
@@ -93,5 +94,9 @@
   // but override that for button groups
   .btn-group .btn + .btn {
     margin-left: -1px;
+  }
+  // and override it for block buttons as well
+  .btn-block + .btn-block {
+    margin-left: 0;
   }
 }

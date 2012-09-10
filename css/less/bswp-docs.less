@@ -46,7 +46,7 @@ body > .navbar-fixed-top .brand:hover, body > .navbar-fixed-relative .brand:hove
 
 /* padding for in-page bookmarks and fixed navbar */
 section {
-  padding-top: 60px;
+  padding-top: 30px;
 }
 section > .page-header,
 section > .lead {
@@ -123,6 +123,8 @@ hr.soften {
   color: #fff;
   text-shadow: 0 0 10px rgba(255,255,255,.25);
 }
+
+/* Download button */
 .masthead .btn {
   padding: 14px 24px;
   font-size: 24px;
@@ -132,19 +134,17 @@ hr.soften {
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
           border-radius: 6px;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25), 0 2px 10px rgba(0,68,204,.01);
-     -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25), 0 2px 10px rgba(0,68,204,.01);
-          box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25), 0 2px 10px rgba(0,68,204,.01);
-  -webkit-animation-name: downloadButton;
-     -moz-animation-name: downloadButton;
-  -webkit-animation-duration: 1.5s;
-     -moz-animation-duration: 1.5s;
-  -webkit-animation-iteration-count: infinite;
-     -moz-animation-iteration-count: infinite;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
+     -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
+          box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
   -webkit-transition: none;
      -moz-transition: none;
           transition: none;
-
+}
+.masthead .btn:hover {
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
+     -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
+          box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
 }
 .masthead .btn:active {
   -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.1);
@@ -199,13 +199,6 @@ hr.soften {
   padding: 0 10px;
   color: rgba(255,255,255,.25);
 }
-.masthead-links a {
-  color: #fff;
-  color: rgba(255,255,255,.5);
-}
-.masthead-links a:hover {
-  color: #fff;
-}
 
 /* Social proof buttons from GitHub & Twitter */
 .bs-docs-social {
@@ -227,6 +220,8 @@ hr.soften {
   display: inline-block;
   padding: 5px 8px;
   line-height: 1;
+  *display: inline;
+  *zoom: 1;
 }
 
 /* Subhead (other pages)
@@ -244,7 +239,6 @@ hr.soften {
 .subhead .navbar {
   display: none;
 }
-
 
 
 /* Marketing section of Overview
@@ -392,6 +386,15 @@ h2 + .row {
   margin-top: 5px;
 }
 
+/* Example sites showcase */
+.example-sites {
+  xmargin-left: 20px;
+}
+.example-sites img {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
 .scrollspy-example {
   height: 200px;
   overflow: auto;
@@ -430,7 +433,7 @@ h2 + .row {
   background-color: rgba(255,0,0,.25);
 }
 
-/* Eaxmples page
+/* Example page
 ------------------------- */
 .bootstrap-examples p {
   font-size: 13px;
@@ -451,6 +454,7 @@ h2 + .row {
   position: relative;
   margin: 15px 0;
   padding: 39px 19px 14px;
+  *padding-top: 19px;
   background-color: #fff;
   border: 1px solid #ddd;
   -webkit-border-radius: 4px;
@@ -534,10 +538,6 @@ h2 + .row {
 }
 form.bs-docs-example {
   padding-bottom: 19px;
-}
-.bs-docs-example .lead {
-  font-size: 18px;
-  line-height: 24px;
 }
 
 /* Images */
@@ -644,18 +644,11 @@ form.bs-docs-example {
 /* Sidenav for Docs
 -------------------------------------------------- */
 
-/* prevent column from collapsing when affixing */
-.span3 {
-  min-height: 1px;
-}
-
 .bs-docs-sidenav {
-  width: 218px;
-  margin-top: 30px;
+  width: 228px;
+  margin: 30px 0 0;
   padding: 0;
-  margin-right: 10px;
   background-color: #fff;
-  margin-left: 0;
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
           border-radius: 6px;
@@ -667,7 +660,6 @@ form.bs-docs-example {
   display: block;
   *width: 190px;
   margin: 0 0 -1px;
-  font-size: 14px;
   padding: 8px 14px;
   border: 1px solid #e5e5e5;
 }
@@ -682,9 +674,14 @@ form.bs-docs-example {
           border-radius: 0 0 6px 6px;
 }
 .bs-docs-sidenav > .active > a {
-  border-color: #08c;
   position: relative;
   z-index: 2;
+  padding: 9px 15px;
+  border: 0;
+  text-shadow: 0 1px 0 rgba(0,0,0,.15);
+  -webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+     -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+          box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
 }
 /* Chevrons */
 .bs-docs-sidenav .icon-chevron-right {
@@ -699,9 +696,10 @@ form.bs-docs-example {
 .bs-docs-sidenav a:hover .icon-chevron-right {
   opacity: .5;
 }
-.bs-docs-sidenav .active .icon-chevron-right {
+.bs-docs-sidenav .active .icon-chevron-right,
+.bs-docs-sidenav .active a:hover .icon-chevron-right {
   background-image: url(../img/glyphicons-halflings-white.png);
-  opacity: .75;
+  opacity: 1;
 }
 .bs-docs-sidenav.affix {
   top: 40px;
@@ -768,15 +766,16 @@ form.bs-docs-example {
   /* Adjust sidenav width */
   .bs-docs-sidenav {
     width: 166px;
+    margin-top: 20px;
   }
   .bs-docs-sidenav.affix {
-    top: 0px;
+    top: 0;
   }
 }
 
 /* Tablet
 ------------------------- */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   /* Remove any padding from the body */
   body {
     padding-top: 0;
@@ -811,10 +810,12 @@ form.bs-docs-example {
   /* Sidenav */
   .bs-docs-sidenav {
     width: auto;
+    margin-bottom: 20px;
   }
   .bs-docs-sidenav.affix {
-    position: relative;
+    position: static;
     width: auto;
+    top: 0;
   }
 
   /* Unfloat the back to top link in footer */
@@ -826,9 +827,6 @@ form.bs-docs-example {
   }
   .footer p {
     margin-bottom: 9px;
-  }
-  .bs-docs-sidenav.affix {
-    top: 0;
   }
 }
 
