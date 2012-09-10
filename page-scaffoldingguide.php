@@ -6,7 +6,7 @@
  * @subpackage Default_Theme
  * @since WP-Bootstrap 0.87
  *
- * Last Revised: July 16, 2012
+ * Last Revised: September 9, 2012
  *
  */
 get_header(); ?>
