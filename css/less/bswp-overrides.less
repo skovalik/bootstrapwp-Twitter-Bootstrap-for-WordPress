@@ -16,6 +16,7 @@ Overriding some defaults from the Bootstrap defaults to improve/fix integration 
   margin-bottom: 0;
   position: relative;
     .navbar-inner {
+              min-height: @navbarHeight;
               padding-right: 0;
               padding-left: 0;
       -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
@@ -29,6 +30,30 @@ Overriding some defaults from the Bootstrap defaults to improve/fix integration 
       max-width: 1170px;
     }
 }
+
+@media (max-width: @navbarCollapseWidth) {
+
+  // Unfix the navbars
+  .navbar-relative-top {
+    position: static;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 0;
+  }
+
+  .navbar-relative-top {
+    margin-bottom: @baseLineHeight;
+  }
+
+  .navbar-relative-top .navbar-inner {
+    padding: 10px;
+  }
+}
+@media (max-width: 767px) {
+  // Negative indent the now static "fixed" navbar
+
+}
+
 // Navbar Fixes for wp_list_pages()
 .navbar div.nav {
 	position: relative;

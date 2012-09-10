@@ -6716,6 +6716,7 @@ Overriding some defaults from the Bootstrap defaults to improve/fix integration 
   position: relative;
 }
 .navbar-relative-top .navbar-inner {
+  min-height: 40px;
   padding-right: 0;
   padding-left: 0;
   -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
@@ -6727,6 +6728,23 @@ Overriding some defaults from the Bootstrap defaults to improve/fix integration 
 }
 .navbar-relative-top .container {
   max-width: 1170px;
+}
+@media (max-width: 979px) {
+  .navbar-relative-top {
+    position: static;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 0;
+  }
+  .navbar-relative-top {
+    margin-bottom: 20px;
+  }
+  .navbar-relative-top .navbar-inner {
+    padding: 10px;
+  }
+}
+@media (max-width: 767px) {
+  
 }
 .navbar div.nav {
   position: relative;
