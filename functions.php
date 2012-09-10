@@ -37,21 +37,13 @@ load_theme_textdomain('bootstrapwp');
 add_action( 'after_setup_theme', 'bootstrapwp_theme_setup' );
 if ( ! function_exists( 'bootstrapwp_theme_setup' ) ):
 function bootstrapwp_theme_setup() {
-  /**
-   * Add default posts and comments RSS feed links to head
-   */
   add_theme_support( 'automatic-feed-links' );
-
   /**
    * Adds custom menu with wp_page_menu fallback
    */
   register_nav_menus( array(
     'main-menu' => __( 'Main Menu', 'bootstrapwp' ),
   ) );
-
-  /**
-   * Add support for the Aside and Gallery Post Formats
-   */
   add_theme_support( 'post-formats', array( 'aside', 'image', 'gallery', 'link', 'quote', 'status', 'video', 'audio', 'chat' ) );
 }
 endif;
@@ -60,7 +52,7 @@ endif;
 // Loading All CSS Stylesheets
 ################################################################################
   function bootstrapwp_css_loader() {
-    wp_enqueue_style('bootstrapwp', get_template_directory_uri().'/css/bootstrapwp.css', false ,'0.91', 'all' );
+    wp_enqueue_style('bootstrapwp', get_template_directory_uri().'/css/bootstrapwp.css', false ,'0.90', 'all' );
     wp_enqueue_style('prettify', get_template_directory_uri().'/js/google-code-prettify/prettify.css', false ,'1.0', 'all' );
   }
 add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
@@ -70,9 +62,9 @@ add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
 // Loading all JS Script Files.  Remove any files you are not using!
 ################################################################################
   function bootstrapwp_js_loader() {
-       wp_enqueue_script('bootstrapjs', get_template_directory_uri().'/js/bootstrap.min.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('bootstrapjs', get_template_directory_uri().'/js/bootstrap.min.js', array('jquery'),'0.90', true );
        wp_enqueue_script('prettifyjs', get_template_directory_uri().'/js/google-code-prettify/prettify.js', array('jquery'),'1.0', true );
-       wp_enqueue_script('demojs', get_template_directory_uri().'/js/bootstrapwp.demo.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('demojs', get_template_directory_uri().'/js/bootstrapwp.demo.js', array('jquery'),'0.90', true );
   }
 add_action('wp_enqueue_scripts', 'bootstrapwp_js_loader');
 
@@ -162,9 +154,6 @@ function bootstrapwp_widgets_init() {
   ));
 }
 add_action( 'init', 'bootstrapwp_widgets_init' );
-
-
-
 
 
 /*

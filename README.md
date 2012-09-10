@@ -23,7 +23,7 @@ Download the BootstrapWP theme, and install to your WordPress site.
 This is meant to be a base theme for WordPress custom theme development.  A knowledge of WordPress theme development practices as well as understanding of HTML, CSS/LESS, jQuery and PHP are required.
 
 **Important!** To safely retain the ability to update the less files with future versions of Bootstrap or BootstrapWP, add all custom edits/changes inside the `less/bswp-custom.less` file.
-  
+
 
 Getting Started
 -------
@@ -43,11 +43,11 @@ Bug tracker
 
 __The goals of this release are:__
 
-1. Add Theme Options Screen
-2. Fix Custom Walker Menu PHP errors
-3.  Fix Automatic Thumbnail PHP errors
-4.  Remove any unnecessary theme files
-5. Update styles and scripts to Bootstrap 2.10 dev branch
+
+1. Fix Custom Walker Menu PHP errors
+2.  Fix Automatic Thumbnail PHP errors
+3.  Remove any unnecessary theme files
+4. Update styles and scripts to Bootstrap 2.1 Release
 
 __Archive.php__
 
@@ -63,12 +63,12 @@ __Class-bootstrapwp-walker-nav_menu.php__
 
 __Footer.php__
 
-*   Cleaned up ending div tags 
+*   Cleaned up ending div tags
 
 __Functions.php__
 
-*   Fixed `bootstrapwp_autoset_featured_img()` function to return if there is no image set, clearing debug errors.  
-*   Removed the post hooks for `bootstrap_autoset_featured_img()` function to clear debug errors. 
+*   Fixed `bootstrapwp_autoset_featured_img()` function to return if there is no image set, clearing debug errors.
+*   Removed the post hooks for `bootstrap_autoset_featured_img()` function to clear debug errors.
 *   Added `bootstrapwp_post_thumbnail_check()` function to check if the post displayed in the loop has a post thumbnail already.
 *   Removed Custom Walker class from file and replaced with external include call for file 'includes/class-bootstrap_walker_nav_menu.php'.
 
@@ -123,7 +123,7 @@ __Functions.php__
 
 __Style.css__
 
-*	Removed content because it this file is not loaded via `bootstrapwp_css_loader()` 
+*	Removed content because it this file is not loaded via `bootstrapwp_css_loader()`
 *	Added note to add custom updates to the less/bswp-custom.less file to safely retain the ability to update the less files with future versions of Bootstrap or BootstrapWP
 *	Bumped version to .87
 
@@ -164,7 +164,7 @@ __LESS Folder__
 
 __IMG Folder__
 
-*   Updated glyph icons with new set included in Bootstrap 2.04  
+*   Updated glyph icons with new set included in Bootstrap 2.04
 
 
 Copyright and license
