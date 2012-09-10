@@ -11,7 +11,7 @@
  * @subpackage WP-Bootstrap
  * @since WP-Bootstrap 0.1
  *
- * Last Updated: June 3, 2012
+ * Last Updated: September 9, 2012
  */
 
 if (!defined('BOOTSTRAPWP_VERSION'))
