@@ -1,9 +1,12 @@
-Bootstrapwp - TWITTER BOOTSTRAP for WordPress
+BootstrapWP - Bootstrap Theme for WordPress
 =================
+
+![image](http://f.cl.ly/items/0o0N0e1k2X0B0l0r0n1P/BootstrapWP-Bootstrap-starter-theme.jpg)
+
 
 Bootstrap is a responsive front-end toolkit from Twitter designed to kickstart web development, complete with core HTML, CSS, and JS for grids, type, forms, navigation, and many more components. Now you can use it with **WordPress** as a solid base to build custom themes quickly and easily.
 
-Download the most-up-to-date theme files: [Download .zip file](https://github.com/downloads/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/bootstrapwp-87.zip)
+Download the most-up-to-date theme files: [Download .zip file](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/zipball/v.90)
 Follow the development: [WIP Branch on Github](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/tree/1-WIP)
 
 Demo
@@ -18,19 +21,21 @@ View the javascript guide at: [http://bootstrapwp.rachelbaker.me/javascript-guid
 Usage
 -----
 
-Download the BootstrapWP theme, and install to your WordPress site.
+Download the BootstrapWP theme, and install on a WordPress local or development site.
 
 This is meant to be a base theme for WordPress custom theme development.  A knowledge of WordPress theme development practices as well as understanding of HTML, CSS/LESS, jQuery and PHP are required.
 
 **Important!** To safely retain the ability to update the less files with future versions of Bootstrap or BootstrapWP, add all custom edits/changes inside the `less/bswp-custom.less` file.
-  
+
 
 Getting Started
 -------
 
-Create a page that uses the template `Hero Homepage Template`, then under `Settings->Reading`  set your site to use a static front page selecting your new page.  Add content to the three "Home" widget areas under `Appearances->Widgets`.
+1. Create a page that uses the template `Hero Homepage Template`, then under `Settings->Reading`  set your site to use a static front page selecting your new page.
 
-Create a menu under `Appearances->Menus` and assign it be your site's Main Menu.
+2. Add content to the three "Home" widget areas under `Appearances->Widgets`.
+
+3. Create a menu under `Appearances->Menus` and assign it be your site's Main Menu.
 
 
 
@@ -39,70 +44,66 @@ Bug tracker
 
 **Report theme bugs** [https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/issues](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/issues)
 
+##v.90 of BootstrapWP - Release September 9, 2012
 
-##v.87 of BootstrapWP - Released June 4, 2012
+__Release Highlights:__
 
-**Release Highlights:**
+1.  Updated to Bootstrap 2.1 scripts and styles
+2. Fixed `Custom Walker Menu` PHP error
+3.  Fixed Automatic Thumbnail PHP errors
+4.  Cleaned up unnecessary theme files
 
-1. Switched to using the Less files instead of CSS
-2. Improved navigation submenu dropdown implementation with custom Walker
-3. Updated styles and scripts to Bootstrap 2.04 release
-4. Switched to using bootstrap.js file instead of the separate .js files
+__Archive.php__
 
-[Download](https://github.com/downloads/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/bootstrapwp-87.zip)
+* Replaced conditional for `the_post_thumbnail()` with `bootstrapwp_autoset_featured_img()`.
 
-###Full Changelog
-__Functions.php__
+__Author.php__
 
-*	Edited `bootstrapwp_css_loader()` function to use new `/less/bootstrapwp.css` generated from Less file compilation and removed references to previously used css files
-*	Edited `bootstrapwp_js_loader()` function to include minified and minified bootstrap.min.js file
-*	Edited `bootstrapwp_js_loader()` function to include `/js/bootstrapwp.demo.js` file containing all the extra JavaScript needed to enable the functionality of demos
-*	Added new walker `Bootstrap_Walker_Nav_Menu` class to assign "dropdown-menu" class to navigation sub-menus
+* Replaced conditional for `the_post_thumbnail()` with `bootstrapwp_autoset_featured_img()`.
 
-__Style.css__
+__Class-bootstrapwp-walker-nav_menu.php__
 
-*	Removed content because it this file is not loaded via `bootstrapwp_css_loader()` 
-*	Added note to add custom updates to the less/bswp-custom.less file to safely retain the ability to update the less files with future versions of Bootstrap or BootstrapWP
-*	Bumped version to .87
-
-__Header.php__
-
-*	Edited `wp_nav_menu()` call array to add `walker => new bootstrapwp_walker_nav_menu()` parameter
-*	Removed extraneous commented line from `wp_nav_menu()` function call
+*   Extending Walker_Nav_Menu to modify class assigned to submenu ul element.
 
 __Footer.php__
 
-*	Removed all Javascript and moved to new `js/bootstrapwp.demo.js` file
+*   Cleaned up ending div tags
 
-__Page-home.php__
+__Functions.php__
 
-*	Created file to be static homepage template that loads 3 widget areas (previously was index.php)
+*   Fixed `bootstrapwp_autoset_featured_img()` function to return if there is no image set, clearing debug errors.
+*   Removed the post hooks for `bootstrap_autoset_featured_img()` function to clear debug errors.
+*   Added `bootstrapwp_post_thumbnail_check()` function to check if the post displayed in the loop has a post thumbnail already.
+*   Removed Custom Walker class from file and replaced with external include call for file 'includes/class-bootstrap_walker_nav_menu.php'.
+
+__Header.php__
+
+*   Updated responsive navbar wrapping to use the button element
+*   Removed wp-list-pages fallback for custom menu
+*   Removed div elements for content-wrapper and container at end of file
 
 __Index.php__
 
-*	Edited file to be standard blog homepage - and moved previous template content to new `page-home.php` file
+*   Removed unnecessary double loop for page title.
 
-__JS Folder__
+__Page.php__
 
-*	Removed the individual .js files and replaced with single compiled `bootstrap.min.js` file
-*   Added `bootstrap.js` (pre-minified version of bootstrap.min.js) file for reference
-*   Added `bootstrapwp.demo.js` file which houses code is used to power all the JavaScript demos and examples for BootstrapWP
-*   Added folder for google-code-prettify js and css files to style reference and documentation template files.
+*   Removed '<header>' element wrapping around page title.
 
-__CSS Folder__
+__Page-blog.php__
 
-*	Removed folder entirely because main style file is compiled less file located at `less/bootstrapwp.css`
+* Replaced conditional for `the_post_thumbnail()` with `bootstrapwp_autoset_featured_img()`.
 
-__LESS Folder__
+__Docs Folder__
 
-*	Updated LESS files from Twitter Bootstrap 2.04 branch
-* 	Added `bswp-docs.less` file to pull in styles to allow doc pages to format correctly
-*	Added note to use `bswp-custom.less` file for any custom additions to allow for easy updating of styles.
-*	Added style fix for top positioning of scrollspy submenu to `less/bswp-overrides.less`
+*   Removed entire 'docs' folder to clean up theme files.
 
 __IMG Folder__
 
-*   Updated glyph icons with new set included in Bootstrap 2.04  
+*   Removed sub-folder 'example-sites' to clean up theme files.
+*   Removed sub-folder 'examples' to clean up theme files.
+*   Updated with new images and icons from Bootstrap 2.1
+
 
 
 Copyright and license

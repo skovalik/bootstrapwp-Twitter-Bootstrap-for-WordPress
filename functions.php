@@ -14,6 +14,9 @@
  * Last Updated: June 3, 2012
  */
 
+if (!defined('BOOTSTRAPWP_VERSION'))
+define('BOOTSTRAPWP_VERSION', '.90');
+
  /**
  * Declaring the content width based on the theme's design and stylesheet.
  */
@@ -25,11 +28,31 @@ if ( ! isset( $content_width ) )
  */
 load_theme_textdomain('bootstrapwp');
 
+/*
+| -------------------------------------------------------------------
+| Setup Theme
+| -------------------------------------------------------------------
+|
+| */
+add_action( 'after_setup_theme', 'bootstrapwp_theme_setup' );
+if ( ! function_exists( 'bootstrapwp_theme_setup' ) ):
+function bootstrapwp_theme_setup() {
+  add_theme_support( 'automatic-feed-links' );
+  /**
+   * Adds custom menu with wp_page_menu fallback
+   */
+  register_nav_menus( array(
+    'main-menu' => __( 'Main Menu', 'bootstrapwp' ),
+  ) );
+  add_theme_support( 'post-formats', array( 'aside', 'image', 'gallery', 'link', 'quote', 'status', 'video', 'audio', 'chat' ) );
+}
+endif;
+
 ################################################################################
 // Loading All CSS Stylesheets
 ################################################################################
   function bootstrapwp_css_loader() {
-    wp_enqueue_style('bootstrap', get_template_directory_uri().'/less/bootstrapwp.css', false ,'1.0', 'all' );
+    wp_enqueue_style('bootstrapwp', get_template_directory_uri().'/css/bootstrapwp.css', false ,'0.90', 'all' );
     wp_enqueue_style('prettify', get_template_directory_uri().'/js/google-code-prettify/prettify.css', false ,'1.0', 'all' );
   }
 add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
@@ -39,23 +62,17 @@ add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
 // Loading all JS Script Files.  Remove any files you are not using!
 ################################################################################
   function bootstrapwp_js_loader() {
-       wp_enqueue_script('bootstrapjs', get_template_directory_uri().'/js/bootstrap.min.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('bootstrapjs', get_template_directory_uri().'/js/bootstrap.min.js', array('jquery'),'0.90', true );
        wp_enqueue_script('prettifyjs', get_template_directory_uri().'/js/google-code-prettify/prettify.js', array('jquery'),'1.0', true );
-       wp_enqueue_script('demojs', get_template_directory_uri().'/js/bootstrapwp.demo.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('demojs', get_template_directory_uri().'/js/bootstrapwp.demo.js', array('jquery'),'0.90', true );
   }
 add_action('wp_enqueue_scripts', 'bootstrapwp_js_loader');
 
 
 /*
 | -------------------------------------------------------------------
-| Registering Top Navigation Bar
+| Top Navigation Bar Customization
 | -------------------------------------------------------------------
-| Adds custom menu with wp_page_menu fallback
-| */
-if ( function_exists( 'register_nav_menu' ) ) {
-register_nav_menu( 'main-menu', 'Main Menu' );
-}
-
 
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
@@ -67,14 +84,10 @@ function bootstrapwp_page_menu_args( $args ) {
 add_filter( 'wp_page_menu_args', 'bootstrapwp_page_menu_args' );
 
 /**
- * Custom Walker to change submenu class items from default "sub-menu" to ""
- */
-class Bootstrapwp_Walker_Nav_Menu extends Walker_Nav_Menu {
-  function start_lvl(&$output, $depth) {
-    $indent = str_repeat("\t", $depth);
-    $output .= "\n$indent<ul class=\"dropdown-menu\">\n";
-  }
-}
+ * Get file 'includes/class-bootstrap_walker_nav_menu.php' with Custom Walker class methods
+ * */
+
+include 'includes/class-bootstrapwp_walker_nav_menu.php';
 
 /*
 | -------------------------------------------------------------------
@@ -142,20 +155,6 @@ function bootstrapwp_widgets_init() {
 }
 add_action( 'init', 'bootstrapwp_widgets_init' );
 
-
-
-function bootstrapwp_theme_setup() {
-	/**
-	 * Add default posts and comments RSS feed links to head
-	 */
-	add_theme_support( 'automatic-feed-links' );
-
-	/**
-	 * Add support for the Aside and Gallery Post Formats
-	 */
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'gallery' ) );
-}
-add_action( 'after_setup_theme', 'bootstrapwp_theme_setup' );
 
 /*
 | -------------------------------------------------------------------
@@ -362,6 +361,20 @@ function bootstrapwp_enhanced_image_navigation( $url ) {
 }
 add_filter( 'attachment_link', 'bootstrapwp_enhanced_image_navigation' );
 
+
+/*
+| -------------------------------------------------------------------
+| Checking for Post Thumbnail
+| -------------------------------------------------------------------
+|
+| */
+function bootstrapwp_post_thumbnail_check() {
+    global $post;
+    if (get_the_post_thumbnail()) {
+          return true; }
+          else { return false; }
+}
+
 /*
 | -------------------------------------------------------------------
 | Setting Featured Image (Post Thumbnail)
@@ -369,23 +382,29 @@ add_filter( 'attachment_link', 'bootstrapwp_enhanced_image_navigation' );
 | Will automatically add the first image attached to a post as the Featured Image if post does not have a featured image previously set.
 | */
 function bootstrapwp_autoset_featured_img() {
-          global $post;
-          $already_has_thumb = has_post_thumbnail($post->ID);
-              if (!$already_has_thumb)  {
-              $attached_image = get_children( "post_parent=$post->ID&post_type=attachment&post_mime_type=image&numberposts=1" );
-                          if ($attached_image) {
+
+  $post_thumbnail = bootstrapwp_post_thumbnail_check();
+  if ($post_thumbnail == true ){
+    return the_post_thumbnail();
+  }
+    if ($post_thumbnail == false ){
+      $image_args = array(
+                'post_type' => 'attachment',
+                'numberposts' => 1,
+                'post_mime_type' => 'image',
+                'post_parent' => $post->ID,
+                'order' => 'desc'
+          );
+      $attached_image = get_children( $image_args );
+             if ($attached_image) {
                                 foreach ($attached_image as $attachment_id => $attachment) {
                                 set_post_thumbnail($post->ID, $attachment_id);
                                 }
-                           }
-                        }
+            return the_post_thumbnail();
+          } else { return " ";}
+        }
       }  //end function
-add_action('the_post', 'bootstrapwp_autoset_featured_img');
-add_action('save_post', 'bootstrapwp_autoset_featured_img');
-add_action('draft_to_publish', 'bootstrapwp_autoset_featured_img');
-add_action('new_to_publish', 'bootstrapwp_autoset_featured_img');
-add_action('pending_to_publish', 'bootstrapwp_autoset_featured_img');
-add_action('future_to_publish', 'bootstrapwp_autoset_featured_img');
+
 
 /*
 | -------------------------------------------------------------------

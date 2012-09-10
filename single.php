@@ -19,13 +19,9 @@ get_header(); ?>
    </div><!--/.container -->
    </div><!--/.row -->
    <div class="container">
-     
- <!-- Masthead
-      ================================================== -->
-      <header class="jumbotron subhead" id="overview">
+      <header class="post-title">
         <h1><?php the_title();?></h1>
       </header>
-         
         <div class="row content">
 <div class="span8">
    <p class="meta"><?php echo bootstrapwp_posted_on();?></p>
