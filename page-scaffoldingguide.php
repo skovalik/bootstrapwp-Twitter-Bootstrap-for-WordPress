@@ -23,7 +23,8 @@ get_header(); ?>
 
 
 <div class="container">
- <!-- Docs nav
+
+     <!-- Docs nav
     ================================================== -->
     <div class="row">
       <div class="span3 bs-docs-sidebar">
@@ -36,7 +37,6 @@ get_header(); ?>
         </ul>
       </div>
       <div class="span9">
-
 
 
         <!-- Global Bootstrap settings
@@ -70,10 +70,7 @@ get_header(); ?>
 
         </section>
 
-
-
-
-        <!-- Grid system
+ <!-- Grid system
         ================================================== -->
         <section id="gridSystem">
           <div class="page-header">
@@ -316,8 +313,6 @@ get_header(); ?>
         </section>
 
 
-
-
         <!-- Responsive design
         ================================================== -->
         <section id="responsive">
@@ -452,7 +447,7 @@ get_header(); ?>
           </table>
 
           <h3>When to use</h3>
-          <p>Use on a limited basis and avoid creating entirely different versions of the same site. Instead, use them to complement each device's presentation.</p>
+          <p>Use on a limited basis and avoid creating entirely different versions of the same site. Instead, use them to complement each device's presentation. Responsive utilities should not be used with tables, and as such are not supported.</p>
 
           <h3>Responsive utilities test case</h3>
           <p>Resize your browser or load on different devices to test the above classes.</p>
@@ -479,5 +474,7 @@ get_header(); ?>
     </div>
 
   </div>
+
+
 <?php endwhile; ?>
 <?php get_footer(); ?>
