@@ -12,145 +12,145 @@ msgstr ""
 "Last-Translator: Translations <translations@osclass.org>\n"
 "Language-Team: Translations <translations@osclass.org>\n"
 
-#: 404.php:23
+#: bootstrapwp/404.php:23
 msgid "This is Embarrassing"
 msgstr ""
 
-#: 404.php:24
+#: bootstrapwp/404.php:24
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching, or one of the links below, can help."
 msgstr ""
 
-#: 404.php:44
+#: bootstrapwp/404.php:44
 msgid "Most Used Categories"
 msgstr ""
 
-#: archive.php:26
+#: bootstrapwp/archive.php:26
 msgid "Daily Archives: %s"
 msgstr ""
 
-#: archive.php:28
+#: bootstrapwp/archive.php:28
 msgid "Monthly Archives: %s"
 msgstr ""
 
-#: archive.php:30
+#: bootstrapwp/archive.php:30
 msgid "Yearly Archives: %s"
 msgstr ""
 
-#: archive.php:32
+#: bootstrapwp/archive.php:32
 msgid "Tag Archives: %s"
 msgstr ""
 
-#: archive.php:38
+#: bootstrapwp/archive.php:38
 msgid "Category Archives: %s"
 msgstr ""
 
-#: archive.php:44
+#: bootstrapwp/archive.php:44
 msgid "Blog Archives"
 msgstr ""
 
-#: author.php:30
+#: bootstrapwp/author.php:30
 msgid "Author Archives: %s"
 msgstr ""
 
-#: comments.php:19
+#: bootstrapwp/comments.php:19
 msgid ""
 "This post is password protected. Enter the password to view any comments."
 msgstr ""
 
-#: comments.php:35
+#: bootstrapwp/comments.php:35
 msgid "One thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:59
+#: bootstrapwp/comments.php:59
 msgid "Comments are closed."
 msgstr ""
 
-#: footer.php:15
+#: bootstrapwp/footer.php:15
 msgid "Back to top"
 msgstr ""
 
-#: functions.php:45
+#: bootstrapwp/functions.php:45
 msgid "Main Menu"
 msgstr ""
 
-#: functions.php:99
+#: bootstrapwp/functions.php:99
 msgid "Page Sidebar"
 msgstr ""
 
-#: functions.php:108
+#: bootstrapwp/functions.php:108
 msgid "Posts Sidebar"
 msgstr ""
 
-#: functions.php:117
+#: bootstrapwp/functions.php:117
 msgid "Home Left"
 msgstr ""
 
-#: functions.php:119
+#: bootstrapwp/functions.php:119
 msgid "Left textbox on homepage"
 msgstr ""
 
-#: functions.php:127
+#: bootstrapwp/functions.php:127
 msgid "Home Middle"
 msgstr ""
 
-#: functions.php:129
+#: bootstrapwp/functions.php:129
 msgid "Middle textbox on homepage"
 msgstr ""
 
-#: functions.php:137
+#: bootstrapwp/functions.php:137
 msgid "Home Right"
 msgstr ""
 
-#: functions.php:139
+#: bootstrapwp/functions.php:139
 msgid "Right textbox on homepage"
 msgstr ""
 
-#: functions.php:147
+#: bootstrapwp/functions.php:147
 msgid "Footer Content"
 msgstr ""
 
-#: functions.php:149
+#: bootstrapwp/functions.php:149
 msgid "Footer text or acknowledgements"
 msgstr ""
 
-#: functions.php:181
+#: bootstrapwp/functions.php:181
 msgid "...Continue Reading"
 msgstr ""
 
-#: functions.php:204
+#: bootstrapwp/functions.php:204
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr ""
 
-#: functions.php:208
+#: bootstrapwp/functions.php:208
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: functions.php:236
+#: bootstrapwp/functions.php:236
 msgid "Pingback:"
 msgstr ""
 
-#: functions.php:236 functions.php:259
+#: bootstrapwp/functions.php:236 functions.php:259
 msgid "(Edit)"
 msgstr ""
 
-#: functions.php:246
+#: bootstrapwp/functions.php:246
 msgid "%s <span class=\"says\">says:</span>"
 msgstr ""
 
-#: functions.php:249
+#: bootstrapwp/functions.php:249
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
 #. translators: 1: date, 2: time
-#: functions.php:257
+#: bootstrapwp/functions.php:257
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: functions.php:285
+#: bootstrapwp/functions.php:285
 msgid ""
 "<span class=\"sep\">Posted on </span><a href=\"%1$s\" title=\"%2$s\" rel="
 "\"bookmark\"><time class=\"entry-date\" datetime=\"%3$s\" pubdate>%4$s</"
@@ -159,47 +159,47 @@ msgid ""
 "\"author\">%7$s</a></span></span>"
 msgstr ""
 
-#: functions.php:291
+#: bootstrapwp/functions.php:291
 msgid "View all posts by %s"
 msgstr ""
 
-#: functions.php:418
+#: bootstrapwp/functions.php:418
 msgid "Home"
 msgstr ""
 
-#: functions.php:437
+#: bootstrapwp/functions.php:437
 msgid "Archive by category "
 msgstr ""
 
-#: functions.php:490
+#: bootstrapwp/functions.php:490
 msgid "Search results for"
 msgstr ""
 
-#: functions.php:493
+#: bootstrapwp/functions.php:493
 msgid "Posts tagged"
 msgstr ""
 
-#: functions.php:498
+#: bootstrapwp/functions.php:498
 msgid "Articles posted by "
 msgstr ""
 
-#: functions.php:506
+#: bootstrapwp/functions.php:506
 msgid "Page"
 msgstr ""
 
-#: header.php:33
+#: bootstrapwp/header.php:33
 msgid "Page %s"
 msgstr ""
 
-#: search.php:20
+#: bootstrapwp/search.php:20
 msgid "Search Results for: %s"
 msgstr ""
 
-#: search.php:35
+#: bootstrapwp/search.php:35
 msgid "No Results Found"
 msgstr ""
 
-#: search.php:36
+#: bootstrapwp/search.php:36
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps you "
 "should try again with a different search term."
