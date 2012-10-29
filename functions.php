@@ -415,7 +415,7 @@ function bootstrapwp_autoset_featured_img() {
  function bootstrapwp_breadcrumbs() {
 
   $delimiter = '<span class="divider">/</span>';
-  $home = _e('Home', 'bootstrapwp'); // text for the 'Home' link
+  $home = __('Home', 'bootstrapwp'); // text for the 'Home' link
   $before = '<li class="active">'; // tag before the current crumb
   $after = '</li>'; // tag after the current crumb
 
