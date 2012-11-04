@@ -22,9 +22,9 @@ get_header(); ?>
 </header>
 
 
-<div class="container">
+ <div class="container">
 
-     <!-- Docs nav
+    <!-- Docs nav
     ================================================== -->
     <div class="row">
       <div class="span3 bs-docs-sidebar">
@@ -37,6 +37,7 @@ get_header(); ?>
         </ul>
       </div>
       <div class="span9">
+
 
 
         <!-- Global Bootstrap settings
@@ -70,7 +71,10 @@ get_header(); ?>
 
         </section>
 
- <!-- Grid system
+
+
+
+        <!-- Grid system
         ================================================== -->
         <section id="gridSystem">
           <div class="page-header">
@@ -311,6 +315,8 @@ get_header(); ?>
 &lt;/div&gt;
 </pre>
         </section>
+
+
 
 
         <!-- Responsive design

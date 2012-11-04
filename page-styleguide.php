@@ -1,4 +1,4 @@
-<?php
+c<?php
 /**
  * Template Name: Style Guide, no sidebar
  *
@@ -19,8 +19,9 @@ get_header(); ?>
   </div>
 </header>
 
-<div class="container">
- <!-- Docs nav
+  <div class="container">
+
+    <!-- Docs nav
     ================================================== -->
     <div class="row">
       <div class="span3 bs-docs-sidebar">
@@ -1275,6 +1276,17 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
           <h3>Control sizing</h3>
           <p>Use relative sizing classes like <code>.input-large</code> or match your inputs to the grid column sizes using <code>.span*</code> classes.</p>
+
+          <h4>Block level inputs</h4>
+          <p>Make any <code>&lt;input&gt;</code> or <code>&lt;textarea&gt;</code> element behave like a block level element.</p>
+          <form class="bs-docs-example" style="padding-bottom: 15px;">
+            <div class="controls">
+              <input class="input-block-level" type="text" placeholder=".input-block-level">
+            </div>
+          </form>
+<pre class="prettyprint linenums">
+&lt;input class="input-block-level" type="text" placeholder=".input-block-level"&gt;
+</pre>
 
           <h4>Relative sizing</h4>
           <form class="bs-docs-example" style="padding-bottom: 15px;">
