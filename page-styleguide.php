@@ -1,4 +1,4 @@
-<?php
+c<?php
 /**
  * Template Name: Style Guide, no sidebar
  *
