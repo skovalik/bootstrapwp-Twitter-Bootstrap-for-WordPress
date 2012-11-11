@@ -107,65 +107,64 @@ include 'includes/class-bootstrapwp_walker_nav_menu.php';
 | */
 function bootstrapwp_widgets_init() {
   register_sidebar( array(
-      'name' => 'Page Sidebar',
-      'id' => 'sidebar-page',
-      'before_widget' => '<div id="%1$s" class="widget %2$s">',
-      'after_widget' => "</div>",
-      'before_title' => '<h4 class="widget-title">',
-      'after_title' => '</h4>',
-    ) );
+    'name' => __('Page Sidebar', 'bootstrapwp'),
+    'id' => 'sidebar-page',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => "</div>",
+    'before_title' => '<h4 class="widget-title">',
+    'after_title' => '</h4>',
+  ) );
 
   register_sidebar( array(
-      'name' => 'Posts Sidebar',
-      'id' => 'sidebar-posts',
-      'before_widget' => '<div id="%1$s" class="widget %2$s">',
-      'after_widget' => "</div>",
-      'before_title' => '<h4 class="widget-title">',
-      'after_title' => '</h4>',
-    ) );
+    'name' => __('Posts Sidebar', 'bootstrapwp'),
+    'id' => 'sidebar-posts',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => "</div>",
+    'before_title' => '<h4 class="widget-title">',
+    'after_title' => '</h4>',
+  ) );
 
-  register_sidebar( array(
-      'name' => 'Home Left',
-      'id'   => 'home-left',
-      'description'   => 'Left textbox on homepage',
-      'before_widget' => '<div id="%1$s" class="widget %2$s">',
-      'after_widget'  => '</div>',
-      'before_title'  => '<h2>',
-      'after_title'   => '</h2>'
-    ) );
+  register_sidebar(array(
+    'name' => __('Home Left', 'bootstrapwp'),
+    'id'   => 'home-left',
+    'description'   => __('Left textbox on homepage', 'bootstrapwp'),
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h2>',
+    'after_title'   => '</h2>'
+  ));
 
-  register_sidebar( array(
-      'name' => 'Home Middle',
-      'id'   => 'home-middle',
-      'description'   => 'Middle textbox on homepage',
-      'before_widget' => '<div id="%1$s" class="widget %2$s">',
-      'after_widget'  => '</div>',
-      'before_title'  => '<h2>',
-      'after_title'   => '</h2>'
-    ) );
+    register_sidebar(array(
+    'name' => __('Home Middle', 'bootstrapwp'),
+    'id'   => 'home-middle',
+    'description'   => __('Middle textbox on homepage', 'bootstrapwp'),
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h2>',
+    'after_title'   => '</h2>'
+  ));
 
-  register_sidebar( array(
-      'name' => 'Home Right',
-      'id'   => 'home-right',
-      'description'   => 'Right textbox on homepage',
-      'before_widget' => '<div id="%1$s" class="widget %2$s">',
-      'after_widget'  => '</div>',
-      'before_title'  => '<h2>',
-      'after_title'   => '</h2>'
-    ) );
+    register_sidebar(array(
+    'name' => __('Home Right', 'bootstrapwp'),
+    'id'   => 'home-right',
+    'description'   => __('Right textbox on homepage', 'bootstrapwp'),
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h2>',
+    'after_title'   => '</h2>'
+  ));
 
-  register_sidebar( array(
-      'name' => 'Footer Content',
-      'id'   => 'footer-content',
-      'description'   => 'Footer text or acknowledgements',
-      'before_widget' => '<div id="%1$s" class="widget %2$s">',
-      'after_widget'  => '</div>',
-      'before_title'  => '<h4>',
-      'after_title'   => '</h4>'
-    ) );
+    register_sidebar(array(
+    'name' => __('Footer Content', 'bootstrapwp'),
+    'id'   => 'footer-content',
+    'description'   => __('Footer text or acknowledgements', 'bootstrapwp'),
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h4>',
+    'after_title'   => '</h4>'
+  ));
 }
 add_action( 'init', 'bootstrapwp_widgets_init' );
-
 
 
 /*
@@ -174,11 +173,11 @@ add_action( 'init', 'bootstrapwp_widgets_init' );
 | -------------------------------------------------------------------
 | Adding filter to post excerpts to contain ...Continue Reading link
 | */
-function bootstrapwp_excerpt( $more ) {
-  global $post;
-  return '&nbsp; &nbsp;<a href="'. get_permalink( $post->ID ) . '">...Continue Reading</a>';
+function bootstrapwp_excerpt($more) {
+       global $post;
+  return '&nbsp; &nbsp;<a href="'. get_permalink($post->ID) . '">'.__( '...Continue Reading', 'bootstrapwp' ).'</a>';
 }
-add_filter( 'excerpt_more', 'bootstrapwp_excerpt' );
+add_filter('excerpt_more', 'bootstrapwp_excerpt');
 
 
 
