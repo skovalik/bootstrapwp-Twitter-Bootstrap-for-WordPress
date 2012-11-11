@@ -7,7 +7,11 @@
  * @since WP-Bootstrap 0.87
  *
  */
-get_header(); ?>
+get_header();
+wp_enqueue_script('prettify-js');
+wp_enqueue_style('prettify-css');
+wp_enqueue_style('docs-css');
+?>
 <?php while ( have_posts() ) : the_post(); ?>
 
 
