@@ -10,12 +10,13 @@
 
 get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
-  <div class="row">
-  <div class="container">
-   <?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
-   </div><!--/.container -->
+    <div class="container">
+        <div class="row">
+          <div class="span12">
+             <?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
+         </div><!--/.span12 -->
    </div><!--/.row -->
-   <div class="container">
+
 
       <header class="jumbotron subhead" id="overview">
         <h1><?php the_title();?></h1>

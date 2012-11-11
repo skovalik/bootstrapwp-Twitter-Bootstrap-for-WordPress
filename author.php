@@ -5,8 +5,8 @@
  * @package WordPress
  * @subpackage WP-Bootstrap
  * @since WP-Bootstrap 0.1
+ *
  */
-
 get_header(); ?>
 
 <?php if ( have_posts() ) : ?>
@@ -20,12 +20,13 @@ get_header(); ?>
 	 */
 	the_post();
 	?>
-	<div class="row">
-		<div class="container">
-			<?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
-		</div><!--/.container -->
-	</div><!--/.row -->
-	<div class="container">
+	    <div class="container">
+        <div class="row">
+          <div class="span12">
+             <?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
+         </div><!--/.span12 -->
+   </div><!--/.row -->
+
 		<header class="jumbotron subhead" id="overview">
 			<h1 class="page-title author"><?php printf( __( 'Author Archives: %s', 'bootstrapwp' ), '<span class="vcard"><a class="url fn n" href="' . get_author_posts_url( get_the_author_meta( "ID" ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' ); ?></h1>
 		</header>
