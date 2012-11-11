@@ -55,7 +55,7 @@ endif;
 function bootstrapwp_images() {
   set_post_thumbnail_size( 160, 120 ); // 160 pixels wide by 120 pixels high
   add_image_size( 'bootstrap-small', 260, 180 ); // 260 pixels wide by 180 pixels high
-  add_image_size( 'bootstrap-medium', 360, 268 ); // 360 pixels wide by 268 pixels high
+  add_image_size( 'bootstrap-medium', 360, 270 ); // 360 pixels wide by 270 pixels high
 }
 
 /**
