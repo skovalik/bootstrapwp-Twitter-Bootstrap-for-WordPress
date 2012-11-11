@@ -192,8 +192,8 @@ if ( ! function_exists( 'bootstrapwp_content_nav' ) ):
 
   <?php if ( is_single() ) : // navigation links for single posts ?>
 <ul class="pager">
-    <?php previous_post_link( '<li class="previous">%link</li>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'bootstrapwp' ) . '</span> %title' ); ?>
-    <?php next_post_link( '<li class="next">%link</li>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'bootstrapwp' ) . '</span>' ); ?>
+    <?php previous_post_link( '<li class="previous">%link</li>', '<span class="meta-nav">' . _e( '&larr;', 'Previous post link', 'bootstrapwp' ) . '</span> %title' ); ?>
+    <?php next_post_link( '<li class="next">%link</li>', '%title <span class="meta-nav">' . _e( '&rarr;', 'Next post link', 'bootstrapwp' ) . '</span>' ); ?>
 </ul>
   <?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
 <ul class="pager">
