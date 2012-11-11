@@ -28,7 +28,7 @@ if ( ! isset( $content_width ) )
 add_action( 'after_setup_theme', 'bootstrapwp_theme_setup' );
 if ( ! function_exists( 'bootstrapwp_theme_setup' ) ):
   function bootstrapwp_theme_setup() {
-    load_theme_textdomain( 'bootstrapwp' );
+    load_theme_textdomain( 'bootstrapwp', get_template_directory() . '/lang' );
     add_theme_support( 'automatic-feed-links' );
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'post-formats',
