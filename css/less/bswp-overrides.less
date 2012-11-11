@@ -16,18 +16,14 @@ Overriding some defaults from the Bootstrap defaults to improve/fix integration 
   margin-bottom: 0;
   position: relative;
     .navbar-inner {
-              min-height: @navbarHeight;
-              padding-right: 0;
-              padding-left: 0;
-      -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
-         -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
-              box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
-   -webkit-border-radius: 0;
-      -moz-border-radius: 0;
-           border-radius: 0;
+        border-width: 0 0 1px;
+        padding-left:  0;
+        padding-right: 0;
+        .border-radius(0);
+        .box-shadow(~"0 1px 10px rgba(0,0,0,.1)");
     }
     .container {
-      max-width: 1170px;
+        max-width: 1170px;
     }
 }
 
@@ -182,6 +178,7 @@ h4.widget-title {
   font-size: 14px;
   line-height: normal;
   color: #333;
+  float: left;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
   background-color: #E6E6E6;
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), color-stop(25%, white), to(#E6E6E6));

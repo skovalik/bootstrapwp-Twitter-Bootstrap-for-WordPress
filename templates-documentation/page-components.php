@@ -1,20 +1,20 @@
 <?php
 /**
- * Template Name: Components Guide, no sidebar
+ * Template Name: Documentation - Components Guide
  *
  * @package WP-Bootstrap
  * @subpackage Default_Theme
  * @since WP-Bootstrap 0.87
  *
- * Last Revised: September 9, 2012
- *
  */
-get_header(); ?>
+get_header();
+wp_enqueue_script('prettify-js');
+wp_enqueue_style('prettify-css');
+wp_enqueue_style('docs-css');
+?>
 <?php while ( have_posts() ) : the_post(); ?>
 
 
-<!-- Masthead
-================================================== -->
 <header class="jumbotron subhead" id="overview">
   <div class="container">
   <h1><?php the_title(); ?></h1>
@@ -23,7 +23,6 @@ get_header(); ?>
 </header>
 
 <div class="container">
-
 
     <!-- Docs nav
     ================================================== -->
@@ -42,6 +41,7 @@ get_header(); ?>
           <li><a href="#thumbnails"><i class="icon-chevron-right"></i> Thumbnails</a></li>
           <li><a href="#alerts"><i class="icon-chevron-right"></i> Alerts</a></li>
           <li><a href="#progress"><i class="icon-chevron-right"></i> Progress bars</a></li>
+          <li><a href="#media"><i class="icon-chevron-right"></i> Media object</a></li>
           <li><a href="#misc"><i class="icon-chevron-right"></i> Misc</a></li>
         </ul>
       </div>
@@ -57,7 +57,7 @@ get_header(); ?>
           </div>
 
           <h2>Example</h2>
-          <p>Toggleable, contextual menu for displaying lists of links. Made interactive with the <a href="./javascript.html#dropdowns">dropdown javascript plugin</a>.</p>
+          <p>Toggleable, contextual menu for displaying lists of links. Made interactive with the <a href="./javascript.html#dropdowns">dropdown JavaScript plugin</a>.</p>
           <div class="bs-docs-example">
             <div class="dropdown clearfix">
               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; *width: 180px;">
@@ -108,25 +108,11 @@ get_header(); ?>
 
           <h3>Sub menus on dropdowns</h3>
           <p>Add an extra level of dropdown menus, appearing on hover like those of OS X, with some simple markup additions. Add <code>.dropdown-submenu</code> to any <code>li</code> in an existing dropdown menu for automatic styling.</p>
-          <div class="bs-docs-example">
-            <div class="dropdown clearfix">
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; *width: 180px;">
-                <li><a tabindex="-1" href="#">Action</a></li>
-                <li><a tabindex="-1" href="#">Another action</a></li>
-                <li><a tabindex="-1" href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-submenu">
-                  <a tabindex="-1" href="#">More options</a>
-                  <ul class="dropdown-menu">
-                    <li><a tabindex="-1" href="#">Second level link</a></li>
-                    <li><a tabindex="-1" href="#">Second level link</a></li>
-                    <li><a tabindex="-1" href="#">Second level link</a></li>
-                    <li><a tabindex="-1" href="#">Second level link</a></li>
-                    <li><a tabindex="-1" href="#">Second level link</a></li>
-                  </ul>
-                </li>
-              </ul>
-              <div class="dropup" style="float: left; margin-left: 20px;">
+          <div class="bs-docs-example" style="min-height: 180px;">
+
+            <div class="pull-left">
+              <p class="muted">Default</p>
+              <div class="dropdown clearfix">
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; *width: 180px;">
                   <li><a tabindex="-1" href="#">Action</a></li>
                   <li><a tabindex="-1" href="#">Another action</a></li>
@@ -145,6 +131,51 @@ get_header(); ?>
                 </ul>
               </div>
             </div>
+
+            <div class="pull-left" style="margin-left: 20px;">
+              <p class="muted">Dropup</p>
+              <div class="dropup">
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; *width: 180px;">
+                  <li><a tabindex="-1" href="#">Action</a></li>
+                  <li><a tabindex="-1" href="#">Another action</a></li>
+                  <li><a tabindex="-1" href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">More options</a>
+                    <ul class="dropdown-menu">
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="pull-left" style="margin-left: 20px;">
+              <p class="muted">Left submenu</p>
+              <div class="dropdown">
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; *width: 180px;">
+                  <li><a tabindex="-1" href="#">Action</a></li>
+                  <li><a tabindex="-1" href="#">Another action</a></li>
+                  <li><a tabindex="-1" href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-submenu pull-left">
+                    <a tabindex="-1" href="#">More options</a>
+                    <ul class="dropdown-menu">
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
           </div>
 <pre class="prettyprint linenums">
 &lt;ul class="dropdown-menu" role="menu" aria-labelledby="dLabel"&gt;
@@ -239,7 +270,7 @@ get_header(); ?>
 
 
           <h4>Checkbox and radio flavors</h4>
-          <p>Button groups can also function as radios, where only one button may be active, or checkboxes, where any number of buttons may be active. View <a href="./javascript.html#buttons">the Javascript docs</a> for that.</p>
+          <p>Button groups can also function as radios, where only one button may be active, or checkboxes, where any number of buttons may be active. View <a href="./javascript.html#buttons">the JavaScript docs</a> for that.</p>
 
           <h4>Dropdowns in button groups</h4>
           <p><span class="label label-info">Heads up!</span> Buttons with dropdowns must be individually wrapped in their own <code>.btn-group</code> within a <code>.btn-toolbar</code> for proper rendering.</p>
@@ -380,9 +411,9 @@ get_header(); ?>
             </div><!-- /btn-toolbar -->
           </div>
 
-          <h3>Requires javascript</h3>
+          <h3>Requires JavaScript</h3>
           <p>Button dropdowns require the <a href="./javascript.html#dropdowns">Bootstrap dropdown plugin</a> to function.</p>
-          <p>In some cases&mdash;like mobile&mdash;dropdown menus will extend outside the viewport. You need to resolve the alignment manually or with custom javascript.</p>
+          <p>In some cases&mdash;like mobile&mdash;dropdown menus will extend outside the viewport. You need to resolve the alignment manually or with custom JavaScript.</p>
 
 
           <hr class="bs-docs-separator">
@@ -631,7 +662,7 @@ get_header(); ?>
 </pre>
 
           <h3>Disabled state</h3>
-          <p>For any nav component (tabs, pills, or list), add <code>.disabled</code> for <strong>gray links and no hover effects</strong>. Links will remain clickable, however, unless custom javascript is implemented to prevent those clicks.</p>
+          <p>For any nav component (tabs, pills, or list), add <code>.disabled</code> for <strong>gray links and no hover effects</strong>. Links will remain clickable, however, unless you remove the <code>href</code> attribute. Alternatively, you could implement custom JavaScript to prevent those clicks.</p>
           <div class="bs-docs-example">
             <ul class="nav nav-pills">
               <li><a href="#">Clickable link</a></li>
@@ -690,7 +721,7 @@ get_header(); ?>
 
 
           <h2>Dropdowns</h2>
-          <p>Add dropdown menus with a little extra HTML and the <a href="./javascript.html#dropdowns">dropdowns javascript plugin</a>.</p>
+          <p>Add dropdown menus with a little extra HTML and the <a href="./javascript.html#dropdowns">dropdowns JavaScript plugin</a>.</p>
 
           <h3>Tabs with dropdowns</h3>
           <div class="bs-docs-example">
@@ -855,7 +886,7 @@ get_header(); ?>
           <p>To make tabs fade in, add <code>.fade</code> to each <code>.tab-pane</code>.</p>
 
           <h4>Requires jQuery plugin</h4>
-          <p>All tabbable tabs are powered by our lightweight jQuery plugin. Read more about how to bring tabbable tabs to life <a href="./javascript.html#tabs">on the javascript docs page</a>.</p>
+          <p>All tabbable tabs are powered by our lightweight jQuery plugin. Read more about how to bring tabbable tabs to life <a href="./javascript.html#tabs">on the JavaScript docs page</a>.</p>
 
           <h3>Tabbable in any direction</h3>
 
@@ -1101,7 +1132,7 @@ get_header(); ?>
           <p>Align nav links, search form, or text, use the <code>.pull-left</code> or <code>.pull-right</code> utility classes. Both classes will add a CSS float in the specified direction.</p>
 
           <h3>Using dropdowns</h3>
-          <p>Add dropdowns and dropups to the nav with a bit of markup and the <a href="./javascript.html#dropdowns">dropdowns javascript plugin</a>.</p>
+          <p>Add dropdowns and dropups to the nav with a bit of markup and the <a href="./javascript.html#dropdowns">dropdowns JavaScript plugin</a>.</p>
 <pre class="prettyprint linenums">
 &lt;ul class="nav"&gt;
   &lt;li class="dropdown"&gt;
@@ -1115,7 +1146,7 @@ get_header(); ?>
   &lt;/li&gt;
 &lt;/ul&gt;
 </pre>
-          <p>Visit the <a href="./javascript.html#dropdowns">javascript dropdowns documentation</a> for more markup and information on calling dropdowns.</p>
+          <p>Visit the <a href="./javascript.html#dropdowns">JavaScript dropdowns documentation</a> for more markup and information on calling dropdowns.</p>
 
           <h3>Text</h3>
           <p>Wrap strings of text in an element with <code>.navbar-text</code>, usually on a <code>&lt;p&gt;</code> tag for proper leading and color.</p>
@@ -1203,13 +1234,13 @@ get_header(); ?>
             <div class="navbar">
               <div class="navbar-inner">
                 <div class="container">
-                  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                  <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-responsive-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </a>
                   <a class="brand" href="#">Title</a>
-                  <div class="nav-collapse">
+                  <div class="nav-collapse collapse navbar-responsive-collapse">
                     <ul class="nav">
                       <li class="active"><a href="#">Home</a></li>
                       <li><a href="#">Link</a></li>
@@ -1265,7 +1296,7 @@ get_header(); ?>
       &lt;a class="brand" href="#"&gt;Project name&lt;/a&gt;
 
       &lt;!-- Everything you want hidden at 940px or less, place within here --&gt;
-      &lt;div class="nav-collapse"&gt;
+      &lt;div class="nav-collapse collapse"&gt;
         &lt;!-- .nav, .navbar-search, .navbar-form, etc --&gt;
       &lt;/div&gt;
 
@@ -1287,13 +1318,13 @@ get_header(); ?>
             <div class="navbar navbar-inverse" style="position: static;">
               <div class="navbar-inner">
                 <div class="container">
-                  <a class="btn btn-navbar" data-toggle="collapse" data-target=".subnav-collapse">
+                  <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </a>
                   <a class="brand" href="#">Title</a>
-                  <div class="nav-collapse subnav-collapse">
+                  <div class="nav-collapse collapse navbar-inverse-collapse">
                     <ul class="nav">
                       <li class="active"><a href="#">Home</a></li>
                       <li><a href="#">Link</a></li>
@@ -1449,6 +1480,77 @@ get_header(); ?>
   &lt;ul&gt;
     &lt;li class="disabled"&gt;&lt;span&gt;Prev&lt;/span&gt;&lt;/li&gt;
     &lt;li class="active"&gt;&lt;span&gt;1&lt;/span&gt;&lt;/li&gt;
+    ...
+  &lt;/ul&gt;
+&lt;/div&gt;
+</pre>
+
+          <h3>Sizes</h3>
+          <p>Fancy larger or smaller pagination? Add <code>.pagination-large</code>, <code>.pagination-small</code>, or <code>.pagination-mini</code> for additional sizes.</p>
+          <div class="bs-docs-example">
+            <div class="pagination pagination-large">
+              <ul>
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+              </ul>
+            </div>
+            <div class="pagination">
+              <ul>
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+             </ul>
+            </div>
+            <div class="pagination pagination-small">
+              <ul>
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+              </ul>
+            </div>
+            <div class="pagination pagination-mini">
+              <ul>
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+              </ul>
+            </div>
+          </div>
+<pre class="prettyprint linenums">
+&lt;div class="pagination pagination-large"&gt;
+  &lt;ul&gt;
+    ...
+  &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="pagination"&gt;
+  &lt;ul&gt;
+    ...
+  &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="pagination pagination-small"&gt;
+  &lt;ul&gt;
+    ...
+  &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="pagination pagination-mini"&gt;
+  &lt;ul&gt;
     ...
   &lt;/ul&gt;
 &lt;/div&gt;
@@ -1700,6 +1802,9 @@ get_header(); ?>
             </tbody>
           </table>
 
+          <h3>Easily collapsible</h3>
+          <p>For easy implementation, labels and badges will simply collapse (via CSS's <code>:empty</code> selector) when no content exists within.</p>
+
         </section>
 
 
@@ -1889,6 +1994,7 @@ get_header(); ?>
 
 
 
+
         <!-- Alerts
         ================================================== -->
         <section id="alerts">
@@ -1917,7 +2023,7 @@ get_header(); ?>
           <p>Alternatively, you may use a <code>&lt;button&gt;</code> element with the data attribute, which we have opted to do for our docs. When using <code>&lt;button&gt;</code>, you must include <code>type="button"</code> or your forms may not submit.</p>
           <pre class="prettyprint linenums">&lt;button type="button" class="close" data-dismiss="alert"&gt;&times;&lt;/button&gt;</pre>
 
-          <h3>Dismiss alerts via javascript</h3>
+          <h3>Dismiss alerts via JavaScript</h3>
           <p>Use the <a href="./javascript.html#alerts">alerts jQuery plugin</a> for quick and easy dismissal of alerts.</p>
 
 
@@ -1988,6 +2094,7 @@ get_header(); ?>
 </pre>
 
         </section>
+
 
 
 
@@ -2137,6 +2244,144 @@ get_header(); ?>
 
 
 
+        <!-- Media object
+        ================================================== -->
+        <section id="media">
+          <div class="page-header">
+            <h1>Media object</h1>
+          </div>
+          <p class="lead">Abstract object styles for building various types of components (like blog comments, Tweets, etc) that feature a left- or right-aligned image alongside textual content.</p>
+
+          <h2>Default example</h2>
+          <p>The default media allow to float a media object (images, video, audio) to the left or right of a content block.</p>
+          <div class="bs-docs-example">
+            <div class="media">
+              <a class="pull-left" href="#">
+                <img class="media-object" src="http://placehold.it/64x64">
+              </a>
+              <div class="media-body">
+                <h4 class="media-heading">Media heading</h4>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              </div>
+            </div>
+            <div class="media">
+              <a class="pull-left" href="#">
+                <img class="media-object" src="http://placehold.it/64x64">
+              </a>
+              <div class="media-body">
+                <h4 class="media-heading">Media heading</h4>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                <div class="media">
+                  <a class="pull-left" href="#">
+                    <img class="media-object" src="http://placehold.it/64x64">
+                  </a>
+                  <div class="media-body">
+                    <h4 class="media-heading">Media heading</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<pre class="prettyprint linenums">
+&lt;div class="media"&gt;
+  &lt;a class="pull-left" href="#"&gt;
+    &lt;img class="media-object" src="http://placehold.it/64x64"&gt;
+  &lt;/a&gt;
+  &lt;div class="media-body"&gt;
+    &lt;h4 class="media-heading"&gt;Media heading&lt;/h4&gt;
+    ...
+
+    &lt;!-- Nested media object --&gt;
+    &lt;div class="media"&gt;
+      ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+
+          <hr class="bs-docs-separator">
+
+
+          <h2>Media list</h2>
+          <p>With a bit of extra markup, you can use media inside list (useful for comment threads or articles lists).</p>
+          <div class="bs-docs-example">
+            <ul class="media-list">
+              <li class="media">
+                <a class="pull-left" href="#">
+                  <img class="media-object" src="http://placehold.it/64x64">
+                </a>
+                <div class="media-body">
+                  <h4 class="media-heading">Media heading</h4>
+                  <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+                  <!-- Nested media object -->
+                  <div class="media">
+                    <a class="pull-left" href="#">
+                      <img class="media-object" src="http://placehold.it/64x64">
+                    </a>
+                    <div class="media-body">
+                      <h4 class="media-heading">Nested media heading</h4>
+                      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                      <!-- Nested media object -->
+                      <div class="media">
+                        <a class="pull-left" href="#">
+                          <img class="media-object" src="http://placehold.it/64x64">
+                        </a>
+                        <div class="media-body">
+                          <h4 class="media-heading">Nested media heading</h4>
+                          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Nested media object -->
+                  <div class="media">
+                    <a class="pull-left" href="#">
+                      <img class="media-object" src="http://placehold.it/64x64">
+                    </a>
+                    <div class="media-body">
+                      <h4 class="media-heading">Nested media heading</h4>
+                      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="media">
+                <a class="pull-right" href="#">
+                  <img class="media-object" src="http://placehold.it/64x64">
+                </a>
+                <div class="media-body">
+                  <h4 class="media-heading">Media heading</h4>
+                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                </div>
+              </li>
+            </ul>
+          </div>
+<pre class="prettyprint linenums">
+&lt;ul class="media-list"&gt;
+  &lt;li class="media"&gt;
+    &lt;a class="pull-left" href="#"&gt;
+      &lt;img class="media-object" src="http://placehold.it/64x64"&gt;
+    &lt;/a&gt;
+    &lt;div class="media-body"&gt;
+      &lt;h4 class="media-heading"&gt;Media heading&lt;/h4&gt;
+      ...
+
+      &lt;!-- Nested media object --&gt;
+      &lt;div class="media"&gt;
+        ...
+     &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+
+</section>
+
+
+
+
 
         <!-- Miscellaneous
         ================================================== -->
@@ -2186,7 +2431,7 @@ get_header(); ?>
             <p><button class="close" style="float: none;">&times;</button></p>
           </div>
           <pre class="prettyprint linenums">&lt;button class="close"&gt;&amp;times;&lt;/button&gt;</pre>
-          <p>iOS devices require an href="#" for click events if you rather use an anchor.</p>
+          <p>iOS devices require an href="#" for click events if you would rather use an anchor.</p>
           <pre class="prettyprint linenums">&lt;a class="close" href="#"&gt;&amp;times;&lt;/a&gt;</pre>
 
           <h2>Helper classes</h2>
@@ -2246,11 +2491,10 @@ class="clearfix"
 
         </section>
 
-
-
       </div>
     </div>
 
   </div>
-<?php endwhile; ?>
+
+    <?php endwhile; ?>
 <?php get_footer(); ?>

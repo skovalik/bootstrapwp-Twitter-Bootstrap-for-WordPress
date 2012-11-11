@@ -1,11 +1,18 @@
-// BSWP DOCS v0.91
-/********************************************************
- Bootstrap's documentation styles
- Special styles for presenting Bootstrap's documentation and examples
+/* Add additional stylesheets below
 -------------------------------------------------- */
+/*
+  Bootstrap's documentation styles
+  Special styles for presenting Bootstrap's documentation and examples
+*/
+
+
 
 /* Body and structure
 -------------------------------------------------- */
+
+body {
+  position: relative;
+}
 
 /* Code in headings */
 h3 code {
@@ -17,6 +24,7 @@ h3 code {
 
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
+
 body > .navbar {
   font-size: 13px;
 }
@@ -75,6 +83,7 @@ hr.soften {
 
 /* Jumbotrons
 -------------------------------------------------- */
+
 /* Base class
 ------------------------- */
 .jumbotron {
@@ -166,6 +175,16 @@ hr.soften {
   left: 0;
   background: url(../img/bs-docs-masthead-pattern.png) repeat center center;
   opacity: .4;
+}
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1) {
+
+  .jumbotron:after {
+    background-size: 150px 150px;
+  }
+
 }
 
 /* Masthead (docs home)
@@ -325,7 +344,13 @@ hr.soften {
   margin-bottom: 0;
 }
 .show-grid .show-grid [class*="span"] {
+  margin-top: 5px;
+}
+.show-grid [class*="span"] [class*="span"] {
   background-color: #ccc;
+}
+.show-grid [class*="span"] [class*="span"] [class*="span"] {
+  background-color: #999;
 }
 
 
@@ -518,7 +543,11 @@ h2 + .row {
   width: 25%;
   line-height: 25px;
 }
-.the-icons i:hover {
+.the-icons [class^="icon-"] {
+  vertical-align: middle;
+  margin-right: 3px;
+}
+.the-icons li:hover [class^="icon-"] {
   background-color: rgba(255,0,0,.25);
 }
 

@@ -10,16 +10,17 @@
  * @package WordPress
  * @subpackage WP-Bootstrap
  * @since WP-Bootstrap 0.6
+ *
  */
-
 get_header();
 if (have_posts() ) ;?>
-<div class="row">
-	<div class="container">
-		<?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
-	</div><!--/.container -->
-</div><!--/.row -->
-<div class="container">
+    <div class="container">
+        <div class="row">
+          <div class="span12">
+             <?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
+         </div><!--/.span12 -->
+   </div><!--/.row -->
+
 	<header class="jumbotron subhead" id="overview">
 		<h1><?php
 		if ( is_day() ) {
@@ -44,7 +45,6 @@ if (have_posts() ) ;?>
 			_e( 'Blog Archives', 'bootstrapwp' );
 		}
 		?></h1>
-	</h1>
 </header>
 
 <div class="row content">

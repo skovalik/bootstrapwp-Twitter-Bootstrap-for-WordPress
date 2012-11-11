@@ -1,15 +1,17 @@
 <?php
 /**
- * Template Name: Scaffolding Guide, no sidebar
+ * Template Name: Documentation - Scaffolding Guide
  *
  * @package WP-Bootstrap
  * @subpackage Default_Theme
  * @since WP-Bootstrap 0.87
  *
- * Last Revised: September 9, 2012
- *
  */
-get_header(); ?>
+get_header();
+wp_enqueue_script('prettify-js');
+wp_enqueue_style('prettify-css');
+wp_enqueue_style('docs-css');
+?>
 <?php while ( have_posts() ) : the_post(); ?>
 
 <!-- Subhead
@@ -21,9 +23,10 @@ get_header(); ?>
   </div>
 </header>
 
+ <div class="container">
 
-<div class="container">
- <!-- Docs nav
+
+    <!-- Docs nav
     ================================================== -->
     <div class="row">
       <div class="span3 bs-docs-sidebar">
@@ -244,13 +247,21 @@ get_header(); ?>
 </pre>
 
           <h2>Fluid nesting</h2>
-          <p>Nesting with fluid grids is a bit different: the number of nested columns should not match the parent's number of columns. Instead, each level of nested columns are reset because each row takes up 100% of the parent column.</p>
+          <p>Fluid grids utilize nesting differently: each nested level of columns should add up to 12 columns. This is because the fluid grid uses percentages, not pixels, for setting widths.</p>
           <div class="row-fluid show-grid">
             <div class="span12">
               Fluid 12
               <div class="row-fluid show-grid">
                 <div class="span6">
                   Fluid 6
+                  <div class="row-fluid show-grid">
+                    <div class="span6">
+                      Fluid 6
+                    </div>
+                    <div class="span6">
+                      Fluid 6
+                    </div>
+                  </div>
                 </div>
                 <div class="span6">
                   Fluid 6
@@ -263,7 +274,13 @@ get_header(); ?>
   &lt;div class="span12"&gt;
     Fluid 12
     &lt;div class="row-fluid"&gt;
-      &lt;div class="span6"&gt;Fluid 6&lt;/div&gt;
+      &lt;div class="span6"&gt;
+        Fluid 6
+        &lt;div class="row-fluid"&gt;
+          &lt;div class="span6"&gt;Fluid 6&lt;/div&gt;
+          &lt;div class="span6"&gt;Fluid 6&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
       &lt;div class="span6"&gt;Fluid 6&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -452,7 +469,7 @@ get_header(); ?>
           </table>
 
           <h3>When to use</h3>
-          <p>Use on a limited basis and avoid creating entirely different versions of the same site. Instead, use them to complement each device's presentation.</p>
+          <p>Use on a limited basis and avoid creating entirely different versions of the same site. Instead, use them to complement each device's presentation. Responsive utilities should not be used with tables, and as such are not supported.</p>
 
           <h3>Responsive utilities test case</h3>
           <p>Resize your browser or load on different devices to test the above classes.</p>
@@ -479,5 +496,6 @@ get_header(); ?>
     </div>
 
   </div>
-<?php endwhile; ?>
+
+    <?php endwhile; ?>
 <?php get_footer(); ?>
