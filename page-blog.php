@@ -16,8 +16,6 @@ get_header(); ?>
     </div><!--/.container -->
   </div><!--/.row -->
   <div class="container">
- <!-- Masthead
- ================================================== -->
  <header class="jumbotron subhead" id="overview">
   <h1><?php the_title();?></h1>
 </header>
@@ -31,9 +29,7 @@ get_header(); ?>
           // resetting the loop
     ?>
     <hr />
-  </div><!-- /.span8 -->
 
-  <div class="span8">
     <?php
               // Blog post query
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
