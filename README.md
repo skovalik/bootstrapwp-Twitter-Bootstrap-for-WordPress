@@ -13,9 +13,9 @@ Demo
 ----
 You can view a demo of this WordPress theme running the latest development branch code at: [http://bootstrapwp.rachelbaker.me/](http://bootstrapwp.rachelbaker.me/)
 
-View the theme style guide at: [http://bootstrapwp.rachelbaker.me/style-guide/](http://bootstrapwp.rachelbaker.me/style-guide/)
+View the theme's base CSS elements at: [http://bootstrapwp.rachelbaker.me/base-css/](http://bootstrapwp.rachelbaker.me/base-css/)
 
-View the javascript guide at: [http://bootstrapwp.rachelbaker.me/javascript-guide/](http://bootstrapwp.rachelbaker.me/javascript-guide/)
+View the theme's JavaScript guide at: [http://bootstrapwp.rachelbaker.me/javascript/](http://bootstrapwp.rachelbaker.me/javascript/)
 
 
 Usage
