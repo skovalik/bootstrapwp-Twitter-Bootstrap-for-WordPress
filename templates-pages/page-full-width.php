@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Name: Full-width Page
- * Description: A full-width template with no sidebar
+ * Template Name: Page - Full-width
+ * Description: Displays a page title and content without displaying a sidebar.
  *
  * @package WordPress
  * @subpackage WP-Bootstrap

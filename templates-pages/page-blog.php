@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Name: Blog Page
- * Description: Page template to display blog posts
+ * Template Name: Page - Blog Template
+ * Description: Displays blog posts with pagination and featured image.
  *
  * @package WordPress
  * @subpackage WP-Bootstrap
