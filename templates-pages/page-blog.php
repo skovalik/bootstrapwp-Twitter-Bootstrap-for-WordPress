@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Name: Blog Page
- * Description: Page template to display blog posts
+ * Template Name: Page - Blog Template
+ * Description: Displays blog posts with pagination and featured image.
  *
  * @package WordPress
  * @subpackage WP-Bootstrap
@@ -18,7 +18,7 @@ get_header(); ?>
          </div><!--/.span12 -->
    </div><!--/.row -->
 
- <header class="jumbotron subhead" id="overview">
+ <header class="subhead" id="overview">
   <h1><?php the_title();?></h1>
 </header>
 

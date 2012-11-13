@@ -12,7 +12,7 @@ License URI: license.txt
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
-/* Loading Standard Bootstrap 2.2.1 LESS Files
+/* Loading Standard Bootstrap 2.2 LESS Files
 ----------------------------------------------------------------------------------------*/
 article,
 aside,
@@ -196,7 +196,7 @@ textarea {
   clear: both;
 }
 .hide-text {
-  font: a;
+  font: 0/0 a;
   color: transparent;
   text-shadow: none;
   background-color: transparent;
@@ -5108,7 +5108,7 @@ a.badge:hover {
 .affix {
   position: fixed;
 }
-/* Loading Responsive Bootstrap 2.1 LESS Files
+/* Loading Responsive Bootstrap 2.2 LESS Files
 ----------------------------------------------------------------------------------------*/
 .hidden {
   display: none;
@@ -6098,8 +6098,34 @@ a.badge:hover {
 }
 /* Custom BootstrapWP Overrides and Styles
 ----------------------------------------------------------------------------------------*/
-/********************************************************
-Overriding some defaults from the Bootstrap defaults to improve/fix integration with WordPress
+/********************************************************/
+.container > hr {
+  margin: 60px 0;
+}
+.jumbotron {
+  margin: 80px 0;
+  text-align: center;
+}
+.jumbotron h1 {
+  font-size: 100px;
+  line-height: 1;
+}
+.jumbotron .lead {
+  font-size: 24px;
+  line-height: 1.25;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+/* Supporting marketing content */
+.marketing {
+  margin: 60px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+/**Overriding some defaults from the Bootstrap defaults to improve/fix integration with WordPress
 -------------------------------------------------- */
 #content-wrapper {
   padding: 40px 0 20px 0;
@@ -6270,7 +6296,7 @@ h4.widget-title {
   background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
   background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
   background-repeat: no-repeat;
-  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
   border: 1px solid #CCC;
   border-bottom-color: #BBB;
   -webkit-border-radius: 4px;
@@ -6427,10 +6453,10 @@ ol.comment-list li p.meta strong {
   background-image: -o-linear-gradient(top, #0088cc, #0044cc);
   background-image: linear-gradient(top, #0088cc, #0044cc);
   background-repeat: repeat-x;
-  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#0088cc', endColorstr='#0044cc', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088cc', endColorstr='#0044cc', GradientType=0);
   border-color: #04C #04C #002A80;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 .button:hover,
 #submit:hover,

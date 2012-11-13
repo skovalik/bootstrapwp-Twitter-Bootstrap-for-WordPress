@@ -14,7 +14,7 @@
  */
 
 if ( !defined( 'BOOTSTRAPWP_VERSION' ) )
-  define( 'BOOTSTRAPWP_VERSION', '.90' );
+  define( 'BOOTSTRAPWP_VERSION', '.91' );
 
 if ( ! isset( $content_width ) )
   $content_width = 770; /* pixels */
@@ -28,7 +28,7 @@ if ( ! isset( $content_width ) )
 add_action( 'after_setup_theme', 'bootstrapwp_theme_setup' );
 if ( ! function_exists( 'bootstrapwp_theme_setup' ) ):
   function bootstrapwp_theme_setup() {
-    load_theme_textdomain( 'bootstrapwp' );
+    load_theme_textdomain( 'bootstrapwp', get_template_directory() . '/lang' );
     add_theme_support( 'automatic-feed-links' );
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'post-formats',
@@ -66,16 +66,16 @@ function bootstrapwp_scripts_styles_loader() {
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
           wp_enqueue_script( 'comment-reply' );
     }
-  wp_enqueue_script( 'bootstrapjs', get_template_directory_uri().'/js/bootstrap.min.js', array( 'jquery' ), '0.90', true );
-  wp_enqueue_script( 'demojs', get_template_directory_uri().'/js/bootstrapwp.demo.js', array( 'jquery' ), '0.90', true );
+  wp_enqueue_script( 'bootstrapjs', get_template_directory_uri().'/assets/js/bootstrap.min.js', array( 'jquery' ), '0.91', true );
+  wp_enqueue_script( 'demojs', get_template_directory_uri().'/assets/js/bootstrapwp.demo.js', array( 'jquery' ), '0.91', true );
 
-  wp_enqueue_style( 'bootstrapwp-style', get_template_directory_uri().'/css/bootstrapwp.css', false , '0.90', 'all' );
+  wp_enqueue_style( 'bootstrapwp-style', get_template_directory_uri().'/assets/css/bootstrapwp.css', false , '0.91', 'all' );
   wp_enqueue_style( 'bootstrapwp-default', get_stylesheet_uri() );
 
   // registering scripts and styles for documentation templates
   wp_register_script( 'prettify-js', get_template_directory_uri().'/templates-documentation/assets/google-code-prettify/prettify.js', array( 'jquery' ), '1.0', true );
   wp_register_style( 'prettify-css', get_template_directory_uri().'/templates-documentation/assets/google-code-prettify/prettify.css', false , '1.0', 'all' );
-  wp_register_style( 'docs-css', get_template_directory_uri().'/templates-documentation/assets/css/docs.css', false , '2.2.1', 'all' );
+  wp_register_style( 'docs-css', get_template_directory_uri().'/templates-documentation/assets/css/docs.css', array( 'bootstrapwp-style') , '2.2.1', 'all' );
 }
 add_action( 'wp_enqueue_scripts', 'bootstrapwp_scripts_styles_loader' );
 
@@ -107,65 +107,64 @@ include 'includes/class-bootstrapwp_walker_nav_menu.php';
 | */
 function bootstrapwp_widgets_init() {
   register_sidebar( array(
-      'name' => 'Page Sidebar',
-      'id' => 'sidebar-page',
-      'before_widget' => '<div id="%1$s" class="widget %2$s">',
-      'after_widget' => "</div>",
-      'before_title' => '<h4 class="widget-title">',
-      'after_title' => '</h4>',
-    ) );
+    'name' => __('Page Sidebar', 'bootstrapwp'),
+    'id' => 'sidebar-page',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => "</div>",
+    'before_title' => '<h4 class="widget-title">',
+    'after_title' => '</h4>',
+  ) );
 
   register_sidebar( array(
-      'name' => 'Posts Sidebar',
-      'id' => 'sidebar-posts',
-      'before_widget' => '<div id="%1$s" class="widget %2$s">',
-      'after_widget' => "</div>",
-      'before_title' => '<h4 class="widget-title">',
-      'after_title' => '</h4>',
-    ) );
+    'name' => __('Posts Sidebar', 'bootstrapwp'),
+    'id' => 'sidebar-posts',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => "</div>",
+    'before_title' => '<h4 class="widget-title">',
+    'after_title' => '</h4>',
+  ) );
 
-  register_sidebar( array(
-      'name' => 'Home Left',
-      'id'   => 'home-left',
-      'description'   => 'Left textbox on homepage',
-      'before_widget' => '<div id="%1$s" class="widget %2$s">',
-      'after_widget'  => '</div>',
-      'before_title'  => '<h2>',
-      'after_title'   => '</h2>'
-    ) );
+  register_sidebar(array(
+    'name' => __('Home Left', 'bootstrapwp'),
+    'id'   => 'home-left',
+    'description'   => __('Left textbox on homepage', 'bootstrapwp'),
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h2>',
+    'after_title'   => '</h2>'
+  ));
 
-  register_sidebar( array(
-      'name' => 'Home Middle',
-      'id'   => 'home-middle',
-      'description'   => 'Middle textbox on homepage',
-      'before_widget' => '<div id="%1$s" class="widget %2$s">',
-      'after_widget'  => '</div>',
-      'before_title'  => '<h2>',
-      'after_title'   => '</h2>'
-    ) );
+    register_sidebar(array(
+    'name' => __('Home Middle', 'bootstrapwp'),
+    'id'   => 'home-middle',
+    'description'   => __('Middle textbox on homepage', 'bootstrapwp'),
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h2>',
+    'after_title'   => '</h2>'
+  ));
 
-  register_sidebar( array(
-      'name' => 'Home Right',
-      'id'   => 'home-right',
-      'description'   => 'Right textbox on homepage',
-      'before_widget' => '<div id="%1$s" class="widget %2$s">',
-      'after_widget'  => '</div>',
-      'before_title'  => '<h2>',
-      'after_title'   => '</h2>'
-    ) );
+    register_sidebar(array(
+    'name' => __('Home Right', 'bootstrapwp'),
+    'id'   => 'home-right',
+    'description'   => __('Right textbox on homepage', 'bootstrapwp'),
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h2>',
+    'after_title'   => '</h2>'
+  ));
 
-  register_sidebar( array(
-      'name' => 'Footer Content',
-      'id'   => 'footer-content',
-      'description'   => 'Footer text or acknowledgements',
-      'before_widget' => '<div id="%1$s" class="widget %2$s">',
-      'after_widget'  => '</div>',
-      'before_title'  => '<h4>',
-      'after_title'   => '</h4>'
-    ) );
+    register_sidebar(array(
+    'name' => __('Footer Content', 'bootstrapwp'),
+    'id'   => 'footer-content',
+    'description'   => __('Footer text or acknowledgements', 'bootstrapwp'),
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h4>',
+    'after_title'   => '</h4>'
+  ));
 }
 add_action( 'init', 'bootstrapwp_widgets_init' );
-
 
 
 /*
@@ -174,11 +173,11 @@ add_action( 'init', 'bootstrapwp_widgets_init' );
 | -------------------------------------------------------------------
 | Adding filter to post excerpts to contain ...Continue Reading link
 | */
-function bootstrapwp_excerpt( $more ) {
-  global $post;
-  return '&nbsp; &nbsp;<a href="'. get_permalink( $post->ID ) . '">...Continue Reading</a>';
+function bootstrapwp_excerpt($more) {
+       global $post;
+  return '&nbsp; &nbsp;<a href="'. get_permalink($post->ID) . '">'.__( '...Continue Reading', 'bootstrapwp' ).'</a>';
 }
-add_filter( 'excerpt_more', 'bootstrapwp_excerpt' );
+add_filter('excerpt_more', 'bootstrapwp_excerpt');
 
 
 
@@ -193,8 +192,8 @@ if ( ! function_exists( 'bootstrapwp_content_nav' ) ):
 
   <?php if ( is_single() ) : // navigation links for single posts ?>
 <ul class="pager">
-    <?php previous_post_link( '<li class="previous">%link</li>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'bootstrapwp' ) . '</span> %title' ); ?>
-    <?php next_post_link( '<li class="next">%link</li>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'bootstrapwp' ) . '</span>' ); ?>
+    <?php previous_post_link( '<li class="previous">%link</li>', '<span class="meta-nav">' . _e( '&larr;', 'Previous post link', 'bootstrapwp' ) . '</span> %title' ); ?>
+    <?php next_post_link( '<li class="next">%link</li>', '%title <span class="meta-nav">' . _e( '&rarr;', 'Next post link', 'bootstrapwp' ) . '</span>' ); ?>
 </ul>
   <?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
 <ul class="pager">

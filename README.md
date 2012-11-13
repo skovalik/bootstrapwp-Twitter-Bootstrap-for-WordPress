@@ -1,7 +1,7 @@
 BootstrapWP - Bootstrap Theme for WordPress
 =================
 
-![image](http://f.cl.ly/items/0o0N0e1k2X0B0l0r0n1P/BootstrapWP-Bootstrap-starter-theme.jpg)
+![image](http://f.cl.ly/items/3x1o3V042y3n1X3z1t1O/BootstrapWP-v91-home.png) 
 
 
 Bootstrap is a responsive front-end toolkit from Twitter designed to kickstart web development, complete with core HTML, CSS, and JS for grids, type, forms, navigation, and many more components. Now you can use it with **WordPress** as a solid base to build custom themes quickly and easily.
@@ -23,35 +23,74 @@ Usage
 
 Download the BootstrapWP theme, and install on a WordPress local or development site.
 
-This is meant to be a base theme for WordPress custom theme development.  A knowledge of WordPress theme development practices as well as understanding of HTML, CSS/LESS, jQuery and PHP are required.
-
-**Important!** To safely retain the ability to update the less files with future versions of Bootstrap or BootstrapWP, add all custom edits/changes inside the `less/bswp-custom.less` file.
+This is meant to be a base theme for WordPress custom theme development.  Your knowledge of WordPress theme development practices as well as understanding of HTML, CSS/LESS, jQuery and PHP are required.
 
 
 Getting Started
 -------
 
-1. Create a page that uses the template `Hero Homepage Template`, then under `Settings->Reading`  set your site to use a static front page selecting your new page.
+1. Create a page that uses the template `Page - Home Hero`, then under `Settings->Reading`  set your site to use a static front page selecting your new page.
 
 2. Add content to the three "Home" widget areas under `Appearances->Widgets`.
 
 3. Create a menu under `Appearances->Menus` and assign it be your site's Main Menu.
 
+Customization
+-------
+
+**Comfortable with LESS?**
+
+Check out the /assets/css/less folder where the `bootstrapwp.less` file is the master complier.  The included files compile the `bootstrapwp.css` file that is located in the /assets/css folder.
+**Important!** To safely retain the ability to update the less files with future versions of Bootstrap or BootstrapWP, add all custom edits/changes inside the `less/bswp-custom.less` file.
+
+
+**Not comfortable with LESS?**
+
+You can override the compiled bootstrapwp.css file by adding custom styles to the style.css in the theme's root directory.
+
+
+**Prefer to create a Child Theme?**
+
+BootstrapWP is Child Theme compatible.  For more information on how to create a [Child Theme check out the WordPress Codex](http://codex.wordpress.org/Child_Themes#Directory_structure).  
 
 
 Bug tracker
 -----------
 
+Please report all issues on the repo's Issue Tracker. Remember to provide as much information as possible regarding the bug/issue you are reporting so a patch can be released.
+
 **Report theme bugs** [https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/issues](https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/issues)
 
-##v.90 of BootstrapWP - Release September 9, 2012
 
-__Release Highlights:__
+##v.91 of BootstrapWP ##
 
-1.  Updated to Bootstrap 2.1 scripts and styles
-2. Fixed `Custom Walker Menu` PHP error
-3.  Fixed Automatic Thumbnail PHP errors
-4.  Cleaned up unnecessary theme files
+**Release Highlights:**
+
+1.  Updated to Bootstrap 2.2.1 scripts and styles
+2.  Fix Child Theme compatibility
+3.  Improved file organization with assets and template folders
+4.  Merged internationalization/translation contributions from [santiagogil](https://github.com/santiagogil) and [zedejose](https://github.com/zedejose)
+
+__Assets Folder__
+
+* Now contains the following folders: css, js, img, fonts and ico
+* Removed assets/css/less/bswp-docs.less file as it is now only loaded on documentation templates.
+* Updated all LESS and JS files from Bootstrap 2.2.1
+
+__Templates-Documentation Folder__
+
+* Holds documentation page templates and related assets
+* Updated documentation templates and docs.css file from Bootstrap 2.2.1
+
+__Templates-Pages Folder__
+
+* Holds theme's page templates
+* Changed layout on `page-home.php` to match hero template
+* Removed "jumbotron" class from h1 title on `page-blog.php` template
+
+__404.php__
+
+* Removed masthead comment to clean up template file
 
 __Archive.php__
 
