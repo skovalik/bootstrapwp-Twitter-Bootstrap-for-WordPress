@@ -18,7 +18,7 @@ get_header(); ?>
          </div><!--/.span12 -->
    </div><!--/.row -->
 
- <header class="jumbotron subhead" id="overview">
+ <header class="subhead" id="overview">
   <h1><?php the_title();?></h1>
 </header>
 
