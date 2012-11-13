@@ -23,8 +23,13 @@ Usage
 
 Download the BootstrapWP theme, and install on a WordPress local or development site.
 
-This is meant to be a base theme for WordPress custom theme development.  A knowledge of WordPress theme development practices as well as understanding of HTML, CSS/LESS, jQuery and PHP are required.
+This is meant to be a base theme for WordPress custom theme development.  Your knowledge of WordPress theme development practices as well as understanding of HTML, CSS/LESS, jQuery and PHP are required.
 
+Customization
+-------
+
+You can add your CSS 
+**LESS** 
 **Important!** To safely retain the ability to update the less files with future versions of Bootstrap or BootstrapWP, add all custom edits/changes inside the `less/bswp-custom.less` file.
 
 
