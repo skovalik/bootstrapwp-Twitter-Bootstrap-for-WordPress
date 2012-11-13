@@ -94,26 +94,22 @@ __404.php__
 
 __Archive.php__
 
-* Replaced conditional for `the_post_thumbnail()` with `bootstrapwp_autoset_featured_img()`.
+*  Reorganized divs around breadcrumbs
 
 __Author.php__
 
-* Replaced conditional for `the_post_thumbnail()` with `bootstrapwp_autoset_featured_img()`.
-
-__Class-bootstrapwp-walker-nav_menu.php__
-
-*   Extending Walker_Nav_Menu to modify class assigned to submenu ul element.
+*  Reorganized divs around breadcrumbs
 
 __Footer.php__
 
-*   Cleaned up ending div tags
+*   Back to top text is now translatable (props @santiagogil)
 
 __Functions.php__
 
-*   Fixed `bootstrapwp_autoset_featured_img()` function to return if there is no image set, clearing debug errors.
-*   Removed the post hooks for `bootstrap_autoset_featured_img()` function to clear debug errors.
-*   Added `bootstrapwp_post_thumbnail_check()` function to check if the post displayed in the loop has a post thumbnail already.
-*   Removed Custom Walker class from file and replaced with external include call for file 'includes/class-bootstrap_walker_nav_menu.php'.
+*   Changed paths to CSS and JS files to assets folder
+*  Corrected text-domain (props @zedejose)
+*  Added localization support for widgets and excerpt text (props @santiagogil)
+* Edited height on bootstrap-medium image size
 
 __Header.php__
 
