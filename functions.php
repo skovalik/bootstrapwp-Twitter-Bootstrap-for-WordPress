@@ -213,8 +213,10 @@ function bootstrapwp_comment( $comment, $args, $depth ) {
   case 'pingback' :
   case 'trackback' :
   ?>
-  <li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
+  <li class="comment media" id="comment-<?php comment_ID(); ?>">
+    <div class="media-body">
     <p><?php _e( 'Pingback:', 'bootstrapwp' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Edit)', 'bootstrapwp' ), '<span class="edit-link">', '</span>' ); ?></p>
+    </div><!--/.media-body -->
     <?php
     break;
     default :
@@ -223,7 +225,7 @@ function bootstrapwp_comment( $comment, $args, $depth ) {
     ?>
     <li class="comment media" id="li-comment-<?php comment_ID(); ?>">
       <article id="comment-<?php comment_ID(); ?>" class="comment">
-        <a href="<?php echo get_comment_author_link();?>" class="pull-left">
+        <a href="<?php echo $comment->comment_author_url ;?>" class="pull-left">
           <?php echo get_avatar( $comment, 64 ); ?>
         </a>
         <div class="media-body">
@@ -231,13 +233,12 @@ function bootstrapwp_comment( $comment, $args, $depth ) {
           <header class="comment-meta comment-author vcard">
             <h4 class="media-heading">
               <?php
-          //echo get_avatar( $comment, 44 );
               printf( '<cite class="fn">%1$s %2$s</cite>',
                      get_comment_author_link(),
-            // If current post author is also comment author, make it known visually.
-                     ( $comment->user_id === $post->post_author ) ? '<span class="subhead"> ' . __( ' Post author ', 'bootstrapwp' ) . '</span>' : ''
+                    // If current post author is also comment author, make it known visually.
+                     ( $comment->user_id === $post->post_author ) ? '<span class="label"> ' . __( 'Post author', 'bootstrapwp' ) . '</span> ' : ''
                      );
-              printf( '<a href="%1$s"><time datetime="%2$s">%3$s</time></a>',
+                    printf( '<a href="%1$s"><time datetime="%2$s">%3$s</time></a>',
                      esc_url( get_comment_link( $comment->comment_ID ) ),
                      get_comment_time( 'c' ),
                      /* translators: 1: date, 2: time */
