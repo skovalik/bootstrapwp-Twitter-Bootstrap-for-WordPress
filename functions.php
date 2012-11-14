@@ -32,20 +32,20 @@ if ( ! function_exists( 'bootstrapwp_theme_setup' ) ):
     add_theme_support( 'automatic-feed-links' );
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'post-formats',
-      array( 'aside',
-        'image',
-        'gallery',
-        'link',
-        'quote',
-        'status',
-        'video',
-        'audio',
-        'chat' ) );
+                      array( 'aside',
+                            'image',
+                            'gallery',
+                            'link',
+                            'quote',
+                            'status',
+                            'video',
+                            'audio',
+                            'chat' ) );
     register_nav_menus( array(
-        'main-menu' => __( 'Main Menu', 'bootstrapwp' ),
-      ) );
+                       'main-menu' => __( 'Main Menu', 'bootstrapwp' ),
+                       ) );
   }
-endif;
+  endif;
 
 /**
  * Setup image sizes
@@ -63,9 +63,9 @@ function bootstrapwp_images() {
  * Uses wp_enqueue_script()
  */
 function bootstrapwp_scripts_styles_loader() {
-    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-          wp_enqueue_script( 'comment-reply' );
-    }
+  if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+    wp_enqueue_script( 'comment-reply' );
+  }
   wp_enqueue_script( 'bootstrapjs', get_template_directory_uri().'/assets/js/bootstrap.min.js', array( 'jquery' ), '0.91', true );
   wp_enqueue_script( 'demojs', get_template_directory_uri().'/assets/js/bootstrapwp.demo.js', array( 'jquery' ), '0.91', true );
 
@@ -107,66 +107,66 @@ include 'includes/class-bootstrapwp_walker_nav_menu.php';
 | */
 function bootstrapwp_widgets_init() {
   register_sidebar( array(
-    'name' => __('Page Sidebar', 'bootstrapwp'),
-    'id' => 'sidebar-page',
-    'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    'after_widget' => "</div>",
-    'before_title' => '<h4 class="widget-title">',
-    'after_title' => '</h4>',
-  ) );
+                   'name' => __('Page Sidebar', 'bootstrapwp'),
+                   'id' => 'sidebar-page',
+                   'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                   'after_widget' => "</div>",
+                   'before_title' => '<h4 class="widget-title">',
+                   'after_title' => '</h4>',
+                   ) );
 
   register_sidebar( array(
-    'name' => __('Posts Sidebar', 'bootstrapwp'),
-    'id' => 'sidebar-posts',
-    'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    'after_widget' => "</div>",
-    'before_title' => '<h4 class="widget-title">',
-    'after_title' => '</h4>',
-  ) );
+                   'name' => __('Posts Sidebar', 'bootstrapwp'),
+                   'id' => 'sidebar-posts',
+                   'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                   'after_widget' => "</div>",
+                   'before_title' => '<h4 class="widget-title">',
+                   'after_title' => '</h4>',
+                   ) );
 
   register_sidebar(array(
-    'name' => __('Home Left', 'bootstrapwp'),
-    'id'   => 'home-left',
-    'description'   => __('Left textbox on homepage', 'bootstrapwp'),
-    'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    'after_widget'  => '</div>',
-    'before_title'  => '<h2>',
-    'after_title'   => '</h2>'
-  ));
+                   'name' => __('Home Left', 'bootstrapwp'),
+                   'id'   => 'home-left',
+                   'description'   => __('Left textbox on homepage', 'bootstrapwp'),
+                   'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                   'after_widget'  => '</div>',
+                   'before_title'  => '<h2>',
+                   'after_title'   => '</h2>'
+                   ));
 
-    register_sidebar(array(
-    'name' => __('Home Middle', 'bootstrapwp'),
-    'id'   => 'home-middle',
-    'description'   => __('Middle textbox on homepage', 'bootstrapwp'),
-    'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    'after_widget'  => '</div>',
-    'before_title'  => '<h2>',
-    'after_title'   => '</h2>'
-  ));
+  register_sidebar(array(
+                   'name' => __('Home Middle', 'bootstrapwp'),
+                   'id'   => 'home-middle',
+                   'description'   => __('Middle textbox on homepage', 'bootstrapwp'),
+                   'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                   'after_widget'  => '</div>',
+                   'before_title'  => '<h2>',
+                   'after_title'   => '</h2>'
+                   ));
 
-    register_sidebar(array(
-    'name' => __('Home Right', 'bootstrapwp'),
-    'id'   => 'home-right',
-    'description'   => __('Right textbox on homepage', 'bootstrapwp'),
-    'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    'after_widget'  => '</div>',
-    'before_title'  => '<h2>',
-    'after_title'   => '</h2>'
-  ));
+  register_sidebar(array(
+                   'name' => __('Home Right', 'bootstrapwp'),
+                   'id'   => 'home-right',
+                   'description'   => __('Right textbox on homepage', 'bootstrapwp'),
+                   'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                   'after_widget'  => '</div>',
+                   'before_title'  => '<h2>',
+                   'after_title'   => '</h2>'
+                   ));
 
-    register_sidebar(array(
-    'name' => __('Footer Content', 'bootstrapwp'),
-    'id'   => 'footer-content',
-    'description'   => __('Footer text or acknowledgements', 'bootstrapwp'),
-    'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    'after_widget'  => '</div>',
-    'before_title'  => '<h4>',
-    'after_title'   => '</h4>'
-  ));
+  register_sidebar(array(
+                   'name' => __('Footer Content', 'bootstrapwp'),
+                   'id'   => 'footer-content',
+                   'description'   => __('Footer text or acknowledgements', 'bootstrapwp'),
+                   'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                   'after_widget'  => '</div>',
+                   'before_title'  => '<h4>',
+                   'after_title'   => '</h4>'
+                   ));
 }
 add_action( 'init', 'bootstrapwp_widgets_init' );
 
-
+if ( ! function_exists( 'bootstrapwp_excerpt' ) ):
 /*
 | -------------------------------------------------------------------
 | Revising Default Excerpt
@@ -174,41 +174,28 @@ add_action( 'init', 'bootstrapwp_widgets_init' );
 | Adding filter to post excerpts to contain ...Continue Reading link
 | */
 function bootstrapwp_excerpt($more) {
-       global $post;
-  return '&nbsp; &nbsp;<a href="'. get_permalink($post->ID) . '">'.__( '...Continue Reading', 'bootstrapwp' ).'</a>';
+ global $post;
+ return '&nbsp; &nbsp;<a href="'. get_permalink($post->ID) . '">'.__( '...Continue Reading', 'bootstrapwp' ).'</a>';
 }
 add_filter('excerpt_more', 'bootstrapwp_excerpt');
-
+endif;
 
 
 if ( ! function_exists( 'bootstrapwp_content_nav' ) ):
   /**
    * Display navigation to next/previous pages when applicable
    */
-  function bootstrapwp_content_nav( $nav_id ) {
-    global $wp_query;
+function bootstrapwp_content_nav( $nav_id ) {
+  global $wp_query;
 
-?>
-
-  <?php if ( is_single() ) : // navigation links for single posts ?>
-<ul class="pager">
-    <?php previous_post_link( '<li class="previous">%link</li>', '<span class="meta-nav">' . _e( '&larr;', 'Previous post link', 'bootstrapwp' ) . '</span> %title' ); ?>
-    <?php next_post_link( '<li class="next">%link</li>', '%title <span class="meta-nav">' . _e( '&rarr;', 'Next post link', 'bootstrapwp' ) . '</span>' ); ?>
-</ul>
-  <?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
-<ul class="pager">
-    <?php if ( get_next_posts_link() ) : ?>
-    <li class="next"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'bootstrapwp' ) ); ?></li>
-    <?php endif; ?>
-
-    <?php if ( get_previous_posts_link() ) : ?>
-    <li class="previous"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'bootstrapwp' ) ); ?></li>
-    <?php endif; ?>
-</ul>
-  <?php endif; ?>
-
-  <?php
-  }
+  if ( $wp_query->max_num_pages > 1 ) : ?>
+  <nav id="<?php echo $nav_id; ?>" class="navigation" role="navigation">
+    <h3 class="assistive-text"><?php _e( 'Post navigation', 'bootstrapwp' ); ?></h3>
+    <div class="nav-previous alignleft"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'bootstrapwp' ) ); ?></div>
+    <div class="nav-next alignright"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'bootstrapwp' ) ); ?></div>
+  </nav><!-- #<?php echo $nav_id; ?> .navigation -->
+  <?php endif;
+}
 endif; // bootstrapwp_content_nav
 
 
@@ -216,59 +203,70 @@ if ( ! function_exists( 'bootstrapwp_comment' ) ) :
   /**
    * Template for comments and pingbacks.
    *
-   * To override this walker in a child theme without modifying the comments template
-   * simply create your own bootstrap_comment(), and that function will be used instead.
-   *
    * Used as a callback by wp_list_comments() for displaying the comments.
    *
    * @since WP-Bootstrap .5
    */
-  function bootstrapwp_comment( $comment, $args, $depth ) {
-    $GLOBALS['comment'] = $comment;
-    switch ( $comment->comment_type ) :
-    case 'pingback' :
-    case 'trackback' :
-?>
-  <li class="post pingback">
-    <p><?php _e( 'Pingback:', 'bootstrap' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( '(Edit)', 'bootstrap' ), ' ' ); ?></p>
-  <?php
+function bootstrapwp_comment( $comment, $args, $depth ) {
+  $GLOBALS['comment'] = $comment;
+  switch ( $comment->comment_type ) :
+  case 'pingback' :
+  case 'trackback' :
+  ?>
+  <li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
+    <p><?php _e( 'Pingback:', 'bootstrapwp' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Edit)', 'bootstrapwp' ), '<span class="edit-link">', '</span>' ); ?></p>
+    <?php
     break;
-  default :
-?>
-  <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-    <article id="comment-<?php comment_ID(); ?>" class="comment">
-      <footer>
-        <div class="comment-author vcard">
-          <?php echo get_avatar( $comment, 40 ); ?>
-          <?php printf( __( '%s <span class="says">says:</span>', 'bootstrap' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
-        </div><!-- .comment-author .vcard -->
-        <?php if ( $comment->comment_approved == '0' ) : ?>
-          <em><?php _e( 'Your comment is awaiting moderation.', 'bootstrap' ); ?></em>
-          <br />
-        <?php endif; ?>
+    default :
+      // Proceed with normal comments.
+    global $post;
+    ?>
+    <li class="comment media" id="li-comment-<?php comment_ID(); ?>">
+      <article id="comment-<?php comment_ID(); ?>" class="comment">
+        <a href="<?php echo get_comment_author_link();?>" class="pull-left">
+          <?php echo get_avatar( $comment, 64 ); ?>
+        </a>
+        <div class="media-body">
 
-        <div class="comment-meta commentmetadata">
-          <a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time pubdate datetime="<?php comment_time( 'c' ); ?>">
-          <?php
-    /* translators: 1: date, 2: time */
-    printf( __( '%1$s at %2$s', 'bootstrap' ), get_comment_date(), get_comment_time() ); ?>
-          </time></a>
-          <?php edit_comment_link( __( '(Edit)', 'bootstrap' ), ' ' );
-?>
-        </div><!-- .comment-meta .commentmetadata -->
-      </footer>
+          <header class="comment-meta comment-author vcard">
+            <h4 class="media-heading">
+              <?php
+          //echo get_avatar( $comment, 44 );
+              printf( '<cite class="fn">%1$s %2$s</cite>',
+                     get_comment_author_link(),
+            // If current post author is also comment author, make it known visually.
+                     ( $comment->user_id === $post->post_author ) ? '<span class="subhead"> ' . __( ' Post author ', 'bootstrapwp' ) . '</span>' : ''
+                     );
+              printf( '<a href="%1$s"><time datetime="%2$s">%3$s</time></a>',
+                     esc_url( get_comment_link( $comment->comment_ID ) ),
+                     get_comment_time( 'c' ),
+                     /* translators: 1: date, 2: time */
+                     sprintf( __( '%1$s at %2$s', 'bootstrapwp' ), get_comment_date(), get_comment_time() )
+                     );
+                     ?></h4>
+                   </header><!-- .comment-meta -->
 
-      <div class="comment-content"><?php comment_text(); ?></div>
+                   <?php if ( '0' == $comment->comment_approved ) : ?>
 
-      <div class="reply">
-        <?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-      </div><!-- .reply -->
-    </article><!-- #comment-## -->
+                   <p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'bootstrapwp' ); ?></p>
+                 <?php endif; ?>
 
-  <?php
-    break;
-    endswitch;
-  }
+                 <section class="comment-content comment">
+                  <?php comment_text(); ?>
+                  <?php edit_comment_link( __( 'Edit', 'bootstrapwp' ), '<p class="edit-link">', '</p>' ); ?>
+                  <p class="reply">
+                    <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply <span>&darr;</span>', 'bootstrapwp' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+                  </p><!-- .reply -->
+
+                </section><!-- .comment-content -->
+
+              </div><!--/.media-body -->
+
+            </article><!-- #comment-## -->
+            <?php
+            break;
+            endswitch;
+          }
 endif; // ends check for bootstrapwp_comment()
 
 if ( ! function_exists( 'bootstrapwp_posted_on' ) ) :
@@ -278,17 +276,17 @@ if ( ! function_exists( 'bootstrapwp_posted_on' ) ) :
    *
    * @since WP-Bootstrap .5
    */
-  function bootstrapwp_posted_on() {
-    printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="byline"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'bootstrap' ),
-      esc_url( get_permalink() ),
-      esc_attr( get_the_time() ),
-      esc_attr( get_the_date( 'c' ) ),
-      esc_html( get_the_date() ),
-      esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-      esc_attr( sprintf( __( 'View all posts by %s', 'bootstrap' ), get_the_author() ) ),
-      esc_html( get_the_author() )
-    );
-  }
+function bootstrapwp_posted_on() {
+  printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="byline"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'bootstrap' ),
+         esc_url( get_permalink() ),
+         esc_attr( get_the_time() ),
+         esc_attr( get_the_date( 'c' ) ),
+         esc_html( get_the_date() ),
+         esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+         esc_attr( sprintf( __( 'View all posts by %s', 'bootstrap' ), get_the_author() ) ),
+         esc_html( get_the_author() )
+         );
+}
 endif;
 
 /**
@@ -315,8 +313,8 @@ function bootstrapwp_categorized_blog() {
   if ( false === ( $all_the_cool_cats = get_transient( 'all_the_cool_cats' ) ) ) {
     // Create an array of all the categories that are attached to posts
     $all_the_cool_cats = get_categories( array(
-        'hide_empty' => 1,
-      ) );
+                                        'hide_empty' => 1,
+                                        ) );
 
     // Count the number of categories that are attached to the posts
     $all_the_cool_cats = count( $all_the_cool_cats );
@@ -369,8 +367,8 @@ function bootstrapwp_post_thumbnail_check() {
   global $post;
   if ( get_the_post_thumbnail() ) {
     return true; }
-  else { return false; }
-}
+    else { return false; }
+  }
 
 /*
 | -------------------------------------------------------------------
@@ -387,12 +385,12 @@ function bootstrapwp_autoset_featured_img() {
   }
   if ( $post_thumbnail == false ) {
     $image_args = array(
-      'post_type' => 'attachment',
-      'numberposts' => 1,
-      'post_mime_type' => 'image',
-      'post_parent' => $post->ID,
-      'order' => 'desc'
-    );
+                        'post_type' => 'attachment',
+                        'numberposts' => 1,
+                        'post_mime_type' => 'image',
+                        'post_parent' => $post->ID,
+                        'order' => 'desc'
+                        );
     $attached_image = get_children( $image_args );
     if ( $attached_image ) {
       foreach ( $attached_image as $attachment_id => $attachment ) {
@@ -501,13 +499,13 @@ function bootstrapwp_breadcrumbs() {
 
     if ( get_query_var( 'paged' ) ) {
       if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ' (';
-      echo __( 'Page', 'bootstrapwp' ) . ' ' . get_query_var( 'paged' );
-      if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ')';
-    }
+                                                                                                                    echo __( 'Page', 'bootstrapwp' ) . ' ' . get_query_var( 'paged' );
+                                                                                                                    if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ')';
+}
 
-    echo '</ul>';
+echo '</ul>';
 
-  }
+}
 } // end bootstrapwp_breadcrumbs()
 
 
