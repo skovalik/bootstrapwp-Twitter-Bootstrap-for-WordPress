@@ -21,7 +21,7 @@ if (have_posts() ) ;?>
          </div><!--/.span12 -->
    </div><!--/.row -->
 
-	<header class="jumbotron subhead" id="overview">
+	<header class="subhead" id="overview">
 		<h1><?php
 		if ( is_day() ) {
 			printf( __( 'Daily Archives: %s', 'bootstrapwp' ), '<span>' . get_the_date() . '</span>' );
