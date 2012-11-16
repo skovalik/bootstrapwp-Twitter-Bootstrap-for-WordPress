@@ -43,19 +43,20 @@ get_header(); ?>
       <a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h3><?php the_title();?></h3></a>
       <p class="meta"><?php echo bootstrapwp_posted_on();?></p>
       <div class="row">
-        <?php 
-      		if (bootstrapwp_post_thumbnail_check('true') ) {
-	      		echo '<div class="span2">';
-	      		echo '<a href="' . get_the_permalink() . '" title="' . the_title_attribute() . '" >';
-	      		echo bootstrapwp_autoset_featured_img();
-			    echo '</a></div><!-- /.span2 --><div class="span6">';    
-			    } else {
-	      		echo '<div class="span8">';
-	      		}
-      			the_excerpt();
-      			echo '</div><!-- /.span6/8 -->';
-      	?>
-     </div><!-- /.row -->
+	<?php
+	$image_args = array( 'post_type' => 'attachment', 'numberposts' => 1, 'post_mime_type' => 'image', 'post_parent' => $post->ID, 'order' => 'desc' );
+	$attached_image = get_children( $image_args );
+	if ( bootstrapwp_post_thumbnail_check() == 'true' || $attached_image ) {
+	echo '<div class="span2"><a href="' . get_permalink() . '" title="' . the_title_attribute( 'echo=0' ) . '">';
+	echo bootstrapwp_autoset_featured_img();
+	echo '</a></div><!-- /.span2 --><div class="span6">';
+	} else {
+	echo '<div class="span8">';
+	}
+	the_excerpt();
+	echo '</div><!-- /.span6 or span8 -->';
+	?>
+	</div><!-- /.row -->
      <hr />
    </div><!-- /.post_class -->
  <?php endwhile; endif; ?>
