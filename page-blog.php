@@ -43,15 +43,18 @@ get_header(); ?>
       <a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h3><?php the_title();?></h3></a>
       <p class="meta"><?php echo bootstrapwp_posted_on();?></p>
       <div class="row">
-        <div class="span2">
-
-        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-          <?php echo bootstrapwp_autoset_featured_img(); ?></a>
-
-        </div><!-- /.span2 -->
-        <div class="span6">
-         <?php the_excerpt();?>
-       </div><!-- /.span6 -->
+        <?php 
+      		if (bootstrapwp_post_thumbnail_check('true') ) {
+	      		echo '<div class="span2">';
+	      		echo '<a href="' . get_the_permalink() . '" title="' . the_title_attribute() . '" >';
+	      		echo bootstrapwp_autoset_featured_img();
+			    echo '</a></div><!-- /.span2 --><div class="span6">';    
+			    } else {
+	      		echo '<div class="span8">';
+	      		}
+      			the_excerpt();
+      			echo '</div><!-- /.span6/8 -->';
+      	?>
      </div><!-- /.row -->
      <hr />
    </div><!-- /.post_class -->
