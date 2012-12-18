@@ -12,12 +12,12 @@
 get_header(); ?>
 
 <div class="container">
-<div class="hero-unit">
-    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-    <h1><?php the_title();?></h1>
-    <?php the_content(); ?>
-</div><!--/.hero-unit -->
-
+    <div class="hero-unit">
+        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+        <h1>
+            <?php the_title();?></h1>
+        <?php the_content(); ?></div>
+    <!--/.hero-unit -->
 
     <?php endwhile; endif; ?>
     <!-- row of widgets -->
@@ -28,24 +28,22 @@ get_header(); ?>
             if (function_exists('dynamic_sidebar')) {
                 dynamic_sidebar("home-left");
             }
-            ?>
-        </div>
+            ?></div>
         <div class="span4">
             <?php
             if (function_exists('dynamic_sidebar')) {
                 dynamic_sidebar("home-middle");
             }
-            ?>
-        </div>
+            ?></div>
         <div class="span4">
             <?php
             if (function_exists('dynamic_sidebar')) {
                 dynamic_sidebar("home-right");
             }
-            ?>
-        </div>
+            ?></div>
 
     </div>
     <!--/.row -->
-</div><!--/.container -->
+</div>
+<!--/.container -->
 <?php get_footer(); ?>
