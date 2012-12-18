@@ -10,11 +10,6 @@
 /* Body and structure
 -------------------------------------------------- */
 
-body {
-  position: relative;
-  padding-top: 44px;
-}
-
 /* Code in headings */
 h3 code {
   font-size: 14px;
@@ -85,6 +80,7 @@ hr.soften {
 ------------------------- */
 .jumbotron {
   position: relative;
+  margin: 0;
   padding: 40px 0;
   color: #fff;
   text-align: center;
