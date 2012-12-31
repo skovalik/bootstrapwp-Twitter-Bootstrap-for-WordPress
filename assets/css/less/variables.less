@@ -9,7 +9,6 @@
 
 // Grays
 // -------------------------
-@black:                 #000;
 @grayDarker:            #222;
 @grayDark:              #333;
 @gray:                  #555;
@@ -77,26 +76,19 @@
 // -------------------------
 
 @btn-background:                     #fff;
-@btn-background-highlight:           darken(#fff, 10%);
-@btn-border:                         #bbb;
+@btn-background-highlight:           #eaeaea;
 
-@btn-backround-primary:              @link-color;
-@btn-backround-primary-highlight:    spin(@btn-backround-primary, 20%);
+@btn-background-primary:             @link-color;
+@btn-background-primary-highlight:   darken(@link-color, 10%);
 
-@btn-backround-info:                 #5bc0de;
-@btn-backround-info-highlight:       #2f96b4;
+@btn-background-success:             #62c462;
+@btn-background-success-highlight:   #51a351;
 
-@btn-backround-success:              #62c462;
-@btn-backround-success-highlight:    #51a351;
+@btn-background-warning:             lighten(#f89406, 15%);
+@btn-background-warning-highlight:   #f89406;
 
-@btn-backround-warning:              lighten(#f89406, 15%);
-@btn-backround-warning-highlight:    #f89406;
-
-@btn-backround-danger:               #ee5f5b;
-@btn-backround-danger-highlight:     #bd362f;
-
-@btn-backround-inverse:              #444;
-@btn-backround-inverse-highlight:    @grayDarker;
+@btn-background-danger:              #ee5f5b;
+@btn-background-danger-highlight:    #bd362f;
 
 
 // Forms
@@ -121,12 +113,12 @@
 
 @dropdown-background:            #fff;
 @dropdown-border:                rgba(0,0,0,.2);
-@dropdown-divider-top:            #e5e5e5;
-@dropdown-divider-bottom:         #fff;
+@dropdown-divider-top:           #e5e5e5;
+@dropdown-divider-bottom:        #fff;
 
-@dropdown-link-color:             @grayDark;
-@dropdown-link-color-hover:        #fff;
-@dropdown-link-color-active:       #fff;
+@dropdown-link-color:            @grayDark;
+@dropdown-link-color-hover:      #fff;
+@dropdown-link-color-active:     #fff;
 
 @dropdown-link-background-active:  @link-color;
 @dropdown-link-background-hover:   @dropdown-link-background-active;
@@ -194,17 +186,16 @@
 // -------------------------
 
 @pagination-background:                #fff;
-@pagination-background-active:          #f5f5f5;
-
+@pagination-background-active:         #f5f5f5;
 @pagination-border:                    #ddd;
 
 
-// Hero unit
+// Jumbotron
 // -------------------------
 
-@hero-background:              @grayLighter;
-@hero-heading-color:            inherit;
-@hero-lead-color:               inherit;
+@jumbotron-background:           @grayLighter;
+@jumbotron-heading-color:        inherit;
+@jumbotron-lead-color:           inherit;
 
 
 // Form states and alerts
@@ -229,32 +220,32 @@
 
 // Tooltips and popovers
 // -------------------------
-@tooltip-color:            #fff;
-@tooltip-background:       rgba(0,0,0,.9);
-@tooltip-arrow-width:      5px;
-@tooltip-arrow-color:      @tooltip-background;
+@tooltip-color:               #fff;
+@tooltip-background:          rgba(0,0,0,.9);
+@tooltip-arrow-width:         5px;
+@tooltip-arrow-color:         @tooltip-background;
 
-@popover-background:       #fff;
-@popover-arrow-width:      10px;
-@popover-arrow-color:      #fff;
-@popover-title-background: darken(@popover-background, 3%);
+@popover-background:          #fff;
+@popover-arrow-width:         10px;
+@popover-arrow-color:         #fff;
+@popover-title-background:    darken(@popover-background, 3%);
 
 // Special enhancement for popovers
-@popover-arrow-outer-width:  @popover-arrow-width + 1;
-@popover-arrow-outer-color:  rgba(0,0,0,.25);
+@popover-arrow-outer-width:   @popover-arrow-width + 1;
+@popover-arrow-outer-color:   rgba(0,0,0,.25);
 
 
 // Miscellaneous
 // -------------------------
 
 // Hr border color
-@hr-border:                     @grayLighter;
+@hr-border:                   @grayLighter;
 
 // Horizontal forms & lists
-@component-offset-horizontal:   180px;
+@component-offset-horizontal: 180px;
 
 // Wells
-@well-background:               #f5f5f5;
+@well-background:             #f5f5f5;
 
 
 
@@ -262,17 +253,17 @@
 // --------------------------------------------------
 
 // Default 940px grid
-@grid-columns:             12;
+@grid-columns:              12;
 @grid-column-width:         60px;
 @grid-gutter-width:         20px;
 @grid-row-width:            (@grid-columns * @grid-column-width) + (@grid-gutter-width * (@grid-columns - 1));
 
 // 1200px min
-@grid-column-width-1200:     70px;
-@grid-gutter-width-1200:     30px;
-@grid-row-width-1200:        (@grid-columns * @grid-column-width-1200) + (@grid-gutter-width-1200 * (@grid-columns - 1));
+@grid-column-width-1200:    70px;
+@grid-gutter-width-1200:    30px;
+@grid-row-width-1200:       (@grid-columns * @grid-column-width-1200) + (@grid-gutter-width-1200 * (@grid-columns - 1));
 
 // 768px-979px
-@grid-column-width-768:      42px;
-@grid-gutter-width-768:      20px;
-@grid-row-width-768:         (@grid-columns * @grid-column-width-768) + (@grid-gutter-width-768 * (@grid-columns - 1));
+@grid-column-width-768:     42px;
+@grid-gutter-width-768:     20px;
+@grid-row-width-768:        (@grid-columns * @grid-column-width-768) + (@grid-gutter-width-768 * (@grid-columns - 1));
