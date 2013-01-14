@@ -3,8 +3,7 @@
  * The Right Sidebar displayed on page templates.
  *
  * @package WordPress
- * @subpackage WP-Bootstrap
- * @since WP-Bootstrap 0.1
+ * @subpackage BootstrapWP
  */
 ?>
 <div class="span4">

@@ -3,8 +3,7 @@
  * Template Name: Documentation - Core CSS Styles
  *
  * @package WordPress
- * @subpackage WP-Bootstrap
- * @since WP-Bootstrap 0.7
+ * @subpackage BootstrapWP
  */
 get_header();
 wp_enqueue_script('prettify-js');

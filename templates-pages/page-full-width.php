@@ -4,10 +4,8 @@
  * Description: Displays a page title and content without displaying a sidebar.
  *
  * @package WordPress
- * @subpackage WP-Bootstrap
- * @since WP-Bootstrap 0.1
+ * @subpackage BootstrapWP
  */
-
 get_header(); ?>
 <?php while (have_posts()) : the_post(); ?>
   <div class="container">

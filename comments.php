@@ -8,15 +8,12 @@
  * located in the functions.php file.
  *
  * @package WordPress
- * @subpackage WP-Bootstrap
- * @since WP-Bootstrap 0.1
- *
+ * @subpackage BootstrapWP
  */
 
 /*
  * If the current post is protected by a password and
- * the visitor has not yet entered the password we will
- * return early without loading the comments.
+ * the visitor has not yet entered the password return early.
  */
 if (post_password_required()) {
     return;

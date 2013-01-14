@@ -3,17 +3,14 @@
  * The template for displaying Author Archive pages.
  *
  * @package WordPress
- * @subpackage WP-Bootstrap
- * @since WP-Bootstrap 0.1
- *
+ * @subpackage BootstrapWP
  */
 get_header(); ?>
 
-<?php if (have_posts()) : ?>
-<?php
-// Queue the first post, that way we know what author we're dealing with (if that is the case).
-    the_post();
-    ?>
+<?php if (have_posts()) :
+    // Queue the first post.
+    the_post(); ?>
+
 	<div class="container">
 		<div class="row">
             <div class="span12">
@@ -33,8 +30,8 @@ get_header(); ?>
         ); ?></h1>
     </header>
     <?php
-// Rewind the loop back to the beginning that way we can run the loop properly, in full.
-    rewind_posts();
+    // Rewind the loop back
+        rewind_posts();
     ?>
 		<div class="row content">
 			<div class="span8">

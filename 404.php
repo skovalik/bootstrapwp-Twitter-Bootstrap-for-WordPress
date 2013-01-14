@@ -3,8 +3,7 @@
  * The template for displaying 404 pages (Not Found).
  *
  * @package WordPress
- * @subpackage WP-Bootstrap
- * @since WP-Bootstrap 0.7
+ * @subpackage BootstrapWP
  */
 get_header(); ?>
 <div class="row">

@@ -3,10 +3,8 @@
  * Description: Default Index template to display loop of blog posts
  *
  * @package WordPress
- * @subpackage WP-Bootstrap
- * @since WP-Bootstrap 0.1
+ * @subpackage BootstrapWP
  */
-
 get_header(); ?>
 <div class="container">
     <div class="row">

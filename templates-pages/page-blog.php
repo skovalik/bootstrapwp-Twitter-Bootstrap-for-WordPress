@@ -4,10 +4,8 @@
  * Description: Displays blog posts with pagination and featured image.
  *
  * @package WordPress
- * @subpackage WP-Bootstrap
- * @since WP-Bootstrap 0.1
+ * @subpackage BootstrapWP
  */
-
 get_header(); ?>
 <?php while (have_posts()) : the_post(); ?>
 
@@ -47,10 +45,8 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
 
         <div class="row">
             <div class="span2">
-
                 <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                     <?php echo bootstrapwp_autoset_featured_img(); ?></a>
-
             </div>
             <!-- /.span2 -->
             <div class="span6">
