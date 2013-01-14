@@ -17,19 +17,20 @@ Use it to make something cool, have fun, and share what you've learned with othe
 ////////   to safely retain the ability to update the less files with future
 ////////   versions of Bootstrap or BootstrapWP
 
-/* Loading Standard Bootstrap 2.2 LESS Files
+/* Loading Standard Bootstrap 2.3 LESS Files
 ----------------------------------------------------------------------------------------*/
 
 // Core variables and mixins
 @import "variables.less"; // Modify this for custom colors, font-sizes, etc
 @import "mixins.less";
 
-// Reset
-@import "normalize.less";
+// CSS Reset
+@import "reset.less";
 
 // Grid system and page structure
 @import "scaffolding.less";
 @import "grid.less";
+@import "layouts.less";
 
 // Base CSS
 @import "type.less";
@@ -38,7 +39,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @import "tables.less";
 
 // Components: common
-@import "glyphicons.less";
+@import "sprites.less";
 @import "dropdowns.less";
 @import "wells.less";
 @import "component-animations.less";
@@ -47,7 +48,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 // Components: Buttons & Alerts
 @import "buttons.less";
 @import "button-groups.less";
-@import "alerts.less";
+@import "alerts.less"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
 
 // Components: Nav
 @import "navs.less";
@@ -64,11 +65,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
 // Components: Misc
 @import "thumbnails.less";
 @import "media.less";
-@import "badges.less";
+@import "labels-badges.less";
 @import "progress-bars.less";
 @import "accordion.less";
 @import "carousel.less";
-@import "jumbotron.less";
+@import "hero-unit.less";
 
 // Utility classes
 @import "utilities.less"; // Has to be last to override when necessary

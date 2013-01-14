@@ -42,42 +42,51 @@
 }
 
 .widget h2 img { display: inline; }
+
 /* Navigation
 ----------------------------------------------------------------------------------------*/
-// Navbar Fix to remove 18px margin for static navbar
 .navbar-relative-top {
   position: relative;
   margin-bottom: 0;
-  border-width: 0 0 1px;
   padding-left:  0;
   padding-right: 0;
-  border-radius: 0;
-  .box-shadow(0 1px 10px rgba(0,0,0,.1));
+    .navbar-inner {
+      .border-radius(0);
+      .box-shadow(~"0 1px 10px rgba(0,0,0,.1)");
+      border-width: 0 0 1px;
+    }
     .container {
-        #grid > .core > .span(@grid-columns);
+      #grid > .core > .span(@gridColumns);
     }
 }
 
-@media (max-width: @navbar-collapse-width) {
+@media (max-width: @navbarCollapseWidth) {
 
   // Unfix the navbars
   .navbar-relative-top {
     position: static;
     margin-left: -20px;
     margin-right: -20px;
+    margin-bottom: @baseLineHeight;
     padding: 0;
-  }
-
-  .navbar-relative-top {
-    margin-bottom: @line-height-base;
+     .container {
+        width: auto;
+      }
   }
 
   .navbar-relative-top .navbar-inner {
-    padding: 10px;
+    padding: 5px 10px;
   }
+
 }
+
 @media (max-width: 767px) {
+
   // Negative indent the now static "fixed" navbar
+  .navbar-relative-top {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
 
 }
 
@@ -103,24 +112,24 @@
 	list-style: none;
 	display: block;
 	line-height: 18px;
-	color: @navbar-link-color;
+	color: @navbarLinkColor;
 }
 
 .navbar .navbar-inner div.nav ul li a{
-	color: @navbar-link-color;
+	color: @navbarLinkColor;
 	float: none;
 	padding: 9px 10px 11px;
 	line-height: 19px;
 }
 
 .navbar .navbar-inner div.nav ul li a:hover {
-	color:   @navbar-link-color-hover;
+	color: @navbarLinkColorHover;
 	text-decoration: none;
 }
 .navbar .navbar-inner div.nav ul li.current_page_item a {
-	color:  @navbar-link-color-active;
+	color: @navbarLinkColorActive;
 	text-decoration: none;
-	background-color: @navbar-link-background-active;
+	background-color: @navbarLinkBackgroundActive;
 }
 
 /* Scrollspy Subnav Position Fix
@@ -135,8 +144,8 @@
 /* Blog Post Specific Items
 ----------------------------------------------------------------------------------------*/
 p.meta {
-  font-size: 11px;
-  line-height: 18px;
+  font-size: 12px;
+  line-height: 20px;
   color: #999;
 }
 
