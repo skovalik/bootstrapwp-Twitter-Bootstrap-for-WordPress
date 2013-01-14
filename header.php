@@ -25,27 +25,27 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>  data-spy="scroll" data-target=".bs-docs-sidebar" data-offset="10">
-<div class="navbar navbar-inverse navbar-relative-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            <a class="brand" href="<?php echo home_url('/'); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home">
-                <?php bloginfo('name'); ?></a>
-            <?php wp_nav_menu(
-                    array(
-                        'menu' => 'main-menu',
-                        'container_class' => 'nav-collapse collapse',
-                        'menu_class' => 'nav',
-                        'fallback_cb' => '',
-                        'menu_id' => 'main-menu',
-                        'walker' => new Bootstrapwp_Walker_Nav_Menu()
-                    )
-                ); ?>
+    <div class="navbar navbar-inverse navbar-relative-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="<?php echo home_url('/'); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home">
+                    <?php bloginfo('name'); ?></a>
+                <?php wp_nav_menu(
+                        array(
+                            'menu' => 'main-menu',
+                            'container_class' => 'nav-collapse collapse',
+                            'menu_class' => 'nav',
+                            'fallback_cb' => '',
+                            'menu_id' => 'main-menu',
+                            'walker' => new Bootstrapwp_Walker_Nav_Menu()
+                        )
+                    ); ?>
+            </div>
         </div>
     </div>
-</div>
-<!-- End Header. Begin Template Content -->
+    <!-- End Header. Begin Template Content -->

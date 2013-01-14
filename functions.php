@@ -186,87 +186,64 @@ if (!function_exists('bootstrapwp_comment')) :
         switch ($comment->comment_type) :
             case 'pingback' :
             case 'trackback' : ?>
-  <li class="comment media" id="comment-<?php comment_ID(); ?>">
-    <div class="media-body">
-        <p><?php _e('Pingback:', 'bootstrapwp'); ?> <?php comment_author_link(); ?> <?php edit_comment_link(
-            __('(Edit)', 'bootstrapwp'),
-            '<span class="edit-link">',
-            '</span>'
-        ); ?></p>
-    </div><!--/.media-body -->
+
+                <li class="comment media" id="comment-<?php comment_ID(); ?>">
+                    <div class="media-body">
+                        <p>
+                            <?php _e('Pingback:', 'bootstrapwp'); ?> <?php comment_author_link(); ?>
+                        </p>
+                    </div><!--/.media-body -->
                 <?php
                 break;
             default :
                 // Proceed with normal comments.
-                global $post;
-                ?>
+                global $post; ?>
+
                 <li class="comment media" id="li-comment-<?php comment_ID(); ?>">
-                    <article id="comment-<?php comment_ID(); ?>" class="comment">
                         <a href="<?php echo $comment->comment_author_url;?>" class="pull-left">
                             <?php echo get_avatar($comment, 64); ?>
                         </a>
-
                         <div class="media-body">
-
-                            <header class="comment-meta comment-author vcard">
-                                <h4 class="media-heading">
-                                    <?php
-                                    printf(
-                                        '<cite class="fn">%1$s %2$s</cite>',
-                                        get_comment_author_link(),
-                                        // If current post author is also comment author, make it known visually.
-                                        ($comment->user_id === $post->post_author) ? '<span class="label"> ' . __(
-                                            'Post author',
-                                            'bootstrapwp'
-                                        ) . '</span> ' : ''
-                                    );
-                                    printf(
-                                        '<a href="%1$s"><time datetime="%2$s">%3$s</time></a>',
-                                        esc_url(get_comment_link($comment->comment_ID)),
-                                        get_comment_time('c'),
-                                        /* translators: 1: date, 2: time */
-                                        sprintf(
-                                            __('%1$s at %2$s', 'bootstrapwp'),
-                                            get_comment_date(),
-                                            get_comment_time()
-                                        )
-                                    );
-                                    ?></h4>
-                            </header>
-                            <!-- .comment-meta -->
+                            <h4 class="media-heading comment-author vcard">
+                                <?php
+                                printf('<cite class="fn">%1$s %2$s</cite>',
+                                    get_comment_author_link(),
+                                    // If current post author is also comment author, make it known visually.
+                                    ($comment->user_id === $post->post_author) ? '<span class="label"> ' . __(
+                                        'Post author',
+                                        'bootstrapwp'
+                                    ) . '</span> ' : ''); ?>
+                            </h4>
 
                             <?php if ('0' == $comment->comment_approved) : ?>
-
-                            <p class="comment-awaiting-moderation"><?php _e(
-                                'Your comment is awaiting moderation.',
-                                'bootstrapwp'
-                            ); ?></p>
+                                <p class="comment-awaiting-moderation"><?php _e(
+                                    'Your comment is awaiting moderation.',
+                                    'bootstrapwp'
+                                ); ?></p>
                             <?php endif; ?>
 
-                            <section class="comment-content comment">
-                                <?php comment_text(); ?>
-                                <?php edit_comment_link(__('Edit', 'bootstrapwp'), '<p class="edit-link">', '</p>'); ?>
-                                <p class="reply">
-                                    <?php comment_reply_link(
-                                    array_merge(
-                                        $args,
-                                        array(
+                            <?php comment_text(); ?>
+                            <p class="meta">
+                                <?php printf('<a href="%1$s"><time datetime="%2$s">%3$s</time></a>',
+                                            esc_url(get_comment_link($comment->comment_ID)),
+                                            get_comment_time('c'),
+                                            sprintf(
+                                                __('%1$s at %2$s', 'bootstrapwp'),
+                                                get_comment_date(),
+                                                get_comment_time()
+                                            )
+                                        ); ?>
+                            </p>
+                            <p class="reply">
+                                <?php comment_reply_link( array_merge($args, array(
                                             'reply_text' => __('Reply <span>&darr;</span>', 'bootstrapwp'),
                                             'depth'      => $depth,
                                             'max_depth'  => $args['max_depth']
                                         )
-                                    )
-                                ); ?>
-                                </p><!-- .reply -->
-
-                            </section>
-                            <!-- .comment-content -->
-
+                                    )); ?>
+                            </p>
                         </div>
                         <!--/.media-body -->
-
-                    </article>
-                    <!-- #comment-## -->
                 <?php
                 break;
         endswitch;
