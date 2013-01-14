@@ -3,14 +3,14 @@
  * The template for displaying Archive pages.
  *
  * @package WordPress
- * @subpackage WP-Bootstrap
- * @since WP-Bootstrap 0.6
- *
+ * @subpackage BootstrapWP
  */
-get_header();
-if (have_posts()) {
-    ;
-}?>
+get_header(); ?>
+
+<?php if (have_posts()) :
+    // Queue the first post.
+    the_post(); ?>
+
     <div class="container">
         <div class="row">
             <div class="span12">
@@ -64,7 +64,10 @@ if (have_posts()) {
                 }
                 ?></h1>
         </header>
-
+        <?php
+        // Rewind the loop back
+            rewind_posts();
+        ?>
         <div class="row content">
             <div class="span8">
                 <?php while (have_posts()) : the_post(); ?>
@@ -89,7 +92,7 @@ if (have_posts()) {
                 </div><!-- /.post_class -->
                 <?php endwhile; ?>
                 <?php bootstrapwp_content_nav('nav-below');?>
-
+            <?php endif; ?>
             </div>
             <!-- /.span8 -->
             <?php get_sidebar('blog'); ?>
