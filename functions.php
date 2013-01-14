@@ -1,16 +1,9 @@
 <?php
 /**
- * Bootstrap functions and definitions
- *
- * Sets up the theme and provides some helper functions. Some helper functions
- * are used in the theme as custom template tags. Others are attached to action and
- * filter hooks in WordPress to change core functionality.
- *
+ * BootstrapWP Theme Functions
  *
  * @package WordPress
- * @subpackage WP-Bootstrap
- * @since WP-Bootstrap 0.1
- *
+ * @subpackage BootstrapWP
  */
 
 if (!defined('BOOTSTRAPWP_VERSION')) {
@@ -19,47 +12,37 @@ if (!defined('BOOTSTRAPWP_VERSION')) {
 
 if (!isset($content_width)) {
     $content_width = 770;
-} /* pixels */
+}
+
 
 /**
  * Setup Theme Functions
- * Loads theme's textdomain for translation
- * Adds theme support for post-formats, post-thumbnails & automatic-feed-links
- * Uses register_nav_menus to register theme's custom menu
+ *
+ * @author Rachel Baker <rachel@rachelbaker.me>
  */
-add_action('after_setup_theme', 'bootstrapwp_theme_setup');
 if (!function_exists('bootstrapwp_theme_setup')):
     function bootstrapwp_theme_setup()
     {
         load_theme_textdomain('bootstrapwp', get_template_directory() . '/lang');
         add_theme_support('automatic-feed-links');
         add_theme_support('post-thumbnails');
-        add_theme_support(
-            'post-formats',
-            array(
-                'aside',
-                'image',
-                'gallery',
-                'link',
-                'quote',
-                'status',
-                'video',
-                'audio',
-                'chat'
-            )
-        );
+        add_theme_support('post-formats', array( 'aside', 'image', 'gallery', 'link', 'quote', 'status', 'video', 'audio', 'chat' ));
         register_nav_menus(
             array(
                 'main-menu' => __('Main Menu', 'bootstrapwp'),
-            )
-        );
+            ));
+        // load custom walker menu class file
+        require 'includes/class-bootstrapwp_walker_nav_menu.php';
     }
 endif;
+add_action('after_setup_theme', 'bootstrapwp_theme_setup');
+
 
 /**
- * Setup image sizes
- * Declares size of post thumbnails
- * Adds two additional image sizes
+ * Define post thumbnail size.
+ * Add two additional image sizes.
+ *
+ * @author Rachel Baker <rachel@rachelbaker.me>
  */
 function bootstrapwp_images()
 {
@@ -68,93 +51,34 @@ function bootstrapwp_images()
     add_image_size('bootstrap-medium', 360, 270); // 360 pixels wide by 270 pixels high
 }
 
+
 /**
- * Load CSS Styles & JavaScript Files
- * Uses wp_enqueue_script()
+ * Load CSS styles & JavaScript scripts
+ *
+ * @author Rachel Baker <rachel@rachelbaker.me>
  */
 function bootstrapwp_scripts_styles_loader()
 {
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
-    wp_enqueue_script(
-        'bootstrapjs',
-        get_template_directory_uri() . '/assets/js/bootstrap.min.js',
-        array('jquery'),
-        '0.91',
-        true
-    );
-    wp_enqueue_script(
-        'demojs',
-        get_template_directory_uri() . '/assets/js/bootstrapwp.demo.js',
-        array('jquery'),
-        '0.91',
-        true
-    );
-
-    wp_enqueue_style(
-        'bootstrapwp-style',
-        get_template_directory_uri() . '/assets/css/bootstrapwp.css',
-        false,
-        '0.91',
-        'all'
-    );
+    wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array('jquery'), '0.92', true);
+    wp_enqueue_script('demo-js', get_template_directory_uri() . '/assets/js/bootstrapwp.demo.js', array('bootstrap-js'),'0.92',true);
+    wp_enqueue_style('bootstrapwp-style', get_template_directory_uri() . '/assets/css/bootstrapwp.css', false, '0.92', 'all');
     wp_enqueue_style('bootstrapwp-default', get_stylesheet_uri());
-
     // registering scripts and styles for documentation templates
-    wp_register_script(
-        'prettify-js',
-        get_template_directory_uri() . '/templates-documentation/assets/google-code-prettify/prettify.js',
-        array('jquery'),
-        '1.0',
-        true
-    );
-    wp_register_style(
-        'prettify-css',
-        get_template_directory_uri() . '/templates-documentation/assets/google-code-prettify/prettify.css',
-        false,
-        '1.0',
-        'all'
-    );
-    wp_register_style(
-        'docs-css',
-        get_template_directory_uri() . '/templates-documentation/assets/css/docs.css',
-        array('bootstrapwp-style'),
-        '2.2.1',
-        'all'
-    );
+    wp_register_script('prettify-js', get_template_directory_uri() . '/templates-documentation/assets/google-code-prettify/prettify.js', array('jquery'), '1.0', true);
+    wp_register_style('prettify-css', get_template_directory_uri() . '/templates-documentation/assets/google-code-prettify/prettify.css', false, '1.0', 'all');
+    wp_register_style('docs-css', get_template_directory_uri() . '/templates-documentation/assets/css/docs.css', array('bootstrapwp-style'), '2.2.2', 'all');
 }
-
 add_action('wp_enqueue_scripts', 'bootstrapwp_scripts_styles_loader');
 
-/*
-| -------------------------------------------------------------------
-| Top Navigation Bar Customization
-| -------------------------------------------------------------------
 
 /**
- * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
+ * Define theme's widget areas.
+ *
+ * @author Rachel Baker <rachel@rachelbaker.me>
  */
-function bootstrapwp_page_menu_args($args)
-{
-    $args['show_home'] = true;
-
-    return $args;
-}
-
-add_filter('wp_page_menu_args', 'bootstrapwp_page_menu_args');
-
-/**
- * Get file 'includes/class-bootstrap_walker_nav_menu.php' with Custom Walker class methods
- * */
-
-include 'includes/class-bootstrapwp_walker_nav_menu.php';
-
-/*
-| -------------------------------------------------------------------
-| Registering Widget Sections
-| -------------------------------------------------------------------
-| */
 function bootstrapwp_widgets_init()
 {
     register_sidebar(
@@ -167,7 +91,6 @@ function bootstrapwp_widgets_init()
             'after_title'   => '</h4>',
         )
     );
-
     register_sidebar(
         array(
             'name'          => __('Posts Sidebar', 'bootstrapwp'),
@@ -178,7 +101,6 @@ function bootstrapwp_widgets_init()
             'after_title'   => '</h4>',
         )
     );
-
     register_sidebar(
         array(
             'name'          => __('Home Left', 'bootstrapwp'),
@@ -202,7 +124,6 @@ function bootstrapwp_widgets_init()
             'after_title'   => '</h2>'
         )
     );
-
     register_sidebar(
         array(
             'name'          => __('Home Right', 'bootstrapwp'),
@@ -214,7 +135,6 @@ function bootstrapwp_widgets_init()
             'after_title'   => '</h2>'
         )
     );
-
     register_sidebar(
         array(
             'name'          => __('Footer Content', 'bootstrapwp'),
@@ -227,41 +147,21 @@ function bootstrapwp_widgets_init()
         )
     );
 }
-
 add_action('init', 'bootstrapwp_widgets_init');
 
-if (!function_exists('bootstrapwp_excerpt')):
-    /*
-    | -------------------------------------------------------------------
-    | Revising Default Excerpt
-    | -------------------------------------------------------------------
-    | Adding filter to post excerpts to contain ...Continue Reading link
-    | */
-    function bootstrapwp_excerpt($more)
-    {
-        global $post;
 
-        return '&nbsp; &nbsp;<a href="' . get_permalink($post->ID) . '">' . __(
-            '...Continue Reading',
-            'bootstrapwp'
-        ) . '</a>';
-    }
-
-    add_filter('excerpt_more', 'bootstrapwp_excerpt');
-endif;
-
+/**
+ * Display page next/previous navigation links.
+ *
+ * @author Rachel Baker <rachel@rachelbaker.me>
+ */
 if (!function_exists('bootstrapwp_content_nav')):
-    /**
-     * Display navigation to next/previous pages when applicable
-     */
     function bootstrapwp_content_nav($nav_id)
     {
-        global $wp_query;
-
+        global $wp_query, $post;
         if ($wp_query->max_num_pages > 1) : ?>
         <nav id="<?php echo $nav_id; ?>" class="navigation" role="navigation">
             <h3 class="assistive-text"><?php _e('Post navigation', 'bootstrapwp'); ?></h3>
-
             <div class="nav-previous alignleft"><?php next_posts_link(
                 __('<span class="meta-nav">&larr;</span> Older posts', 'bootstrapwp')
             ); ?></div>
@@ -271,23 +171,21 @@ if (!function_exists('bootstrapwp_content_nav')):
         </nav><!-- #<?php echo $nav_id; ?> .navigation -->
         <?php endif;
     }
-endif; // bootstrapwp_content_nav
+endif;
 
+
+/**
+ * Display template for comments and pingbacks.
+ *
+ * @author Rachel Baker <rachel@rachelbaker.me>
+ */
 if (!function_exists('bootstrapwp_comment')) :
-    /**
-     * Template for comments and pingbacks.
-     *
-     * Used as a callback by wp_list_comments() for displaying the comments.
-     *
-     * @since WP-Bootstrap .5
-     */
     function bootstrapwp_comment($comment, $args, $depth)
     {
         $GLOBALS['comment'] = $comment;
         switch ($comment->comment_type) :
             case 'pingback' :
-            case 'trackback' :
-                ?>
+            case 'trackback' : ?>
   <li class="comment media" id="comment-<?php comment_ID(); ?>">
     <div class="media-body">
         <p><?php _e('Pingback:', 'bootstrapwp'); ?> <?php comment_author_link(); ?> <?php edit_comment_link(
@@ -373,117 +271,66 @@ if (!function_exists('bootstrapwp_comment')) :
                 break;
         endswitch;
     }
-endif; // ends check for bootstrapwp_comment()
+endif;
 
+
+/**
+ * Display template for post meta information.
+ *
+ * @author Rachel Baker <rachel@rachelbaker.me>
+ */
 if (!function_exists('bootstrapwp_posted_on')) :
-    /**
-     * Prints HTML with meta information for the current post-date/time and author.
-     * Create your own bootstrap_posted_on to override in a child theme
-     *
-     * @since WP-Bootstrap .5
-     */
     function bootstrapwp_posted_on()
     {
-        printf(
-            __(
-                '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="byline"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>',
-                'bootstrap'
-            ),
+        printf(__('Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="byline"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>','bootstrapwp'),
             esc_url(get_permalink()),
             esc_attr(get_the_time()),
             esc_attr(get_the_date('c')),
             esc_html(get_the_date()),
             esc_url(get_author_posts_url(get_the_author_meta('ID'))),
-            esc_attr(sprintf(__('View all posts by %s', 'bootstrap'), get_the_author())),
+            esc_attr(sprintf(__('View all posts by %s', 'bootstrapwp'), get_the_author())),
             esc_html(get_the_author())
         );
     }
 endif;
 
+
 /**
  * Adds custom classes to the array of body classes.
  *
- * @since WP-Bootstrap .5
+ * @author Rachel Baker <rachel@rachelbaker.me>
  */
 function bootstrapwp_body_classes($classes)
 {
-    // Adds a class of single-author to blogs with only 1 published author
     if (!is_multi_author()) {
         $classes[] = 'single-author';
     }
-
     return $classes;
 }
-
 add_filter('body_class', 'bootstrapwp_body_classes');
 
+
 /**
- * Returns true if a blog has more than 1 category
+ * Add post ID attribute to image attachment pages prev/next navigation.
  *
- * @since WP-Bootstrap .5
- */
-function bootstrapwp_categorized_blog()
-{
-    if (false === ($all_the_cool_cats = get_transient('all_the_cool_cats'))) {
-        // Create an array of all the categories that are attached to posts
-        $all_the_cool_cats = get_categories(
-            array(
-                'hide_empty' => 1,
-            )
-        );
-
-        // Count the number of categories that are attached to the posts
-        $all_the_cool_cats = count($all_the_cool_cats);
-
-        set_transient('all_the_cool_cats', $all_the_cool_cats);
-    }
-
-    if ('1' != $all_the_cool_cats) {
-        // This blog has more than 1 category so bootstrap_categorized_blog should return true
-        return true;
-    } else {
-        // This blog has only 1 category so bootstrap_categorized_blog should return false
-        return false;
-    }
-}
-
-/**
- * Flush out the transients used in bootstrapwp_categorized_blog
- *
- * @since bootstrap 1.2
- */
-function bootstrapwp_category_transient_flusher()
-{
-    // Like, beat it. Dig?
-    delete_transient('all_the_cool_cats');
-}
-
-add_action('edit_category', 'bootstrapwp_category_transient_flusher');
-add_action('save_post', 'bootstrapwp_category_transient_flusher');
-
-/**
- * Filter in a link to a content ID attribute for the next/previous image links on image attachment pages
+ * @author Rachel Baker <rachel@rachelbaker.me>
  */
 function bootstrapwp_enhanced_image_navigation($url)
 {
     global $post;
-
     if (wp_attachment_is_image($post->ID)) {
         $url = $url . '#main';
     }
-
     return $url;
 }
-
 add_filter('attachment_link', 'bootstrapwp_enhanced_image_navigation');
 
-/*
-| -------------------------------------------------------------------
-| Checking for Post Thumbnail
-| -------------------------------------------------------------------
-|
-| */
-function bootstrapwp_post_thumbnail_check()
+/**
+ * Checks if a post thumbnails is already defined.
+ *
+ * @author Rachel Baker <rachel@rachelbaker.me>
+ */
+function bootstrapwp_is_post_thumbnail_set()
 {
     global $post;
     if (get_the_post_thumbnail()) {
@@ -493,21 +340,18 @@ function bootstrapwp_post_thumbnail_check()
     }
 }
 
-/*
-| -------------------------------------------------------------------
-| Setting Featured Image (Post Thumbnail)
-| -------------------------------------------------------------------
-| Will automatically add the first image attached to a post as the Featured Image if post does not have a featured image previously set.
-| */
+/**
+ * Set post thumbnail as first image from post, if not already defined.
+ *
+ * @author Rachel Baker <rachel@rachelbaker.me>
+ */
 function bootstrapwp_autoset_featured_img()
 {
     global $post;
-
-    $post_thumbnail = bootstrapwp_post_thumbnail_check();
+    $post_thumbnail = bootstrapwp_is_post_thumbnail_set();
     if ($post_thumbnail == true) {
         return the_post_thumbnail();
-    }
-    if ($post_thumbnail == false) {
+    } elseif ($post_thumbnail == false) {
         $image_args     = array(
             'post_type'      => 'attachment',
             'numberposts'    => 1,
@@ -515,25 +359,22 @@ function bootstrapwp_autoset_featured_img()
             'post_parent'    => $post->ID,
             'order'          => 'desc'
         );
-        $attached_image = get_children($image_args);
-        if ($attached_image) {
-            foreach ($attached_image as $attachment_id => $attachment) {
-                set_post_thumbnail($post->ID, $attachment_id);
-            }
-
-            return the_post_thumbnail();
-        } else {
-            return " ";
+        $attached_images = get_children($image_args, ARRAY_A);
+        $first_image = reset($attached_images);
+        if (isset($first_image['ID'])) {
+            set_post_thumbnail($post->ID, $first_image['ID']);
         }
+        return the_post_thumbnail();
+    } else {
+        return false;
     }
-} //end function
+}
 
-/*
-| -------------------------------------------------------------------
-| Formatting Page Title Elements
-| -------------------------------------------------------------------
-| Conditionally determines default title to display.
-| */
+/**
+ * Define default page titles.
+ *
+ * @author Rachel Baker <rachel@rachelbaker.me>
+ */
 function bootstrapwp_wp_title($title, $sep)
 {
     global $paged, $page;
@@ -558,14 +399,13 @@ function bootstrapwp_wp_title($title, $sep)
 
     return $title;
 }
-
 add_filter('wp_title', 'bootstrapwp_wp_title', 10, 2);
-/*
-| -------------------------------------------------------------------
-| Adding Breadcrumbs
-| -------------------------------------------------------------------
-|
-| */
+
+/**
+ * Display template for breadcrumbs.
+ *
+ * @author Rachel Baker <rachel@rachelbaker.me>
+ */
 function bootstrapwp_breadcrumbs()
 {
     $home      = 'Home'; // text for the 'Home' link
@@ -685,7 +525,7 @@ function bootstrapwp_breadcrumbs()
         echo '</ul>';
 
     }
-} // end bootstrapwp_breadcrumbs()
+}
 
 /**
  * This theme was built with PHP, Semantic HTML, CSS, love, and a bootstrap.
