@@ -15,12 +15,11 @@ get_header(); ?>
             <?php if (function_exists('bootstrapwp_breadcrumbs')) {
             bootstrapwp_breadcrumbs();
         } ?>
-        </div>
-        <!--/.span12 -->
+        </div><!--/.span12 -->
     </div><!--/.row -->
 
     <header class="post-title">
-    <h1><?php the_title();?></h1>
+        <h1><?php the_title();?></h1>
     </header>
 
     <div class="row content">
@@ -35,5 +34,5 @@ get_header(); ?>
             <?php bootstrapwp_content_nav('nav-below'); ?>
         </div><!-- /.span8 -->
 
-<?php get_sidebar('blog'); ?>
-<?php get_footer(); ?>
+    <?php get_sidebar('blog'); ?>
+    <?php get_footer(); ?>
