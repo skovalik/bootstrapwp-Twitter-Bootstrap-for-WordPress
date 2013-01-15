@@ -30,11 +30,11 @@ get_header(); ?>
                 wp_reset_query(); ?>
             <hr/>
 
-            <?php
-            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-            // Blog post query
-            query_posts(array('post_type' => 'post', 'paged' => $paged, 'showposts' => 0));
-            if (have_posts()) : while (have_posts()) : the_post(); ?>
+            <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                // Blog post query
+                query_posts(array('post_type' => 'post', 'paged' => $paged, 'showposts' => 0));
+                if (have_posts()) : while (have_posts()) : the_post(); ?>
+
                 <div <?php post_class(); ?>>
                     <a href="<?php the_permalink(); ?>" title="<?php the_title();?>">
                         <h3><?php the_title();?></h3></a>
