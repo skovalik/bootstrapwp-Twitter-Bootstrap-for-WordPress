@@ -317,6 +317,7 @@ function bootstrapwp_is_post_thumbnail_set()
     }
 }
 
+
 /**
  * Set post thumbnail as first image from post, if not already defined.
  *
@@ -346,6 +347,7 @@ function bootstrapwp_autoset_featured_img()
         return false;
     }
 }
+
 
 /**
  * Define default page titles.
