@@ -3,11 +3,8 @@
  * Template Name: Page - Home Hero
  * Description: Displays page title and content in Hero section above 3 widgets.
  *
- *
- * @package WP-Bootstrap
- * @subpackage Default_Theme
- * @since WP-Bootstrap 0.5
- *
+ * @package WordPress
+ * @subpackage BootstrapWP
  */
 get_header(); ?>
 
