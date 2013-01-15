@@ -6189,6 +6189,9 @@ a.badge:hover {
   }
 }
 @media (max-width: 767px) {
+  #content-wrapper {
+    padding: 20px 0 10px 0;
+  }
   .navbar-relative-top {
     margin-left: -20px;
     margin-right: -20px;
