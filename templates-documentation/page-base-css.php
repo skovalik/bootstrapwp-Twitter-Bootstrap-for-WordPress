@@ -1395,7 +1395,7 @@ wp_enqueue_style('docs-css');
 					</pre>
 
 					<h3>Form actions</h3>
-					<p>End a form with a group of actions (buttons). When placed within a <code>.form-horizontal</code>, the buttons will automatically indent to line up with the form controls.</p>
+					 <p>End a form with a group of actions (buttons). When placed within a <code>.form-actions</code>, the buttons will automatically indent to line up with the form controls.</p>
 					<form class="bs-docs-example">
 						<div class="form-actions">
 							<button type="submit" class="btn btn-primary">Save changes</button>
