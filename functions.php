@@ -453,12 +453,12 @@ function bootstrapwp_breadcrumbs()
                     $page          = get_page($parent_id);
                     $breadcrumbs[] = '<li><a href="' . get_permalink($page->ID) . '">' . get_the_title(
                         $page->ID
-                    ) . '</a></li>';
+                    ) . '</a>' . $sep . '</li>';
                     $parent_id     = $page->post_parent;
                 }
                 $breadcrumbs = array_reverse($breadcrumbs);
                 foreach ($breadcrumbs as $crumb) {
-                    echo $crumb . $sep;
+                    echo $crumb;
                 }
                 echo $before . get_the_title() . $after;
             } elseif (is_search()) {
