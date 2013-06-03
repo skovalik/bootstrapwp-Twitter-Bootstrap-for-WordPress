@@ -7,12 +7,29 @@
  */
 get_header(); ?>
 <div class="row">
+<<<<<<< HEAD
     <div class="container">
         <?php if (function_exists('bootstrapwp_breadcrumbs')) {
         bootstrapwp_breadcrumbs();
     } ?>
     </div>
     <!--/.container -->
+=======
+<div class="span4">
+					<h2><?php _e('All Pages', 'bootstrapwp'); ?></h2>
+					<?php wp_page_menu(); ?>
+</div><!--/.span4 -->
+<div class="span4">
+					<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
+
+					
+						<h2><?php _e( 'Most Used Categories', 'bootstrapwp' ); ?></h2>
+						<ul>
+						<?php wp_list_categories( array( 'orderby' => 'count', 'order' => 'DESC', 'show_count' => 1, 'title_li' => '', 'number' => 10 ) ); ?>
+						</ul>
+					
+</div><!--/.span4 -->
+>>>>>>> bb63cf2a67b5b6c21b5ae33e0955eec1d5b46ddb
 </div><!--/.row -->
    <div class="container">
 

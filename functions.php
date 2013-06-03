@@ -2,31 +2,31 @@
 /**
  * BootstrapWP Theme Functions
  *
+ * @author Rachel Baker <rachel@rachelbaker.me>
  * @package WordPress
  * @subpackage BootstrapWP
  */
 
-if (!defined('BOOTSTRAPWP_VERSION')) {
-    define('BOOTSTRAPWP_VERSION', '.92');
-}
-
+/**
+ * Maximum allowed width of content within the theme.
+ */
 if (!isset($content_width)) {
     $content_width = 770;
 }
 
-
 /**
  * Setup Theme Functions
  *
- * @author Rachel Baker <rachel@rachelbaker.me>
  */
 if (!function_exists('bootstrapwp_theme_setup')):
-    function bootstrapwp_theme_setup()
-    {
+    function bootstrapwp_theme_setup() {
+
         load_theme_textdomain('bootstrapwp', get_template_directory() . '/lang');
+
         add_theme_support('automatic-feed-links');
         add_theme_support('post-thumbnails');
         add_theme_support('post-formats', array( 'aside', 'image', 'gallery', 'link', 'quote', 'status', 'video', 'audio', 'chat' ));
+
         register_nav_menus(
             array(
                 'main-menu' => __('Main Menu', 'bootstrapwp'),
@@ -37,50 +37,57 @@ if (!function_exists('bootstrapwp_theme_setup')):
 endif;
 add_action('after_setup_theme', 'bootstrapwp_theme_setup');
 
-
 /**
  * Define post thumbnail size.
  * Add two additional image sizes.
  *
- * @author Rachel Baker <rachel@rachelbaker.me>
  */
-function bootstrapwp_images()
-{
-    set_post_thumbnail_size(160, 120); // 160 pixels wide by 120 pixels high
-    add_image_size('bootstrap-small', 260, 180); // 260 pixels wide by 180 pixels high
-    add_image_size('bootstrap-medium', 360, 270); // 360 pixels wide by 270 pixels high
-}
+function bootstrapwp_images() {
 
+    set_post_thumbnail_size(260, 180); // 260px wide x 180px high
+    add_image_size('bootstrap-small', 300, 200); // 300px wide x 200px high
+    add_image_size('bootstrap-medium', 360, 270); // 360px wide by 270px high
+}
 
 /**
- * Load CSS styles & JavaScript scripts
+ * Load CSS styles for theme.
  *
- * @author Rachel Baker <rachel@rachelbaker.me>
  */
-function bootstrapwp_scripts_styles_loader()
-{
-    if (is_singular() && comments_open() && get_option('thread_comments')) {
-        wp_enqueue_script('comment-reply');
-    }
-    wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array('jquery'), '0.92', true);
-    wp_enqueue_script('demo-js', get_template_directory_uri() . '/assets/js/bootstrapwp.demo.js', array('bootstrap-js'),'0.92',true);
-    wp_enqueue_style('bootstrapwp-style', get_template_directory_uri() . '/assets/css/bootstrapwp.css', false, '0.92', 'all');
-    wp_enqueue_style('bootstrapwp-default', get_stylesheet_uri());
-    // registering scripts and styles for documentation templates
-    wp_register_script('prettify-js', get_template_directory_uri() . '/templates-documentation/assets/google-code-prettify/prettify.js', array('jquery'), '1.0', true);
-    wp_register_style('prettify-css', get_template_directory_uri() . '/templates-documentation/assets/google-code-prettify/prettify.css', false, '1.0', 'all');
-    wp_register_style('docs-css', get_template_directory_uri() . '/templates-documentation/assets/css/docs.css', array('bootstrapwp-style'), '2.2.2', 'all');
-}
-add_action('wp_enqueue_scripts', 'bootstrapwp_scripts_styles_loader');
+function bootstrapwp_styles_loader() {
 
+    wp_enqueue_style('bootstrapwp-style', get_template_directory_uri() . '/assets/css/bootstrapwp.css', false, '1.0', 'all');
+    wp_enqueue_style('bootstrapwp-default', get_stylesheet_uri());
+
+    // registering scripts and styles for documentation templates
+    wp_register_style('docs-css', get_template_directory_uri() . '/templates-documentation/assets/css/docs.css', array('bootstrapwp-style'), '2.3.2', 'all');
+
+}
+add_action('wp_enqueue_scripts', 'bootstrapwp_styles_loader');
+
+/**
+ * Load JavaScript and jQuery files for theme.
+ *
+ */
+function bootstrapwp_scripts_loader() {
+
+    if (is_singular() && comments_open() && get_option('thread_comments')) {
+
+        wp_enqueue_script('comment-reply');
+
+    }
+
+    wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('demo-js', get_template_directory_uri() . '/assets/js/bootstrapwp.demo.js', array('bootstrap-js'),'1.0',true);
+
+}
+add_action('wp_enqueue_scripts', 'bootstrapwp_scripts_loader');
 
 /**
  * Define theme's widget areas.
  *
- * @author Rachel Baker <rachel@rachelbaker.me>
  */
-function bootstrapwp_widgets_init()
-{
+function bootstrapwp_widgets_init() {
+
     register_sidebar(
         array(
             'name'          => __('Page Sidebar', 'bootstrapwp'),
@@ -91,6 +98,7 @@ function bootstrapwp_widgets_init()
             'after_title'   => '</h4>',
         )
     );
+
     register_sidebar(
         array(
             'name'          => __('Posts Sidebar', 'bootstrapwp'),
@@ -101,6 +109,7 @@ function bootstrapwp_widgets_init()
             'after_title'   => '</h4>',
         )
     );
+
     register_sidebar(
         array(
             'name'          => __('Home Left', 'bootstrapwp'),
@@ -124,6 +133,7 @@ function bootstrapwp_widgets_init()
             'after_title'   => '</h2>'
         )
     );
+
     register_sidebar(
         array(
             'name'          => __('Home Right', 'bootstrapwp'),
@@ -135,6 +145,7 @@ function bootstrapwp_widgets_init()
             'after_title'   => '</h2>'
         )
     );
+
     register_sidebar(
         array(
             'name'          => __('Footer Content', 'bootstrapwp'),
@@ -146,6 +157,7 @@ function bootstrapwp_widgets_init()
             'after_title'   => '</h4>'
         )
     );
+
 }
 add_action('init', 'bootstrapwp_widgets_init');
 
@@ -153,13 +165,14 @@ add_action('init', 'bootstrapwp_widgets_init');
 /**
  * Display page next/previous navigation links.
  *
- * @author Rachel Baker <rachel@rachelbaker.me>
  */
 if (!function_exists('bootstrapwp_content_nav')):
-    function bootstrapwp_content_nav($nav_id)
-    {
+    function bootstrapwp_content_nav($nav_id) {
+
         global $wp_query, $post;
+
         if ($wp_query->max_num_pages > 1) : ?>
+
         <nav id="<?php echo $nav_id; ?>" class="navigation" role="navigation">
             <h3 class="assistive-text"><?php _e('Post navigation', 'bootstrapwp'); ?></h3>
             <div class="nav-previous alignleft"><?php next_posts_link(
@@ -169,15 +182,14 @@ if (!function_exists('bootstrapwp_content_nav')):
                 __('Newer posts <span class="meta-nav">&rarr;</span>', 'bootstrapwp')
             ); ?></div>
         </nav><!-- #<?php echo $nav_id; ?> .navigation -->
+
         <?php endif;
     }
 endif;
 
-
 /**
  * Display template for comments and pingbacks.
  *
- * @author Rachel Baker <rachel@rachelbaker.me>
  */
 if (!function_exists('bootstrapwp_comment')) :
     function bootstrapwp_comment($comment, $args, $depth)
@@ -254,7 +266,6 @@ endif;
 /**
  * Display template for post meta information.
  *
- * @author Rachel Baker <rachel@rachelbaker.me>
  */
 if (!function_exists('bootstrapwp_posted_on')) :
     function bootstrapwp_posted_on()
@@ -275,7 +286,6 @@ endif;
 /**
  * Adds custom classes to the array of body classes.
  *
- * @author Rachel Baker <rachel@rachelbaker.me>
  */
 function bootstrapwp_body_classes($classes)
 {
@@ -290,7 +300,6 @@ add_filter('body_class', 'bootstrapwp_body_classes');
 /**
  * Add post ID attribute to image attachment pages prev/next navigation.
  *
- * @author Rachel Baker <rachel@rachelbaker.me>
  */
 function bootstrapwp_enhanced_image_navigation($url)
 {
@@ -302,10 +311,10 @@ function bootstrapwp_enhanced_image_navigation($url)
 }
 add_filter('attachment_link', 'bootstrapwp_enhanced_image_navigation');
 
+
 /**
  * Checks if a post thumbnails is already defined.
  *
- * @author Rachel Baker <rachel@rachelbaker.me>
  */
 function bootstrapwp_is_post_thumbnail_set()
 {
@@ -321,38 +330,36 @@ function bootstrapwp_is_post_thumbnail_set()
 /**
  * Set post thumbnail as first image from post, if not already defined.
  *
- * @author Rachel Baker <rachel@rachelbaker.me>
  */
 function bootstrapwp_autoset_featured_img()
 {
     global $post;
+
     $post_thumbnail = bootstrapwp_is_post_thumbnail_set();
     if ($post_thumbnail == true) {
-        return the_post_thumbnail();
-    } elseif ($post_thumbnail == false) {
-        $image_args     = array(
-            'post_type'      => 'attachment',
-            'numberposts'    => 1,
-            'post_mime_type' => 'image',
-            'post_parent'    => $post->ID,
-            'order'          => 'desc'
-        );
-        $attached_images = get_children($image_args, ARRAY_A);
-        $first_image = reset($attached_images);
-        if (isset($first_image['ID'])) {
-            set_post_thumbnail($post->ID, $first_image['ID']);
-        }
-        return the_post_thumbnail();
-    } else {
+        return get_the_post_thumbnail();
+    }
+    $image_args     = array(
+        'post_type'      => 'attachment',
+        'numberposts'    => 1,
+        'post_mime_type' => 'image',
+        'post_parent'    => $post->ID,
+        'order'          => 'desc'
+    );
+    $attached_images = get_children($image_args, ARRAY_A);
+    $first_image = reset($attached_images);
+    if (!$first_image) {
         return false;
     }
+
+    return get_the_post_thumbnail($post->ID, $first_image['ID']);
+
 }
 
 
 /**
  * Define default page titles.
  *
- * @author Rachel Baker <rachel@rachelbaker.me>
  */
 function bootstrapwp_wp_title($title, $sep)
 {
@@ -378,7 +385,6 @@ add_filter('wp_title', 'bootstrapwp_wp_title', 10, 2);
 /**
  * Display template for breadcrumbs.
  *
- * @author Rachel Baker <rachel@rachelbaker.me>
  */
 function bootstrapwp_breadcrumbs()
 {
