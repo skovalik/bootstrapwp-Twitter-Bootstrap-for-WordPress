@@ -76,7 +76,6 @@ hr.soften {
 }
 
 
-
 /* Jumbotrons
 -------------------------------------------------- */
 
@@ -84,7 +83,6 @@ hr.soften {
 ------------------------- */
 .jumbotron {
   position: relative;
-  margin: 0;
   padding: 40px 0;
   color: #fff;
   text-align: center;
@@ -127,7 +125,6 @@ hr.soften {
   text-shadow: 0 0 10px rgba(255,255,255,.25);
 }
 
-
 /* Download button */
 .masthead .btn {
   padding: 19px 24px;
@@ -157,7 +154,6 @@ hr.soften {
 }
 
 
-
 /* Pattern overlay
 ------------------------- */
 .jumbotron .container {
@@ -172,6 +168,7 @@ hr.soften {
   right: 0;
   bottom: 0;
   left: 0;
+  background: url(../img/bs-docs-masthead-pattern.png) repeat center center;
   opacity: .4;
 }
 @media
@@ -299,8 +296,9 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
 .footer {
   text-align: center;
   padding: 30px 0;
-  margin-top: 100px;
+  margin-top: 70px;
   border-top: 1px solid #e5e5e5;
+  background-color: #f5f5f5;
 }
 .footer p {
   margin-bottom: 0;
@@ -316,6 +314,7 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
 .footer-links li:first-child {
   padding-left: 0;
 }
+
 
 
 /* Special grid styles
@@ -334,8 +333,8 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
   min-height: 40px;
   line-height: 40px;
 }
-.show-grid:hover [class*="span"] {
-  background: #ddd;
+.show-grid [class*="span"]:hover {
+  background-color: #ddd;
 }
 .show-grid .show-grid {
   margin-top: 0;
@@ -351,11 +350,6 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
   background-color: #999;
 }
 
-.show-grid [class*="span"]:hover {
-  background-color: #333;
-  color: #fff;
-  cursor: pointer;
-}
 
 
 /* Mini layout previews
